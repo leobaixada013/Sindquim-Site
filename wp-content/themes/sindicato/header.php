@@ -36,7 +36,7 @@
             </button>
 
             <nav id="site-menu" class="nav-links" aria-label="Navegação principal">
-                <a href="#sindicato">O Sindicato</a>
+                <a href="<?php echo esc_url( home_url( '/contato/' ) ); ?>">O Sindicato</a>
                 <a href="<?php echo esc_url( home_url( '/noticias/' ) ); ?>">Notícias</a>
                 <a href="#convencoes">Convenções</a>
                 <a href="#beneficios">Benefícios</a>

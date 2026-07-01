@@ -5,6 +5,7 @@
   --navy-700: #332e5e;
   --red-600: #e73a3f;
   --red-700: #d31a1f;
+  --red-800: #981316;
   --accent-600: #4580ac;
   --accent-700: #356284;
   --paper: #ffffff;
@@ -21,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -175,12 +177,12 @@ input {
 
 .button--primary {
   color: #fff;
-  background: var(--red-600);
-  box-shadow: 0 12px 26px rgba(233, 41, 47, 0.24);
+  background: var(--red-700);
+  box-shadow: 0 12px 26px rgba(211, 26, 31, 0.24);
 }
 
 .button--primary:hover {
-  background: var(--red-700);
+  background: var(--red-800);
 }
 
 .button--ghost {
@@ -210,7 +212,7 @@ input {
   inset: 0;
   z-index: -2;
   background-image:
-    linear-gradient(90deg, rgba(5, 27, 51, 0.96) 0%, rgba(5, 27, 51, 0.82) 34%, rgba(5, 27, 51, 0.18) 68%),
+    linear-gradient(90deg, rgba(22, 20, 41, 0.96) 0%, rgba(22, 20, 41, 0.82) 34%, rgba(22, 20, 41, 0.18) 68%),
     url("assets/hero-assembleia-sindicato.png");
   background-position: center;
   background-size: cover;
@@ -220,7 +222,7 @@ input {
   position: absolute;
   inset: auto 0 0;
   height: 120px;
-  background: linear-gradient(180deg, rgba(5, 27, 51, 0), rgba(5, 27, 51, 0.54));
+  background: linear-gradient(180deg, rgba(22, 20, 41, 0), rgba(22, 20, 41, 0.54));
   content: "";
 }
 
@@ -239,7 +241,7 @@ input {
 .section-label {
   position: relative;
   margin: 0 0 12px;
-  color: var(--red-600);
+  color: var(--navy-700);
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0;
@@ -253,6 +255,7 @@ input {
 .hero h1 {
   margin: 0;
   max-width: 740px;
+  overflow-wrap: break-word;
   font-size: clamp(2.5rem, 5vw, 4.9rem);
   line-height: 0.98;
   letter-spacing: 0;
@@ -273,7 +276,7 @@ input {
 
 .alert-strip {
   color: #fff;
-  background: var(--red-600);
+  background: var(--red-700);
 }
 
 .alert-strip[hidden],
@@ -354,7 +357,6 @@ input {
 .featured-post,
 .post-card,
 .notice-panel {
-  border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
   box-shadow: 0 14px 40px rgba(13, 40, 70, 0.06);
@@ -380,25 +382,25 @@ input {
 .post-image--assembly,
 .insta-card--photo {
   background-image:
-    linear-gradient(180deg, rgba(5, 27, 51, 0), rgba(5, 27, 51, 0.72)),
+    linear-gradient(180deg, rgba(22, 20, 41, 0), rgba(22, 20, 41, 0.72)),
     url("assets/hero-assembleia-sindicato.png");
 }
 
 .post-image--document {
   background:
-    linear-gradient(135deg, rgba(5, 27, 51, 0.78), rgba(5, 27, 51, 0.1)),
+    linear-gradient(135deg, rgba(22, 20, 41, 0.78), rgba(22, 20, 41, 0.1)),
     repeating-linear-gradient(90deg, #f6f8fb 0 18px, #dfe7ee 18px 20px);
 }
 
 .post-image--finance {
   background:
-    linear-gradient(135deg, rgba(4, 155, 143, 0.88), rgba(5, 27, 51, 0.9)),
+    linear-gradient(135deg, rgba(69, 128, 172, 0.88), rgba(22, 20, 41, 0.9)),
     radial-gradient(circle at 20% 20%, #fff 0 2px, transparent 3px 22px);
 }
 
 .post-image--benefits {
   background:
-    linear-gradient(135deg, rgba(233, 41, 47, 0.84), rgba(5, 27, 51, 0.9)),
+    linear-gradient(135deg, rgba(231, 58, 63, 0.84), rgba(22, 20, 41, 0.9)),
     linear-gradient(90deg, transparent 0 42%, rgba(255, 255, 255, 0.28) 42% 58%, transparent 58%);
 }
 
@@ -435,7 +437,7 @@ input {
 }
 
 .post-meta span {
-  color: var(--red-600);
+  color: var(--navy-700);
 }
 
 .featured-post h3,
@@ -474,7 +476,7 @@ input {
 }
 
 .notice-panel__header a {
-  color: var(--red-600);
+  color: var(--red-700);
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -501,7 +503,7 @@ input {
 }
 
 .notice-list time {
-  color: var(--red-600);
+  color: var(--muted);
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -535,7 +537,7 @@ input {
 }
 
 .quick-card--red {
-  background: linear-gradient(135deg, var(--red-700), var(--red-600));
+  background: linear-gradient(135deg, var(--red-700), var(--red-800));
 }
 
 .quick-card__icon {
@@ -590,7 +592,7 @@ input {
   align-self: flex-start;
   padding: 6px 14px;
   border-radius: 999px;
-  background: var(--red-600);
+  background: var(--red-700);
   font-size: 0.72rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -622,7 +624,7 @@ input {
   height: 52px;
   border-radius: 8px;
   color: #fff;
-  background: var(--red-600);
+  background: var(--red-700);
   font-size: 0.72rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -849,7 +851,7 @@ input {
 
   .hero__media {
     background-image:
-      linear-gradient(180deg, rgba(5, 27, 51, 0.92) 0%, rgba(5, 27, 51, 0.72) 52%, rgba(5, 27, 51, 0.32) 100%),
+      linear-gradient(180deg, rgba(22, 20, 41, 0.92) 0%, rgba(22, 20, 41, 0.72) 52%, rgba(22, 20, 41, 0.32) 100%),
       url("assets/hero-assembleia-sindicato.png");
     background-position: 62% center;
   }
