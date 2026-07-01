@@ -158,4 +158,28 @@ $video_lista      = sindicato_get_video_lista( 2 );
         </div>
     </div>
 </section>
+<?php $cards_sociais = sindicato_get_cards_sociais( 5 ); ?>
+<section class="section section--instagram" aria-labelledby="instagram-title">
+    <div class="container">
+        <div class="section-heading">
+            <div><p class="section-label">Redes sociais</p><h2 id="instagram-title">No Instagram</h2></div>
+            <a class="text-link" href="<?php echo esc_url( sindicato_get_contato( 'instagram_url' ) ?: '#' ); ?>" target="_blank" rel="noopener">Ver perfil</a>
+        </div>
+        <?php if ( $cards_sociais ) : ?>
+        <div class="instagram-grid">
+            <?php foreach ( $cards_sociais as $card ) : ?>
+            <article class="insta-card <?php echo has_post_thumbnail( $card->ID ) ? 'insta-card--photo' : 'insta-card--type'; ?>">
+                <?php if ( has_post_thumbnail( $card->ID ) ) : ?>
+                <span><?php echo esc_html( get_post_meta( $card->ID, '_sind_legenda', true ) ); ?></span>
+                <?php else : ?>
+                <strong><?php echo esc_html( get_post_meta( $card->ID, '_sind_legenda', true ) ); ?></strong>
+                <?php endif; ?>
+            </article>
+            <?php endforeach; ?>
+        </div>
+        <?php else : ?>
+        <p>Siga o sindicato no Instagram: <a href="<?php echo esc_url( sindicato_get_contato( 'instagram_url' ) ?: '#' ); ?>" target="_blank" rel="noopener">@sindicato</a>.</p>
+        <?php endif; ?>
+    </div>
+</section>
 <?php get_footer(); ?>

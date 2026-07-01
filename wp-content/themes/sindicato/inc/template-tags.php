@@ -115,3 +115,10 @@ function sindicato_get_video_destaque() {
 function sindicato_get_video_lista( $limit ) {
     return get_posts( array( 'post_type' => 'video', 'post_status' => 'publish', 'posts_per_page' => $limit, 'orderby' => 'date', 'order' => 'DESC' ) );
 }
+
+function sindicato_get_cards_sociais( $limit = 5 ) {
+    return get_posts( array(
+        'post_type' => 'card_social', 'post_status' => 'publish', 'posts_per_page' => $limit,
+        'meta_key' => '_sind_ordem', 'orderby' => 'meta_value_num', 'order' => 'ASC',
+    ) );
+}
