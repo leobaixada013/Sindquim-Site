@@ -19,6 +19,7 @@
 - Prefixo de meta keys customizadas: `_sind_` (ex.: `_sind_ativo`, `_sind_prioridade`) para não colidir com meta nativo do WordPress ou de plugins.
 - Todos os textos institucionais reais (nome do sindicato, logo, contatos, redes sociais) ainda **não foram confirmados** (pendências da seção 16 do plano estratégico). Usar placeholders idênticos ao mockup atual (`Sindicato`, `(11) 3333-7777`, `contato@sindicato.org.br`, etc.) em todo o tema — não inventar dados novos.
 - Fora de escopo deste plano (não criar tarefas para isso): deploy/hospedagem de produção, domínio, SSL, treinamento editorial, conteúdo institucional final, Instagram embed oficial (usar apenas cards curados manuais), newsletter (apenas o formulário estático do mockup, sem integração de envio).
+- **Cuidado com o Git Bash (MSYS) ao rodar WP-CLI**: quando um argumento de linha de comando é uma string isolada começando com `/` (ex.: `"/noticias/"`), o Git Bash converte automaticamente para um caminho de arquivo do Windows (ex.: `C:/Program Files/Git/noticias/`) antes de passar para o `wp-cli`, corrompendo o valor salvo no banco. Isso já causou corrupção real do `permalink_structure` numa task anterior. Ao testar valores desse tipo via WP-CLI em comandos de verificação, usar a URL completa (`http://localhost/sindicato/noticias/`) em vez do caminho relativo (`/noticias/`), ou rodar o comando via PowerShell em vez de Git Bash.
 
 ---
 
@@ -1149,7 +1150,7 @@ PATHARG='--path=/c/xampp/htdocs/sindicato --allow-root'
 ID_BANNER=$($PHP $WP post create --post_type=banner --post_title="Campanha Salarial 2026: juntos somos mais fortes" --post_status=publish --porcelain $PATHARG)
 $PHP $WP post meta update $ID_BANNER _sind_subtitulo "Campanha salarial 2026" $PATHARG
 $PHP $WP post meta update $ID_BANNER _sind_cta_texto "Ler comunicado" $PATHARG
-$PHP $WP post meta update $ID_BANNER _sind_cta_link "/noticias/" $PATHARG
+$PHP $WP post meta update $ID_BANNER _sind_cta_link "http://localhost/sindicato/noticias/" $PATHARG
 $PHP $WP post meta update $ID_BANNER _sind_ordem 1 $PATHARG
 $PHP $WP post meta update $ID_BANNER _sind_ativo 1 $PATHARG
 
