@@ -56,7 +56,11 @@ function sindicato_sanitizar_contato( $input ) {
 }
 
 function sindicato_render_campo_contato( $args ) {
-    $valores = get_option( 'sindicato_contato', array() );
+    $valores = get_option( 'sindicato_contato' );
+    if ( ! is_array( $valores ) ) {
+        $valores = array();
+    }
+    $valores = wp_parse_args( $valores, sindicato_contato_defaults() );
     $chave   = $args['chave'];
     $valor   = isset( $valores[ $chave ] ) ? $valores[ $chave ] : '';
     printf(
