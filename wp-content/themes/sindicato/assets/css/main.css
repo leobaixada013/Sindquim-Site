@@ -898,7 +898,7 @@ input {
 }
 
 .contato-card,
-.contato-form-card {
+.form-card {
   padding: 28px;
   border-radius: 8px;
   background: #fff;
@@ -906,7 +906,7 @@ input {
 }
 
 .contato-card h3,
-.contato-form-card h3 {
+.form-card h3 {
   margin: 0 0 16px;
   color: var(--navy-950);
   font-size: 1.2rem;
@@ -937,7 +937,7 @@ input {
   display: block;
 }
 
-.contato-form-card label {
+.form-card label {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -948,7 +948,7 @@ input {
   text-transform: uppercase;
 }
 
-.contato-form-card .wpcf7-form-control {
+.form-card .wpcf7-form-control {
   min-height: 46px;
   width: 100%;
   border: 1px solid var(--line);
@@ -961,12 +961,12 @@ input {
   text-transform: none;
 }
 
-.contato-form-card textarea.wpcf7-form-control {
+.form-card textarea.wpcf7-form-control {
   min-height: 120px;
   padding: 12px 14px;
 }
 
-.contato-form-card .wpcf7-acceptance {
+.form-card .wpcf7-acceptance {
   display: block;
   margin: 4px 0 20px;
   color: var(--text);
@@ -975,11 +975,11 @@ input {
   text-transform: none;
 }
 
-.contato-form-card .wpcf7-list-item {
+.form-card .wpcf7-list-item {
   margin: 0;
 }
 
-.contato-form-card .wpcf7-list-item label {
+.form-card .wpcf7-list-item label {
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -991,14 +991,14 @@ input {
   cursor: pointer;
 }
 
-.contato-form-card .wpcf7-list-item input[type="checkbox"] {
+.form-card .wpcf7-list-item input[type="checkbox"] {
   flex-shrink: 0;
   width: 22px;
   height: 22px;
   margin: 0;
 }
 
-.contato-form-card .wpcf7-submit {
+.form-card .wpcf7-submit {
   min-height: 46px;
   width: 100%;
   border: 0;
@@ -1013,11 +1013,11 @@ input {
   cursor: pointer;
 }
 
-.contato-form-card .wpcf7-submit:hover {
+.form-card .wpcf7-submit:hover {
   background: var(--red-800);
 }
 
-.contato-form-card .wpcf7-not-valid-tip {
+.form-card .wpcf7-not-valid-tip {
   display: block;
   margin-top: 6px;
   color: var(--red-700);
@@ -1026,12 +1026,103 @@ input {
   text-transform: none;
 }
 
-.contato-form-card .wpcf7-response-output {
+.form-card .wpcf7-response-output {
   margin: 18px 0 0;
   padding: 14px 16px;
   border-radius: 6px;
   border: 1px solid var(--line);
   font-size: 0.9rem;
+}
+
+.section--filiese {
+  background: var(--paper);
+}
+
+.filiese-container {
+  max-width: 720px;
+}
+
+.filiese-intro {
+  margin: 0 0 32px;
+  color: var(--muted);
+}
+
+.filiese-trust {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-bottom: 40px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.filiese-trust__item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filiese-trust__label {
+  color: var(--red-700);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.filiese-trust__item strong {
+  color: var(--navy-950);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.filiese-trust__nota {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.filiese-cta {
+  text-align: center;
+  padding: 32px;
+  border-radius: 8px;
+  background: var(--mist);
+}
+
+.filiese-cta__kicker {
+  margin: 0 0 14px;
+  color: var(--navy-700);
+  font-weight: 800;
+}
+
+.filiese-cta .button {
+  min-width: 240px;
+}
+
+.filiese-divider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+  text-align: center;
+}
+
+.filiese-divider::before {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: var(--line);
+  content: "";
+}
+
+.filiese-divider span {
+  position: relative;
+  padding: 0 16px;
+  background: var(--paper);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
 @media (max-width: 1100px) {

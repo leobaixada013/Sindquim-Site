@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <div class="contato-form-card">
+            <div class="form-card">
                 <h3>Envie uma mensagem</h3>
                 <?php echo do_shortcode( '[contact-form-7 title="Formulario de Contato"]' ); ?>
             </div>
