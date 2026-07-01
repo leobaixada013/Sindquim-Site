@@ -26,6 +26,23 @@ require get_template_directory() . '/inc/cpt-banner.php';
 require get_template_directory() . '/inc/cpt-podcast.php';
 require get_template_directory() . '/inc/cpt-video.php';
 require get_template_directory() . '/inc/cpt-card-social.php';
+require get_template_directory() . '/inc/cpt-documento.php';
+
+function sindicato_rewrite_convencoes() {
+    add_rewrite_rule( '^convencoes/?$', 'index.php?pagename=convencoes-documentos', 'top' );
+}
+add_action( 'init', 'sindicato_rewrite_convencoes' );
+
+function sindicato_template_convencoes( $template ) {
+    if ( is_page( 'convencoes-documentos' ) ) {
+        $arquivo = get_template_directory() . '/archive-documento.php';
+        if ( file_exists( $arquivo ) ) {
+            return $arquivo;
+        }
+    }
+    return $template;
+}
+add_filter( 'template_include', 'sindicato_template_convencoes' );
 
 function sindicato_criar_categorias_padrao() {
     $categorias = array( 'Direitos', 'Assembleia', 'Reajuste', 'Benefícios', 'Jurídico', 'Convênios', 'Campanha Salarial', 'Comunicados' );
