@@ -22,3 +22,13 @@ add_action( 'wp_enqueue_scripts', 'sindicato_enqueue_assets' );
 require get_template_directory() . '/inc/settings-contato.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/cpt-aviso.php';
+
+function sindicato_criar_categorias_padrao() {
+    $categorias = array( 'Direitos', 'Assembleia', 'Reajuste', 'Benefícios', 'Jurídico', 'Convênios', 'Campanha Salarial', 'Comunicados' );
+    foreach ( $categorias as $categoria ) {
+        if ( ! term_exists( $categoria, 'category' ) ) {
+            wp_insert_term( $categoria, 'category' );
+        }
+    }
+}
+add_action( 'after_switch_theme', 'sindicato_criar_categorias_padrao' );
