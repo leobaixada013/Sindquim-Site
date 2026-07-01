@@ -101,6 +101,39 @@ $avisos_rapidos = sindicato_get_avisos_rapidos_ativos( 5 );
         </div>
     </div>
 </section>
+<section id="convencoes" class="section section--quick">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <p class="section-label">Serviços para a categoria</p>
+                <h2>Acesso rápido</h2>
+            </div>
+        </div>
+
+        <div class="quick-grid">
+            <a class="quick-card" href="<?php echo esc_url( home_url( '/convencoes/' ) ); ?>">
+                <span class="quick-card__icon">CCT</span>
+                <strong>Convenção coletiva</strong>
+                <small>Consulte a convenção vigente, cláusulas e documentos.</small>
+            </a>
+            <a id="beneficios" class="quick-card quick-card--teal" href="#beneficios">
+                <span class="quick-card__icon">BEN</span>
+                <strong>Benefícios</strong>
+                <small>Descontos em saúde, educação, lazer e convênios.</small>
+            </a>
+            <a class="quick-card" href="<?php echo esc_url( home_url( '/contato/' ) ); ?>">
+                <span class="quick-card__icon">JUR</span>
+                <strong>Atendimento jurídico</strong>
+                <small>Orientação sobre direitos trabalhistas e acordos.</small>
+            </a>
+            <a id="filie-se" class="quick-card quick-card--red" href="<?php echo esc_url( home_url( '/filie-se/' ) ); ?>">
+                <span class="quick-card__icon">SIM</span>
+                <strong>Associe-se</strong>
+                <small>Fortaleça o sindicato e tenha mais representatividade.</small>
+            </a>
+        </div>
+    </div>
+</section>
 <?php
 $podcast_destaque = sindicato_get_podcast_destaque();
 $podcast_lista    = sindicato_get_podcast_lista( 3 );
@@ -180,6 +213,15 @@ $video_lista      = sindicato_get_video_lista( 2 );
         <?php else : ?>
         <p>Siga o sindicato no Instagram: <a href="<?php echo esc_url( sindicato_get_contato( 'instagram_url' ) ?: '#' ); ?>" target="_blank" rel="noopener">@sindicato</a>.</p>
         <?php endif; ?>
+    </div>
+</section>
+<section id="associado" class="cta-band">
+    <div class="container cta-band__inner">
+        <div>
+            <p class="section-label">Fortaleça sua representação</p>
+            <h2>Associe-se ao sindicato e acompanhe tudo em primeira mão.</h2>
+        </div>
+        <a class="button button--primary" href="<?php echo esc_url( home_url( '/contato/' ) ); ?>">Quero me associar</a>
     </div>
 </section>
 <?php get_footer(); ?>
