@@ -4,9 +4,9 @@
     <div class="container footer__grid">
         <div>
             <a class="brand brand--footer" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                <img class="brand__logo" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-sindicato.jpeg' ); ?>" alt="Logo do S.T.I. Químicas, Farmacêuticas e de Fertilizantes - Baixada Santista" />
+                <img class="brand__logo" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-sindicato.jpeg' ); ?>" alt="Logo do Sindicato dos Trabalhadores das Indústrias Químicas, Farmacêuticas e de Fertilizantes - Baixada Santista" />
                 <span>
-                    <strong>Sindicato</strong>
+                    <strong>STI Baixada Santista</strong>
                     <small>Em defesa dos trabalhadores</small>
                 </span>
             </a>
@@ -42,7 +42,7 @@
         </form>
     </div>
     <div class="container footer__bottom">
-        <span>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Sindicato. Todos os direitos reservados.</span>
+        <span>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Sindicato dos Trabalhadores das Indústrias Químicas, Farmacêuticas e de Fertilizantes - Baixada Santista. Todos os direitos reservados.</span>
         <span>Política de Privacidade | Transparência</span>
     </div>
 </footer>

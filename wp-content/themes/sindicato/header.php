@@ -23,10 +23,10 @@
 
     <div class="mainnav">
         <div class="container mainnav__inner">
-            <a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Página inicial do Sindicato">
-                <img class="brand__logo" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-sindicato.jpeg' ); ?>" alt="Logo do S.T.I. Químicas, Farmacêuticas e de Fertilizantes - Baixada Santista" />
+            <a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Página inicial do Sindicato dos Trabalhadores das Indústrias Químicas, Farmacêuticas e de Fertilizantes - Baixada Santista">
+                <img class="brand__logo" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-sindicato.jpeg' ); ?>" alt="Logo do Sindicato dos Trabalhadores das Indústrias Químicas, Farmacêuticas e de Fertilizantes - Baixada Santista" />
                 <span>
-                    <strong>Sindicato</strong>
+                    <strong>STI Baixada Santista</strong>
                     <small>Em defesa dos trabalhadores</small>
                 </span>
             </a>
