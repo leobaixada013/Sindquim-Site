@@ -101,4 +101,61 @@ $avisos_rapidos = sindicato_get_avisos_rapidos_ativos( 5 );
         </div>
     </div>
 </section>
+<?php
+$podcast_destaque = sindicato_get_podcast_destaque();
+$podcast_lista    = sindicato_get_podcast_lista( 3 );
+$video_destaque   = sindicato_get_video_destaque();
+$video_lista      = sindicato_get_video_lista( 2 );
+?>
+<section id="midia" class="section section--media">
+    <div class="container media-grid">
+        <div class="media-column">
+            <div class="section-heading section-heading--compact">
+                <div><p class="section-label">Áudio</p><h2>Podcast do Sindicato</h2></div>
+            </div>
+            <?php if ( $podcast_destaque ) : ?>
+            <article class="podcast-card">
+                <div class="podcast-cover"><span>Voz do Trabalhador</span><strong>Podcast</strong></div>
+                <div>
+                    <p class="post-meta"><span>Episódio <?php echo esc_html( get_post_meta( $podcast_destaque->ID, '_sind_numero_episodio', true ) ); ?></span></p>
+                    <h3><?php echo esc_html( $podcast_destaque->post_title ); ?></h3>
+                    <a class="button button--small" href="<?php echo esc_url( get_post_meta( $podcast_destaque->ID, '_sind_url_player', true ) ?: '#' ); ?>" target="_blank" rel="noopener">Ouvir agora</a>
+                </div>
+            </article>
+            <div class="episode-list">
+                <?php foreach ( $podcast_lista as $episodio ) : ?>
+                <a href="<?php echo esc_url( get_post_meta( $episodio->ID, '_sind_url_player', true ) ?: '#' ); ?>" target="_blank" rel="noopener">
+                    <span>#<?php echo esc_html( get_post_meta( $episodio->ID, '_sind_numero_episodio', true ) ); ?> <?php echo esc_html( $episodio->post_title ); ?></span>
+                    <time><?php echo esc_html( get_post_meta( $episodio->ID, '_sind_duracao', true ) ); ?></time>
+                </a>
+                <?php endforeach; ?>
+            </div>
+            <?php else : ?>
+            <p>Em breve, novos episódios do podcast do sindicato.</p>
+            <?php endif; ?>
+        </div>
+
+        <div class="media-column">
+            <div class="section-heading section-heading--compact">
+                <div><p class="section-label">Vídeos</p><h2>Vídeos do YouTube</h2></div>
+            </div>
+            <?php if ( $video_destaque ) : ?>
+            <article class="video-feature" data-youtube-url="<?php echo esc_url( get_post_meta( $video_destaque->ID, '_sind_url_youtube', true ) ); ?>">
+                <div class="video-thumb" role="img" aria-label="<?php echo esc_attr( $video_destaque->post_title ); ?>">
+                    <span class="play-button">Play</span>
+                </div>
+                <h3><?php echo esc_html( $video_destaque->post_title ); ?></h3>
+                <a class="text-link" href="<?php echo esc_url( get_post_meta( $video_destaque->ID, '_sind_url_youtube', true ) ); ?>" target="_blank" rel="noopener">Assistir no YouTube</a>
+            </article>
+            <div class="video-list">
+                <?php foreach ( $video_lista as $video ) : ?>
+                <a href="<?php echo esc_url( get_post_meta( $video->ID, '_sind_url_youtube', true ) ); ?>" target="_blank" rel="noopener"><span></span><?php echo esc_html( $video->post_title ); ?></a>
+                <?php endforeach; ?>
+            </div>
+            <?php else : ?>
+            <p>Em breve, novos vídeos no canal do sindicato. <a href="<?php echo esc_url( sindicato_get_contato( 'youtube_url' ) ?: '#' ); ?>" target="_blank" rel="noopener">Acesse o canal</a>.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
 <?php get_footer(); ?>

@@ -23,6 +23,8 @@ require get_template_directory() . '/inc/settings-contato.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/cpt-aviso.php';
 require get_template_directory() . '/inc/cpt-banner.php';
+require get_template_directory() . '/inc/cpt-podcast.php';
+require get_template_directory() . '/inc/cpt-video.php';
 
 function sindicato_criar_categorias_padrao() {
     $categorias = array( 'Direitos', 'Assembleia', 'Reajuste', 'Benefícios', 'Jurídico', 'Convênios', 'Campanha Salarial', 'Comunicados' );
