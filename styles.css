@@ -1,8 +1,8 @@
 :root {
-  --navy-950: #051b33;
-  --navy-900: #082441;
-  --navy-800: #0b3158;
-  --navy-700: #113f6e;
+  --navy-950: #151226;
+  --navy-900: #1c1831;
+  --navy-800: #262043;
+  --navy-700: #312956;
   --red-600: #e9292f;
   --red-700: #c71921;
   --teal-600: #049b8f;
@@ -111,6 +111,14 @@ input {
   color: #fff;
   background: linear-gradient(135deg, var(--red-600), var(--navy-800));
   font-weight: 900;
+}
+
+.brand__logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .brand strong {

@@ -4,6 +4,7 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-sindicato.jpeg' ); ?>" />
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -23,7 +24,7 @@
     <div class="mainnav">
         <div class="container mainnav__inner">
             <a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Página inicial do Sindicato">
-                <span class="brand__mark">S</span>
+                <img class="brand__logo" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-sindicato.jpeg' ); ?>" alt="Logo do S.T.I. Químicas, Farmacêuticas e de Fertilizantes - Baixada Santista" />
                 <span>
                     <strong>Sindicato</strong>
                     <small>Em defesa dos trabalhadores</small>

@@ -4,7 +4,7 @@
     <div class="container footer__grid">
         <div>
             <a class="brand brand--footer" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                <span class="brand__mark">S</span>
+                <img class="brand__logo" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-sindicato.jpeg' ); ?>" alt="Logo do S.T.I. Químicas, Farmacêuticas e de Fertilizantes - Baixada Santista" />
                 <span>
                     <strong>Sindicato</strong>
                     <small>Em defesa dos trabalhadores</small>
