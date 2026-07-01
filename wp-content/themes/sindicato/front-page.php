@@ -84,7 +84,7 @@ $avisos_rapidos = sindicato_get_avisos_rapidos_ativos( 5 );
             <aside id="avisos" class="notice-panel" aria-label="Avisos rápidos">
                 <div class="notice-panel__header">
                     <h3>Avisos rápidos</h3>
-                    <a href="#">Todos</a>
+                    <a href="<?php echo esc_url( home_url( '/avisos/' ) ); ?>">Todos</a>
                 </div>
                 <ul class="notice-list">
                     <?php foreach ( $avisos_rapidos as $aviso ) : ?>
@@ -116,12 +116,12 @@ $avisos_rapidos = sindicato_get_avisos_rapidos_ativos( 5 );
                 <strong>Convenção coletiva</strong>
                 <small>Consulte a convenção vigente, cláusulas e documentos.</small>
             </a>
-            <a id="beneficios" class="quick-card quick-card--teal" href="#beneficios">
+            <a id="beneficios" class="quick-card quick-card--teal" href="<?php echo esc_url( home_url( '/beneficios/' ) ); ?>">
                 <span class="quick-card__icon">BEN</span>
                 <strong>Benefícios</strong>
                 <small>Descontos em saúde, educação, lazer e convênios.</small>
             </a>
-            <a class="quick-card" href="<?php echo esc_url( home_url( '/contato/' ) ); ?>">
+            <a class="quick-card" href="<?php echo esc_url( home_url( '/juridico/' ) ); ?>">
                 <span class="quick-card__icon">JUR</span>
                 <strong>Atendimento jurídico</strong>
                 <small>Orientação sobre direitos trabalhistas e acordos.</small>

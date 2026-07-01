@@ -27,9 +27,9 @@
         <div>
             <h3>Links úteis</h3>
             <a href="<?php echo esc_url( home_url( '/noticias/' ) ); ?>">Notícias</a>
-            <a href="#convencoes">Convenções</a>
-            <a href="#beneficios">Benefícios</a>
-            <a href="#filie-se">Associe-se</a>
+            <a href="<?php echo esc_url( home_url( '/convencoes/' ) ); ?>">Convenções</a>
+            <a href="<?php echo esc_url( home_url( '/beneficios/' ) ); ?>">Benefícios</a>
+            <a href="<?php echo esc_url( home_url( '/filie-se/' ) ); ?>">Associe-se</a>
         </div>
 
         <form class="newsletter" action="#" method="post">
@@ -43,7 +43,7 @@
     </div>
     <div class="container footer__bottom">
         <span>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Sindicato dos Trabalhadores das Indústrias Químicas, Farmacêuticas e de Fertilizantes - Baixada Santista. Todos os direitos reservados.</span>
-        <span>Política de Privacidade | Transparência</span>
+        <span><a href="<?php echo esc_url( home_url( '/politica-de-privacidade/' ) ); ?>">Política de Privacidade</a> | <a href="<?php echo esc_url( home_url( '/termos-de-uso/' ) ); ?>">Termos de Uso</a> | <a href="<?php echo esc_url( home_url( '/transparencia/' ) ); ?>">Transparência</a></span>
     </div>
 </footer>
 <?php wp_footer(); ?>

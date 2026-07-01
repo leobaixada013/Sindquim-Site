@@ -27,6 +27,7 @@ require get_template_directory() . '/inc/cpt-aviso.php';
 require get_template_directory() . '/inc/cpt-banner.php';
 require get_template_directory() . '/inc/cpt-card-social.php';
 require get_template_directory() . '/inc/cpt-documento.php';
+require get_template_directory() . '/inc/cpt-diretor.php';
 
 function sindicato_rewrite_convencoes() {
     add_rewrite_rule( '^convencoes/?$', 'index.php?pagename=convencoes-documentos', 'top' );

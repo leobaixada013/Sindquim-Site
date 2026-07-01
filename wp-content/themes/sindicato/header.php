@@ -36,10 +36,10 @@
             </button>
 
             <nav id="site-menu" class="nav-links" aria-label="Navegação principal">
-                <a href="<?php echo esc_url( home_url( '/contato/' ) ); ?>">O Sindicato</a>
+                <a href="<?php echo esc_url( home_url( '/o-sindicato/' ) ); ?>">O Sindicato</a>
                 <a href="<?php echo esc_url( home_url( '/noticias/' ) ); ?>">Notícias</a>
                 <a href="#convencoes">Convenções</a>
-                <a href="#beneficios">Benefícios</a>
+                <a href="<?php echo esc_url( home_url( '/beneficios/' ) ); ?>">Benefícios</a>
                 <a href="#midia">Mídia</a>
                 <a href="#contato">Contato</a>
             </nav>

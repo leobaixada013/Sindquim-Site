@@ -98,3 +98,10 @@ function sindicato_get_cards_sociais( $limit = 5 ) {
         'meta_key' => '_sind_ordem', 'orderby' => 'meta_value_num', 'order' => 'ASC',
     ) );
 }
+
+function sindicato_get_diretoria() {
+    return get_posts( array(
+        'post_type' => 'diretor', 'post_status' => 'publish', 'posts_per_page' => -1,
+        'meta_key' => '_sind_ordem', 'orderby' => 'meta_value_num', 'order' => 'ASC',
+    ) );
+}
