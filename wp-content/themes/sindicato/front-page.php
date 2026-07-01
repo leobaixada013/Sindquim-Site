@@ -200,7 +200,11 @@ $tem_conteudo    = $proximo_episodio || $destaque_video || $videos_youtube;
             <?php endforeach; ?>
         </div>
         <?php else : ?>
-        <p>Siga o sindicato no Instagram: <a href="<?php echo esc_url( sindicato_get_contato( 'instagram_url' ) ?: '#' ); ?>" target="_blank" rel="noopener">@sindicato</a>.</p>
+        <?php
+        $instagram_url    = sindicato_get_contato( 'instagram_url' );
+        $instagram_handle = $instagram_url ? '@' . trim( (string) wp_parse_url( $instagram_url, PHP_URL_PATH ), '/' ) : '@sindicato';
+        ?>
+        <p>Siga o sindicato no Instagram: <a href="<?php echo esc_url( $instagram_url ?: '#' ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $instagram_handle ); ?></a>.</p>
         <?php endif; ?>
     </div>
 </section>
