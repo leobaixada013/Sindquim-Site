@@ -18,3 +18,6 @@ function sindicato_enqueue_assets() {
     wp_enqueue_script( 'sindicato-main', get_template_directory_uri() . '/assets/js/main.js', array(), '0.1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'sindicato_enqueue_assets' );
+
+require get_template_directory() . '/inc/settings-contato.php';
+require get_template_directory() . '/inc/template-tags.php';

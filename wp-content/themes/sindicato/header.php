@@ -13,8 +13,8 @@
         <div class="container topbar__inner">
             <span>Sindicato forte, trabalhador respeitado.</span>
             <div class="topbar__links" aria-label="Contatos rápidos">
-                <a href="#contato">(11) 3333-7777</a>
-                <a href="mailto:contato@sindicato.org.br">contato@sindicato.org.br</a>
+                <a href="#contato"><?php echo esc_html( sindicato_get_contato( 'telefone' ) ); ?></a>
+                <a href="mailto:<?php echo esc_attr( sindicato_get_contato( 'email' ) ); ?>"><?php echo esc_html( sindicato_get_contato( 'email' ) ); ?></a>
                 <a href="#associado">Área do Associado</a>
             </div>
         </div>

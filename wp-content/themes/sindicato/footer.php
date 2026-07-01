@@ -18,10 +18,10 @@
 
         <div>
             <h3>Fale conosco</h3>
-            <p>(11) 3333-7777</p>
-            <p>(11) 98888-8888 WhatsApp</p>
-            <p>contato@sindicato.org.br</p>
-            <p>Rua das Indústrias, 123 - São Paulo</p>
+            <p><?php echo esc_html( sindicato_get_contato( 'telefone' ) ); ?></p>
+            <p><?php echo esc_html( sindicato_get_contato( 'whatsapp' ) ); ?> WhatsApp</p>
+            <p><?php echo esc_html( sindicato_get_contato( 'email' ) ); ?></p>
+            <p><?php echo esc_html( sindicato_get_contato( 'endereco' ) ); ?></p>
         </div>
 
         <div>
