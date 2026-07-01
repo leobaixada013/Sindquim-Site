@@ -21,3 +21,4 @@ add_action( 'wp_enqueue_scripts', 'sindicato_enqueue_assets' );
 
 require get_template_directory() . '/inc/settings-contato.php';
 require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/cpt-aviso.php';
