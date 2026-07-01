@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mockup | Sindicato</title>
+    <meta
+      name="description"
+      content="Mockup inicial de site institucional para sindicato com notícias, avisos, podcast, vídeos e integração social."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="topbar">
+        <div class="container topbar__inner">
+          <span>Sindicato forte, trabalhador respeitado.</span>
+          <div class="topbar__links" aria-label="Contatos rápidos">
+            <a href="#contato">(11) 3333-7777</a>
+            <a href="mailto:contato@sindicato.org.br">contato@sindicato.org.br</a>
+            <a href="#associado">Área do Associado</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mainnav">
+        <div class="container mainnav__inner">
+          <a class="brand" href="#" aria-label="Página inicial do Sindicato">
+            <span class="brand__mark">S</span>
+            <span>
+              <strong>Sindicato</strong>
+              <small>Em defesa dos trabalhadores</small>
+            </span>
+          </a>
+
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+            Menu
+          </button>
+
+          <nav id="site-menu" class="nav-links" aria-label="Navegação principal">
+            <a href="#sindicato">O Sindicato</a>
+            <a href="#noticias">Notícias</a>
+            <a href="#convencoes">Convenções</a>
+            <a href="#beneficios">Benefícios</a>
+            <a href="#midia">Mídia</a>
+            <a href="#contato">Contato</a>
+          </nav>
+
+          <a class="button button--primary nav-cta" href="#filie-se">Filie-se</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__media" aria-hidden="true"></div>
+        <div class="container hero__content">
+          <div class="hero__copy">
+            <p class="section-label">Campanha salarial 2026</p>
+            <h1 id="hero-title">Nosso trabalho tem valor. Nossos direitos não são negociáveis.</h1>
+            <p>
+              Informação oficial, mobilização e atendimento para fortalecer a categoria em cada
+              negociação.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#noticias">Ler comunicado</a>
+              <a class="button button--ghost" href="#filie-se">Participar das assembleias</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="alert-strip" aria-label="Comunicado urgente" data-urgent-notice hidden>
+        <div class="container alert-strip__inner">
+          <strong data-urgent-label>Comunicado urgente</strong>
+          <span data-urgent-message></span>
+          <a data-urgent-link href="#avisos">Ver comunicados</a>
+        </div>
+      </section>
+
+      <section id="noticias" class="section section--news">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-label">Atualizações oficiais</p>
+              <h2>Últimas notícias e avisos</h2>
+            </div>
+            <a class="text-link" href="#">Ver todas as notícias</a>
+          </div>
+
+          <div class="news-layout">
+            <article class="featured-post">
+              <div class="post-image post-image--assembly" role="img" aria-label="Assembleia de trabalhadores"></div>
+              <div class="featured-post__body">
+                <div class="post-meta">
+                  <span>Assembleia</span>
+                  <time datetime="2026-06-28">28/06/2026</time>
+                </div>
+                <h3>Categoria aprova pauta de reivindicações da Campanha Salarial 2026</h3>
+                <p>
+                  Reajuste digno, manutenção dos direitos e melhores condições de trabalho estão
+                  entre os pontos aprovados.
+                </p>
+                <a class="text-link" href="#">Leia mais</a>
+              </div>
+            </article>
+
+            <div class="post-grid" aria-label="Posts recentes do blog">
+              <article class="post-card">
+                <div class="post-image post-image--document" role="img" aria-label="Carteira de trabalho e documentos"></div>
+                <div class="post-card__body">
+                  <div class="post-meta">
+                    <span>Direitos</span>
+                    <time datetime="2026-06-24">24/06/2026</time>
+                  </div>
+                  <h3>Entenda as mudanças nas regras para domingos e feriados</h3>
+                  <p>Veja o que muda para a categoria e como tirar dúvidas com o jurídico.</p>
+                </div>
+              </article>
+
+              <article class="post-card">
+                <div class="post-image post-image--finance" role="img" aria-label="Calculadora e reajuste salarial"></div>
+                <div class="post-card__body">
+                  <div class="post-meta">
+                    <span>Reajuste</span>
+                    <time datetime="2026-06-21">21/06/2026</time>
+                  </div>
+                  <h3>INPC acumulado orienta próxima rodada de negociação</h3>
+                  <p>Índice reforça a necessidade de reposição salarial e ganho real.</p>
+                </div>
+              </article>
+
+              <article class="post-card">
+                <div class="post-image post-image--benefits" role="img" aria-label="Cartão de benefício"></div>
+                <div class="post-card__body">
+                  <div class="post-meta">
+                    <span>Benefícios</span>
+                    <time datetime="2026-06-18">18/06/2026</time>
+                  </div>
+                  <h3>Novos convênios ampliam descontos para associados</h3>
+                  <p>Parcerias em saúde, educação e lazer para trabalhadores e familiares.</p>
+                </div>
+              </article>
+            </div>
+
+            <aside id="avisos" class="notice-panel" aria-label="Avisos rápidos" data-quick-notices hidden>
+              <div class="notice-panel__header">
+                <h3>Avisos rápidos</h3>
+                <a href="#">Todos</a>
+              </div>
+              <ul class="notice-list" data-quick-notice-list></ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="convencoes" class="section section--quick">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-label">Serviços para a categoria</p>
+              <h2>Acesso rápido</h2>
+            </div>
+          </div>
+
+          <div class="quick-grid">
+            <a class="quick-card" href="#">
+              <span class="quick-card__icon">CCT</span>
+              <strong>Convenção coletiva</strong>
+              <small>Consulte a convenção vigente, cláusulas e documentos.</small>
+            </a>
+            <a id="beneficios" class="quick-card quick-card--teal" href="#">
+              <span class="quick-card__icon">BEN</span>
+              <strong>Benefícios</strong>
+              <small>Descontos em saúde, educação, lazer e convênios.</small>
+            </a>
+            <a class="quick-card" href="#">
+              <span class="quick-card__icon">JUR</span>
+              <strong>Atendimento jurídico</strong>
+              <small>Orientação sobre direitos trabalhistas e acordos.</small>
+            </a>
+            <a id="filie-se" class="quick-card quick-card--red" href="#">
+              <span class="quick-card__icon">SIM</span>
+              <strong>Associe-se</strong>
+              <small>Fortaleça o sindicato e tenha mais representatividade.</small>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="midia" class="section section--media">
+        <div class="container media-grid">
+          <div class="media-column">
+            <div class="section-heading section-heading--compact">
+              <div>
+                <p class="section-label">Áudio</p>
+                <h2>Podcast do Sindicato</h2>
+              </div>
+              <a class="text-link" href="#">Ver todos</a>
+            </div>
+
+            <article class="podcast-card">
+              <div class="podcast-cover">
+                <span>Voz do Trabalhador</span>
+                <strong>Podcast</strong>
+              </div>
+              <div>
+                <p class="post-meta"><span>Episódio 42</span></p>
+                <h3>Campanha salarial: unidade para avançar</h3>
+                <p>Nossa diretoria comenta os próximos passos da negociação.</p>
+                <button class="button button--small" type="button">Ouvir agora</button>
+              </div>
+            </article>
+
+            <div class="episode-list">
+              <button type="button"><span>#41 Saúde mental no trabalho</span><time>22:10</time></button>
+              <button type="button"><span>#40 Reforma trabalhista: impactos</span><time>28:47</time></button>
+              <button type="button"><span>#39 Mulheres que fazem a diferença</span><time>26:15</time></button>
+            </div>
+          </div>
+
+          <div class="media-column">
+            <div class="section-heading section-heading--compact">
+              <div>
+                <p class="section-label">Vídeos</p>
+                <h2>Vídeos do YouTube</h2>
+              </div>
+              <a class="text-link" href="#">Ver canal</a>
+            </div>
+
+            <article class="video-feature">
+              <div class="video-thumb" role="img" aria-label="Vídeo de campanha salarial">
+                <span class="play-button">Play</span>
+              </div>
+              <h3>Campanha Salarial 2026: juntos somos mais fortes</h3>
+              <p>Unidade, resistência e conquistas para a categoria.</p>
+              <a class="text-link" href="#">Assistir no YouTube</a>
+            </article>
+
+            <div class="video-list">
+              <a href="#"><span></span>Assembleia geral: sua presença faz diferença</a>
+              <a href="#"><span></span>Direitos não são favor: são conquistas</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--instagram" aria-labelledby="instagram-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-label">Redes sociais</p>
+              <h2 id="instagram-title">No Instagram</h2>
+            </div>
+            <a class="text-link" href="#">Ver perfil</a>
+          </div>
+
+          <div class="instagram-grid">
+            <article class="insta-card insta-card--photo">
+              <span>Assembleia lotada e categoria mobilizada</span>
+            </article>
+            <article class="insta-card insta-card--type">
+              <strong>Respeito, dignidade e direitos</strong>
+            </article>
+            <article class="insta-card insta-card--photo">
+              <span>Diretoria na base ouvindo o trabalhador</span>
+            </article>
+            <article class="insta-card insta-card--type">
+              <strong>Benefícios que fazem a diferença</strong>
+            </article>
+            <article class="insta-card insta-card--photo">
+              <span>Formação e informação para transformar</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="associado" class="cta-band">
+        <div class="container cta-band__inner">
+          <div>
+            <p class="section-label">Fortaleça sua representação</p>
+            <h2>Associe-se ao sindicato e acompanhe tudo em primeira mão.</h2>
+          </div>
+          <a class="button button--primary" href="#contato">Quero me associar</a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contato" class="footer">
+      <div class="container footer__grid">
+        <div>
+          <a class="brand brand--footer" href="#">
+            <span class="brand__mark">S</span>
+            <span>
+              <strong>Sindicato</strong>
+              <small>Em defesa dos trabalhadores</small>
+            </span>
+          </a>
+          <p>
+            Representamos, defendemos e lutamos por melhores condições de trabalho, salários justos
+            e respeito à categoria.
+          </p>
+        </div>
+
+        <div>
+          <h3>Fale conosco</h3>
+          <p>(11) 3333-7777</p>
+          <p>(11) 98888-8888 WhatsApp</p>
+          <p>contato@sindicato.org.br</p>
+          <p>Rua das Indústrias, 123 - São Paulo</p>
+        </div>
+
+        <div>
+          <h3>Links úteis</h3>
+          <a href="#noticias">Notícias</a>
+          <a href="#convencoes">Convenções</a>
+          <a href="#beneficios">Benefícios</a>
+          <a href="#filie-se">Associe-se</a>
+        </div>
+
+        <form class="newsletter" action="#" method="post">
+          <h3>Receba novidades</h3>
+          <label for="email">Seu melhor e-mail</label>
+          <div>
+            <input id="email" name="email" type="email" placeholder="email@exemplo.com" />
+            <button class="button button--primary" type="submit">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+      <div class="container footer__bottom">
+        <span>© 2026 Sindicato. Todos os direitos reservados.</span>
+        <span>Política de Privacidade | Transparência</span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
