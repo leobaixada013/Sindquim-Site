@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-01T00:00:00Z",
+  "title": "Design System: STI Baixada Santista",
+  "extensions": {
+    "colorMeta": {
+      "navy-institucional": {
+        "role": "primary",
+        "displayName": "Navy Institucional",
+        "canonical": "#161429",
+        "tonalRamp": ["#1c1933", "#312c5a", "#463f82", "#5c53a9", "#8078bd", "#a5a0d0", "#cac7e3", "#efeef7"]
+      },
+      "vermelho-mobilizacao": {
+        "role": "secondary",
+        "displayName": "Vermelho de Mobilização",
+        "canonical": "#e73a3f",
+        "tonalRamp": ["#44080a", "#780f12", "#ac1519", "#e01b21", "#e94c51", "#f08084", "#f6b4b6", "#fce8e9"]
+      },
+      "azul-aco-apoio": {
+        "role": "tertiary",
+        "displayName": "Azul-Aço de Apoio",
+        "canonical": "#4580ac",
+        "tonalRamp": ["#162937", "#274860", "#37678a", "#4886b3", "#70a1c6", "#9abcd6", "#c3d8e7", "#edf3f8"]
+      },
+      "papel": { "role": "neutral", "displayName": "Papel", "canonical": "#ffffff", "tonalRamp": [] },
+      "neblina": { "role": "neutral", "displayName": "Neblina", "canonical": "#f0f1f2", "tonalRamp": [] },
+      "linha": { "role": "neutral", "displayName": "Linha", "canonical": "#d2d6db", "tonalRamp": [] },
+      "texto": { "role": "neutral", "displayName": "Texto", "canonical": "#41414a", "tonalRamp": [] },
+      "texto-suave": { "role": "neutral", "displayName": "Texto Suave", "canonical": "#4f526f", "tonalRamp": [] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Título do hero, uma vez por página." },
+      "headline": { "displayName": "Headline", "purpose": "Títulos de seção (h2)." },
+      "body": { "displayName": "Body", "purpose": "Texto corrido." },
+      "label": { "displayName": "Label", "purpose": "Rótulos de seção, metadados, texto de botão." }
+    },
+    "shadows": [
+      { "name": "ambiente", "value": "0 18px 55px rgba(4, 21, 40, 0.14)", "purpose": "Cards de destaque (Instagram, mídia) — sombra tingida de navy, não preto neutro." },
+      { "name": "ambiente-suave", "value": "0 14px 40px rgba(13, 40, 70, 0.06)", "purpose": "Cards de conteúdo (notícia, aviso) — atualmente pareada com borda de 1px, a remover no polish." },
+      { "name": "botao-acao", "value": "0 12px 26px rgba(233, 41, 47, 0.24)", "purpose": "Sombra colorida do botão primário vermelho." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.215, 0.61, 0.355, 1)", "purpose": "Ease-out-cubic padrão para transições de hover/foco em botões, links e cards." }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "980px" },
+      { "name": "mobile", "value": "620px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA principal — filiação, ler comunicado, ação de urgência.",
+      "html": "<button class=\"ds-btn-primary\">Quero me associar</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; border: 0; border-radius: 6px; padding: 0 18px; color: #fff; background: #e73a3f; box-shadow: 0 12px 26px rgba(233, 41, 47, 0.24); font-size: 0.78rem; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: background 0.2s cubic-bezier(0.215, 0.61, 0.355, 1); } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { background: #d31a1f; } .ds-btn-primary:focus-visible { outline: 2px solid #4580ac; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Ação secundária sobre fundo escuro (hero).",
+      "html": "<button class=\"ds-btn-ghost\">Participar das assembleias</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; border: 1px solid rgba(255,255,255,0.55); border-radius: 6px; padding: 0 18px; color: #fff; background: rgba(255,255,255,0.06); font-size: 0.78rem; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: background 0.2s cubic-bezier(0.215, 0.61, 0.355, 1); } .ds-btn-ghost:hover, .ds-btn-ghost:focus-visible { background: rgba(255,255,255,0.16); }"
+    },
+    {
+      "name": "Content Card",
+      "kind": "card",
+      "refersTo": "card-content",
+      "description": "Card de notícia/aviso — direção corrigida: sombra sem borda (The No Double-Depth Rule).",
+      "html": "<article class=\"ds-card\"><h3>Título da notícia</h3><p>Resumo curto da notícia para o card.</p></article>",
+      "css": ".ds-card { border-radius: 8px; background: #fff; box-shadow: 0 14px 40px rgba(13, 40, 70, 0.06); padding: 20px; } .ds-card h3 { margin: 0 0 8px; color: #161429; font-size: 1rem; } .ds-card p { margin: 0; color: #4f526f; }"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "refersTo": "nav-main",
+      "description": "Barra fixa com blur funcional, links uppercase, hover em vermelho.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">O Sindicato</a><a href=\"#\">Notícias</a><a href=\"#\">Benefícios</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 26px; padding: 24px; background: rgba(255,255,255,0.96); backdrop-filter: blur(18px); border-bottom: 1px solid #d2d6db; } .ds-nav a { color: #161429; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; text-decoration: none; transition: color 0.2s cubic-bezier(0.215, 0.61, 0.355, 1); } .ds-nav a:hover, .ds-nav a:focus-visible { color: #e73a3f; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Movimento Coletivo",
+    "overview": "O sistema visual carrega um duplo sentido deliberado: movimento como mobilização coletiva (a luta da categoria, a força de estar organizado) e movimento como qualidade visual (transições responsivas, interações que dão vida à interface). O navy institucional é a base — sério, estável, confiável — sobre o qual o vermelho de mobilização entra como sinal de urgência e ação (avisos, CTAs, chamadas de filiação), e o azul-aço de apoio aparece como reforço secundário sem competir com o vermelho pela atenção do visitante. O sistema rejeita explicitamente dois extremos: o visual datado de \"sindicato panfleto\" e o visual corporativo genérico e frio.",
+    "keyCharacteristics": [
+      "Navy como superfície e cor de marca dominante — não decorativo, é a base.",
+      "Vermelho reservado para urgência e ação: avisos urgentes, botões primários, CTAs de filiação.",
+      "Azul-aço como segunda voz, nunca como concorrente do vermelho.",
+      "Movimento responsivo (transições em hover/toque) como parte da identidade, não um adendo."
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "O vermelho de mobilização é usado exclusivamente para urgência/ação. Nunca decorativo, nunca em elementos neutros.", "section": "colors" },
+      { "name": "The Weight-Over-Family Rule", "body": "Toda a hierarquia tipográfica hoje vem de peso/tamanho/caixa sobre uma única família — não de troca de fonte. Revisar em typeset quando houver orçamento para uma segunda família.", "section": "typography" },
+      { "name": "The No Double-Depth Rule", "body": "Um elemento nunca deve ter borda de 1px E sombra de blur ≥16px ao mesmo tempo. Escolher sombra ou borda, nunca os dois.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do usar o vermelho de mobilização exclusivamente para urgência e ação — nunca como cor decorativa.",
+      "Do manter o navy institucional como base dominante de marca.",
+      "Do garantir contraste ≥4.5:1 para texto de corpo e ≥3:1 para texto grande.",
+      "Do manter áreas de toque de no mínimo 44×44px em botões e links de navegação.",
+      "Do usar transições responsivas com easing ease-out, sempre com alternativa em prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't repetir o visual datado de \"sindicato panfleto\": cores primárias cruas, punho cerrado/bandeira como clichê visual repetido.",
+      "Don't deixar o site parecer corporativo genérico e frio, sem identidade de luta.",
+      "Don't combinar borda de 1px com sombra de blur ≥16px no mesmo elemento.",
+      "Don't adicionar mais rótulos \"eyebrow\" do que os já existentes sem repensar a cadência.",
+      "Don't usar border-left/border-right coloridos como faixa decorativa de destaque.",
+      "Don't usar texto em gradiente para ênfase — usar peso ou tamanho."
+    ]
+  }
+}
