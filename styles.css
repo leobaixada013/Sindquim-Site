@@ -1,17 +1,17 @@
 :root {
-  --navy-950: #151226;
-  --navy-900: #1c1831;
-  --navy-800: #262043;
-  --navy-700: #312956;
-  --red-600: #e9292f;
-  --red-700: #c71921;
-  --teal-600: #049b8f;
-  --teal-700: #02786f;
+  --navy-950: #161429;
+  --navy-900: #1d1a36;
+  --navy-800: #282449;
+  --navy-700: #332e5e;
+  --red-600: #e73a3f;
+  --red-700: #d31a1f;
+  --accent-600: #4580ac;
+  --accent-700: #356284;
   --paper: #ffffff;
-  --mist: #f2f5f8;
-  --line: #d9e1e8;
-  --text: #102033;
-  --muted: #607084;
+  --mist: #f0f1f2;
+  --line: #d2d6db;
+  --text: #41414a;
+  --muted: #4f526f;
   --shadow: 0 18px 55px rgba(4, 21, 40, 0.14);
 }
 
@@ -538,7 +538,7 @@ input {
 }
 
 .quick-card--teal {
-  background: linear-gradient(135deg, var(--teal-700), var(--teal-600));
+  background: linear-gradient(135deg, var(--accent-700), var(--accent-600));
 }
 
 .quick-card--red {
@@ -714,7 +714,7 @@ input {
 
 .insta-card--type {
   align-items: center;
-  background: linear-gradient(135deg, var(--navy-900), var(--teal-600));
+  background: linear-gradient(135deg, var(--navy-900), var(--accent-600));
 }
 
 .insta-card--type strong {
