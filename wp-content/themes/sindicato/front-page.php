@@ -1,5 +1,32 @@
 <?php
 get_header();
+?>
+<?php $banner = sindicato_get_banner_ativo(); ?>
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero__media" aria-hidden="true"<?php echo $banner && has_post_thumbnail( $banner->ID ) ? ' style="background-image:url(' . esc_url( get_the_post_thumbnail_url( $banner->ID, 'full' ) ) . ')"' : ''; ?>></div>
+    <div class="container hero__content">
+        <div class="hero__copy">
+            <?php if ( $banner ) : ?>
+                <p class="section-label"><?php echo esc_html( get_post_meta( $banner->ID, '_sind_subtitulo', true ) ); ?></p>
+                <h1 id="hero-title"><?php echo esc_html( $banner->post_title ); ?></h1>
+                <div class="hero__actions">
+                    <a class="button button--primary" href="<?php echo esc_url( get_post_meta( $banner->ID, '_sind_cta_link', true ) ?: '#' ); ?>">
+                        <?php echo esc_html( get_post_meta( $banner->ID, '_sind_cta_texto', true ) ?: 'Saiba mais' ); ?>
+                    </a>
+                </div>
+            <?php else : ?>
+                <p class="section-label">Campanha salarial 2026</p>
+                <h1 id="hero-title">Nosso trabalho tem valor. Nossos direitos não são negociáveis.</h1>
+                <p>Informação oficial, mobilização e atendimento para fortalecer a categoria em cada negociação.</p>
+                <div class="hero__actions">
+                    <a class="button button--primary" href="#noticias">Ler comunicado</a>
+                    <a class="button button--ghost" href="#filie-se">Participar das assembleias</a>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+<?php
 $aviso_urgente  = sindicato_get_aviso_urgente_ativo();
 $avisos_rapidos = sindicato_get_avisos_rapidos_ativos( 5 );
 ?>
