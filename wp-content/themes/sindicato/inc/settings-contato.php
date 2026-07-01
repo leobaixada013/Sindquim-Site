@@ -68,6 +68,16 @@ function sindicato_render_campo_contato( $args ) {
         esc_attr( $chave ),
         esc_attr( $valor )
     );
+
+    if ( 'youtube_url' === $chave && '' !== trim( (string) $valor ) ) {
+        $cache = get_option( 'sindicato_youtube_channel_resolvido' );
+        if ( is_array( $cache ) && isset( $cache['url'] ) && $cache['url'] === $valor && empty( $cache['channel_id'] ) && ! empty( $cache['falhou_em'] ) ) {
+            printf(
+                '<p class="description" style="color:#b32d2e;">%s</p>',
+                esc_html__( 'Não foi possível identificar o canal a partir do link informado — tente o formato youtube.com/channel/UC...', 'sindicato' )
+            );
+        }
+    }
 }
 
 function sindicato_adicionar_menu_configuracoes() {
