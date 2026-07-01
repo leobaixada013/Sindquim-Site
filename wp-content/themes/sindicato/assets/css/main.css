@@ -353,9 +353,7 @@ input {
 
 .featured-post,
 .post-card,
-.notice-panel,
-.podcast-card,
-.video-feature {
+.notice-panel {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
@@ -380,7 +378,6 @@ input {
 }
 
 .post-image--assembly,
-.video-thumb,
 .insta-card--photo {
   background-image:
     linear-gradient(180deg, rgba(5, 27, 51, 0), rgba(5, 27, 51, 0.72)),
@@ -443,9 +440,7 @@ input {
 
 .featured-post h3,
 .post-card h3,
-.notice-panel h3,
-.podcast-card h3,
-.video-feature h3 {
+.notice-panel h3 {
   margin: 0;
   color: var(--navy-950);
   line-height: 1.2;
@@ -461,8 +456,6 @@ input {
 
 .featured-post p,
 .post-card p,
-.podcast-card p,
-.video-feature p,
 .footer p {
   color: var(--muted);
 }
@@ -565,91 +558,64 @@ input {
   color: rgba(255, 255, 255, 0.82);
 }
 
-.media-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 38px;
-}
-
-.media-column {
-  min-width: 0;
-}
-
-.podcast-card {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 22px;
-  padding: 18px;
-}
-
-.podcast-cover {
+.podcast-feature {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 210px;
-  padding: 22px;
+  gap: 10px;
+  min-height: 340px;
+  padding: 28px;
   border-radius: 8px;
   color: #fff;
-  background:
-    linear-gradient(180deg, rgba(5, 27, 51, 0.2), rgba(5, 27, 51, 0.92)),
-    radial-gradient(circle at 72% 30%, rgba(255, 255, 255, 0.34), transparent 18%),
-    linear-gradient(135deg, var(--navy-950), var(--navy-700));
-}
-
-.podcast-cover span {
-  font-size: 1.55rem;
-  font-weight: 900;
-  line-height: 1.05;
-  text-transform: uppercase;
-}
-
-.podcast-cover strong {
-  color: #ffc247;
-  font-size: 1.35rem;
-  text-transform: uppercase;
-}
-
-.episode-list {
-  display: grid;
-  margin-top: 14px;
-  border-top: 1px solid var(--line);
-}
-
-.episode-list button {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  width: 100%;
-  padding: 17px 0;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  color: var(--navy-950);
-  background: transparent;
-  font-size: 0.9rem;
-  font-weight: 800;
-  text-align: left;
-  cursor: pointer;
-}
-
-.episode-list time {
-  color: var(--muted);
-}
-
-.video-feature {
-  padding: 18px;
-}
-
-.video-thumb {
-  display: grid;
-  place-items: center;
-  min-height: 280px;
-  margin-bottom: 18px;
-  border-radius: 8px;
+  background-color: var(--navy-900);
   background-position: center;
   background-size: cover;
+  box-shadow: var(--shadow);
+}
+
+.podcast-feature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(22, 20, 41, 0.15), rgba(22, 20, 41, 0.92));
+}
+
+.podcast-feature > * {
+  position: relative;
+}
+
+.podcast-feature__tag {
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--red-600);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.podcast-feature h3 {
+  margin: 0;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.podcast-feature p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.podcast-feature .text-link {
+  color: #fff;
+}
+
+.podcast-feature .text-link:hover {
+  color: var(--red-600);
 }
 
 .play-button {
+  align-self: flex-start;
   display: grid;
   place-items: center;
   width: 72px;
@@ -662,27 +628,25 @@ input {
   text-transform: uppercase;
 }
 
-.video-list {
+.podcast-list {
   display: grid;
   gap: 12px;
-  margin-top: 14px;
+  margin-top: 22px;
 }
 
-.video-list a {
+.podcast-list a {
   display: grid;
-  grid-template-columns: 88px 1fr;
+  grid-template-columns: 120px 1fr;
   align-items: center;
   gap: 14px;
   color: var(--navy-950);
   font-weight: 800;
 }
 
-.video-list span {
-  height: 54px;
+.podcast-list span {
+  height: 68px;
   border-radius: 6px;
-  background-image:
-    linear-gradient(180deg, rgba(5, 27, 51, 0.1), rgba(5, 27, 51, 0.82)),
-    url("assets/hero-assembleia-sindicato.png");
+  background-color: var(--navy-900);
   background-position: center;
   background-size: cover;
 }
@@ -898,13 +862,12 @@ input {
     flex-direction: column;
   }
 
-  .media-grid,
   .footer__grid {
     grid-template-columns: 1fr;
   }
 
-  .podcast-card {
-    grid-template-columns: 1fr;
+  .podcast-list a {
+    grid-template-columns: 84px 1fr;
   }
 
   .newsletter div {

@@ -25,8 +25,6 @@ require get_template_directory() . '/inc/settings-proximo-episodio.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/cpt-aviso.php';
 require get_template_directory() . '/inc/cpt-banner.php';
-require get_template_directory() . '/inc/cpt-podcast.php';
-require get_template_directory() . '/inc/cpt-video.php';
 require get_template_directory() . '/inc/cpt-card-social.php';
 require get_template_directory() . '/inc/cpt-documento.php';
 

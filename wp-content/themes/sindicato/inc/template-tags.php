@@ -92,30 +92,6 @@ function sindicato_get_avisos_rapidos_ativos( $limit = 5 ) {
     return $ativos;
 }
 
-function sindicato_get_podcast_destaque() {
-    $episodios = get_posts( array(
-        'post_type' => 'podcast_episodio', 'post_status' => 'publish', 'posts_per_page' => 1,
-        'meta_key' => '_sind_destaque_home', 'meta_value' => '1',
-    ) );
-    return $episodios ? $episodios[0] : null;
-}
-
-function sindicato_get_podcast_lista( $limit ) {
-    return get_posts( array( 'post_type' => 'podcast_episodio', 'post_status' => 'publish', 'posts_per_page' => $limit, 'orderby' => 'date', 'order' => 'DESC' ) );
-}
-
-function sindicato_get_video_destaque() {
-    $videos = get_posts( array(
-        'post_type' => 'video', 'post_status' => 'publish', 'posts_per_page' => 1,
-        'meta_key' => '_sind_destaque_home', 'meta_value' => '1',
-    ) );
-    return $videos ? $videos[0] : null;
-}
-
-function sindicato_get_video_lista( $limit ) {
-    return get_posts( array( 'post_type' => 'video', 'post_status' => 'publish', 'posts_per_page' => $limit, 'orderby' => 'date', 'order' => 'DESC' ) );
-}
-
 function sindicato_get_cards_sociais( $limit = 5 ) {
     return get_posts( array(
         'post_type' => 'card_social', 'post_status' => 'publish', 'posts_per_page' => $limit,
