@@ -5,10 +5,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function sindicato_contato_defaults() {
     return array(
-        'telefone'      => '(11) 3333-7777',
-        'whatsapp'      => '(11) 98888-8888',
-        'email'         => 'contato@sindicato.org.br',
-        'endereco'      => 'Rua das Indústrias, 123 - São Paulo',
+        'telefone'      => '(13) 3222-4455',
+        'whatsapp'      => '(13) 99988-7766',
+        'email'         => 'contato@stibaixadasantista.org.br',
+        'endereco'      => 'Rua do Comércio, 150 - Centro, Santos - SP - CEP 11010-140',
         'instagram_url' => '',
         'youtube_url'   => '',
         'podcast_url'   => '',
