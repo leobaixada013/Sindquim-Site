@@ -16,7 +16,7 @@
             <div class="topbar__links" aria-label="Contatos rápidos">
                 <a href="#contato"><?php echo esc_html( sindicato_get_contato( 'telefone' ) ); ?></a>
                 <a href="mailto:<?php echo esc_attr( sindicato_get_contato( 'email' ) ); ?>"><?php echo esc_html( sindicato_get_contato( 'email' ) ); ?></a>
-                <a href="#associado">Área do Associado</a>
+                <a href="<?php echo esc_url( home_url( '/#associado' ) ); ?>">Área do Associado</a>
             </div>
         </div>
     </div>
@@ -38,13 +38,13 @@
             <nav id="site-menu" class="nav-links" aria-label="Navegação principal">
                 <a href="<?php echo esc_url( home_url( '/o-sindicato/' ) ); ?>">O Sindicato</a>
                 <a href="<?php echo esc_url( home_url( '/noticias/' ) ); ?>">Notícias</a>
-                <a href="#convencoes">Convenções</a>
+                <a href="<?php echo esc_url( home_url( '/#convencoes' ) ); ?>">Convenções</a>
                 <a href="<?php echo esc_url( home_url( '/beneficios/' ) ); ?>">Benefícios</a>
-                <a href="#midia">Mídia</a>
-                <a href="#contato">Contato</a>
+                <a href="<?php echo esc_url( home_url( '/#midia' ) ); ?>">Mídia</a>
+                <a href="<?php echo esc_url( home_url( '/#contato' ) ); ?>">Contato</a>
             </nav>
 
-            <a class="button button--primary nav-cta" href="#filie-se">Filie-se</a>
+            <a class="button button--primary nav-cta" href="<?php echo esc_url( home_url( '/#filie-se' ) ); ?>">Filie-se</a>
         </div>
     </div>
 </header>
