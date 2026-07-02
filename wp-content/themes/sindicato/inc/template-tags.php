@@ -28,11 +28,14 @@ function sindicato_get_aviso_urgente_ativo() {
         'post_type'      => 'aviso',
         'post_status'    => 'publish',
         'posts_per_page' => -1,
-        'meta_key'       => '_sind_prioridade',
-        'orderby'        => 'meta_value_num',
         'meta_query'     => array( array( 'key' => '_sind_tipo', 'value' => 'urgente' ) ),
-        'order'          => 'DESC',
     ) );
+
+    usort( $avisos, function ( $a, $b ) {
+        $prioridade_a = (int) get_post_meta( $a->ID, '_sind_prioridade', true );
+        $prioridade_b = (int) get_post_meta( $b->ID, '_sind_prioridade', true );
+        return $prioridade_b - $prioridade_a;
+    } );
 
     foreach ( $avisos as $aviso ) {
         $ativo       = get_post_meta( $aviso->ID, '_sind_ativo', true );
