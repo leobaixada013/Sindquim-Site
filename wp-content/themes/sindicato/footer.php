@@ -32,14 +32,12 @@
             <a href="<?php echo esc_url( home_url( '/filie-se/' ) ); ?>">Associe-se</a>
         </div>
 
-        <form class="newsletter" action="#" method="post">
+        <?php if ( shortcode_exists( 'contact-form-7' ) ) : ?>
+        <div class="newsletter">
             <h3>Receba novidades</h3>
-            <label for="email">Seu melhor e-mail</label>
-            <div>
-                <input id="email" name="email" type="email" placeholder="email@exemplo.com" />
-                <button class="button button--primary" type="submit">Cadastrar</button>
-            </div>
-        </form>
+            <?php echo do_shortcode( '[contact-form-7 title="Newsletter"]' ); ?>
+        </div>
+        <?php endif; ?>
     </div>
     <div class="container footer__bottom">
         <span>© <?php echo esc_html( gmdate( 'Y' ) ); ?> Sindicato dos Trabalhadores das Indústrias Químicas, Farmacêuticas e de Fertilizantes - Baixada Santista. Todos os direitos reservados.</span>

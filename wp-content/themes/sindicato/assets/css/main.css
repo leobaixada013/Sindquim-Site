@@ -876,6 +876,55 @@ input {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.newsletter .wpcf7 p {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.newsletter .wpcf7 label {
+  color: #c6d5e3;
+}
+
+.newsletter .wpcf7-form-control-wrap {
+  display: block;
+  margin-top: 8px;
+}
+
+.newsletter .wpcf7 input[type="email"] {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 0 14px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.newsletter .wpcf7 input[type="submit"] {
+  min-height: 46px;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 18px;
+  color: #fff;
+  background: var(--red-700);
+  box-shadow: 0 12px 26px rgba(211, 26, 31, 0.24);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.newsletter .wpcf7-response-output {
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
+
 .footer__bottom {
   justify-content: space-between;
   gap: 20px;
@@ -1236,6 +1285,10 @@ input {
   }
 
   .newsletter div {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter .wpcf7 p {
     grid-template-columns: 1fr;
   }
 }
