@@ -14,7 +14,7 @@
         <div class="container topbar__inner">
             <span>Sindicato forte, trabalhador respeitado.</span>
             <div class="topbar__links" aria-label="Contatos rápidos">
-                <a href="#contato"><?php echo esc_html( sindicato_get_contato( 'telefone' ) ); ?></a>
+                <a href="<?php echo esc_url( sindicato_link_telefone( sindicato_get_contato( 'telefone' ) ) ); ?>"><?php echo esc_html( sindicato_get_contato( 'telefone' ) ); ?></a>
                 <a href="mailto:<?php echo esc_attr( sindicato_get_contato( 'email' ) ); ?>"><?php echo esc_html( sindicato_get_contato( 'email' ) ); ?></a>
                 <a href="<?php echo esc_url( home_url( '/#associado' ) ); ?>">Área do Associado</a>
             </div>

@@ -18,8 +18,8 @@
 
         <div>
             <h3>Fale conosco</h3>
-            <p><?php echo esc_html( sindicato_get_contato( 'telefone' ) ); ?></p>
-            <p><?php echo esc_html( sindicato_get_contato( 'whatsapp' ) ); ?> WhatsApp</p>
+            <p><a href="<?php echo esc_url( sindicato_link_telefone( sindicato_get_contato( 'telefone' ) ) ); ?>"><?php echo esc_html( sindicato_get_contato( 'telefone' ) ); ?></a></p>
+            <p><a href="<?php echo esc_url( sindicato_link_whatsapp( sindicato_get_contato( 'whatsapp' ) ) ); ?>" target="_blank" rel="noopener"><?php echo esc_html( sindicato_get_contato( 'whatsapp' ) ); ?> WhatsApp</a></p>
             <p><?php echo esc_html( sindicato_get_contato( 'email' ) ); ?></p>
             <p><?php echo esc_html( sindicato_get_contato( 'endereco' ) ); ?></p>
         </div>

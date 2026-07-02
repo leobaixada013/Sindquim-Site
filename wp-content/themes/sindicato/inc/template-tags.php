@@ -108,3 +108,24 @@ function sindicato_get_diretoria() {
         'meta_key' => '_sind_ordem', 'orderby' => 'meta_value_num', 'order' => 'ASC',
     ) );
 }
+
+function sindicato_normalizar_digitos_telefone( $numero ) {
+    $digitos = preg_replace( '/\D+/', '', (string) $numero );
+    if ( '' === $digitos ) {
+        return '';
+    }
+    if ( strlen( $digitos ) <= 11 ) {
+        $digitos = '55' . $digitos;
+    }
+    return $digitos;
+}
+
+function sindicato_link_telefone( $numero ) {
+    $digitos = sindicato_normalizar_digitos_telefone( $numero );
+    return $digitos ? 'tel:+' . $digitos : '';
+}
+
+function sindicato_link_whatsapp( $numero ) {
+    $digitos = sindicato_normalizar_digitos_telefone( $numero );
+    return $digitos ? 'https://wa.me/' . $digitos : '';
+}
