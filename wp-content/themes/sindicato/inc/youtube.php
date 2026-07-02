@@ -52,7 +52,7 @@ function sindicato_get_youtube_videos( $limit = 5 ) {
 
     $chave_cache = 'sindicato_youtube_videos_' . md5( $channel_id );
     $cache       = get_transient( $chave_cache );
-    if ( is_array( $cache ) ) {
+    if ( is_array( $cache ) && ( empty( $cache ) || isset( $cache[0]['video_id'] ) ) ) {
         return array_slice( $cache, 0, $limit );
     }
 
@@ -62,17 +62,28 @@ function sindicato_get_youtube_videos( $limit = 5 ) {
         return array();
     }
 
-    $corpo = wp_remote_retrieve_body( $resposta );
-    libxml_use_internal_errors( true );
-    $xml = simplexml_load_string( $corpo );
-    if ( false === $xml || ! isset( $xml->entry ) ) {
+    $corpo  = wp_remote_retrieve_body( $resposta );
+    $videos = sindicato_parse_youtube_feed( $corpo );
+    if ( null === $videos ) {
         set_transient( $chave_cache, array(), 10 * MINUTE_IN_SECONDS );
         return array();
+    }
+
+    set_transient( $chave_cache, $videos, HOUR_IN_SECONDS );
+    return array_slice( $videos, 0, $limit );
+}
+
+function sindicato_parse_youtube_feed( $xml_string ) {
+    libxml_use_internal_errors( true );
+    $xml = simplexml_load_string( (string) $xml_string );
+    if ( false === $xml || ! isset( $xml->entry ) ) {
+        return null;
     }
 
     $videos = array();
     foreach ( $xml->entry as $entry ) {
         $media      = $entry->children( 'http://search.yahoo.com/mrss/' );
+        $yt         = $entry->children( 'http://www.youtube.com/xml/schemas/2015' );
         $link_attrs = $entry->link->attributes();
         $thumb_url  = '';
         if ( isset( $media->group->thumbnail ) ) {
@@ -82,11 +93,11 @@ function sindicato_get_youtube_videos( $limit = 5 ) {
         $videos[] = array(
             'titulo'          => (string) $entry->title,
             'link'            => (string) $link_attrs['href'],
+            'video_id'        => (string) $yt->videoId,
             'thumbnail_url'   => $thumb_url,
             'data_publicacao' => (string) $entry->published,
         );
     }
 
-    set_transient( $chave_cache, $videos, HOUR_IN_SECONDS );
-    return array_slice( $videos, 0, $limit );
+    return $videos;
 }
