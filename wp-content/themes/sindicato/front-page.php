@@ -51,7 +51,8 @@ $avisos_rapidos = sindicato_get_avisos_rapidos_ativos( 5 );
             ?>
             <?php if ( $noticia_destaque ) : $post = $noticia_destaque[0]; setup_postdata( $post ); ?>
             <article class="featured-post">
-                <div class="post-image post-image--assembly" role="img" aria-label="<?php the_title_attribute(); ?>"></div>
+                <?php $thumb_destaque = get_the_post_thumbnail_url( $post, 'large' ); ?>
+                <div class="post-image post-image--assembly" role="img" aria-label="<?php the_title_attribute(); ?>"<?php echo $thumb_destaque ? ' style="background-image:url(' . esc_url( $thumb_destaque ) . ')"' : ''; ?>></div>
                 <div class="featured-post__body">
                     <div class="post-meta">
                         <span><?php echo esc_html( get_the_category()[0]->name ?? '' ); ?></span>
@@ -67,7 +68,8 @@ $avisos_rapidos = sindicato_get_avisos_rapidos_ativos( 5 );
             <div class="post-grid" aria-label="Posts recentes do blog">
                 <?php foreach ( $noticias_grid as $post ) : setup_postdata( $post ); ?>
                 <article class="post-card">
-                    <div class="post-image post-image--document" role="img" aria-label="<?php the_title_attribute(); ?>"></div>
+                    <?php $thumb_card = get_the_post_thumbnail_url( $post, 'medium_large' ); ?>
+                    <div class="post-image post-image--document" role="img" aria-label="<?php the_title_attribute(); ?>"<?php echo $thumb_card ? ' style="background-image:url(' . esc_url( $thumb_card ) . ')"' : ''; ?>></div>
                     <div class="post-card__body">
                         <div class="post-meta">
                             <span><?php echo esc_html( get_the_category()[0]->name ?? '' ); ?></span>

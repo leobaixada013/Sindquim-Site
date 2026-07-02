@@ -375,6 +375,11 @@ input {
   background-position: center;
 }
 
+.post-image {
+  background-position: center;
+  background-size: cover;
+}
+
 .featured-post .post-image {
   min-height: 250px;
 }
