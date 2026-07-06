@@ -11,7 +11,13 @@
 const URL_BASE = process.env.DIRECTUS_URL ?? 'http://localhost:8055';
 const EMAIL = process.env.DIRECTUS_ADMIN_EMAIL;
 const SENHA = process.env.DIRECTUS_ADMIN_PASSWORD;
-const YOUTUBE_URL = process.env.YOUTUBE_URL_EXEMPLO ?? '';
+const YOUTUBE_URL =
+  process.env.YOUTUBE_URL_EXEMPLO ??
+  'https://www.youtube.com/@Rea%C3%A7%C3%A3oQu%C3%ADmicaemDebate';
+const INSTAGRAM_URL =
+  process.env.INSTAGRAM_URL_EXEMPLO ??
+  'https://www.instagram.com/reacaoquimicaemdebate/';
+const YOUTUBE_CHANNEL_ID = process.env.YOUTUBE_CHANNEL_ID_EXEMPLO ?? 'UC4sw8g2GwkMMikgm4n4fHmQ';
 
 let token = '';
 
@@ -181,11 +187,16 @@ async function principal() {
 
   for (let i = 1; i <= 4; i++) {
     await api('POST', '/items/cards_instagram', {
-      imagem: await importarImagem(`insta-${i}`, 800, 800),
-      legenda: ['Mobilização na porta da fábrica', 'Dia de luta é dia de união', 'Atendimento jurídico gratuito', 'Vem aí: festa dos trabalhadores'][i - 1],
+      imagem: await importarImagem(`reel-${i}`, 720, 1280),
+      legenda: [
+        'Corte do debate: reajuste real e cláusulas sociais',
+        'Bastidor da gravação com a diretoria',
+        'Direito em 60 segundos: adicional de insalubridade',
+        'Chamada para o próximo Reação Química em Debate',
+      ][i - 1],
     });
   }
-  console.log('OK cards do Instagram');
+  console.log('OK Reels do Instagram');
 
   for (const [titulo, slug] of [
     ['Filie-se ao sindicato', 'filie-se'],
@@ -204,8 +215,9 @@ async function principal() {
     whatsapp: '5511940028922',
     email: 'contato@sindicato.org.br',
     endereco: 'Rua dos Trabalhadores, 118 — Centro',
-    instagram_url: 'https://www.instagram.com/sindicato',
+    instagram_url: INSTAGRAM_URL,
     youtube_url: YOUTUBE_URL,
+    youtube_channel_id: YOUTUBE_CHANNEL_ID,
   });
   console.log('OK configurações');
 

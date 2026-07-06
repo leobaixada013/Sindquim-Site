@@ -1,0 +1,142 @@
+{
+  ".claude/settings.json": {
+    "mtime": 1782950135.0631547,
+    "ast_hash": "7bf81dca0376bde3a32244b82bc7cbc0",
+    "semantic_hash": "7bf81dca0376bde3a32244b82bc7cbc0"
+  },
+  ".claude/settings.local.json": {
+    "mtime": 1782878008.476289,
+    "ast_hash": "8b8c1bd2b8debeef8ffe5db486d55350",
+    "semantic_hash": "8b8c1bd2b8debeef8ffe5db486d55350"
+  },
+  ".impeccable/design.json": {
+    "mtime": 1782946575.8186364,
+    "ast_hash": "5904f5cc9dc57c4dc9acaeeb501c7595",
+    "semantic_hash": "5904f5cc9dc57c4dc9acaeeb501c7595"
+  },
+  "script.js": {
+    "mtime": 1782847621.8536692,
+    "ast_hash": "6df9805d2231f93c6189e20f6d231662",
+    "semantic_hash": "6df9805d2231f93c6189e20f6d231662"
+  },
+  "wp-content/themes/sindicato/archive-documento.php": {
+    "mtime": 1782946575.8216593,
+    "ast_hash": "e70b51fba5f8fae0d76dcad71b30b3d7",
+    "semantic_hash": "e70b51fba5f8fae0d76dcad71b30b3d7"
+  },
+  "wp-content/themes/sindicato/archive.php": {
+    "mtime": 1782946575.8231778,
+    "ast_hash": "0ea0a1a39390e0d0ef964bc32cea8a06",
+    "semantic_hash": "0ea0a1a39390e0d0ef964bc32cea8a06"
+  },
+  "wp-content/themes/sindicato/assets/js/main.js": {
+    "mtime": 1782917317.9003966,
+    "ast_hash": "ce07baa1c9006b9287f5c39bc5474f88",
+    "semantic_hash": "ce07baa1c9006b9287f5c39bc5474f88"
+  },
+  "wp-content/themes/sindicato/footer.php": {
+    "mtime": 1782946575.8297625,
+    "ast_hash": "a4ed075bb695c5db1cd4a7a780bed162",
+    "semantic_hash": "a4ed075bb695c5db1cd4a7a780bed162"
+  },
+  "wp-content/themes/sindicato/front-page.php": {
+    "mtime": 1782946575.831276,
+    "ast_hash": "67daf78f611154802f3caeeb872d7d6a",
+    "semantic_hash": "67daf78f611154802f3caeeb872d7d6a"
+  },
+  "wp-content/themes/sindicato/functions.php": {
+    "mtime": 1782946575.831276,
+    "ast_hash": "1fff0fbdb7ba8b71862e733ce14a4ea5",
+    "semantic_hash": "1fff0fbdb7ba8b71862e733ce14a4ea5"
+  },
+  "wp-content/themes/sindicato/header.php": {
+    "mtime": 1782946575.8327963,
+    "ast_hash": "0e5e17b72561b005548045538ea6e453",
+    "semantic_hash": "0e5e17b72561b005548045538ea6e453"
+  },
+  "wp-content/themes/sindicato/inc/cpt-aviso.php": {
+    "mtime": 1782917317.9044964,
+    "ast_hash": "e732eb607423345f0a9cb59266d71ff6",
+    "semantic_hash": "e732eb607423345f0a9cb59266d71ff6"
+  },
+  "wp-content/themes/sindicato/inc/cpt-banner.php": {
+    "mtime": 1782917317.9044964,
+    "ast_hash": "453f870c00a281a8fd5c9efdbd906841",
+    "semantic_hash": "453f870c00a281a8fd5c9efdbd906841"
+  },
+  "wp-content/themes/sindicato/inc/cpt-card-social.php": {
+    "mtime": 1782917317.9044964,
+    "ast_hash": "15b48d3a4cb2a3ef4b2ab07e6743ae6e",
+    "semantic_hash": "15b48d3a4cb2a3ef4b2ab07e6743ae6e"
+  },
+  "wp-content/themes/sindicato/inc/cpt-diretor.php": {
+    "mtime": 1782946575.8343012,
+    "ast_hash": "c8b5eb23833c68db4b7fe9091f1faccd",
+    "semantic_hash": "c8b5eb23833c68db4b7fe9091f1faccd"
+  },
+  "wp-content/themes/sindicato/inc/cpt-documento.php": {
+    "mtime": 1782917317.9060123,
+    "ast_hash": "c4e3993f66ec16b39472394005832ac0",
+    "semantic_hash": "c4e3993f66ec16b39472394005832ac0"
+  },
+  "wp-content/themes/sindicato/inc/settings-contato.php": {
+    "mtime": 1782946575.835805,
+    "ast_hash": "1cef64ff282fb26f2ecb7c4ef2036c17",
+    "semantic_hash": "1cef64ff282fb26f2ecb7c4ef2036c17"
+  },
+  "wp-content/themes/sindicato/inc/settings-proximo-episodio.php": {
+    "mtime": 1782928477.385926,
+    "ast_hash": "98f2a69c78745301c20acd32573d2c82",
+    "semantic_hash": "98f2a69c78745301c20acd32573d2c82"
+  },
+  "wp-content/themes/sindicato/inc/template-tags.php": {
+    "mtime": 1782946575.8368356,
+    "ast_hash": "2eac71862e913cd3dff52224e45f4936",
+    "semantic_hash": "2eac71862e913cd3dff52224e45f4936"
+  },
+  "wp-content/themes/sindicato/inc/youtube.php": {
+    "mtime": 1782928477.387983,
+    "ast_hash": "c7ee07cf68ffdbc91d15ad0aaff040d9",
+    "semantic_hash": "c7ee07cf68ffdbc91d15ad0aaff040d9"
+  },
+  "wp-content/themes/sindicato/index.php": {
+    "mtime": 1782917317.9085684,
+    "ast_hash": "df44a7cfdfd08c28828d487262020b27",
+    "semantic_hash": "df44a7cfdfd08c28828d487262020b27"
+  },
+  "wp-content/themes/sindicato/page-avisos.php": {
+    "mtime": 1782946575.8378663,
+    "ast_hash": "ba6a05b9cfa02d34cb6e8f5613552860",
+    "semantic_hash": "ba6a05b9cfa02d34cb6e8f5613552860"
+  },
+  "wp-content/themes/sindicato/page-contato.php": {
+    "mtime": 1782946575.8378663,
+    "ast_hash": "169d37b22423d2e8005898b2d2fd5a97",
+    "semantic_hash": "169d37b22423d2e8005898b2d2fd5a97"
+  },
+  "wp-content/themes/sindicato/page-diretoria.php": {
+    "mtime": 1782946575.8393729,
+    "ast_hash": "b7bae93459c12382257a77a1c13b981c",
+    "semantic_hash": "b7bae93459c12382257a77a1c13b981c"
+  },
+  "wp-content/themes/sindicato/page-filie-se.php": {
+    "mtime": 1782946575.8393729,
+    "ast_hash": "77b400639e46ec2395eddcacefd21139",
+    "semantic_hash": "77b400639e46ec2395eddcacefd21139"
+  },
+  "wp-content/themes/sindicato/page-noticias.php": {
+    "mtime": 1782946575.8408847,
+    "ast_hash": "fd2980c09f117c9b93288f734d8c76a8",
+    "semantic_hash": "fd2980c09f117c9b93288f734d8c76a8"
+  },
+  "wp-content/themes/sindicato/page.php": {
+    "mtime": 1782946575.8408847,
+    "ast_hash": "946d749af324b9e48ba99d4126f01097",
+    "semantic_hash": "946d749af324b9e48ba99d4126f01097"
+  },
+  "wp-content/themes/sindicato/single.php": {
+    "mtime": 1782917317.9184935,
+    "ast_hash": "b1cf5fa9fb9948dacc34aaddf6e206bf",
+    "semantic_hash": "b1cf5fa9fb9948dacc34aaddf6e206bf"
+  }
+}

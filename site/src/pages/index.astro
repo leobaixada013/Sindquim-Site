@@ -154,41 +154,51 @@ const imagemBanner = banner ? urlImagem(banner.imagem, { largura: 1600, altura: 
   <Estudio />
 
   {(cards.length > 0 || config?.instagram_url) && (
-    <section class="section reveal" aria-labelledby="instagram-titulo">
+    <section class="section section--reels reveal" aria-labelledby="instagram-titulo">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading reels-heading">
           <div>
-            <p class="rotulo">Redes sociais</p>
-            <h2 id="instagram-titulo">No Instagram</h2>
+            <p class="rotulo">Reels do sindicato</p>
+            <h2 id="instagram-titulo">Cortes rápidos do Reação Química em Debate</h2>
+            <p class="reels-heading__texto">
+              Trechos curtos, bastidores e chamadas para acompanhar a discussão onde a categoria já está: no celular.
+            </p>
           </div>
           {config?.instagram_url && (
-            <a class="text-link" href={config.instagram_url} target="_blank" rel="noopener">Ver perfil</a>
+            <a class="button button--tinta" href={config.instagram_url} target="_blank" rel="noopener">
+              Ver Reels no Instagram
+            </a>
           )}
         </div>
         {cards.length > 0 ? (
-          <div class="instagram-grid">
-            {cards.map((card) =>
+          <div class="reels-grid" aria-label="Reels recentes do Instagram">
+            {cards.map((card, indice) =>
               card.link ? (
-                <a class="insta-card" href={card.link} target="_blank" rel="noopener">
+                <a class:list={['reel-card', indice === 0 && 'reel-card--destaque']} href={card.link} target="_blank" rel="noopener">
                   {card.imagem && (
-                    <img src={urlImagem(card.imagem, { largura: 600, altura: 600 })} alt="" loading="lazy" decoding="async" />
+                    <img src={urlImagem(card.imagem, { largura: indice === 0 ? 720 : 480, altura: indice === 0 ? 1280 : 854 })} alt="" loading={indice === 0 ? 'eager' : 'lazy'} decoding="async" />
                   )}
-                  {card.legenda && <span>{card.legenda}</span>}
+                  <span class="reel-card__play" aria-hidden="true">▶</span>
+                  <span class="reel-card__badge">{indice === 0 ? 'Reel em destaque' : 'Reel'}</span>
+                  <span class="reel-card__legenda">{card.legenda ?? 'Assistir Reel'}</span>
+                  <span class="reel-card__acao">Abrir no Instagram</span>
                 </a>
               ) : (
-                <article class="insta-card">
+                <article class:list={['reel-card', indice === 0 && 'reel-card--destaque']}>
                   {card.imagem && (
-                    <img src={urlImagem(card.imagem, { largura: 600, altura: 600 })} alt="" loading="lazy" decoding="async" />
+                    <img src={urlImagem(card.imagem, { largura: indice === 0 ? 720 : 480, altura: indice === 0 ? 1280 : 854 })} alt="" loading={indice === 0 ? 'eager' : 'lazy'} decoding="async" />
                   )}
-                  {card.legenda && <span>{card.legenda}</span>}
+                  <span class="reel-card__play" aria-hidden="true">▶</span>
+                  <span class="reel-card__badge">{indice === 0 ? 'Reel em destaque' : 'Reel'}</span>
+                  <span class="reel-card__legenda">{card.legenda ?? 'Reel do sindicato'}</span>
                 </article>
               ),
             )}
           </div>
         ) : (
           <p>
-            Siga o sindicato no Instagram:{' '}
-            <a class="text-link" href={config?.instagram_url} target="_blank" rel="noopener">ver perfil</a>.
+            Os Reels cadastrados no painel aparecem aqui. Enquanto isso, acompanhe o perfil:{' '}
+            <a class="text-link" href={config?.instagram_url} target="_blank" rel="noopener">ver Instagram</a>.
           </p>
         )}
       </div>

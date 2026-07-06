@@ -1,0 +1,432 @@
+{
+  "communities": {
+    "0": [
+      "superpowers_sdd_progress_plano_tema_wordpress_sindicato",
+      "superpowers_sdd_task_10_brief_campos_formularios_md",
+      "superpowers_sdd_task_10_brief_formulario_de_contato",
+      "superpowers_sdd_task_10_brief_formulario_de_filiacao",
+      "superpowers_sdd_task_10_brief_page_contato_php",
+      "superpowers_sdd_task_10_brief_page_filie_se_php",
+      "superpowers_sdd_task_10_brief_task_10_formularios_cf7",
+      "superpowers_sdd_task_10_fix_report_link_lgpd_ausente",
+      "superpowers_sdd_task_11_brief_front_page_php_secoes_estaticas",
+      "superpowers_sdd_task_11_brief_task_11_secoes_estaticas",
+      "superpowers_sdd_task_4_brief_cpt_aviso_php",
+      "superpowers_sdd_task_4_brief_sindicato_data_em_vigencia",
+      "superpowers_sdd_task_4_brief_sindicato_get_aviso_urgente_ativo",
+      "superpowers_sdd_task_4_brief_sindicato_get_avisos_rapidos_ativos",
+      "superpowers_sdd_task_4_brief_task_4_cpt_aviso",
+      "superpowers_sdd_task_4_report_bug_orderby_meta_query",
+      "superpowers_sdd_task_5_brief_archive_php",
+      "superpowers_sdd_task_5_brief_single_php",
+      "superpowers_sdd_task_5_brief_task_5_noticias_home",
+      "superpowers_sdd_task_5_report_fix_permalink_structure",
+      "superpowers_sdd_task_6_brief_cpt_banner_php",
+      "superpowers_sdd_task_6_brief_sindicato_get_banner_ativo",
+      "superpowers_sdd_task_6_brief_task_6_cpt_banner",
+      "superpowers_sdd_task_8_brief_cpt_card_social_php",
+      "superpowers_sdd_task_8_brief_sindicato_get_cards_sociais",
+      "superpowers_sdd_task_8_brief_task_8_cpt_card_social",
+      "superpowers_sdd_task_9_brief_archive_documento_php",
+      "superpowers_sdd_task_9_brief_cpt_documento_php",
+      "superpowers_sdd_task_9_brief_task_9_cpt_documento"
+    ],
+    "1": [
+      "wp_content_themes_sindicato_archive",
+      "wp_content_themes_sindicato_archive_documento",
+      "wp_content_themes_sindicato_footer",
+      "wp_content_themes_sindicato_front_page",
+      "wp_content_themes_sindicato_header",
+      "wp_content_themes_sindicato_inc_template_tags",
+      "wp_content_themes_sindicato_inc_template_tags_sindicato_data_em_vigencia",
+      "wp_content_themes_sindicato_inc_template_tags_sindicato_get_aviso_urgente_ativo",
+      "wp_content_themes_sindicato_inc_template_tags_sindicato_get_avisos_rapidos_ativos",
+      "wp_content_themes_sindicato_inc_template_tags_sindicato_get_banner_ativo",
+      "wp_content_themes_sindicato_inc_template_tags_sindicato_get_cards_sociais",
+      "wp_content_themes_sindicato_inc_template_tags_sindicato_get_contato",
+      "wp_content_themes_sindicato_inc_template_tags_sindicato_get_diretoria",
+      "wp_content_themes_sindicato_inc_youtube",
+      "wp_content_themes_sindicato_inc_youtube_sindicato_get_youtube_videos",
+      "wp_content_themes_sindicato_inc_youtube_sindicato_resolver_youtube_channel_id",
+      "wp_content_themes_sindicato_index",
+      "wp_content_themes_sindicato_page",
+      "wp_content_themes_sindicato_page_avisos",
+      "wp_content_themes_sindicato_page_contato",
+      "wp_content_themes_sindicato_page_diretoria",
+      "wp_content_themes_sindicato_page_filie_se",
+      "wp_content_themes_sindicato_page_noticias",
+      "wp_content_themes_sindicato_single"
+    ],
+    "2": [
+      "claude_settings_local",
+      "critique_archive",
+      "critique_archive_grid_bug",
+      "critique_archive_noticias_404",
+      "critique_archive_single_no_design",
+      "index_html_mockup",
+      "index_html_quick_access_cards",
+      "plan_estrutura_paginas",
+      "plan_modelo_conteudo",
+      "plan_podcast_youtube_task3_unify_section",
+      "plan_podcast_youtube_unificado",
+      "plan_site_sindicato_desenvolvimento",
+      "plan_tema_task4_cpt_aviso",
+      "plan_tema_task5_noticias_templates",
+      "plan_tema_wordpress_sindicato",
+      "script_js",
+      "script_js_episode_list",
+      "script_js_menu_toggle",
+      "script_js_quick_notices",
+      "script_js_urgent_notice",
+      "spec_podcast_youtube_unificado_design",
+      "spec_proximo_episodio_regra",
+      "theme_main_js"
+    ],
+    "3": [
+      "critique_front_page",
+      "critique_front_page_contrast_cta",
+      "critique_front_page_ghost_card",
+      "critique_front_page_hero_image_broken",
+      "critique_front_page_mobile_nav_unreachable",
+      "critique_front_page_one_signal_violation",
+      "design_azul_aco_apoio",
+      "design_doc",
+      "design_movimento_coletivo",
+      "design_navy_institucional",
+      "design_no_double_depth_rule",
+      "design_one_signal_rule",
+      "design_vermelho_mobilizacao",
+      "design_weight_over_family_rule",
+      "impeccable_design_config",
+      "product_anti_referencias",
+      "product_clareza_antes_estilo",
+      "product_doc",
+      "product_fidelidade_marca",
+      "product_mobile_primeiro",
+      "product_um_site_muitos_motivos",
+      "product_urgencia_hierarquia"
+    ],
+    "4": [
+      "superpowers_sdd_progress_plano_unificacao_podcast_youtube",
+      "superpowers_sdd_progress_progress_ledger",
+      "superpowers_sdd_task_1_brief_sindicato_get_youtube_videos",
+      "superpowers_sdd_task_1_brief_sindicato_resolver_youtube_channel_id",
+      "superpowers_sdd_task_1_brief_task_1_resolucao_youtube",
+      "superpowers_sdd_task_1_brief_youtube_php",
+      "superpowers_sdd_task_1_report_artefato_option_false",
+      "superpowers_sdd_task_2_brief_settings_proximo_episodio_php",
+      "superpowers_sdd_task_2_brief_sindicato_get_proximo_episodio",
+      "superpowers_sdd_task_2_brief_task_2_proximo_episodio",
+      "superpowers_sdd_task_3_brief_cpt_podcast_php_removido",
+      "superpowers_sdd_task_3_brief_cpt_video_php_removido",
+      "superpowers_sdd_task_3_brief_front_page_php_midia_section",
+      "superpowers_sdd_task_3_brief_task_3_unificar_secao_home",
+      "superpowers_sdd_task_3_report_artefato_option_false_recorrente",
+      "superpowers_sdd_task_3_report_bug_contraste_text_link",
+      "superpowers_sdd_task_7_brief_cpt_podcast_php",
+      "superpowers_sdd_task_7_brief_cpt_video_php",
+      "superpowers_sdd_task_7_brief_sindicato_get_podcast_destaque",
+      "superpowers_sdd_task_7_brief_sindicato_get_video_destaque",
+      "superpowers_sdd_task_7_brief_task_7_cpt_podcast_video"
+    ],
+    "5": [
+      "critique_archive_documento",
+      "critique_archive_documento_no_design_system",
+      "critique_archive_documento_touch_target",
+      "critique_contato",
+      "critique_contato_lgpd_touch_target",
+      "critique_contato_no_brand_styling",
+      "critique_contato_no_labels",
+      "critique_filie_se",
+      "critique_filie_se_no_labels",
+      "critique_filie_se_touch_target",
+      "critique_filie_se_unstyled_form",
+      "docs_lgpd_campos_formularios_doc",
+      "lgpd_formulario_contato",
+      "lgpd_formulario_filiacao",
+      "lgpd_pendencias",
+      "product_touch_target_44px",
+      "spec_impeccable_brand_lock",
+      "spec_sistema_design_impeccable"
+    ],
+    "6": [
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio",
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_adicionar_menu_proximo_episodio",
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_get_proximo_episodio",
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_get_proximo_episodio_valores",
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_proximo_episodio_defaults",
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_registrar_configuracoes_proximo_episodio",
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_render_pe_ativo",
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_render_pe_data_hora_estreia",
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_render_pe_descricao",
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_render_pe_imagem",
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_render_pe_titulo",
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_renderizar_pagina_proximo_episodio",
+      "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_sanitizar_proximo_episodio"
+    ],
+    "7": [
+      "script",
+      "script_menu",
+      "script_menubutton",
+      "script_quicknotices",
+      "script_renderquicknotices",
+      "script_renderurgentnotice",
+      "script_urgentnotices"
+    ],
+    "8": [
+      "wp_content_themes_sindicato_inc_settings_contato",
+      "wp_content_themes_sindicato_inc_settings_contato_sindicato_adicionar_menu_configuracoes",
+      "wp_content_themes_sindicato_inc_settings_contato_sindicato_contato_defaults",
+      "wp_content_themes_sindicato_inc_settings_contato_sindicato_registrar_configuracoes",
+      "wp_content_themes_sindicato_inc_settings_contato_sindicato_render_campo_contato",
+      "wp_content_themes_sindicato_inc_settings_contato_sindicato_renderizar_pagina_configuracoes",
+      "wp_content_themes_sindicato_inc_settings_contato_sindicato_sanitizar_contato"
+    ],
+    "9": [
+      "wp_content_themes_sindicato_functions",
+      "wp_content_themes_sindicato_functions_sindicato_criar_categorias_padrao",
+      "wp_content_themes_sindicato_functions_sindicato_enqueue_assets",
+      "wp_content_themes_sindicato_functions_sindicato_rewrite_convencoes",
+      "wp_content_themes_sindicato_functions_sindicato_setup",
+      "wp_content_themes_sindicato_functions_sindicato_template_convencoes"
+    ],
+    "10": [
+      "wp_content_themes_sindicato_inc_cpt_aviso",
+      "wp_content_themes_sindicato_inc_cpt_aviso_sindicato_metabox_aviso",
+      "wp_content_themes_sindicato_inc_cpt_aviso_sindicato_registrar_cpt_aviso",
+      "wp_content_themes_sindicato_inc_cpt_aviso_sindicato_render_metabox_aviso",
+      "wp_content_themes_sindicato_inc_cpt_aviso_sindicato_salvar_aviso"
+    ],
+    "11": [
+      "wp_content_themes_sindicato_inc_cpt_banner",
+      "wp_content_themes_sindicato_inc_cpt_banner_sindicato_metabox_banner",
+      "wp_content_themes_sindicato_inc_cpt_banner_sindicato_registrar_cpt_banner",
+      "wp_content_themes_sindicato_inc_cpt_banner_sindicato_render_metabox_banner",
+      "wp_content_themes_sindicato_inc_cpt_banner_sindicato_salvar_banner"
+    ],
+    "12": [
+      "wp_content_themes_sindicato_inc_cpt_card_social",
+      "wp_content_themes_sindicato_inc_cpt_card_social_sindicato_metabox_card_social",
+      "wp_content_themes_sindicato_inc_cpt_card_social_sindicato_registrar_cpt_card_social",
+      "wp_content_themes_sindicato_inc_cpt_card_social_sindicato_render_metabox_card_social",
+      "wp_content_themes_sindicato_inc_cpt_card_social_sindicato_salvar_card_social"
+    ],
+    "13": [
+      "wp_content_themes_sindicato_inc_cpt_diretor",
+      "wp_content_themes_sindicato_inc_cpt_diretor_sindicato_metabox_diretor",
+      "wp_content_themes_sindicato_inc_cpt_diretor_sindicato_registrar_cpt_diretor",
+      "wp_content_themes_sindicato_inc_cpt_diretor_sindicato_render_metabox_diretor",
+      "wp_content_themes_sindicato_inc_cpt_diretor_sindicato_salvar_diretor"
+    ],
+    "14": [
+      "wp_content_themes_sindicato_inc_cpt_documento",
+      "wp_content_themes_sindicato_inc_cpt_documento_sindicato_metabox_documento",
+      "wp_content_themes_sindicato_inc_cpt_documento_sindicato_registrar_cpt_documento",
+      "wp_content_themes_sindicato_inc_cpt_documento_sindicato_render_metabox_documento",
+      "wp_content_themes_sindicato_inc_cpt_documento_sindicato_salvar_documento"
+    ],
+    "15": [
+      "wp_content_themes_sindicato_assets_js_main",
+      "wp_content_themes_sindicato_assets_js_main_menu",
+      "wp_content_themes_sindicato_assets_js_main_menubutton"
+    ],
+    "16": [
+      "assets_hero_assembleia_sindicato_hero_photo",
+      "wp_content_themes_sindicato_assets_img_hero_assembleia_sindicato_theme_hero_asset"
+    ],
+    "17": [
+      "assets_sindicato_logo_official_logo",
+      "wp_content_themes_sindicato_assets_img_logo_sindicato_theme_logo_asset"
+    ],
+    "18": [
+      "design_referencia_home_sindicato_homepage_mockup"
+    ],
+    "19": [
+      "screenshots_home_desktop_homepage_screenshot"
+    ],
+    "20": [
+      "screenshots_home_mobile_mobile_screenshot"
+    ],
+    "21": [
+      "screenshots_home_notices_empty_homepage_screenshot"
+    ],
+    "22": [
+      "screenshots_home_notices_visible_populated_state_screenshot"
+    ],
+    "23": [
+      "wp_content_themes_sindicato_screenshot_theme_admin_thumbnail"
+    ]
+  },
+  "cohesion": {
+    "0": 0.09359605911330049,
+    "1": 0.17753623188405798,
+    "2": 0.11462450592885376,
+    "3": 0.13852813852813853,
+    "4": 0.13333333333333333,
+    "5": 0.1503267973856209,
+    "6": 0.34615384615384615,
+    "7": 0.2857142857142857,
+    "8": 0.5238095238095238,
+    "9": 0.4,
+    "10": 0.6,
+    "11": 0.6,
+    "12": 0.6,
+    "13": 0.6,
+    "14": 0.6,
+    "15": 0.6666666666666666,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0
+  },
+  "gods": [
+    {
+      "id": "wp_content_themes_sindicato_footer",
+      "label": "footer.php (site footer template)",
+      "degree": 12
+    },
+    {
+      "id": "wp_content_themes_sindicato_front_page",
+      "label": "front-page.php (home page template)",
+      "degree": 12
+    },
+    {
+      "id": "wp_content_themes_sindicato_header",
+      "label": "header.php (site header template)",
+      "degree": 12
+    },
+    {
+      "id": "design_doc",
+      "label": "DESIGN.md: Design System STI Baixada Santista",
+      "degree": 10
+    },
+    {
+      "id": "superpowers_sdd_progress_plano_tema_wordpress_sindicato",
+      "label": "Plano: Tema WordPress Sindicato (plano anterior, tasks 1-11)",
+      "degree": 9
+    },
+    {
+      "id": "superpowers_sdd_task_3_brief_task_3_unificar_secao_home",
+      "label": "Task 3: Unificar a Seção na Home e Remover os CPTs Antigos",
+      "degree": 9
+    },
+    {
+      "id": "product_doc",
+      "label": "PRODUCT.md: Product Definition STI Baixada Santista",
+      "degree": 9
+    },
+    {
+      "id": "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_get_proximo_episodio_valores",
+      "label": "sindicato_get_proximo_episodio_valores()",
+      "degree": 8
+    },
+    {
+      "id": "wp_content_themes_sindicato_inc_settings_proximo_episodio_sindicato_registrar_configuracoes_proximo_episodio",
+      "label": "sindicato_registrar_configuracoes_proximo_episodio()",
+      "degree": 8
+    },
+    {
+      "id": "wp_content_themes_sindicato_inc_template_tags_sindicato_get_contato",
+      "label": "sindicato_get_contato()",
+      "degree": 8
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Claude Code Local Permissions Settings",
+      "target": "Plan: Site Institucional do Sindicato Implementation",
+      "source_files": [
+        ".claude/settings.local.json",
+        "docs/superpowers/plans/2026-06-30-site-sindicato-desenvolvimento.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code ↔ doc); connects across different repos/directories; peripheral node `Claude Code Local Permissions Settings` unexpectedly reaches hub `Plan: Site Institucional do Sindicato Implementation`"
+    },
+    {
+      "source": "Impeccable Captured Design Tokens (design.json)",
+      "target": "Azul-Aco de Apoio (secondary support color)",
+      "source_files": [
+        ".impeccable/design.json",
+        "DESIGN.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "shares_data_with",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code ↔ doc); connects across different repos/directories; peripheral node `Azul-Aco de Apoio (secondary support color)` unexpectedly reaches hub `Impeccable Captured Design Tokens (design.json)`"
+    },
+    {
+      "source": "Impeccable Captured Design Tokens (design.json)",
+      "target": "The Weight-Over-Family Rule",
+      "source_files": [
+        ".impeccable/design.json",
+        "DESIGN.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "shares_data_with",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code ↔ doc); connects across different repos/directories; peripheral node `The Weight-Over-Family Rule` unexpectedly reaches hub `Impeccable Captured Design Tokens (design.json)`"
+    },
+    {
+      "source": "Impeccable Captured Design Tokens (design.json)",
+      "target": "Creative North Star: Movimento Coletivo",
+      "source_files": [
+        ".impeccable/design.json",
+        "DESIGN.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "shares_data_with",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code ↔ doc); connects across different repos/directories"
+    },
+    {
+      "source": "Impeccable Captured Design Tokens (design.json)",
+      "target": "Navy Institucional (primary brand color)",
+      "source_files": [
+        ".impeccable/design.json",
+        "DESIGN.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "shares_data_with",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code ↔ doc); connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `front-page.php (home page template)` connect `Community 1` to `Community 10`, `Community 11`, `Community 12`, `Community 6`?",
+      "why": "High betweenness centrality (0.069) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Plano: Tema WordPress Sindicato (plano anterior, tasks 1-11)` connect `Community 0` to `Community 4`?",
+      "why": "High betweenness centrality (0.037) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Critique Report: Home (front-page.php)` connect `Community 3` to `Community 2`, `Community 5`?",
+      "why": "High betweenness centrality (0.033) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 11 inferred relationships involving `footer.php (site footer template)` (e.g. with `archive.php (generic archive template)` and `archive-documento.php (Convenções archive template)`) actually correct?",
+      "why": "`footer.php (site footer template)` has 11 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 2 inferred relationships involving `front-page.php (home page template)` (e.g. with `footer.php (site footer template)` and `header.php (site header template)`) actually correct?",
+      "why": "`front-page.php (home page template)` has 2 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 11 inferred relationships involving `header.php (site header template)` (e.g. with `archive.php (generic archive template)` and `archive-documento.php (Convenções archive template)`) actually correct?",
+      "why": "`header.php (site header template)` has 11 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 8 inferred relationships involving `Plano: Tema WordPress Sindicato (plano anterior, tasks 1-11)` (e.g. with `Task 10: Formulários de Contato e Filiação (Contact Form 7 + LGPD)` and `Task 11: Seções Estáticas Restantes (Acesso Rápido e CTA de Associação)`) actually correct?",
+      "why": "`Plano: Tema WordPress Sindicato (plano anterior, tasks 1-11)` has 8 INFERRED edges - model-reasoned connections that need verification."
+    }
+  ]
+}

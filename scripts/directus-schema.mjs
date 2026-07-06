@@ -245,12 +245,12 @@ const COLECOES = [
   },
   {
     collection: 'cards_instagram',
-    meta: { icon: 'photo_camera', display_template: '{{legenda}}', translations: [{ language: 'pt-BR', translation: 'Cards do Instagram', singular: 'Card', plural: 'Cards' }] },
+    meta: { icon: 'smart_display', display_template: '{{legenda}}', translations: [{ language: 'pt-BR', translation: 'Reels do Instagram', singular: 'Reel', plural: 'Reels' }] },
     schema: {},
     fields: [
-      campoArquivo('imagem', 'Imagem'),
-      campoTexto('legenda', 'Legenda'),
-      campoTexto('link', 'Link da publicação'),
+      campoArquivo('imagem', 'Capa do Reel'),
+      campoTexto('legenda', 'Título/legenda do Reel'),
+      campoTexto('link', 'Link do Reel'),
     ],
   },
   {
@@ -307,14 +307,15 @@ const CRIACAO_PUBLICA = {
 };
 
 async function garantirColecao(def) {
+  const { relacoes, ...payload } = def;
   try {
     await api('GET', `/collections/${def.collection}`);
-    console.log(`SKIP coleção ${def.collection} (já existe)`);
+    await api('PATCH', `/collections/${def.collection}`, { meta: def.meta });
+    console.log(`OK   coleção ${def.collection} (metadados atualizados)`);
     return;
   } catch (erro) {
     if (erro.status !== 403 && erro.status !== 404) throw erro;
   }
-  const { relacoes, ...payload } = def;
   await api('POST', '/collections', payload);
   for (const relacao of relacoes ?? []) {
     await api('POST', '/relations', {
