@@ -149,6 +149,19 @@ function campoWysiwyg(nome, rotulo) {
   };
 }
 
+function campoOrdem() {
+  return {
+    field: 'ordem',
+    type: 'integer',
+    schema: {},
+    meta: {
+      interface: 'input',
+      width: 'half',
+      translations: [{ language: 'pt-BR', translation: 'Ordem' }],
+    },
+  };
+}
+
 const COLECOES = [
   {
     collection: 'categorias',
@@ -264,6 +277,100 @@ const COLECOES = [
     ],
   },
   {
+    collection: 'pagina_juridico',
+    meta: { icon: 'gavel', singleton: true, translations: [{ language: 'pt-BR', translation: 'Página Jurídico', singular: 'Página Jurídico', plural: 'Página Jurídico' }] },
+    schema: {},
+    fields: [
+      campoTexto('hero_rotulo', 'Rótulo do hero'),
+      campoTexto('hero_titulo', 'Título do hero'),
+      campoTexto('hero_resumo', 'Resumo do hero', { interface: 'input-multiline' }),
+      campoTexto('hero_cta_primario_texto', 'Texto do botão principal', { meta: { width: 'half' } }),
+      campoTexto('hero_cta_secundario_texto', 'Texto do botão secundário', { meta: { width: 'half' } }),
+      campoTexto('direitos_rotulo', 'Rótulo da seção de direitos', { meta: { width: 'half' } }),
+      campoTexto('direitos_titulo', 'Título da seção de direitos', { meta: { width: 'half' } }),
+      campoTexto('agendamento_rotulo', 'Rótulo da seção de agendamento', { meta: { width: 'half' } }),
+      campoTexto('agendamento_titulo', 'Título da seção de agendamento', { meta: { width: 'half' } }),
+      campoTexto('agendamento_texto', 'Texto da seção de agendamento', { interface: 'input-multiline' }),
+      campoTexto('plantao_titulo', 'Título do plantão'),
+      campoTexto('faq_rotulo', 'Rótulo do FAQ', { meta: { width: 'half' } }),
+      campoTexto('faq_titulo', 'Título do FAQ', { meta: { width: 'half' } }),
+      campoTexto('cta_rotulo', 'Rótulo da chamada final', { meta: { width: 'half' } }),
+      campoTexto('cta_titulo', 'Título da chamada final', { meta: { width: 'half' } }),
+      campoTexto('cta_link_texto', 'Texto do link da chamada final', { meta: { width: 'half' } }),
+      campoTexto('cta_link_href', 'URL do link da chamada final', { meta: { width: 'half' } }),
+    ],
+  },
+  {
+    collection: 'juridico_direitos',
+    meta: { icon: 'balance', display_template: '{{titulo}}', sort_field: 'ordem', translations: [{ language: 'pt-BR', translation: 'Jurídico: direitos', singular: 'Direito', plural: 'Direitos' }] },
+    schema: {},
+    fields: [
+      campoStatus(),
+      campoOrdem(),
+      campoTexto('titulo', 'Título', { obrigatorio: true }),
+      campoTexto('sigla', 'Sigla', { obrigatorio: true, nota: 'Três letras exibidas no card, ex.: JOR.' }),
+      campoTexto('descricao', 'Descrição', { interface: 'input-multiline', obrigatorio: true }),
+      campoTexto('cor', 'Cor do card', {
+        interface: 'select-dropdown',
+        options: { choices: [{ text: 'Azul-aço', value: 'aco' }, { text: 'Vermelho', value: 'vermelho' }] },
+        meta: { width: 'half' },
+      }),
+      campoBooleano('destaque', 'Card largo', 'Faz o card ocupar duas colunas no desktop.'),
+      campoBooleano('urgente', 'Mostrar tag urgente', 'Mostra o selo Urgente no canto do card.'),
+      campoTexto('texto_link', 'Texto do link', { meta: { width: 'half' } }),
+    ],
+  },
+  {
+    collection: 'juridico_plantoes',
+    meta: { icon: 'event_available', display_template: '{{titulo}}', sort_field: 'ordem', translations: [{ language: 'pt-BR', translation: 'Jurídico: plantões', singular: 'Plantão', plural: 'Plantões' }] },
+    schema: {},
+    fields: [
+      campoStatus(),
+      campoOrdem(),
+      campoTexto('titulo', 'Título', { obrigatorio: true }),
+      campoTexto('local', 'Local', { obrigatorio: true }),
+      campoTexto('horario', 'Horário', { obrigatorio: true }),
+      campoTexto('observacao', 'Observação', { interface: 'input-multiline' }),
+    ],
+  },
+  {
+    collection: 'juridico_faq',
+    meta: { icon: 'help', display_template: '{{pergunta}}', sort_field: 'ordem', translations: [{ language: 'pt-BR', translation: 'Jurídico: perguntas frequentes', singular: 'Pergunta', plural: 'Perguntas' }] },
+    schema: {},
+    fields: [
+      campoStatus(),
+      campoOrdem(),
+      campoTexto('pergunta', 'Pergunta', { obrigatorio: true }),
+      campoTexto('resposta', 'Resposta', { interface: 'input-multiline', obrigatorio: true }),
+    ],
+  },
+  {
+    collection: 'juridico_campos_formulario',
+    meta: { icon: 'dynamic_form', display_template: '{{rotulo}}', sort_field: 'ordem', translations: [{ language: 'pt-BR', translation: 'Jurídico: campos do formulário', singular: 'Campo do formulário', plural: 'Campos do formulário' }] },
+    schema: {},
+    fields: [
+      campoStatus(),
+      campoOrdem(),
+      campoTexto('chave', 'Chave', { obrigatorio: true, nota: 'Use apenas letras minúsculas, números e underline. Ex.: telefone, matricula, natureza.' }),
+      campoTexto('rotulo', 'Rótulo', { obrigatorio: true }),
+      campoTexto('tipo', 'Tipo', {
+        interface: 'select-dropdown',
+        options: { choices: [
+          { text: 'Texto', value: 'text' },
+          { text: 'E-mail', value: 'email' },
+          { text: 'Telefone', value: 'tel' },
+          { text: 'Lista de opções', value: 'select' },
+          { text: 'Texto longo', value: 'textarea' },
+        ] },
+        meta: { width: 'half' },
+      }),
+      campoBooleano('obrigatorio', 'Obrigatório', 'Se ativo, o formulário não envia sem este campo.'),
+      campoTexto('placeholder', 'Placeholder'),
+      campoTexto('opcoes', 'Opções', { interface: 'input-multiline', nota: 'Para campos de lista, coloque uma opção por linha.' }),
+      { field: 'max_length', type: 'integer', schema: {}, meta: { interface: 'input', width: 'half', translations: [{ language: 'pt-BR', translation: 'Tamanho máximo' }] } },
+    ],
+  },
+  {
     collection: 'configuracoes',
     meta: { icon: 'settings', singleton: true, translations: [{ language: 'pt-BR', translation: 'Configurações do site', singular: 'Configurações', plural: 'Configurações' }] },
     schema: {},
@@ -298,7 +405,9 @@ const COLECOES = [
 
 const LEITURA_PUBLICA = [
   'posts', 'categorias', 'avisos', 'proximos_videos', 'diretores',
-  'documentos', 'cards_instagram', 'paginas', 'configuracoes', 'directus_files',
+  'documentos', 'cards_instagram', 'paginas', 'pagina_juridico',
+  'juridico_direitos', 'juridico_plantoes', 'juridico_faq',
+  'juridico_campos_formulario', 'configuracoes', 'directus_files',
 ];
 
 const CRIACAO_PUBLICA = {
@@ -306,26 +415,51 @@ const CRIACAO_PUBLICA = {
   mensagens_contato: ['nome', 'email', 'mensagem'],
 };
 
-async function garantirColecao(def) {
-  const { relacoes, ...payload } = def;
+async function garantirCampo(collection, campo) {
   try {
-    await api('GET', `/collections/${def.collection}`);
-    await api('PATCH', `/collections/${def.collection}`, { meta: def.meta });
-    console.log(`OK   coleção ${def.collection} (metadados atualizados)`);
+    await api('GET', `/fields/${collection}/${campo.field}`);
+    await api('PATCH', `/fields/${collection}/${campo.field}`, { meta: campo.meta });
+    console.log(`OK   campo ${collection}.${campo.field} (metadados atualizados)`);
     return;
   } catch (erro) {
     if (erro.status !== 403 && erro.status !== 404) throw erro;
   }
-  await api('POST', '/collections', payload);
-  for (const relacao of relacoes ?? []) {
-    await api('POST', '/relations', {
-      collection: def.collection,
-      field: relacao.field,
-      related_collection: relacao.related_collection,
-      schema: { on_delete: 'SET NULL' },
-    });
+  await api('POST', `/fields/${collection}`, campo);
+  console.log(`OK   campo ${collection}.${campo.field}`);
+}
+
+async function garantirColecao(def) {
+  const { relacoes, fields, ...payload } = def;
+  let criada = false;
+  try {
+    await api('GET', `/collections/${def.collection}`);
+    await api('PATCH', `/collections/${def.collection}`, { meta: def.meta });
+    console.log(`OK   coleção ${def.collection} (metadados atualizados)`);
+  } catch (erro) {
+    if (erro.status !== 403 && erro.status !== 404) throw erro;
+    await api('POST', '/collections', { ...payload, fields });
+    criada = true;
+    console.log(`OK   coleção ${def.collection}`);
   }
-  console.log(`OK   coleção ${def.collection}`);
+
+  if (!criada) {
+    for (const campo of fields ?? []) {
+      await garantirCampo(def.collection, campo);
+    }
+  }
+
+  for (const relacao of relacoes ?? []) {
+    try {
+      await api('POST', '/relations', {
+        collection: def.collection,
+        field: relacao.field,
+        related_collection: relacao.related_collection,
+        schema: { on_delete: 'SET NULL' },
+      });
+    } catch (erro) {
+      if (erro.status !== 400) throw erro;
+    }
+  }
 }
 
 async function acharPoliticaPublica() {
@@ -356,17 +490,20 @@ async function garantirPermissao(politica, collection, action, fields) {
 }
 
 async function garantirRoleEditor() {
-  const roles = await api('GET', "/roles?filter[name][_eq]=Editor");
-  if (roles.length > 0) {
-    console.log('SKIP role Editor (já existe)');
-    return;
+  const roles = await api('GET', "/roles?filter[name][_eq]=Editor&fields=id,name,policies.policy");
+  let politica = roles[0]?.policies?.[0]?.policy
+    ? { id: roles[0].policies[0].policy }
+    : null;
+
+  if (!politica) {
+    politica = await api('POST', '/policies', {
+      name: 'Editores de conteúdo',
+      app_access: true,
+      admin_access: false,
+      icon: 'edit',
+    });
   }
-  const politica = await api('POST', '/policies', {
-    name: 'Editores de conteúdo',
-    app_access: true,
-    admin_access: false,
-    icon: 'edit',
-  });
+
   const acoes = ['create', 'read', 'update', 'delete'];
   const colecoesEditor = COLECOES.map((c) => c.collection);
   for (const colecao of colecoesEditor) {
@@ -378,6 +515,12 @@ async function garantirRoleEditor() {
     await garantirPermissao(politica.id, 'directus_files', acao);
   }
   await garantirPermissao(politica.id, 'directus_folders', 'read');
+
+  if (roles.length > 0) {
+    console.log('OK   role Editor (permissões conferidas)');
+    return;
+  }
+
   await api('POST', '/roles', {
     name: 'Editor',
     icon: 'edit_note',

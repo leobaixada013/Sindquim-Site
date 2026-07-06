@@ -1,8 +1,8 @@
 {
   ".claude/settings.json": {
-    "mtime": 1782950135.0631547,
-    "ast_hash": "7bf81dca0376bde3a32244b82bc7cbc0",
-    "semantic_hash": "7bf81dca0376bde3a32244b82bc7cbc0"
+    "mtime": 1783378002.7055004,
+    "ast_hash": "45cb4cf4535b1f53e65f940f7116ed60",
+    "semantic_hash": ""
   },
   ".claude/settings.local.json": {
     "mtime": 1783367710.600258,
@@ -339,11 +339,6 @@
     "ast_hash": "b30650fe6b57caec8ea9f849442c076d",
     "semantic_hash": "b30650fe6b57caec8ea9f849442c076d"
   },
-  "design/referencia-home-sindicato.png": {
-    "mtime": 1782844571.383111,
-    "ast_hash": "d3a70c680c598a48f0f88400c6fefaac",
-    "semantic_hash": "d3a70c680c598a48f0f88400c6fefaac"
-  },
   "screenshots/home-desktop.png": {
     "mtime": 1782845139.9742956,
     "ast_hash": "9c8495a97933c3865272923e68f223c6",
@@ -380,17 +375,17 @@
     "semantic_hash": ""
   },
   "scripts/directus-schema.mjs": {
-    "mtime": 1783352746.498634,
-    "ast_hash": "552acc9a11e851d43461d9a291f8e34e",
+    "mtime": 1783378253.9216168,
+    "ast_hash": "6b35f3df971d91b2f560e3dad4e4052e",
     "semantic_hash": ""
   },
   "site/.astro/content.d.ts": {
-    "mtime": 1783367016.3994226,
+    "mtime": 1783378662.7818606,
     "ast_hash": "4aaaf7e07990466432e5a0fcf9b2e58c",
     "semantic_hash": ""
   },
   "site/.astro/types.d.ts": {
-    "mtime": 1783367016.3999407,
+    "mtime": 1783378662.7818606,
     "ast_hash": "f3d48b2aa569815a445d3509aa161559",
     "semantic_hash": ""
   },
@@ -440,8 +435,8 @@
     "semantic_hash": ""
   },
   "site/src/lib/directus.ts": {
-    "mtime": 1783307785.2031157,
-    "ast_hash": "9e537c9d541d93ffc5365e58b0c230d5",
+    "mtime": 1783378369.3748372,
+    "ast_hash": "d7663181a46d0cee48cf4d66f1f7fa3e",
     "semantic_hash": ""
   },
   "site/src/lib/formatar.test.ts": {
@@ -455,8 +450,8 @@
     "semantic_hash": ""
   },
   "site/src/lib/tipos.ts": {
-    "mtime": 1783306063.1957276,
-    "ast_hash": "9d60e5813f9cf93ef22b0d93b0465aed",
+    "mtime": 1783378294.0070004,
+    "ast_hash": "6ce609aa4bc49ce460d145d56167c44b",
     "semantic_hash": ""
   },
   "site/src/lib/youtube.test.ts": {
@@ -612,6 +607,41 @@
   "scripts/directus-atualizar-paginas.mjs": {
     "mtime": 1783362946.6724346,
     "ast_hash": "c1b34567c3202e0a228a0ba1f43451d5",
+    "semantic_hash": ""
+  },
+  "design/codigo.tsx": {
+    "mtime": 1783373164.1318283,
+    "ast_hash": "77765d655f0d894c1e96196b4eb6ced0",
+    "semantic_hash": ""
+  },
+  "site/src/pages/api/juridico.ts": {
+    "mtime": 1783378484.7426214,
+    "ast_hash": "30dc6a2a2808c26b5bed120c132917d2",
+    "semantic_hash": ""
+  },
+  "site/src/pages/juridico.astro": {
+    "mtime": 1783378465.7606914,
+    "ast_hash": "9246d661c2be40e8186887588b2626f2",
+    "semantic_hash": ""
+  },
+  "design/Desing.md": {
+    "mtime": 1783371364.8267243,
+    "ast_hash": "122798e6db6da3b94440cdcb6d163ab2",
+    "semantic_hash": ""
+  },
+  "scripts/directus-atualizar-juridico.mjs": {
+    "mtime": 1783378415.539176,
+    "ast_hash": "2405590489b67717db3f844794315c64",
+    "semantic_hash": ""
+  },
+  "site/.astro/dev.json": {
+    "mtime": 1783377234.9780047,
+    "ast_hash": "b52a4327caa764e42e061ffd464dfb0f",
+    "semantic_hash": ""
+  },
+  "site/.astro/settings.json": {
+    "mtime": 1783377235.8498623,
+    "ast_hash": "444e7c5027bb744bb568591f754eb546",
     "semantic_hash": ""
   }
 }

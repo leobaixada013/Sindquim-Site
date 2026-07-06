@@ -4,6 +4,16 @@
   "graph": {},
   "nodes": [
     {
+      "label": "codigo.tsx",
+      "file_type": "code",
+      "source_file": "design/codigo.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "design_codigo",
+      "community": 108,
+      "norm_label": "codigo.tsx"
+    },
+    {
       "label": "script.js",
       "file_type": "code",
       "source_file": "script.js",
@@ -72,6 +82,96 @@
       "id": "script_renderquicknotices",
       "community": 12,
       "norm_label": "renderquicknotices()"
+    },
+    {
+      "label": "directus-atualizar-juridico.mjs",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_juridico",
+      "community": 113,
+      "norm_label": "directus-atualizar-juridico.mjs"
+    },
+    {
+      "label": "api()",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_juridico_api",
+      "community": 113,
+      "norm_label": "api()"
+    },
+    {
+      "label": "PAGINA",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_juridico_pagina",
+      "community": 113,
+      "norm_label": "pagina"
+    },
+    {
+      "label": "DIREITOS",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_juridico_direitos",
+      "community": 113,
+      "norm_label": "direitos"
+    },
+    {
+      "label": "PLANTOES",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L102",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_juridico_plantoes",
+      "community": 113,
+      "norm_label": "plantoes"
+    },
+    {
+      "label": "FAQ",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L113",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_juridico_faq",
+      "community": 113,
+      "norm_label": "faq"
+    },
+    {
+      "label": "CAMPOS_FORMULARIO",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L134",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_juridico_campos_formulario",
+      "community": 113,
+      "norm_label": "campos_formulario"
+    },
+    {
+      "label": "substituirColecao()",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L170",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_juridico_substituircolecao",
+      "community": 113,
+      "norm_label": "substituircolecao()"
+    },
+    {
+      "label": "principal()",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L181",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_juridico_principal",
+      "community": 113,
+      "norm_label": "principal()"
     },
     {
       "label": "directus-atualizar-paginas.mjs",
@@ -254,10 +354,20 @@
       "norm_label": "campowysiwyg()"
     },
     {
-      "label": "COLECOES",
+      "label": "campoOrdem()",
       "file_type": "code",
       "source_file": "scripts/directus-schema.mjs",
       "source_location": "L152",
+      "_origin": "ast",
+      "id": "scripts_directus_schema_campoordem",
+      "community": 38,
+      "norm_label": "campoordem()"
+    },
+    {
+      "label": "COLECOES",
+      "file_type": "code",
+      "source_file": "scripts/directus-schema.mjs",
+      "source_location": "L165",
       "_origin": "ast",
       "id": "scripts_directus_schema_colecoes",
       "community": 38,
@@ -267,7 +377,7 @@
       "label": "LEITURA_PUBLICA",
       "file_type": "code",
       "source_file": "scripts/directus-schema.mjs",
-      "source_location": "L299",
+      "source_location": "L406",
       "_origin": "ast",
       "id": "scripts_directus_schema_leitura_publica",
       "community": 38,
@@ -277,17 +387,27 @@
       "label": "CRIACAO_PUBLICA",
       "file_type": "code",
       "source_file": "scripts/directus-schema.mjs",
-      "source_location": "L304",
+      "source_location": "L413",
       "_origin": "ast",
       "id": "scripts_directus_schema_criacao_publica",
       "community": 38,
       "norm_label": "criacao_publica"
     },
     {
+      "label": "garantirCampo()",
+      "file_type": "code",
+      "source_file": "scripts/directus-schema.mjs",
+      "source_location": "L418",
+      "_origin": "ast",
+      "id": "scripts_directus_schema_garantircampo",
+      "community": 38,
+      "norm_label": "garantircampo()"
+    },
+    {
       "label": "garantirColecao()",
       "file_type": "code",
       "source_file": "scripts/directus-schema.mjs",
-      "source_location": "L309",
+      "source_location": "L431",
       "_origin": "ast",
       "id": "scripts_directus_schema_garantircolecao",
       "community": 38,
@@ -297,7 +417,7 @@
       "label": "acharPoliticaPublica()",
       "file_type": "code",
       "source_file": "scripts/directus-schema.mjs",
-      "source_location": "L331",
+      "source_location": "L465",
       "_origin": "ast",
       "id": "scripts_directus_schema_acharpoliticapublica",
       "community": 38,
@@ -307,7 +427,7 @@
       "label": "garantirPermissao()",
       "file_type": "code",
       "source_file": "scripts/directus-schema.mjs",
-      "source_location": "L338",
+      "source_location": "L472",
       "_origin": "ast",
       "id": "scripts_directus_schema_garantirpermissao",
       "community": 38,
@@ -317,7 +437,7 @@
       "label": "garantirRoleEditor()",
       "file_type": "code",
       "source_file": "scripts/directus-schema.mjs",
-      "source_location": "L358",
+      "source_location": "L492",
       "_origin": "ast",
       "id": "scripts_directus_schema_garantirroleeditor",
       "community": 38,
@@ -327,7 +447,7 @@
       "label": "principal()",
       "file_type": "code",
       "source_file": "scripts/directus-schema.mjs",
-      "source_location": "L390",
+      "source_location": "L533",
       "_origin": "ast",
       "id": "scripts_directus_schema_principal",
       "community": 38,
@@ -841,7 +961,7 @@
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "id": "components_estudio",
-      "community": 102,
+      "community": 104,
       "norm_label": "../components/estudio.astro"
     },
     {
@@ -851,7 +971,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "lite_yt_embed_css",
-      "community": 102,
+      "community": 104,
       "norm_label": "lite-youtube-embed/src/lite-yt-embed.css"
     },
     {
@@ -881,7 +1001,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_youtube",
-      "community": 102,
+      "community": 104,
       "norm_label": "../lib/youtube"
     },
     {
@@ -1080,7 +1200,7 @@
       "label": "cliente",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L30",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "lib_directus_cliente",
       "community": 4,
@@ -1090,27 +1210,77 @@
       "label": "CAMPOS_POST",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L32",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "lib_directus_campos_post",
       "community": 4,
       "norm_label": "campos_post"
     },
     {
+      "label": "PAGINA_JURIDICO_PADRAO",
+      "file_type": "code",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "lib_directus_pagina_juridico_padrao",
+      "community": 4,
+      "norm_label": "pagina_juridico_padrao"
+    },
+    {
+      "label": "JURIDICO_DIREITOS_PADRAO",
+      "file_type": "code",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "lib_directus_juridico_direitos_padrao",
+      "community": 4,
+      "norm_label": "juridico_direitos_padrao"
+    },
+    {
+      "label": "JURIDICO_PLANTOES_PADRAO",
+      "file_type": "code",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "lib_directus_juridico_plantoes_padrao",
+      "community": 4,
+      "norm_label": "juridico_plantoes_padrao"
+    },
+    {
+      "label": "JURIDICO_FAQ_PADRAO",
+      "file_type": "code",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L133",
+      "_origin": "ast",
+      "id": "lib_directus_juridico_faq_padrao",
+      "community": 4,
+      "norm_label": "juridico_faq_padrao"
+    },
+    {
+      "label": "JURIDICO_CAMPOS_FORMULARIO_PADRAO",
+      "file_type": "code",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L157",
+      "_origin": "ast",
+      "id": "lib_directus_juridico_campos_formulario_padrao",
+      "community": 4,
+      "norm_label": "juridico_campos_formulario_padrao"
+    },
+    {
       "label": "urlImagem()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L46",
+      "source_location": "L197",
       "_origin": "ast",
       "id": "lib_directus_urlimagem",
-      "community": 103,
+      "community": 104,
       "norm_label": "urlimagem()"
     },
     {
       "label": "urlArquivo()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L60",
+      "source_location": "L211",
       "_origin": "ast",
       "id": "lib_directus_urlarquivo",
       "community": 4,
@@ -1120,7 +1290,7 @@
       "label": "getConfiguracoes()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L64",
+      "source_location": "L215",
       "_origin": "ast",
       "id": "lib_directus_getconfiguracoes",
       "community": 102,
@@ -1130,7 +1300,7 @@
       "label": "getPostBanner()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L74",
+      "source_location": "L225",
       "_origin": "ast",
       "id": "lib_directus_getpostbanner",
       "community": 109,
@@ -1140,7 +1310,7 @@
       "label": "getPosts()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L90",
+      "source_location": "L241",
       "_origin": "ast",
       "id": "lib_directus_getposts",
       "community": 109,
@@ -1150,7 +1320,7 @@
       "label": "contarPosts()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L105",
+      "source_location": "L256",
       "_origin": "ast",
       "id": "lib_directus_contarposts",
       "community": 103,
@@ -1160,7 +1330,7 @@
       "label": "getPostPorSlug()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L118",
+      "source_location": "L269",
       "_origin": "ast",
       "id": "lib_directus_getpostporslug",
       "community": 104,
@@ -1170,7 +1340,7 @@
       "label": "FILTRO_AVISO_VIGENTE",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L131",
+      "source_location": "L282",
       "_origin": "ast",
       "id": "lib_directus_filtro_aviso_vigente",
       "community": 4,
@@ -1180,7 +1350,7 @@
       "label": "getAvisoUrgente()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L137",
+      "source_location": "L288",
       "_origin": "ast",
       "id": "lib_directus_getavisourgente",
       "community": 102,
@@ -1190,7 +1360,7 @@
       "label": "getAvisosRapidos()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L150",
+      "source_location": "L301",
       "_origin": "ast",
       "id": "lib_directus_getavisosrapidos",
       "community": 102,
@@ -1200,7 +1370,7 @@
       "label": "getProximosVideos()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L164",
+      "source_location": "L315",
       "_origin": "ast",
       "id": "lib_directus_getproximosvideos",
       "community": 102,
@@ -1210,7 +1380,7 @@
       "label": "getDiretores()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L177",
+      "source_location": "L328",
       "_origin": "ast",
       "id": "lib_directus_getdiretores",
       "community": 103,
@@ -1220,7 +1390,7 @@
       "label": "getDocumentos()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L186",
+      "source_location": "L337",
       "_origin": "ast",
       "id": "lib_directus_getdocumentos",
       "community": 102,
@@ -1230,7 +1400,7 @@
       "label": "getCardsInstagram()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L195",
+      "source_location": "L346",
       "_origin": "ast",
       "id": "lib_directus_getcardsinstagram",
       "community": 102,
@@ -1240,30 +1410,80 @@
       "label": "getPagina()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L202",
+      "source_location": "L353",
       "_origin": "ast",
       "id": "lib_directus_getpagina",
       "community": 103,
       "norm_label": "getpagina()"
     },
     {
+      "label": "getPaginaJuridico()",
+      "file_type": "code",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L362",
+      "_origin": "ast",
+      "id": "lib_directus_getpaginajuridico",
+      "community": 4,
+      "norm_label": "getpaginajuridico()"
+    },
+    {
+      "label": "getJuridicoDireitos()",
+      "file_type": "code",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L373",
+      "_origin": "ast",
+      "id": "lib_directus_getjuridicodireitos",
+      "community": 4,
+      "norm_label": "getjuridicodireitos()"
+    },
+    {
+      "label": "getJuridicoPlantoes()",
+      "file_type": "code",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L390",
+      "_origin": "ast",
+      "id": "lib_directus_getjuridicoplantoes",
+      "community": 4,
+      "norm_label": "getjuridicoplantoes()"
+    },
+    {
+      "label": "getJuridicoFAQ()",
+      "file_type": "code",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L407",
+      "_origin": "ast",
+      "id": "lib_directus_getjuridicofaq",
+      "community": 4,
+      "norm_label": "getjuridicofaq()"
+    },
+    {
+      "label": "getJuridicoCamposFormulario()",
+      "file_type": "code",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L424",
+      "_origin": "ast",
+      "id": "lib_directus_getjuridicocamposformulario",
+      "community": 106,
+      "norm_label": "getjuridicocamposformulario()"
+    },
+    {
       "label": "criarInscricaoNewsletter()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L212",
+      "source_location": "L442",
       "_origin": "ast",
       "id": "lib_directus_criarinscricaonewsletter",
-      "community": 4,
+      "community": 117,
       "norm_label": "criarinscricaonewsletter()"
     },
     {
       "label": "criarMensagemContato()",
       "file_type": "code",
       "source_file": "site/src/lib/directus.ts",
-      "source_location": "L216",
+      "source_location": "L446",
       "_origin": "ast",
       "id": "lib_directus_criarmensagemcontato",
-      "community": 4,
+      "community": 106,
       "norm_label": "criarmensagemcontato()"
     },
     {
@@ -1347,20 +1567,30 @@
       "norm_label": "categoria"
     },
     {
-      "label": "Post",
+      "label": "StatusPublicacao",
       "file_type": "code",
       "source_file": "site/src/lib/tipos.ts",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "lib_tipos_post",
+      "id": "lib_tipos_statuspublicacao",
       "community": 4,
+      "norm_label": "statuspublicacao"
+    },
+    {
+      "label": "Post",
+      "file_type": "code",
+      "source_file": "site/src/lib/tipos.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "lib_tipos_post",
+      "community": 104,
       "norm_label": "post"
     },
     {
       "label": "Aviso",
       "file_type": "code",
       "source_file": "site/src/lib/tipos.ts",
-      "source_location": "L20",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "lib_tipos_aviso",
       "community": 4,
@@ -1370,7 +1600,7 @@
       "label": "ProximoVideo",
       "file_type": "code",
       "source_file": "site/src/lib/tipos.ts",
-      "source_location": "L32",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "lib_tipos_proximovideo",
       "community": 4,
@@ -1380,7 +1610,7 @@
       "label": "Diretor",
       "file_type": "code",
       "source_file": "site/src/lib/tipos.ts",
-      "source_location": "L41",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "lib_tipos_diretor",
       "community": 4,
@@ -1390,7 +1620,7 @@
       "label": "Documento",
       "file_type": "code",
       "source_file": "site/src/lib/tipos.ts",
-      "source_location": "L49",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "lib_tipos_documento",
       "community": 4,
@@ -1400,7 +1630,7 @@
       "label": "CardInstagram",
       "file_type": "code",
       "source_file": "site/src/lib/tipos.ts",
-      "source_location": "L57",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "lib_tipos_cardinstagram",
       "community": 4,
@@ -1410,17 +1640,67 @@
       "label": "Pagina",
       "file_type": "code",
       "source_file": "site/src/lib/tipos.ts",
-      "source_location": "L64",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "lib_tipos_pagina",
       "community": 4,
       "norm_label": "pagina"
     },
     {
+      "label": "PaginaJuridico",
+      "file_type": "code",
+      "source_file": "site/src/lib/tipos.ts",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "lib_tipos_paginajuridico",
+      "community": 4,
+      "norm_label": "paginajuridico"
+    },
+    {
+      "label": "JuridicoDireito",
+      "file_type": "code",
+      "source_file": "site/src/lib/tipos.ts",
+      "source_location": "L93",
+      "_origin": "ast",
+      "id": "lib_tipos_juridicodireito",
+      "community": 4,
+      "norm_label": "juridicodireito"
+    },
+    {
+      "label": "JuridicoPlantao",
+      "file_type": "code",
+      "source_file": "site/src/lib/tipos.ts",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "lib_tipos_juridicoplantao",
+      "community": 4,
+      "norm_label": "juridicoplantao"
+    },
+    {
+      "label": "JuridicoFAQ",
+      "file_type": "code",
+      "source_file": "site/src/lib/tipos.ts",
+      "source_location": "L116",
+      "_origin": "ast",
+      "id": "lib_tipos_juridicofaq",
+      "community": 4,
+      "norm_label": "juridicofaq"
+    },
+    {
+      "label": "JuridicoCampoFormulario",
+      "file_type": "code",
+      "source_file": "site/src/lib/tipos.ts",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "lib_tipos_juridicocampoformulario",
+      "community": 4,
+      "norm_label": "juridicocampoformulario"
+    },
+    {
       "label": "Configuracoes",
       "file_type": "code",
       "source_file": "site/src/lib/tipos.ts",
-      "source_location": "L71",
+      "source_location": "L137",
       "_origin": "ast",
       "id": "lib_tipos_configuracoes",
       "community": 4,
@@ -1430,7 +1710,7 @@
       "label": "InscricaoNewsletter",
       "file_type": "code",
       "source_file": "site/src/lib/tipos.ts",
-      "source_location": "L81",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "lib_tipos_inscricaonewsletter",
       "community": 4,
@@ -1440,7 +1720,7 @@
       "label": "MensagemContato",
       "file_type": "code",
       "source_file": "site/src/lib/tipos.ts",
-      "source_location": "L86",
+      "source_location": "L152",
       "_origin": "ast",
       "id": "lib_tipos_mensagemcontato",
       "community": 4,
@@ -1450,7 +1730,7 @@
       "label": "SchemaDirectus",
       "file_type": "code",
       "source_file": "site/src/lib/tipos.ts",
-      "source_location": "L93",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "lib_tipos_schemadirectus",
       "community": 4,
@@ -1553,7 +1833,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "api_contato",
-      "community": 4,
+      "community": 106,
       "norm_label": "contato.ts"
     },
     {
@@ -1563,7 +1843,57 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "api_contato_post",
-      "community": 4,
+      "community": 106,
+      "norm_label": "post()"
+    },
+    {
+      "label": "juridico.ts",
+      "file_type": "code",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "api_juridico",
+      "community": 106,
+      "norm_label": "juridico.ts"
+    },
+    {
+      "label": "valorTexto()",
+      "file_type": "code",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "api_juridico_valortexto",
+      "community": 106,
+      "norm_label": "valortexto()"
+    },
+    {
+      "label": "limiteCampo()",
+      "file_type": "code",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "api_juridico_limitecampo",
+      "community": 106,
+      "norm_label": "limitecampo()"
+    },
+    {
+      "label": "valorEhValido()",
+      "file_type": "code",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "api_juridico_valorehvalido",
+      "community": 106,
+      "norm_label": "valorehvalido()"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "api_juridico_post",
+      "community": 106,
       "norm_label": "post()"
     },
     {
@@ -1573,7 +1903,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "api_newsletter",
-      "community": 4,
+      "community": 117,
       "norm_label": "newsletter.ts"
     },
     {
@@ -1583,7 +1913,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "api_newsletter_post",
-      "community": 4,
+      "community": 117,
       "norm_label": "post()"
     },
     {
@@ -1625,6 +1955,16 @@
       "id": "pages_index",
       "community": 104,
       "norm_label": "index.astro"
+    },
+    {
+      "label": "juridico.astro",
+      "file_type": "code",
+      "source_file": "site/src/pages/juridico.astro",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "pages_juridico",
+      "community": 4,
+      "norm_label": "juridico.astro"
     },
     {
       "label": "[slug].astro",
@@ -1953,7 +2293,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "inc_cpt_aviso",
-      "community": 107,
+      "community": 111,
       "norm_label": "cpt-aviso.php"
     },
     {
@@ -1963,7 +2303,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "inc_cpt_aviso_sindicato_registrar_cpt_aviso",
-      "community": 107,
+      "community": 111,
       "norm_label": "sindicato_registrar_cpt_aviso()"
     },
     {
@@ -1973,7 +2313,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "inc_cpt_aviso_sindicato_metabox_aviso",
-      "community": 107,
+      "community": 111,
       "norm_label": "sindicato_metabox_aviso()"
     },
     {
@@ -1983,7 +2323,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "inc_cpt_aviso_sindicato_render_metabox_aviso",
-      "community": 107,
+      "community": 111,
       "norm_label": "sindicato_render_metabox_aviso()"
     },
     {
@@ -1993,7 +2333,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "inc_cpt_aviso_sindicato_salvar_aviso",
-      "community": 107,
+      "community": 111,
       "norm_label": "sindicato_salvar_aviso()"
     },
     {
@@ -2403,7 +2743,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "inc_template_tags",
-      "community": 105,
+      "community": 107,
       "norm_label": "template-tags.php"
     },
     {
@@ -2423,7 +2763,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "inc_template_tags_sindicato_data_em_vigencia",
-      "community": 105,
+      "community": 107,
       "norm_label": "sindicato_data_em_vigencia()"
     },
     {
@@ -2433,7 +2773,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "inc_template_tags_sindicato_get_aviso_urgente_ativo",
-      "community": 105,
+      "community": 107,
       "norm_label": "sindicato_get_aviso_urgente_ativo()"
     },
     {
@@ -2443,7 +2783,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "inc_template_tags_sindicato_get_banner_ativo",
-      "community": 105,
+      "community": 107,
       "norm_label": "sindicato_get_banner_ativo()"
     },
     {
@@ -2453,7 +2793,7 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "inc_template_tags_sindicato_get_avisos_rapidos_ativos",
-      "community": 105,
+      "community": 107,
       "norm_label": "sindicato_get_avisos_rapidos_ativos()"
     },
     {
@@ -2463,7 +2803,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "inc_template_tags_sindicato_get_cards_sociais",
-      "community": 105,
+      "community": 107,
       "norm_label": "sindicato_get_cards_sociais()"
     },
     {
@@ -2473,7 +2813,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "inc_template_tags_sindicato_get_diretoria",
-      "community": 105,
+      "community": 107,
       "norm_label": "sindicato_get_diretoria()"
     },
     {
@@ -2483,7 +2823,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "inc_template_tags_sindicato_normalizar_digitos_telefone",
-      "community": 105,
+      "community": 107,
       "norm_label": "sindicato_normalizar_digitos_telefone()"
     },
     {
@@ -2493,7 +2833,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "inc_template_tags_sindicato_link_telefone",
-      "community": 105,
+      "community": 107,
       "norm_label": "sindicato_link_telefone()"
     },
     {
@@ -2503,7 +2843,7 @@
       "source_location": "L128",
       "_origin": "ast",
       "id": "inc_template_tags_sindicato_link_whatsapp",
-      "community": 105,
+      "community": 107,
       "norm_label": "sindicato_link_whatsapp()"
     },
     {
@@ -5097,6 +5437,136 @@
       "norm_label": "backup"
     },
     {
+      "label": "Desing.md",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "design_desing",
+      "community": 105,
+      "norm_label": "desing.md"
+    },
+    {
+      "label": "Brand & Style",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L119",
+      "_origin": "ast",
+      "id": "design_desing_brand_style",
+      "community": 105,
+      "norm_label": "brand & style"
+    },
+    {
+      "label": "Colors",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L129",
+      "_origin": "ast",
+      "id": "design_desing_colors",
+      "community": 105,
+      "norm_label": "colors"
+    },
+    {
+      "label": "Typography",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L141",
+      "_origin": "ast",
+      "id": "design_desing_typography",
+      "community": 105,
+      "norm_label": "typography"
+    },
+    {
+      "label": "Layout & Spacing",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L149",
+      "_origin": "ast",
+      "id": "design_desing_layout_spacing",
+      "community": 105,
+      "norm_label": "layout & spacing"
+    },
+    {
+      "label": "Elevation & Depth",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L159",
+      "_origin": "ast",
+      "id": "design_desing_elevation_depth",
+      "community": 105,
+      "norm_label": "elevation & depth"
+    },
+    {
+      "label": "Shapes",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L168",
+      "_origin": "ast",
+      "id": "design_desing_shapes",
+      "community": 105,
+      "norm_label": "shapes"
+    },
+    {
+      "label": "Components",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L176",
+      "_origin": "ast",
+      "id": "design_desing_components",
+      "community": 105,
+      "norm_label": "components"
+    },
+    {
+      "label": "Buttons",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L178",
+      "_origin": "ast",
+      "id": "design_desing_buttons",
+      "community": 105,
+      "norm_label": "buttons"
+    },
+    {
+      "label": "Input Fields",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L183",
+      "_origin": "ast",
+      "id": "design_desing_input_fields",
+      "community": 105,
+      "norm_label": "input fields"
+    },
+    {
+      "label": "Cards",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L189",
+      "_origin": "ast",
+      "id": "design_desing_cards",
+      "community": 105,
+      "norm_label": "cards"
+    },
+    {
+      "label": "Chips / Tags",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L194",
+      "_origin": "ast",
+      "id": "design_desing_chips_tags",
+      "community": 105,
+      "norm_label": "chips / tags"
+    },
+    {
+      "label": "Lists",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L198",
+      "_origin": "ast",
+      "id": "design_desing_lists",
+      "community": 105,
+      "norm_label": "lists"
+    },
+    {
       "label": "campos-formularios.md",
       "file_type": "document",
       "source_file": "docs/lgpd/campos-formularios.md",
@@ -7097,7 +7567,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 110,
+      "community": 115,
       "norm_label": "elevation",
       "community_name": "Design System and Typography",
       "id": "design_elevation"
@@ -7111,7 +7581,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 110,
+      "community": 115,
       "norm_label": "shadow ambiente",
       "community_name": "Design System and Typography",
       "id": "design_shadow_ambiente"
@@ -7125,7 +7595,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 110,
+      "community": 115,
       "norm_label": "shadow ambiente-suave",
       "community_name": "Design System and Typography",
       "id": "design_shadow_ambiente_suave"
@@ -7139,7 +7609,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 110,
+      "community": 115,
       "norm_label": "shadow botao-acao",
       "community_name": "Design System and Typography",
       "id": "design_shadow_botao_acao"
@@ -7251,7 +7721,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 110,
+      "community": 115,
       "norm_label": "the no double-depth rule",
       "community_name": "Design System and Typography",
       "id": "design_the_no_double_depth_rule"
@@ -7867,7 +8337,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 111,
+      "community": 116,
       "norm_label": "convencoes e documentos",
       "community_name": "Documents and Contact Templates",
       "id": "conven\u00e7\u00f5es_e_documentos"
@@ -8105,7 +8575,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 111,
+      "community": 116,
       "norm_label": "termo aditivo",
       "community_name": "Documents and Contact Templates",
       "id": "termo_aditivo"
@@ -8119,7 +8589,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 111,
+      "community": 116,
       "norm_label": "acordo coletivo",
       "community_name": "Documents and Contact Templates",
       "id": "acordo_coletivo"
@@ -8133,7 +8603,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 111,
+      "community": 116,
       "norm_label": "convencao",
       "community_name": "Documents and Contact Templates",
       "id": "conven\u00e7\u00e3o"
@@ -8147,7 +8617,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 110,
       "norm_label": "functions.php",
       "community_name": "Notice Custom Post Type",
       "id": "functions_php"
@@ -8217,7 +8687,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 3,
       "norm_label": "get_header()",
       "community_name": "Documents and Contact Templates",
       "id": "get_header"
@@ -8931,7 +9401,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 110,
       "norm_label": "get_template_directory",
       "community_name": "Notice Custom Post Type",
       "id": "get_template_directory"
@@ -8945,7 +9415,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 110,
       "norm_label": "require",
       "community_name": "Notice Custom Post Type",
       "id": "require"
@@ -9057,7 +9527,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 110,
       "norm_label": "task 4 report: custom post type aviso",
       "community_name": "Notice Custom Post Type",
       "id": "task_4_report"
@@ -9071,7 +9541,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 111,
       "norm_label": "custom post type 'aviso'",
       "community_name": "Notice Custom Post Type",
       "id": "cpt_aviso"
@@ -9113,7 +9583,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 111,
       "norm_label": "sindicato_metabox_aviso",
       "community_name": "Notice Custom Post Type",
       "id": "sindicato_metabox_aviso"
@@ -9127,7 +9597,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 111,
       "norm_label": "sindicato_render_metabox_aviso",
       "community_name": "Notice Custom Post Type",
       "id": "sindicato_render_metabox_aviso"
@@ -9141,7 +9611,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 111,
       "norm_label": "sindicato_salvar_aviso",
       "community_name": "Notice Custom Post Type",
       "id": "sindicato_salvar_aviso"
@@ -9155,7 +9625,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 111,
       "norm_label": "save_post_aviso (hook)",
       "community_name": "Notice Custom Post Type",
       "id": "save_post_aviso"
@@ -9169,7 +9639,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 108,
+      "community": 114,
       "norm_label": "sindicato_data_em_vigencia",
       "community_name": "Banner Custom Post Type",
       "id": "sindicato_data_em_vigencia"
@@ -9183,7 +9653,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 105,
+      "community": 107,
       "norm_label": "sindicato_get_aviso_urgente_ativo",
       "community_name": "Banner Custom Post Type",
       "id": "sindicato_get_aviso_urgente_ativo"
@@ -9197,7 +9667,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 105,
+      "community": 107,
       "norm_label": "sindicato_get_avisos_rapidos_ativos",
       "community_name": "Banner Custom Post Type",
       "id": "sindicato_get_avisos_rapidos_ativos"
@@ -9211,7 +9681,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 105,
+      "community": 107,
       "norm_label": "get_posts",
       "community_name": "Banner Custom Post Type",
       "id": "get_posts"
@@ -9225,7 +9695,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 105,
+      "community": 107,
       "norm_label": "wp_query",
       "community_name": "Banner Custom Post Type",
       "id": "wp_query"
@@ -9239,7 +9709,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 111,
       "norm_label": "update_post_meta",
       "community_name": "Notice Custom Post Type",
       "id": "update_post_meta"
@@ -9253,7 +9723,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 108,
+      "community": 114,
       "norm_label": "get_post_meta",
       "community_name": "Banner Custom Post Type",
       "id": "get_post_meta"
@@ -9295,7 +9765,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 110,
       "norm_label": "task 5 brief: noticias na home",
       "community_name": "Notice Custom Post Type",
       "id": "task_5_brief"
@@ -9309,7 +9779,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 110,
       "norm_label": "sindicato_criar_categorias_padrao",
       "community_name": "Notice Custom Post Type",
       "id": "sindicato_criar_categorias_padrao"
@@ -9323,7 +9793,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 110,
       "norm_label": "term_exists",
       "community_name": "Notice Custom Post Type",
       "id": "term_exists"
@@ -9337,7 +9807,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 110,
       "norm_label": "wp_insert_term",
       "community_name": "Notice Custom Post Type",
       "id": "wp_insert_term"
@@ -9351,7 +9821,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 110,
       "norm_label": "add_action",
       "community_name": "Notice Custom Post Type",
       "id": "add_action"
@@ -9365,7 +9835,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 110,
       "norm_label": "after_switch_theme (hook)",
       "community_name": "Notice Custom Post Type",
       "id": "after_switch_theme"
@@ -9575,7 +10045,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 110,
       "norm_label": "task 5 report",
       "community_name": "Notice Custom Post Type",
       "id": "task_5_report"
@@ -9631,7 +10101,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 108,
+      "community": 114,
       "norm_label": "task 6 brief",
       "community_name": "Banner Custom Post Type",
       "id": "task_6_brief"
@@ -9659,7 +10129,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 108,
+      "community": 114,
       "norm_label": "inc/template-tags.php",
       "community_name": "Banner Custom Post Type",
       "id": "inc_template_tags_php"
@@ -9673,7 +10143,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 108,
+      "community": 114,
       "norm_label": "sindicato_get_banner_ativo",
       "community_name": "Banner Custom Post Type",
       "id": "sindicato_get_banner_ativo"
@@ -9729,7 +10199,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 108,
+      "community": 114,
       "norm_label": "sindicato_render_metabox_banner",
       "community_name": "Banner Custom Post Type",
       "id": "sindicato_render_metabox_banner"
@@ -9743,7 +10213,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 108,
+      "community": 114,
       "norm_label": "wp_nonce_field",
       "community_name": "Banner Custom Post Type",
       "id": "wp_nonce_field"
@@ -10023,12 +10493,125 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "scripts_directus_atualizar_juridico",
+      "target": "scripts_directus_atualizar_juridico_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "scripts_directus_atualizar_juridico",
+      "target": "scripts_directus_atualizar_juridico_campos_formulario",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "scripts_directus_atualizar_juridico",
+      "target": "scripts_directus_atualizar_juridico_direitos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "scripts_directus_atualizar_juridico",
+      "target": "scripts_directus_atualizar_juridico_faq",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "scripts_directus_atualizar_juridico",
+      "target": "scripts_directus_atualizar_juridico_pagina",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "scripts_directus_atualizar_juridico",
+      "target": "scripts_directus_atualizar_juridico_plantoes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L181",
+      "weight": 1.0,
+      "source": "scripts_directus_atualizar_juridico",
+      "target": "scripts_directus_atualizar_juridico_principal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "scripts_directus_atualizar_juridico",
+      "target": "scripts_directus_atualizar_juridico_substituircolecao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L190",
+      "weight": 1.0,
+      "source": "scripts_directus_atualizar_juridico_principal",
+      "target": "scripts_directus_atualizar_juridico_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "scripts_directus_atualizar_juridico_substituircolecao",
+      "target": "scripts_directus_atualizar_juridico_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-juridico.mjs",
+      "source_location": "L193",
+      "weight": 1.0,
+      "source": "scripts_directus_atualizar_juridico_principal",
+      "target": "scripts_directus_atualizar_juridico_substituircolecao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "scripts/directus-atualizar-paginas.mjs",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_paginas",
-      "target": "scripts_directus_atualizar_paginas_api",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_paginas_api"
     },
     {
       "relation": "contains",
@@ -10036,9 +10619,9 @@
       "source_file": "scripts/directus-atualizar-paginas.mjs",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_paginas",
-      "target": "scripts_directus_atualizar_paginas_paginas",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_paginas_paginas"
     },
     {
       "relation": "contains",
@@ -10046,9 +10629,9 @@
       "source_file": "scripts/directus-atualizar-paginas.mjs",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_paginas",
-      "target": "scripts_directus_atualizar_paginas_principal",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_paginas_principal"
     },
     {
       "relation": "calls",
@@ -10057,9 +10640,9 @@
       "source_file": "scripts/directus-atualizar-paginas.mjs",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_paginas_principal",
-      "target": "scripts_directus_atualizar_paginas_api",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_paginas_api"
     },
     {
       "relation": "contains",
@@ -10087,9 +10670,9 @@
       "source_file": "scripts/directus-conteudo-exemplo.mjs",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_conteudo_exemplo",
-      "target": "scripts_directus_conteudo_exemplo_paginas_institucionais",
-      "confidence_score": 1.0
+      "target": "scripts_directus_conteudo_exemplo_paginas_institucionais"
     },
     {
       "relation": "contains",
@@ -10198,6 +10781,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/directus-schema.mjs",
+      "source_location": "L152",
+      "weight": 1.0,
+      "source": "scripts_directus_schema",
+      "target": "scripts_directus_schema_campoordem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-schema.mjs",
       "source_location": "L59",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -10243,6 +10836,16 @@
       "confidence_score": 1.0,
       "source": "scripts_directus_schema",
       "target": "scripts_directus_schema_criacao_publica"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-schema.mjs",
+      "source_location": "L418",
+      "weight": 1.0,
+      "source": "scripts_directus_schema",
+      "target": "scripts_directus_schema_garantircampo",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10310,6 +10913,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/directus-schema.mjs",
+      "source_location": "L420",
+      "weight": 1.0,
+      "source": "scripts_directus_schema_garantircampo",
+      "target": "scripts_directus_schema_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-schema.mjs",
       "source_location": "L311",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -10337,6 +10951,17 @@
       "confidence_score": 1.0,
       "source": "scripts_directus_schema_garantirroleeditor",
       "target": "scripts_directus_schema_api"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-schema.mjs",
+      "source_location": "L447",
+      "weight": 1.0,
+      "source": "scripts_directus_schema_garantircolecao",
+      "target": "scripts_directus_schema_garantircampo",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -11062,6 +11687,14 @@
     {
       "relation": "imports_from",
       "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "source": "pages_juridico",
+      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_directus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/[slug].astro",
       "confidence_score": 1.0,
       "source": "pages_slug",
@@ -11185,6 +11818,14 @@
       "confidence_score": 1.0,
       "source": "pages_index",
       "target": "components_postcard"
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "source": "pages_juridico",
+      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_tipos",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -11334,6 +11975,14 @@
       "source_file": "site/src/pages/index.astro",
       "confidence_score": 1.0,
       "source": "pages_index",
+      "target": "layouts_base"
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "confidence_score": 1.0,
+      "source": "pages_juridico",
       "target": "layouts_base"
     },
     {
@@ -11519,9 +12168,64 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "site/src/lib/directus.ts",
+      "source_location": "L426",
+      "weight": 1.0,
+      "source": "lib_directus_getjuridicocamposformulario",
+      "target": "lib_cache_comcache"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L375",
+      "weight": 1.0,
+      "source": "lib_directus_getjuridicodireitos",
+      "target": "lib_cache_comcache"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L409",
+      "weight": 1.0,
+      "source": "lib_directus_getjuridicofaq",
+      "target": "lib_cache_comcache"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L392",
+      "weight": 1.0,
+      "source": "lib_directus_getjuridicoplantoes",
+      "target": "lib_cache_comcache"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/lib/directus.ts",
       "source_location": "L203",
       "weight": 1.0,
       "source": "lib_directus_getpagina",
+      "target": "lib_cache_comcache"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L364",
+      "weight": 1.0,
+      "source": "lib_directus_getpaginajuridico",
       "target": "lib_cache_comcache"
     },
     {
@@ -11659,6 +12363,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "api_juridico",
+      "target": "lib_directus"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/api/newsletter.ts",
       "source_location": "L2",
       "weight": 1.0,
@@ -11790,11 +12505,61 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site/src/lib/directus.ts",
+      "source_location": "L424",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_directus_getjuridicocamposformulario",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L373",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_directus_getjuridicodireitos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L407",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_directus_getjuridicofaq",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L390",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_directus_getjuridicoplantoes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
       "source_location": "L202",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "lib_directus",
       "target": "lib_directus_getpagina"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L362",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_directus_getpaginajuridico",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -11835,6 +12600,56 @@
       "confidence_score": 1.0,
       "source": "lib_directus",
       "target": "lib_directus_getproximosvideos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_directus_juridico_campos_formulario_padrao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_directus_juridico_direitos_padrao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_directus_juridico_faq_padrao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_directus_juridico_plantoes_padrao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_directus_pagina_juridico_padrao",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -11929,9 +12744,64 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_tipos_juridicocampoformulario",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_tipos_juridicodireito",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_tipos_juridicofaq",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_tipos_juridicoplantao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L9",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "lib_directus",
       "target": "lib_tipos_pagina"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/directus.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "lib_directus",
+      "target": "lib_tipos_paginajuridico",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -12031,6 +12901,17 @@
       "confidence_score": 1.0,
       "source": "pages_index",
       "target": "lib_directus"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "pages_juridico",
+      "target": "lib_directus",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -12322,6 +13203,83 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "pages_juridico",
+      "target": "lib_directus_getpaginajuridico",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "pages_juridico",
+      "target": "lib_directus_getjuridicodireitos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "pages_juridico",
+      "target": "lib_directus_getjuridicoplantoes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "pages_juridico",
+      "target": "lib_directus_getjuridicofaq",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "api_juridico",
+      "target": "lib_directus_getjuridicocamposformulario",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "api_juridico_post",
+      "target": "lib_directus_getjuridicocamposformulario"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "pages_juridico",
+      "target": "lib_directus_getjuridicocamposformulario",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/api/newsletter.ts",
       "source_location": "L2",
       "weight": 1.0,
@@ -12360,6 +13318,28 @@
       "source_location": "L19",
       "weight": 1.0,
       "source": "api_contato_post",
+      "target": "lib_directus_criarmensagemcontato"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "api_juridico",
+      "target": "lib_directus_criarmensagemcontato"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "api_juridico_post",
       "target": "lib_directus_criarmensagemcontato"
     },
     {
@@ -12513,6 +13493,17 @@
       "target": "lib_formatar_formatardiames"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "api_juridico",
+      "target": "lib_tipos",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site/src/lib/tipos.ts",
@@ -12586,6 +13577,46 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site/src/lib/tipos.ts",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "lib_tipos",
+      "target": "lib_tipos_juridicocampoformulario",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/tipos.ts",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "lib_tipos",
+      "target": "lib_tipos_juridicodireito",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/tipos.ts",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "lib_tipos",
+      "target": "lib_tipos_juridicofaq",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/tipos.ts",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "lib_tipos",
+      "target": "lib_tipos_juridicoplantao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/tipos.ts",
       "source_location": "L86",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -12601,6 +13632,16 @@
       "confidence_score": 1.0,
       "source": "lib_tipos",
       "target": "lib_tipos_pagina"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/tipos.ts",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "lib_tipos",
+      "target": "lib_tipos_paginajuridico",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -12631,6 +13672,49 @@
       "confidence_score": 1.0,
       "source": "lib_tipos",
       "target": "lib_tipos_schemadirectus"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/tipos.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "lib_tipos",
+      "target": "lib_tipos_statuspublicacao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "pages_juridico",
+      "target": "lib_tipos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "api_juridico",
+      "target": "lib_tipos_juridicocampoformulario",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "pages_juridico",
+      "target": "lib_tipos_juridicocampoformulario",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -12735,6 +13819,79 @@
       "confidence_score": 1.0,
       "source": "api_contato",
       "target": "api_contato_post"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "api_juridico",
+      "target": "api_juridico_limitecampo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "api_juridico",
+      "target": "api_juridico_post"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "api_juridico",
+      "target": "api_juridico_valorehvalido",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "api_juridico",
+      "target": "api_juridico_valortexto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "api_juridico_post",
+      "target": "api_juridico_valortexto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "api_juridico_post",
+      "target": "api_juridico_limitecampo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "api_juridico_post",
+      "target": "api_juridico_valorehvalido",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16334,6 +17491,126 @@
       "confidence_score": 1.0,
       "source": "deploy_readme_deploy_do_site_astro_directus",
       "target": "deploy_readme_verifica\u00e7\u00f5es_r\u00e1pidas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L119",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_brand_style"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L129",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_colors"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L176",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_components"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L159",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_elevation_depth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L149",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_layout_spacing"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L168",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_shapes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L141",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_typography"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L178",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "design_desing_components",
+      "target": "design_desing_buttons"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L189",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "design_desing_components",
+      "target": "design_desing_cards"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L194",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "design_desing_components",
+      "target": "design_desing_chips_tags"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L183",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "design_desing_components",
+      "target": "design_desing_input_fields"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L198",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "design_desing_components",
+      "target": "design_desing_lists"
     },
     {
       "relation": "contains",
@@ -20967,5 +22244,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3c8c52dbd211784d431d1c4f2a2ded82d9aea6d7"
+  "built_at_commit": "049dcdf4937a7211810701a63fcf782f0c420287"
 }

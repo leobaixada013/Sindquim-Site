@@ -4,6 +4,16 @@
   "graph": {},
   "nodes": [
     {
+      "label": "codigo.tsx",
+      "file_type": "code",
+      "source_file": "design/codigo.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "design_codigo",
+      "community": 108,
+      "norm_label": "codigo.tsx"
+    },
+    {
       "label": "script.js",
       "file_type": "code",
       "source_file": "script.js",
@@ -74,6 +84,46 @@
       "norm_label": "renderquicknotices()"
     },
     {
+      "label": "directus-atualizar-paginas.mjs",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-paginas.mjs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_paginas",
+      "community": 112,
+      "norm_label": "directus-atualizar-paginas.mjs"
+    },
+    {
+      "label": "api()",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-paginas.mjs",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_paginas_api",
+      "community": 112,
+      "norm_label": "api()"
+    },
+    {
+      "label": "PAGINAS",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-paginas.mjs",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_paginas_paginas",
+      "community": 112,
+      "norm_label": "paginas"
+    },
+    {
+      "label": "principal()",
+      "file_type": "code",
+      "source_file": "scripts/directus-atualizar-paginas.mjs",
+      "source_location": "L85",
+      "_origin": "ast",
+      "id": "scripts_directus_atualizar_paginas_principal",
+      "community": 112,
+      "norm_label": "principal()"
+    },
+    {
       "label": "directus-conteudo-exemplo.mjs",
       "file_type": "code",
       "source_file": "scripts/directus-conteudo-exemplo.mjs",
@@ -104,10 +154,20 @@
       "norm_label": "importarimagem()"
     },
     {
-      "label": "principal()",
+      "label": "PAGINAS_INSTITUCIONAIS",
       "file_type": "code",
       "source_file": "scripts/directus-conteudo-exemplo.mjs",
       "source_location": "L61",
+      "_origin": "ast",
+      "id": "scripts_directus_conteudo_exemplo_paginas_institucionais",
+      "community": 78,
+      "norm_label": "paginas_institucionais"
+    },
+    {
+      "label": "principal()",
+      "file_type": "code",
+      "source_file": "scripts/directus-conteudo-exemplo.mjs",
+      "source_location": "L111",
       "_origin": "ast",
       "id": "scripts_directus_conteudo_exemplo_principal",
       "community": 78,
@@ -791,7 +851,7 @@
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "id": "components_estudio",
-      "community": 4,
+      "community": 102,
       "norm_label": "../components/estudio.astro"
     },
     {
@@ -801,7 +861,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "lite_yt_embed_css",
-      "community": 4,
+      "community": 102,
       "norm_label": "lite-youtube-embed/src/lite-yt-embed.css"
     },
     {
@@ -811,7 +871,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_directus",
-      "community": 4,
+      "community": 103,
       "norm_label": "../../lib/directus"
     },
     {
@@ -821,7 +881,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_formatar",
-      "community": 4,
+      "community": 104,
       "norm_label": "../../lib/formatar"
     },
     {
@@ -831,7 +891,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_youtube",
-      "community": 4,
+      "community": 102,
       "norm_label": "../lib/youtube"
     },
     {
@@ -852,7 +912,7 @@
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "id": "components_postcard",
-      "community": 4,
+      "community": 104,
       "norm_label": "../../components/postcard.astro"
     },
     {
@@ -862,7 +922,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_postcard_imagem",
-      "community": 4,
+      "community": 104,
       "norm_label": "imagem"
     },
     {
@@ -872,7 +932,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_tipos",
-      "community": 4,
+      "community": 104,
       "norm_label": "../lib/tipos"
     },
     {
@@ -883,7 +943,7 @@
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "id": "layouts_base",
-      "community": 4,
+      "community": 103,
       "norm_label": "../../layouts/base.astro"
     },
     {
@@ -893,7 +953,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "layouts_base_urlcanonica",
-      "community": 4,
+      "community": 103,
       "norm_label": "urlcanonica"
     },
     {
@@ -903,7 +963,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "layouts_base_estadonewsletter",
-      "community": 4,
+      "community": 103,
       "norm_label": "estadonewsletter"
     },
     {
@@ -913,7 +973,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "archivo",
-      "community": 4,
+      "community": 103,
       "norm_label": "@fontsource-variable/archivo"
     },
     {
@@ -923,7 +983,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "source_serif_4",
-      "community": 4,
+      "community": 103,
       "norm_label": "@fontsource-variable/source-serif-4"
     },
     {
@@ -933,7 +993,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_styles_global_css",
-      "community": 4,
+      "community": 103,
       "norm_label": "../styles/global.css"
     },
     {
@@ -943,7 +1003,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_constantes",
-      "community": 4,
+      "community": 104,
       "norm_label": "../../lib/constantes"
     },
     {
@@ -953,7 +1013,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_cache",
-      "community": 4,
+      "community": 102,
       "norm_label": "cache.ts"
     },
     {
@@ -963,7 +1023,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_cache_entrada",
-      "community": 4,
+      "community": 102,
       "norm_label": "entrada"
     },
     {
@@ -973,7 +1033,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "lib_cache_memoria",
-      "community": 4,
+      "community": 102,
       "norm_label": "memoria"
     },
     {
@@ -983,7 +1043,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "lib_cache_comcache",
-      "community": 4,
+      "community": 102,
       "norm_label": "comcache()"
     },
     {
@@ -993,7 +1053,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "lib_cache_limparcache",
-      "community": 4,
+      "community": 102,
       "norm_label": "limparcache()"
     },
     {
@@ -1003,7 +1063,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_constantes",
-      "community": 4,
+      "community": 103,
       "norm_label": "constantes.ts"
     },
     {
@@ -1013,7 +1073,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "lib_constantes_menu",
-      "community": 4,
+      "community": 103,
       "norm_label": "menu"
     },
     {
@@ -1053,7 +1113,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "lib_directus_urlimagem",
-      "community": 4,
+      "community": 107,
       "norm_label": "urlimagem()"
     },
     {
@@ -1073,7 +1133,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "lib_directus_getconfiguracoes",
-      "community": 4,
+      "community": 102,
       "norm_label": "getconfiguracoes()"
     },
     {
@@ -1083,7 +1143,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "lib_directus_getpostbanner",
-      "community": 4,
+      "community": 109,
       "norm_label": "getpostbanner()"
     },
     {
@@ -1093,7 +1153,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "lib_directus_getposts",
-      "community": 4,
+      "community": 109,
       "norm_label": "getposts()"
     },
     {
@@ -1103,7 +1163,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "lib_directus_contarposts",
-      "community": 4,
+      "community": 103,
       "norm_label": "contarposts()"
     },
     {
@@ -1113,7 +1173,7 @@
       "source_location": "L118",
       "_origin": "ast",
       "id": "lib_directus_getpostporslug",
-      "community": 4,
+      "community": 104,
       "norm_label": "getpostporslug()"
     },
     {
@@ -1133,7 +1193,7 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "lib_directus_getavisourgente",
-      "community": 4,
+      "community": 102,
       "norm_label": "getavisourgente()"
     },
     {
@@ -1143,7 +1203,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "lib_directus_getavisosrapidos",
-      "community": 4,
+      "community": 102,
       "norm_label": "getavisosrapidos()"
     },
     {
@@ -1153,7 +1213,7 @@
       "source_location": "L164",
       "_origin": "ast",
       "id": "lib_directus_getproximosvideos",
-      "community": 4,
+      "community": 102,
       "norm_label": "getproximosvideos()"
     },
     {
@@ -1163,7 +1223,7 @@
       "source_location": "L177",
       "_origin": "ast",
       "id": "lib_directus_getdiretores",
-      "community": 4,
+      "community": 107,
       "norm_label": "getdiretores()"
     },
     {
@@ -1173,7 +1233,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "lib_directus_getdocumentos",
-      "community": 4,
+      "community": 102,
       "norm_label": "getdocumentos()"
     },
     {
@@ -1183,7 +1243,7 @@
       "source_location": "L195",
       "_origin": "ast",
       "id": "lib_directus_getcardsinstagram",
-      "community": 4,
+      "community": 102,
       "norm_label": "getcardsinstagram()"
     },
     {
@@ -1193,7 +1253,7 @@
       "source_location": "L202",
       "_origin": "ast",
       "id": "lib_directus_getpagina",
-      "community": 4,
+      "community": 103,
       "norm_label": "getpagina()"
     },
     {
@@ -1213,7 +1273,7 @@
       "source_location": "L216",
       "_origin": "ast",
       "id": "lib_directus_criarmensagemcontato",
-      "community": 4,
+      "community": 106,
       "norm_label": "criarmensagemcontato()"
     },
     {
@@ -1223,7 +1283,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_formatar_test",
-      "community": 4,
+      "community": 104,
       "norm_label": "formatar.test.ts"
     },
     {
@@ -1233,7 +1293,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_formatar",
-      "community": 4,
+      "community": 104,
       "norm_label": "formatar.ts"
     },
     {
@@ -1243,7 +1303,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "lib_formatar_formatardata",
-      "community": 4,
+      "community": 104,
       "norm_label": "formatardata()"
     },
     {
@@ -1253,7 +1313,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "lib_formatar_formatardatalonga",
-      "community": 4,
+      "community": 104,
       "norm_label": "formatardatalonga()"
     },
     {
@@ -1263,7 +1323,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "lib_formatar_formatardataestreia",
-      "community": 4,
+      "community": 104,
       "norm_label": "formatardataestreia()"
     },
     {
@@ -1273,7 +1333,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "lib_formatar_formatardiames",
-      "community": 4,
+      "community": 104,
       "norm_label": "formatardiames()"
     },
     {
@@ -1413,7 +1473,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_youtube_test",
-      "community": 4,
+      "community": 102,
       "norm_label": "youtube.test.ts"
     },
     {
@@ -1423,7 +1483,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "lib_youtube_test_feed_um_video",
-      "community": 4,
+      "community": 102,
       "norm_label": "feed_um_video"
     },
     {
@@ -1433,7 +1493,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_youtube",
-      "community": 4,
+      "community": 102,
       "norm_label": "youtube.ts"
     },
     {
@@ -1443,7 +1503,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "lib_youtube_videoyoutube",
-      "community": 4,
+      "community": 102,
       "norm_label": "videoyoutube"
     },
     {
@@ -1453,7 +1513,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "lib_youtube_parseyoutubefeed",
-      "community": 4,
+      "community": 102,
       "norm_label": "parseyoutubefeed()"
     },
     {
@@ -1463,7 +1523,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "lib_youtube_resolverchannelid",
-      "community": 4,
+      "community": 102,
       "norm_label": "resolverchannelid()"
     },
     {
@@ -1473,7 +1533,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "lib_youtube_getvideosyoutube",
-      "community": 4,
+      "community": 102,
       "norm_label": "getvideosyoutube()"
     },
     {
@@ -1483,7 +1543,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pages_404",
-      "community": 4,
+      "community": 103,
       "norm_label": "404.astro"
     },
     {
@@ -1493,7 +1553,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pages_slug",
-      "community": 4,
+      "community": 103,
       "norm_label": "[slug].astro"
     },
     {
@@ -1503,7 +1563,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "api_contato",
-      "community": 4,
+      "community": 106,
       "norm_label": "contato.ts"
     },
     {
@@ -1513,7 +1573,27 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "api_contato_post",
-      "community": 4,
+      "community": 106,
+      "norm_label": "post()"
+    },
+    {
+      "label": "juridico.ts",
+      "file_type": "code",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "api_juridico",
+      "community": 106,
+      "norm_label": "juridico.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "api_juridico_post",
+      "community": 106,
       "norm_label": "post()"
     },
     {
@@ -1537,23 +1617,13 @@
       "norm_label": "post()"
     },
     {
-      "label": "avisos.astro",
-      "file_type": "code",
-      "source_file": "site/src/pages/avisos.astro",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "pages_avisos",
-      "community": 4,
-      "norm_label": "avisos.astro"
-    },
-    {
       "label": "contato.astro",
       "file_type": "code",
       "source_file": "site/src/pages/contato.astro",
       "source_location": "L1",
       "_origin": "ast",
       "id": "pages_contato",
-      "community": 4,
+      "community": 103,
       "norm_label": "contato.astro"
     },
     {
@@ -1563,18 +1633,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "pages_contato_estado",
-      "community": 4,
+      "community": 103,
       "norm_label": "estado"
-    },
-    {
-      "label": "convencoes.astro",
-      "file_type": "code",
-      "source_file": "site/src/pages/convencoes.astro",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "pages_convencoes",
-      "community": 4,
-      "norm_label": "convencoes.astro"
     },
     {
       "label": "diretoria.astro",
@@ -1583,7 +1643,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pages_diretoria",
-      "community": 4,
+      "community": 107,
       "norm_label": "diretoria.astro"
     },
     {
@@ -1593,8 +1653,28 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pages_index",
-      "community": 4,
+      "community": 104,
       "norm_label": "index.astro"
+    },
+    {
+      "label": "juridico.astro",
+      "file_type": "code",
+      "source_file": "site/src/pages/juridico.astro",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "pages_juridico",
+      "community": 103,
+      "norm_label": "juridico.astro"
+    },
+    {
+      "label": "estado",
+      "file_type": "code",
+      "source_file": "site/src/pages/juridico.astro",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "pages_juridico_estado",
+      "community": 103,
+      "norm_label": "estado"
     },
     {
       "label": "[slug].astro",
@@ -1603,7 +1683,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "noticias_slug",
-      "community": 4,
+      "community": 104,
       "norm_label": "[slug].astro"
     },
     {
@@ -1613,7 +1693,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "noticias_slug_imagemcapa",
-      "community": 4,
+      "community": 104,
       "norm_label": "imagemcapa"
     },
     {
@@ -1623,7 +1703,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "noticias_slug_relacionados",
-      "community": 4,
+      "community": 104,
       "norm_label": "relacionados"
     },
     {
@@ -1633,7 +1713,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "noticias_slug_jsonld",
-      "community": 4,
+      "community": 104,
       "norm_label": "jsonld"
     },
     {
@@ -1643,7 +1723,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "noticias_index",
-      "community": 4,
+      "community": 103,
       "norm_label": "index.astro"
     },
     {
@@ -1673,7 +1753,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pages_rss_xml",
-      "community": 4,
+      "community": 109,
       "norm_label": "rss.xml.ts"
     },
     {
@@ -1683,7 +1763,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "pages_rss_xml_get",
-      "community": 4,
+      "community": 109,
       "norm_label": "get()"
     },
     {
@@ -1693,7 +1773,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pages_sitemap_xml",
-      "community": 4,
+      "community": 109,
       "norm_label": "sitemap.xml.ts"
     },
     {
@@ -1703,17 +1783,17 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "pages_sitemap_xml_paginas_fixas",
-      "community": 4,
+      "community": 109,
       "norm_label": "paginas_fixas"
     },
     {
       "label": "GET()",
       "file_type": "code",
       "source_file": "site/src/pages/sitemap.xml.ts",
-      "source_location": "L16",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "pages_sitemap_xml_get",
-      "community": 4,
+      "community": 109,
       "norm_label": "get()"
     },
     {
@@ -5067,6 +5147,136 @@
       "norm_label": "backup"
     },
     {
+      "label": "Desing.md",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "design_desing",
+      "community": 105,
+      "norm_label": "desing.md"
+    },
+    {
+      "label": "Brand & Style",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L119",
+      "_origin": "ast",
+      "id": "design_desing_brand_style",
+      "community": 105,
+      "norm_label": "brand & style"
+    },
+    {
+      "label": "Colors",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L129",
+      "_origin": "ast",
+      "id": "design_desing_colors",
+      "community": 105,
+      "norm_label": "colors"
+    },
+    {
+      "label": "Typography",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L141",
+      "_origin": "ast",
+      "id": "design_desing_typography",
+      "community": 105,
+      "norm_label": "typography"
+    },
+    {
+      "label": "Layout & Spacing",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L149",
+      "_origin": "ast",
+      "id": "design_desing_layout_spacing",
+      "community": 105,
+      "norm_label": "layout & spacing"
+    },
+    {
+      "label": "Elevation & Depth",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L159",
+      "_origin": "ast",
+      "id": "design_desing_elevation_depth",
+      "community": 105,
+      "norm_label": "elevation & depth"
+    },
+    {
+      "label": "Shapes",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L168",
+      "_origin": "ast",
+      "id": "design_desing_shapes",
+      "community": 105,
+      "norm_label": "shapes"
+    },
+    {
+      "label": "Components",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L176",
+      "_origin": "ast",
+      "id": "design_desing_components",
+      "community": 105,
+      "norm_label": "components"
+    },
+    {
+      "label": "Buttons",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L178",
+      "_origin": "ast",
+      "id": "design_desing_buttons",
+      "community": 105,
+      "norm_label": "buttons"
+    },
+    {
+      "label": "Input Fields",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L183",
+      "_origin": "ast",
+      "id": "design_desing_input_fields",
+      "community": 105,
+      "norm_label": "input fields"
+    },
+    {
+      "label": "Cards",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L189",
+      "_origin": "ast",
+      "id": "design_desing_cards",
+      "community": 105,
+      "norm_label": "cards"
+    },
+    {
+      "label": "Chips / Tags",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L194",
+      "_origin": "ast",
+      "id": "design_desing_chips_tags",
+      "community": 105,
+      "norm_label": "chips / tags"
+    },
+    {
+      "label": "Lists",
+      "file_type": "document",
+      "source_file": "design/Desing.md",
+      "source_location": "L198",
+      "_origin": "ast",
+      "id": "design_desing_lists",
+      "community": 105,
+      "norm_label": "lists"
+    },
+    {
       "label": "campos-formularios.md",
       "file_type": "document",
       "source_file": "docs/lgpd/campos-formularios.md",
@@ -7725,7 +7935,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 3,
       "norm_label": "product requirements documentation",
       "community_name": "UI Mockups and Components",
       "id": "product_md"
@@ -7963,7 +8173,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 42,
       "norm_label": "wp_unslash()",
       "community_name": "Banner Custom Post Type",
       "id": "wp_unslash"
@@ -7977,7 +8187,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 6,
       "norm_label": "esc_attr()",
       "community_name": "YouTube API Integration",
       "id": "esc_attr"
@@ -7991,7 +8201,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 42,
       "norm_label": "esc_html()",
       "community_name": "WordPress Loop and Templates",
       "id": "esc_html"
@@ -8187,7 +8397,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 6,
       "norm_label": "get_header()",
       "community_name": "Documents and Contact Templates",
       "id": "get_header"
@@ -8201,7 +8411,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 6,
       "norm_label": "get_footer()",
       "community_name": "Documents and Contact Templates",
       "id": "get_footer"
@@ -8761,7 +8971,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 6,
       "norm_label": "rawurlencode",
       "community_name": "WordPress Loop and Templates",
       "id": "rawurlencode"
@@ -9265,7 +9475,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 1,
       "norm_label": "task 5 brief: noticias na home",
       "community_name": "Notice Custom Post Type",
       "id": "task_5_brief"
@@ -9993,6 +10203,47 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-paginas.mjs",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_directus_atualizar_paginas",
+      "target": "scripts_directus_atualizar_paginas_api"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-paginas.mjs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_directus_atualizar_paginas",
+      "target": "scripts_directus_atualizar_paginas_paginas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-paginas.mjs",
+      "source_location": "L85",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_directus_atualizar_paginas",
+      "target": "scripts_directus_atualizar_paginas_principal"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-atualizar-paginas.mjs",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_directus_atualizar_paginas_principal",
+      "target": "scripts_directus_atualizar_paginas_api"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "scripts/directus-conteudo-exemplo.mjs",
       "source_location": "L18",
       "weight": 1.0,
@@ -10009,6 +10260,16 @@
       "confidence_score": 1.0,
       "source": "scripts_directus_conteudo_exemplo",
       "target": "scripts_directus_conteudo_exemplo_importarimagem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/directus-conteudo-exemplo.mjs",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_directus_conteudo_exemplo",
+      "target": "scripts_directus_conteudo_exemplo_paginas_institucionais"
     },
     {
       "relation": "contains",
@@ -10957,25 +11218,9 @@
     {
       "relation": "imports_from",
       "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "confidence_score": 1.0,
-      "source": "pages_avisos",
-      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_directus"
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/contato.astro",
       "confidence_score": 1.0,
       "source": "pages_contato",
-      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_directus"
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/convencoes.astro",
-      "confidence_score": 1.0,
-      "source": "pages_convencoes",
       "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_directus"
     },
     {
@@ -11016,14 +11261,6 @@
       "source_file": "site/src/pages/noticias/[slug].astro",
       "confidence_score": 1.0,
       "source": "noticias_slug",
-      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_formatar"
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "confidence_score": 1.0,
-      "source": "pages_avisos",
       "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_formatar"
     },
     {
@@ -11258,25 +11495,9 @@
     {
       "relation": "imports_from",
       "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "confidence_score": 1.0,
-      "source": "pages_avisos",
-      "target": "layouts_base"
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/contato.astro",
       "confidence_score": 1.0,
       "source": "pages_contato",
-      "target": "layouts_base"
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/convencoes.astro",
-      "confidence_score": 1.0,
-      "source": "pages_convencoes",
       "target": "layouts_base"
     },
     {
@@ -11294,6 +11515,14 @@
       "confidence_score": 1.0,
       "source": "pages_index",
       "target": "layouts_base"
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "source": "pages_juridico",
+      "target": "layouts_base",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -11613,6 +11842,17 @@
       "confidence_score": 1.0,
       "source": "api_contato",
       "target": "lib_directus"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "api_juridico",
+      "target": "lib_directus",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -11962,33 +12202,11 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "pages_avisos",
-      "target": "lib_directus"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/contato.astro",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "pages_contato",
-      "target": "lib_directus"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/convencoes.astro",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "pages_convencoes",
       "target": "lib_directus"
     },
     {
@@ -12078,17 +12296,6 @@
       "confidence_score": 1.0,
       "source": "pages_index",
       "target": "lib_directus_urlimagem"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/convencoes.astro",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "pages_convencoes",
-      "target": "lib_directus_urlarquivo"
     },
     {
       "relation": "imports",
@@ -12259,34 +12466,12 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "pages_avisos",
-      "target": "lib_directus_getavisourgente"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/index.astro",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "pages_index",
       "target": "lib_directus_getavisourgente"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "pages_avisos",
-      "target": "lib_directus_getavisosrapidos"
     },
     {
       "relation": "imports",
@@ -12309,17 +12494,6 @@
       "confidence_score": 1.0,
       "source": "pages_diretoria",
       "target": "lib_directus_getdiretores"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/convencoes.astro",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "pages_convencoes",
-      "target": "lib_directus_getdocumentos"
     },
     {
       "relation": "imports",
@@ -12385,6 +12559,28 @@
       "source_location": "L19",
       "weight": 1.0,
       "source": "api_contato_post",
+      "target": "lib_directus_criarmensagemcontato"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "api_juridico",
+      "target": "lib_directus_criarmensagemcontato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "api_juridico_post",
       "target": "lib_directus_criarmensagemcontato"
     },
     {
@@ -12486,17 +12682,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "pages_avisos",
-      "target": "lib_formatar"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/index.astro",
       "source_location": "L14",
       "weight": 1.0,
@@ -12513,17 +12698,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "noticias_slug",
-      "target": "lib_formatar_formatardata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "pages_avisos",
       "target": "lib_formatar_formatardata"
     },
     {
@@ -12786,6 +12960,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/api/juridico.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "api_juridico",
+      "target": "api_juridico_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/api/newsletter.ts",
       "source_location": "L4",
       "weight": 1.0,
@@ -12802,6 +12986,16 @@
       "confidence_score": 1.0,
       "source": "pages_contato",
       "target": "pages_contato_estado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/pages/juridico.astro",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "pages_juridico",
+      "target": "pages_juridico_estado",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16298,9 +16492,9 @@
       "source_file": "deploy/README.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "deploy_readme",
-      "target": "deploy_readme_deploy_do_site_astro_directus",
-      "confidence_score": 1.0
+      "target": "deploy_readme_deploy_do_site_astro_directus"
     },
     {
       "relation": "contains",
@@ -16308,9 +16502,9 @@
       "source_file": "deploy/README.md",
       "source_location": "L123",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "deploy_readme_deploy_do_site_astro_directus",
-      "target": "deploy_readme_backup",
-      "confidence_score": 1.0
+      "target": "deploy_readme_backup"
     },
     {
       "relation": "contains",
@@ -16318,9 +16512,9 @@
       "source_file": "deploy/README.md",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "deploy_readme_deploy_do_site_astro_directus",
-      "target": "deploy_readme_configurar_youtube_e_instagram_manualmente",
-      "confidence_score": 1.0
+      "target": "deploy_readme_configurar_youtube_e_instagram_manualmente"
     },
     {
       "relation": "contains",
@@ -16328,9 +16522,9 @@
       "source_file": "deploy/README.md",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "deploy_readme_deploy_do_site_astro_directus",
-      "target": "deploy_readme_criar_schema_e_conte\u00fado_inicial",
-      "confidence_score": 1.0
+      "target": "deploy_readme_criar_schema_e_conte\u00fado_inicial"
     },
     {
       "relation": "contains",
@@ -16338,9 +16532,9 @@
       "source_file": "deploy/README.md",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "deploy_readme_deploy_do_site_astro_directus",
-      "target": "deploy_readme_deploy_de_teste_atual",
-      "confidence_score": 1.0
+      "target": "deploy_readme_deploy_de_teste_atual"
     },
     {
       "relation": "contains",
@@ -16348,9 +16542,9 @@
       "source_file": "deploy/README.md",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "deploy_readme_deploy_do_site_astro_directus",
-      "target": "deploy_readme_primeiro_boot_do_directus",
-      "confidence_score": 1.0
+      "target": "deploy_readme_primeiro_boot_do_directus"
     },
     {
       "relation": "contains",
@@ -16358,9 +16552,9 @@
       "source_file": "deploy/README.md",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "deploy_readme_deploy_do_site_astro_directus",
-      "target": "deploy_readme_subir_ou_atualizar",
-      "confidence_score": 1.0
+      "target": "deploy_readme_subir_ou_atualizar"
     },
     {
       "relation": "contains",
@@ -16368,9 +16562,9 @@
       "source_file": "deploy/README.md",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "deploy_readme_deploy_do_site_astro_directus",
-      "target": "deploy_readme_vari\u00e1veis_de_ambiente",
-      "confidence_score": 1.0
+      "target": "deploy_readme_vari\u00e1veis_de_ambiente"
     },
     {
       "relation": "contains",
@@ -16378,8 +16572,128 @@
       "source_file": "deploy/README.md",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "deploy_readme_deploy_do_site_astro_directus",
-      "target": "deploy_readme_verifica\u00e7\u00f5es_r\u00e1pidas",
+      "target": "deploy_readme_verifica\u00e7\u00f5es_r\u00e1pidas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_brand_style",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L176",
+      "weight": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_components",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L159",
+      "weight": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_elevation_depth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_layout_spacing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L168",
+      "weight": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_shapes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L141",
+      "weight": 1.0,
+      "source": "design_desing",
+      "target": "design_desing_typography",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L178",
+      "weight": 1.0,
+      "source": "design_desing_components",
+      "target": "design_desing_buttons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L189",
+      "weight": 1.0,
+      "source": "design_desing_components",
+      "target": "design_desing_cards",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "design_desing_components",
+      "target": "design_desing_chips_tags",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "design_desing_components",
+      "target": "design_desing_input_fields",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "design/Desing.md",
+      "source_location": "L198",
+      "weight": 1.0,
+      "source": "design_desing_components",
+      "target": "design_desing_lists",
       "confidence_score": 1.0
     },
     {
@@ -21014,5 +21328,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2bc11b2eebe10e8ce73fdd9f8af45925e52feac4"
+  "built_at_commit": "049dcdf4937a7211810701a63fcf782f0c420287"
 }

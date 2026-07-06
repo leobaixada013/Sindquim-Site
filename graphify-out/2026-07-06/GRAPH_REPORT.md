@@ -1,16 +1,16 @@
 # Graph Report - site sindicato  (2026-07-06)
 
 ## Corpus Check
-- 107 files · ~559,838 words
+- 110 files · ~500,022 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 899 nodes · 1100 edges · 102 communities (84 shown, 18 thin omitted)
+- 920 nodes · 1110 edges · 111 communities (92 shown, 19 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 24 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2bc11b2e`
+- Built from commit: `049dcdf4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -96,13 +96,21 @@
 - [[_COMMUNITY_Community 97|Community 97]]
 - [[_COMMUNITY_Community 99|Community 99]]
 - [[_COMMUNITY_Community 101|Community 101]]
+- [[_COMMUNITY_Community 102|Community 102]]
+- [[_COMMUNITY_Community 103|Community 103]]
+- [[_COMMUNITY_Community 104|Community 104]]
+- [[_COMMUNITY_Community 105|Community 105]]
+- [[_COMMUNITY_Community 106|Community 106]]
+- [[_COMMUNITY_Community 107|Community 107]]
+- [[_COMMUNITY_Community 109|Community 109]]
+- [[_COMMUNITY_Community 112|Community 112]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Task 6 Report` - 31 edges
 2. `WordPress Front Page Template` - 25 edges
 3. `sindicato_get_youtube_videos` - 21 edges
-4. `../../layouts/Base.astro` - 20 edges
-5. `Design System: STI Baixada Santista` - 20 edges
+4. `Design System: STI Baixada Santista` - 20 edges
+5. `../../layouts/Base.astro` - 19 edges
 6. `wp-content/themes/sindicato/archive-documento.php` - 19 edges
 7. `Site Institucional Do Sindicato Implementation Plan` - 18 edges
 8. `functions.php` - 18 edges
@@ -124,7 +132,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (102 total, 18 thin omitted)
+## Communities (111 total, 19 thin omitted)
 
 ### Community 0 - "Design System and Typography"
 Cohesion: 0.12
@@ -136,23 +144,23 @@ Nodes (62): _sind_ativo, _sind_cta_link, _sind_cta_texto, _sind_data_fim, _sind_
 
 ### Community 2 - "YouTube API Integration"
 Cohesion: 0.07
-Nodes (42): ABSPATH, array_slice, empty, esc_html__, exit, get_option, get_transient, HOUR_IN_SECONDS (+34 more)
+Nodes (41): ABSPATH, array_slice, empty, esc_html__, exit, get_option, get_transient, HOUR_IN_SECONDS (+33 more)
 
 ### Community 3 - "Documents and Contact Templates"
-Cohesion: 0.15
-Nodes (17): .button--primary, CF7's own default AJAX response region, CF7 shortcode, Contato, .contato-form-card, detect.mjs, Filie-se, /filie-se/ page (+9 more)
+Cohesion: 0.17
+Nodes (16): .button--primary, CF7's own default AJAX response region, CF7 shortcode, Contato, .contato-form-card, detect.mjs, Filie-se, /filie-se/ page (+8 more)
 
 ### Community 4 - "Notice Custom Post Type"
-Cohesion: 0.05
-Nodes (69): POST(), POST(), @fontsource-variable/archivo, ../../lib/constantes, ../../lib/directus, ../../lib/formatar, ../lib/tipos, ../lib/youtube (+61 more)
+Cohesion: 0.15
+Nodes (17): POST(), CAMPOS_POST, cliente, criarInscricaoNewsletter(), FILTRO_AVISO_VIGENTE, Aviso, CardInstagram, Categoria (+9 more)
 
 ### Community 5 - "UI Mockups and Components"
 Cohesion: 0.15
 Nodes (13): Área do Associado Section, Avisos Section, Benefícios Section, Contato Section, Convenções Section, Filie-se Section, Home Page Mockup, Instagram Section (+5 more)
 
 ### Community 6 - "WordPress Loop and Templates"
-Cohesion: 0.19
-Nodes (15): WordPress Archive Template, esc_html(), get_permalink, get_the_category, get_the_date, get_the_excerpt, have_posts, single_cat_title (+7 more)
+Cohesion: 0.17
+Nodes (17): WordPress Archive Template, esc_attr(), get_footer(), get_header(), get_permalink, get_the_category, get_the_date, get_the_excerpt (+9 more)
 
 ### Community 7 - "Contact Settings Configuration"
 Cohesion: 0.08
@@ -211,8 +219,8 @@ Cohesion: 0.13
 Nodes (14): Files Changed, Final Status, Git Commit, Implementation Summary, Issues/Concerns, Link Validation, Markup Correctness, PHP/Security (+6 more)
 
 ### Community 42 - "Community 42"
-Cohesion: 0.14
-Nodes (13): Acordo Coletivo, wp-content/themes/sindicato/archive-documento.php, Baixar PDF, .button--small, Convenção, Convenções e Documentos, documento CPT, esc_attr() (+5 more)
+Cohesion: 0.13
+Nodes (14): Acordo Coletivo, wp-content/themes/sindicato/archive-documento.php, Baixar PDF, .button--small, Convenção, Convenções e Documentos, documento CPT, esc_html() (+6 more)
 
 ### Community 43 - "Community 43"
 Cohesion: 0.14
@@ -228,7 +236,7 @@ Nodes (13): 11. Plano De Desenvolvimento, Fase 0: Aprovação Do Mockup, Fase 10
 
 ### Community 46 - "Community 46"
 Cohesion: 0.21
-Nodes (13): Hero Assembleia Sindicato Image, Sindicato Logo, Design Token: --navy-950, Design Token: --red-600, Design Token: --red-700, News Archive Page Critique, Home Page Critique, Design System Documentation (+5 more)
+Nodes (12): Hero Assembleia Sindicato Image, Sindicato Logo, Design Token: --navy-950, Design Token: --red-600, Design Token: --red-700, News Archive Page Critique, Home Page Critique, Design System Documentation (+4 more)
 
 ### Community 47 - "Community 47"
 Cohesion: 0.17
@@ -355,8 +363,8 @@ Cohesion: 0.40
 Nodes (4): Astro Starter Kit: Minimal, 🧞 Commands, 🚀 Project Structure, 👀 Want to learn more?
 
 ### Community 78 - "Community 78"
-Cohesion: 1.00
-Nodes (3): api(), importarImagem(), principal()
+Cohesion: 0.70
+Nodes (4): api(), importarImagem(), PAGINAS_INSTITUCIONAIS, principal()
 
 ### Community 79 - "Community 79"
 Cohesion: 0.50
@@ -378,29 +386,57 @@ Nodes (3): 5.1 WordPress Tradicional, 5.2 Alternativa Moderna, 5. Arquitetura Re
 Cohesion: 0.20
 Nodes (9): Backup, Configurar YouTube e Instagram manualmente, Criar schema e conteúdo inicial, Deploy de teste atual, Deploy do site Astro + Directus, Primeiro boot do Directus, Subir ou atualizar, Variáveis de ambiente (+1 more)
 
+### Community 102 - "Community 102"
+Cohesion: 0.16
+Nodes (18): ../lib/youtube, ../components/Estudio.astro, comCache(), Entrada, limparCache(), memoria, getAvisosRapidos(), getAvisoUrgente() (+10 more)
+
+### Community 103 - "Community 103"
+Cohesion: 0.14
+Nodes (12): @fontsource-variable/archivo, ../../lib/directus, ../styles/global.css, ../../layouts/Base.astro, estadoNewsletter, urlCanonica, MENU, contarPosts() (+4 more)
+
+### Community 104 - "Community 104"
+Cohesion: 0.21
+Nodes (13): ../../lib/constantes, ../../lib/formatar, ../lib/tipos, ../../components/PostCard.astro, imagem, getPostPorSlug(), formatarData(), formatarDataEstreia() (+5 more)
+
+### Community 105 - "Community 105"
+Cohesion: 0.15
+Nodes (12): Brand & Style, Buttons, Cards, Chips / Tags, Colors, Components, Elevation & Depth, Input Fields (+4 more)
+
+### Community 106 - "Community 106"
+Cohesion: 0.60
+Nodes (3): POST(), POST(), criarMensagemContato()
+
+### Community 109 - "Community 109"
+Cohesion: 0.38
+Nodes (5): getPostBanner(), getPosts(), GET(), GET(), PAGINAS_FIXAS
+
+### Community 112 - "Community 112"
+Cohesion: 0.67
+Nodes (3): api(), PAGINAS, principal()
+
 ## Ambiguous Edges - Review These
 - `wp-content/themes/sindicato/archive-documento.php` → `functions.php`  [AMBIGUOUS]
   .impeccable/critique/2026-07-01T22-04-56Z__wp-content-themes-sindicato-archive-documento-php.md · relation: related_to
 
 ## Knowledge Gaps
-- **455 isolated node(s):** `menuButton`, `menu`, `urgentNotices`, `quickNotices`, `COLECOES` (+450 more)
+- **469 isolated node(s):** `menuButton`, `menu`, `urgentNotices`, `quickNotices`, `PAGINAS` (+464 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `wp-content/themes/sindicato/archive-documento.php` and `functions.php`?**
   _Edge tagged AMBIGUOUS (relation: related_to) - confidence is low._
-- **Why does `functions.php` connect `Banner Custom Post Type` to `Documents and Contact Templates`, `Community 42`, `YouTube API Integration`, `WordPress Loop and Templates`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
-- **Why does `WordPress Front Page Template` connect `Banner Custom Post Type` to `Documents and Contact Templates`, `UI Mockups and Components`, `WordPress Loop and Templates`, `Community 42`, `Community 46`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **Why does `Task 6 Report` connect `Banner Custom Post Type` to `Documents and Contact Templates`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **Why does `functions.php` connect `Banner Custom Post Type` to `Documents and Contact Templates`, `Community 42`, `YouTube API Integration`?**
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
+- **Why does `WordPress Front Page Template` connect `Banner Custom Post Type` to `Community 42`, `UI Mockups and Components`, `Community 46`, `WordPress Loop and Templates`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+- **Why does `Task 6 Report` connect `Banner Custom Post Type` to `WordPress Loop and Templates`?**
+  _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **What connects `menuButton`, `menu`, `urgentNotices` to the rest of the system?**
-  _456 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _470 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System and Typography` be split into smaller, more focused modules?**
   _Cohesion score 0.12418300653594772 - nodes in this community are weakly interconnected._
 - **Should `Banner Custom Post Type` be split into smaller, more focused modules?**
-  _Cohesion score 0.05217391304347826 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0525879917184265 - nodes in this community are weakly interconnected._

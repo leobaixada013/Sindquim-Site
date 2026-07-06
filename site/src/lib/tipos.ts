@@ -4,9 +4,11 @@ export interface Categoria {
   slug: string;
 }
 
+type StatusPublicacao = 'published' | 'draft' | 'archived';
+
 export interface Post {
   id: string;
-  status: 'published' | 'draft' | 'archived';
+  status: StatusPublicacao;
   titulo: string;
   slug: string;
   resumo: string | null;
@@ -19,7 +21,7 @@ export interface Post {
 
 export interface Aviso {
   id: string;
-  status: 'published' | 'draft' | 'archived';
+  status: StatusPublicacao;
   titulo: string;
   mensagem_curta: string | null;
   urgente: boolean;
@@ -31,7 +33,7 @@ export interface Aviso {
 
 export interface ProximoVideo {
   id: string;
-  status: 'published' | 'draft' | 'archived';
+  status: StatusPublicacao;
   titulo: string;
   descricao: string | null;
   data_estreia: string;
@@ -68,6 +70,70 @@ export interface Pagina {
   conteudo: string | null;
 }
 
+export interface PaginaJuridico {
+  hero_rotulo: string | null;
+  hero_titulo: string | null;
+  hero_resumo: string | null;
+  hero_cta_primario_texto: string | null;
+  hero_cta_secundario_texto: string | null;
+  direitos_rotulo: string | null;
+  direitos_titulo: string | null;
+  agendamento_rotulo: string | null;
+  agendamento_titulo: string | null;
+  agendamento_texto: string | null;
+  plantao_titulo: string | null;
+  faq_rotulo: string | null;
+  faq_titulo: string | null;
+  cta_rotulo: string | null;
+  cta_titulo: string | null;
+  cta_link_texto: string | null;
+  cta_link_href: string | null;
+}
+
+export interface JuridicoDireito {
+  id: string;
+  status: StatusPublicacao;
+  ordem: number | null;
+  titulo: string;
+  sigla: string;
+  descricao: string;
+  cor: 'aco' | 'vermelho' | null;
+  destaque: boolean;
+  urgente: boolean;
+  texto_link: string | null;
+}
+
+export interface JuridicoPlantao {
+  id: string;
+  status: StatusPublicacao;
+  ordem: number | null;
+  titulo: string;
+  local: string;
+  horario: string;
+  observacao: string | null;
+}
+
+export interface JuridicoFAQ {
+  id: string;
+  status: StatusPublicacao;
+  ordem: number | null;
+  pergunta: string;
+  resposta: string;
+}
+
+export interface JuridicoCampoFormulario {
+  id: string;
+  status: StatusPublicacao;
+  ordem: number | null;
+  chave: string;
+  rotulo: string;
+  tipo: 'text' | 'email' | 'tel' | 'select' | 'textarea';
+  obrigatorio: boolean;
+  placeholder: string | null;
+  opcoes: string | null;
+  max_length: number | null;
+}
+
 export interface Configuracoes {
   telefone: string | null;
   whatsapp: string | null;
@@ -99,6 +165,11 @@ export interface SchemaDirectus {
   documentos: Documento[];
   cards_instagram: CardInstagram[];
   paginas: Pagina[];
+  pagina_juridico: PaginaJuridico;
+  juridico_direitos: JuridicoDireito[];
+  juridico_plantoes: JuridicoPlantao[];
+  juridico_faq: JuridicoFAQ[];
+  juridico_campos_formulario: JuridicoCampoFormulario[];
   configuracoes: Configuracoes;
   inscricoes_newsletter: InscricaoNewsletter[];
   mensagens_contato: MensagemContato[];

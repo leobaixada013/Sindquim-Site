@@ -1,0 +1,191 @@
+---
+import Base from '../layouts/Base.astro';
+import {
+  getJuridicoCamposFormulario,
+  getJuridicoDireitos,
+  getJuridicoFAQ,
+  getJuridicoPlantoes,
+  getPaginaJuridico,
+} from '../lib/directus';
+import type { JuridicoCampoFormulario } from '../lib/tipos';
+
+const estado = Astro.url.searchParams.get('agendamento');
+const [pagina, direitos, plantoes, faq, camposFormulario] = await Promise.all([
+  getPaginaJuridico(),
+  getJuridicoDireitos(),
+  getJuridicoPlantoes(),
+  getJuridicoFAQ(),
+  getJuridicoCamposFormulario(),
+]);
+
+const opcoesCampo = (campo: JuridicoCampoFormulario) =>
+  (campo.opcoes ?? '')
+    .split('\n')
+    .map((opcao) => opcao.trim())
+    .filter(Boolean);
+---
+
+<Base titulo="Jurídico" descricao="Atendimento jurídico do sindicato para orientação e defesa dos direitos trabalhistas.">
+  <section class="hero reveal" aria-labelledby="juridico-hero-titulo">
+    <div class="hero__media juridico-hero__media" aria-hidden="true"></div>
+    <div class="container hero__content">
+      <div class="hero__copy">
+        <p class="rotulo rotulo--claro">{pagina.hero_rotulo}</p>
+        <h1 id="juridico-hero-titulo">{pagina.hero_titulo}</h1>
+        <p class="hero__resumo">{pagina.hero_resumo}</p>
+        <div class="hero__actions">
+          <a class="button button--primario" href="#agendamento">{pagina.hero_cta_primario_texto}</a>
+          <a class="button button--fantasma" href="#direitos">{pagina.hero_cta_secundario_texto}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="direitos" aria-labelledby="direitos-titulo">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="rotulo">{pagina.direitos_rotulo}</p>
+          <h2 id="direitos-titulo">{pagina.direitos_titulo}</h2>
+        </div>
+      </div>
+
+      <div class="direitos-grid">
+        {direitos.map((direito) => (
+          <article class:list={[
+            'direito-card',
+            direito.destaque && 'direito-card--largo',
+            direito.cor === 'vermelho' ? 'direito-card--vermelho' : 'direito-card--aco',
+          ]}>
+            {direito.urgente && <span class="tag tag--urgente">Urgente</span>}
+            <span class="direito-card__icone" aria-hidden="true">{direito.sigla}</span>
+            <h3>{direito.titulo}</h3>
+            <p>{direito.descricao}</p>
+            <a class="text-link" href="#agendamento" aria-label={`Ler detalhes sobre ${direito.titulo}`}>
+              {direito.texto_link || 'Ler detalhes'}
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cinza reveal" id="agendamento" aria-labelledby="agendamento-titulo">
+    <div class="container juridico-agenda">
+      <div class="juridico-agenda__intro">
+        <p class="rotulo">{pagina.agendamento_rotulo}</p>
+        <h2 id="agendamento-titulo">{pagina.agendamento_titulo}</h2>
+        <div class="prosa">
+          <p>{pagina.agendamento_texto}</p>
+        </div>
+
+        {plantoes.map((plantao) => (
+          <aside class="juridico-plantao" aria-label={plantao.titulo}>
+            <h3 class="juridico-plantao__titulo">{plantao.titulo || pagina.plantao_titulo}</h3>
+            <dl class="juridico-plantao__lista">
+              <dt>Local</dt>
+              <dd>{plantao.local}</dd>
+              <dt>Horário</dt>
+              <dd>{plantao.horario}</dd>
+              {plantao.observacao && (
+                <>
+                  <dt>Observação</dt>
+                  <dd>{plantao.observacao}</dd>
+                </>
+              )}
+            </dl>
+          </aside>
+        ))}
+      </div>
+
+      <div class="juridico-agenda__form-wrap">
+        {estado === 'ok' && (
+          <p class="form-ok" role="status">Agendamento enviado. Entraremos em contato em até 2 dias úteis.</p>
+        )}
+        {estado === 'erro' && (
+          <p class="form-erro" role="alert">Não foi possível enviar. Tente novamente ou ligue para a sede.</p>
+        )}
+
+        <form class="form-grid juridico-agenda__form" method="POST" action="/api/juridico">
+          <label>
+            Nome Completo
+            <input type="text" name="nome" required maxlength="120" autocomplete="name" />
+          </label>
+          <label>
+            E-mail
+            <input type="email" name="email" required maxlength="180" autocomplete="email" />
+          </label>
+
+          {camposFormulario.map((campo) => (
+            <label class:list={[campo.tipo === 'textarea' || campo.tipo === 'select' ? 'form-grid__full' : undefined]}>
+              {campo.rotulo}
+              {campo.tipo === 'select' ? (
+                <select name={campo.chave} required={campo.obrigatorio}>
+                  <option value="" disabled selected>{campo.placeholder || 'Selecione...'}</option>
+                  {opcoesCampo(campo).map((opcao) => <option value={opcao}>{opcao}</option>)}
+                </select>
+              ) : campo.tipo === 'textarea' ? (
+                <textarea
+                  name={campo.chave}
+                  rows="4"
+                  required={campo.obrigatorio}
+                  maxlength={campo.max_length ?? 1000}
+                  placeholder={campo.placeholder ?? undefined}
+                ></textarea>
+              ) : (
+                <input
+                  type={campo.tipo}
+                  name={campo.chave}
+                  required={campo.obrigatorio}
+                  maxlength={campo.max_length ?? 180}
+                  placeholder={campo.placeholder ?? undefined}
+                />
+              )}
+            </label>
+          ))}
+
+          <label class="form-grid__full">
+            Breve Relato
+            <textarea name="relato" rows="5" required maxlength="4000" placeholder="Conte em poucas linhas o que aconteceu."></textarea>
+          </label>
+          <label class="campo-honeypot" aria-hidden="true">
+            Não preencha <input type="text" name="site" tabindex="-1" autocomplete="off" />
+          </label>
+          <button class="button button--primario" type="submit">Solicitar Agendamento</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" aria-labelledby="faq-titulo">
+    <div class="container container--estreito">
+      <div class="section-heading">
+        <div>
+          <p class="rotulo">{pagina.faq_rotulo}</p>
+          <h2 id="faq-titulo">{pagina.faq_titulo}</h2>
+        </div>
+      </div>
+
+      <div class="faq-lista">
+        {faq.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-item__pergunta">{item.pergunta}</summary>
+            <div class="faq-item__resposta prosa">
+              <p>{item.resposta}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band reveal">
+    <div class="container cta-band__inner">
+      <div>
+        <p class="rotulo">{pagina.cta_rotulo}</p>
+        <h2>{pagina.cta_titulo}</h2>
+      </div>
+      <a class="button" href={pagina.cta_link_href || '/filie-se'}>{pagina.cta_link_texto}</a>
+    </div>
+  </section>
+</Base>
