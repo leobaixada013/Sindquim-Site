@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import { getConfiguracoes } from '../lib/directus';
+
+const config = await getConfiguracoes();
+const estado = Astro.url.searchParams.get('contato');
+const linkWhatsapp = config?.whatsapp ? `https://wa.me/${config.whatsapp.replace(/\D/g, '')}` : null;
+---
+
+<Base titulo="Contato" descricao="Fale com o sindicato: telefone, WhatsApp, e-mail e formulário de atendimento.">
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="rotulo">Atendimento</p>
+          <h1>Fale com o sindicato</h1>
+        </div>
+      </div>
+
+      <div class="footer__grid" style="grid-template-columns:1fr 1.4fr;padding:0">
+        <div>
+          <h2 style="font-size:1.2rem">Canais diretos</h2>
+          <ul style="list-style:none;margin:0;padding:0;display:grid;gap:12px">
+            {config?.telefone && (
+              <li>Telefone: <a class="text-link" href={`tel:+55${config.telefone.replace(/\D/g, '')}`}>{config.telefone}</a></li>
+            )}
+            {linkWhatsapp && (
+              <li>WhatsApp: <a class="text-link" href={linkWhatsapp} target="_blank" rel="noopener">enviar mensagem</a></li>
+            )}
+            {config?.email && (
+              <li>E-mail: <a class="text-link" href={`mailto:${config.email}`}>{config.email}</a></li>
+            )}
+            {config?.endereco && <li>{config.endereco}</li>}
+          </ul>
+        </div>
+
+        <div>
+          <h2 style="font-size:1.2rem">Envie uma mensagem</h2>
+          {estado === 'ok' && (
+            <p class="form-ok">Mensagem enviada. O sindicato responde pelos contatos informados.</p>
+          )}
+          {estado === 'erro' && (
+            <p class="form-erro">Não foi possível enviar agora. Tente de novo em instantes ou use o WhatsApp.</p>
+          )}
+          <form class="form-grid" method="post" action="/api/contato">
+            <label class="campo-honeypot" aria-hidden="true">
+              Não preencha <input type="text" name="site" tabindex="-1" autocomplete="off" />
+            </label>
+            <label>
+              Nome
+              <input type="text" name="nome" required maxlength="120" />
+            </label>
+            <label>
+              E-mail
+              <input type="email" name="email" required maxlength="180" />
+            </label>
+            <label>
+              Mensagem
+              <textarea name="mensagem" rows="6" required maxlength="4000"></textarea>
+            </label>
+            <button class="button button--primario" type="submit">Enviar mensagem</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

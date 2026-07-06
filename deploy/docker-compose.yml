@@ -1,0 +1,42 @@
+services:
+  directus:
+    image: directus/directus:11
+    container_name: sindquim-directus
+    restart: unless-stopped
+    ports:
+      - "8055:8055"
+    volumes:
+      - ./directus/database:/directus/database
+      - ./directus/uploads:/directus/uploads
+      - ./directus/extensions:/directus/extensions
+    environment:
+      SECRET: "${DIRECTUS_SECRET:?defina DIRECTUS_SECRET no .env}"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+      ADMIN_EMAIL: "${DIRECTUS_ADMIN_EMAIL:?defina DIRECTUS_ADMIN_EMAIL no .env}"
+      ADMIN_PASSWORD: "${DIRECTUS_ADMIN_PASSWORD:?defina DIRECTUS_ADMIN_PASSWORD no .env}"
+      PUBLIC_URL: "${PUBLIC_DIRECTUS_URL:-http://localhost:8055}"
+      DEFAULT_LANGUAGE: "pt-BR"
+      WEBSOCKETS_ENABLED: "false"
+      TELEMETRY: "false"
+      # Miniaturas geradas sob demanda pelo site
+      ASSETS_TRANSFORM_MAX_CONCURRENT: "4"
+      CORS_ENABLED: "true"
+      CORS_ORIGIN: "${PUBLIC_SITE_URL:-http://localhost:4321}"
+
+  site:
+    build:
+      context: ../site
+      args:
+        PUBLIC_SITE_URL: "${PUBLIC_SITE_URL:-http://localhost:4321}"
+        PUBLIC_DIRECTUS_URL: "${PUBLIC_DIRECTUS_URL:-http://localhost:8055}"
+    container_name: sindquim-site
+    restart: unless-stopped
+    depends_on:
+      - directus
+    ports:
+      - "4321:4321"
+    environment:
+      DIRECTUS_URL: "http://directus:8055"
+      PUBLIC_DIRECTUS_URL: "${PUBLIC_DIRECTUS_URL:-http://localhost:8055}"
+      PUBLIC_SITE_URL: "${PUBLIC_SITE_URL:-http://localhost:4321}"

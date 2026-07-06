@@ -1,0 +1,207 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import Estudio from '../components/Estudio.astro';
+import {
+  getAvisoUrgente,
+  getAvisosRapidos,
+  getCardsInstagram,
+  getConfiguracoes,
+  getPostBanner,
+  getPosts,
+  urlImagem,
+} from '../lib/directus';
+import { formatarData, formatarDiaMes } from '../lib/formatar';
+
+const [banner, avisoUrgente, avisosRapidos, todosPosts, cards, config] = await Promise.all([
+  getPostBanner(),
+  getAvisoUrgente(),
+  getAvisosRapidos(5),
+  getPosts(6),
+  getCardsInstagram(4),
+  getConfiguracoes(),
+]);
+
+const postsSemBanner = todosPosts.filter((post) => post.id !== banner?.id);
+const noticiaDestaque = postsSemBanner[0] ?? null;
+const noticiasGrade = postsSemBanner.slice(1, 4);
+const imagemBanner = banner ? urlImagem(banner.imagem, { largura: 1600, altura: 900 }) : null;
+---
+
+<Base imagemOg={imagemBanner}>
+  <section class="hero" aria-labelledby="hero-titulo">
+    <div class="hero__media" style={imagemBanner ? `background-image:url('${imagemBanner}')` : undefined} aria-hidden="true"></div>
+    {banner?.fixado_banner && <span class="carimbo" aria-hidden="true">Fixado pela diretoria</span>}
+    <div class="container hero__content">
+      <div class="hero__copy">
+        {banner ? (
+          <>
+            <div class="hero__meta">
+              {banner.categoria && <strong>{banner.categoria.nome}</strong>}
+              <time datetime={banner.date_created}>{formatarData(banner.date_created)}</time>
+            </div>
+            <h1 id="hero-titulo">{banner.titulo}</h1>
+            {banner.resumo && <p class="hero__resumo">{banner.resumo}</p>}
+            <div class="hero__actions">
+              <a class="button button--primario" href={`/noticias/${banner.slug}`}>Ler matéria completa</a>
+              <a class="button button--fantasma" href="/noticias">Todas as notícias</a>
+            </div>
+          </>
+        ) : (
+          <>
+            <p class="rotulo rotulo--claro">Informação oficial</p>
+            <h1 id="hero-titulo">Nosso trabalho tem valor. Nossos direitos não são negociáveis.</h1>
+            <p class="hero__resumo">
+              Notícias, mobilização e atendimento para fortalecer a categoria em cada negociação.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primario" href="/noticias">Ver notícias</a>
+              <a class="button button--fantasma" href="/filie-se">Filie-se</a>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  </section>
+
+  {avisoUrgente && (
+    <section class="alert-strip" aria-label="Comunicado urgente">
+      <div class="container alert-strip__inner">
+        <strong>{avisoUrgente.titulo}</strong>
+        {avisoUrgente.mensagem_curta && <span>{avisoUrgente.mensagem_curta}</span>}
+        <a href={avisoUrgente.link ?? '/avisos'}>{avisoUrgente.texto_link ?? 'Ver comunicados'}</a>
+      </div>
+    </section>
+  )}
+
+  <section id="noticias" class="section reveal" aria-labelledby="noticias-titulo">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="rotulo">Boletim da categoria</p>
+          <h2 id="noticias-titulo">Últimas notícias</h2>
+        </div>
+        <a class="text-link" href="/noticias">Ver todas</a>
+      </div>
+
+      {noticiaDestaque ? (
+        <div class:list={['news-layout', avisosRapidos.length === 0 && 'news-layout--sem-avisos']}>
+          <PostCard post={noticiaDestaque} destaque />
+
+          <div class="post-grid" aria-label="Notícias recentes">
+            {noticiasGrade.map((post) => <PostCard post={post} />)}
+          </div>
+
+          {avisosRapidos.length > 0 && (
+            <aside class="notice-panel" aria-label="Avisos rápidos">
+              <div class="notice-panel__header">
+                <h3>Avisos rápidos</h3>
+                <a href="/avisos">Todos</a>
+              </div>
+              <ul class="notice-list">
+                {avisosRapidos.map((aviso) => (
+                  <li>
+                    <time datetime={aviso.data_inicio}>{formatarDiaMes(aviso.data_inicio)}</time>
+                    <span>{aviso.titulo}</span>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )}
+        </div>
+      ) : (
+        <p class="vazio">
+          As notícias aparecem aqui assim que forem publicadas no painel. Publique a primeira em
+          “Notícias do blog”.
+        </p>
+      )}
+    </div>
+  </section>
+
+  <section id="servicos" class="section section--cinza reveal" aria-labelledby="servicos-titulo">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="rotulo">Serviços para a categoria</p>
+          <h2 id="servicos-titulo">Acesso rápido</h2>
+        </div>
+      </div>
+      <div class="quick-grid">
+        <a class="quick-card" href="/convencoes">
+          <span class="quick-card__icone">CCT</span>
+          <strong>Convenção coletiva</strong>
+          <small>Consulte a convenção vigente, cláusulas e documentos.</small>
+        </a>
+        <a class="quick-card quick-card--aco" href="/beneficios">
+          <span class="quick-card__icone">BEN</span>
+          <strong>Benefícios</strong>
+          <small>Descontos em saúde, educação, lazer e convênios.</small>
+        </a>
+        <a class="quick-card" href="/juridico">
+          <span class="quick-card__icone">JUR</span>
+          <strong>Atendimento jurídico</strong>
+          <small>Orientação sobre direitos trabalhistas e acordos.</small>
+        </a>
+        <a class="quick-card quick-card--vermelho" href="/filie-se">
+          <span class="quick-card__icone">SIM</span>
+          <strong>Filie-se</strong>
+          <small>Fortaleça o sindicato e tenha mais representatividade.</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Estudio />
+
+  {(cards.length > 0 || config?.instagram_url) && (
+    <section class="section reveal" aria-labelledby="instagram-titulo">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="rotulo">Redes sociais</p>
+            <h2 id="instagram-titulo">No Instagram</h2>
+          </div>
+          {config?.instagram_url && (
+            <a class="text-link" href={config.instagram_url} target="_blank" rel="noopener">Ver perfil</a>
+          )}
+        </div>
+        {cards.length > 0 ? (
+          <div class="instagram-grid">
+            {cards.map((card) =>
+              card.link ? (
+                <a class="insta-card" href={card.link} target="_blank" rel="noopener">
+                  {card.imagem && (
+                    <img src={urlImagem(card.imagem, { largura: 600, altura: 600 })} alt="" loading="lazy" decoding="async" />
+                  )}
+                  {card.legenda && <span>{card.legenda}</span>}
+                </a>
+              ) : (
+                <article class="insta-card">
+                  {card.imagem && (
+                    <img src={urlImagem(card.imagem, { largura: 600, altura: 600 })} alt="" loading="lazy" decoding="async" />
+                  )}
+                  {card.legenda && <span>{card.legenda}</span>}
+                </article>
+              ),
+            )}
+          </div>
+        ) : (
+          <p>
+            Siga o sindicato no Instagram:{' '}
+            <a class="text-link" href={config?.instagram_url} target="_blank" rel="noopener">ver perfil</a>.
+          </p>
+        )}
+      </div>
+    </section>
+  )}
+
+  <section class="cta-band" aria-labelledby="cta-titulo">
+    <div class="container cta-band__inner">
+      <div>
+        <p class="rotulo">Fortaleça sua representação</p>
+        <h2 id="cta-titulo">Filie-se ao sindicato e acompanhe tudo em primeira mão.</h2>
+      </div>
+      <a class="button" href="/filie-se">Quero me filiar</a>
+    </div>
+  </section>
+</Base>

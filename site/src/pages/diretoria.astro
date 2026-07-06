@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { getDiretores, urlImagem } from '../lib/directus';
+
+const diretores = await getDiretores();
+---
+
+<Base titulo="Diretoria" descricao="Conheça a diretoria eleita do sindicato.">
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="rotulo">Quem faz o sindicato</p>
+          <h1>Diretoria</h1>
+        </div>
+      </div>
+
+      {diretores.length > 0 ? (
+        <div class="diretoria-grid">
+          {diretores.map((diretor) => (
+            <article class="diretor-card">
+              {diretor.foto ? (
+                <img src={urlImagem(diretor.foto, { largura: 500, altura: 500 })} alt={`Foto de ${diretor.nome}`} loading="lazy" />
+              ) : (
+                <img src="/logo-sindicato.jpeg" alt="" loading="lazy" />
+              )}
+              <strong>{diretor.nome}</strong>
+              {diretor.cargo && <small>{diretor.cargo}</small>}
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p class="vazio">Os membros da diretoria cadastrados no painel aparecem aqui.</p>
+      )}
+    </div>
+  </section>
+</Base>

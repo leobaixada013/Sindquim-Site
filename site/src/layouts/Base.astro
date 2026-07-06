@@ -1,0 +1,171 @@
+---
+import '@fontsource-variable/archivo';
+import '@fontsource-variable/source-serif-4';
+import '../styles/global.css';
+import { getConfiguracoes } from '../lib/directus';
+import { DESCRICAO_PADRAO, MENU, NOME_CURTO, NOME_SITE } from '../lib/constantes';
+
+interface Props {
+  titulo?: string;
+  descricao?: string;
+  imagemOg?: string | null;
+  tipoOg?: string;
+}
+
+const { titulo, descricao = DESCRICAO_PADRAO, imagemOg, tipoOg = 'website' } = Astro.props;
+const tituloFinal = titulo ? `${titulo} — ${NOME_CURTO}` : NOME_SITE;
+const config = await getConfiguracoes();
+const urlCanonica = new URL(Astro.url.pathname, Astro.site);
+const caminhoAtual = Astro.url.pathname.replace(/\/$/, '') || '/';
+const estadoNewsletter = Astro.url.searchParams.get('news');
+const linkWhatsapp = config?.whatsapp ? `https://wa.me/${config.whatsapp.replace(/\D/g, '')}` : null;
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloFinal}</title>
+    <meta name="description" content={descricao} />
+    <link rel="canonical" href={urlCanonica} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={`Notícias — ${NOME_CURTO}`} href="/rss.xml" />
+    <meta property="og:title" content={tituloFinal} />
+    <meta property="og:description" content={descricao} />
+    <meta property="og:type" content={tipoOg} />
+    <meta property="og:url" content={urlCanonica} />
+    <meta property="og:site_name" content={NOME_SITE} />
+    <meta property="og:locale" content="pt_BR" />
+    {imagemOg && <meta property="og:image" content={imagemOg} />}
+    <meta name="twitter:card" content={imagemOg ? 'summary_large_image' : 'summary'} />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <div class="topbar__links">
+          {config?.telefone && (
+            <a href={`tel:+55${config.telefone.replace(/\D/g, '')}`}>{config.telefone}</a>
+          )}
+          {config?.email && <a href={`mailto:${config.email}`}>{config.email}</a>}
+        </div>
+        <div class="topbar__links">
+          {linkWhatsapp && <a href={linkWhatsapp} target="_blank" rel="noopener">WhatsApp</a>}
+          {config?.instagram_url && <a href={config.instagram_url} target="_blank" rel="noopener">Instagram</a>}
+          {config?.youtube_url && <a href={config.youtube_url} target="_blank" rel="noopener">YouTube</a>}
+        </div>
+      </div>
+    </div>
+
+    <header class="mainnav">
+      <div class="container mainnav__inner">
+        <a class="brand" href="/">
+          <img class="brand__logo" src="/logo-sindicato.jpeg" alt="" width="46" height="46" />
+          <span class="brand__nome">{NOME_CURTO}<small>{NOME_SITE}</small></span>
+        </a>
+        <nav aria-label="Menu principal">
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+            Menu
+          </button>
+          <ul class="menu" id="menu-principal">
+            {MENU.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  aria-current={caminhoAtual === item.href ? 'page' : undefined}
+                >
+                  {item.rotulo}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <h3>{NOME_CURTO}</h3>
+            <p>{NOME_SITE}. Representação, negociação coletiva e defesa dos direitos da categoria.</p>
+            {config?.endereco && <p>{config.endereco}</p>}
+          </div>
+          <div>
+            <h3>Institucional</h3>
+            <ul>
+              <li><a href="/diretoria">Diretoria</a></li>
+              <li><a href="/filie-se">Filie-se</a></li>
+              <li><a href="/convencoes">Convenções</a></li>
+              <li><a href="/contato">Contato</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Conteúdo</h3>
+            <ul>
+              <li><a href="/noticias">Notícias</a></li>
+              <li><a href="/avisos">Avisos</a></li>
+              <li><a href="/rss.xml">Feed RSS</a></li>
+            </ul>
+          </div>
+          <div class="footer__news">
+            <h3>Receba as novidades</h3>
+            <p>Boletim por e-mail com as notícias e convocações da categoria.</p>
+            {estadoNewsletter === 'ok' && (
+              <p class="form-ok">Inscrição feita. Você vai receber o boletim no seu e-mail.</p>
+            )}
+            {estadoNewsletter === 'erro' && (
+              <p class="form-erro">Não deu certo agora. Confira o e-mail digitado e tente de novo.</p>
+            )}
+            <form method="post" action="/api/newsletter">
+              <label class="campo-honeypot" aria-hidden="true">
+                Não preencha <input type="text" name="site" tabindex="-1" autocomplete="off" />
+              </label>
+              <input type="email" name="email" required placeholder="seu@email.com" aria-label="Seu e-mail" />
+              <button class="button button--primario" type="submit">Assinar</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© {new Date().getFullYear()} {NOME_SITE}</span>
+          <span>Feito pelo sindicato, para a categoria.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const botao = document.querySelector('.menu-toggle');
+      const menu = document.getElementById('menu-principal');
+      if (botao && menu && window.matchMedia('(max-width: 640px)').matches) {
+        menu.hidden = true;
+        botao.addEventListener('click', () => {
+          const aberto = botao.getAttribute('aria-expanded') === 'true';
+          botao.setAttribute('aria-expanded', String(!aberto));
+          menu.hidden = aberto;
+        });
+      }
+
+      const revelar = document.querySelectorAll('.reveal');
+      if (revelar.length > 0 && 'IntersectionObserver' in window) {
+        const observador = new IntersectionObserver(
+          (entradas) => {
+            for (const entrada of entradas) {
+              if (entrada.isIntersecting) {
+                entrada.target.classList.add('reveal--visivel');
+                observador.unobserve(entrada.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -8% 0px' },
+        );
+        revelar.forEach((el) => observador.observe(el));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPostPorSlug, getPosts, urlImagem } from '../../lib/directus';
+import { formatarData, formatarDataLonga } from '../../lib/formatar';
+import { NOME_SITE } from '../../lib/constantes';
+
+const { slug } = Astro.params;
+const post = slug ? await getPostPorSlug(slug) : null;
+if (!post) {
+  return Astro.rewrite('/404');
+}
+
+const imagemCapa = urlImagem(post.imagem, { largura: 1400, altura: 800 });
+const relacionados = (await getPosts(4)).filter((p) => p.id !== post.id).slice(0, 3);
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: post.titulo,
+  description: post.resumo ?? undefined,
+  image: imagemCapa ? [imagemCapa] : undefined,
+  datePublished: post.date_created,
+  publisher: { '@type': 'Organization', name: NOME_SITE },
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+});
+---
+
+<Base titulo={post.titulo} descricao={post.resumo ?? undefined} imagemOg={imagemCapa} tipoOg="article">
+  <script slot="head" type="application/ld+json" set:html={jsonLd} />
+
+  <article>
+    <header class="artigo-header">
+      <div class="container">
+        <div class="post-meta">
+          {post.categoria && <span>{post.categoria.nome}</span>}
+          <time datetime={post.date_created}>{formatarDataLonga(post.date_created)}</time>
+        </div>
+        <h1>{post.titulo}</h1>
+        {post.resumo && <p class="prosa" style="font-size:1.2rem;color:var(--texto-suave)">{post.resumo}</p>}
+        {imagemCapa && <img class="artigo-capa" src={imagemCapa} alt="" />}
+      </div>
+    </header>
+
+    <div class="section" style="padding-top:36px">
+      <div class="container">
+        <div class="prosa" set:html={post.conteudo ?? ''} />
+      </div>
+    </div>
+  </article>
+
+  {relacionados.length > 0 && (
+    <section class="section section--cinza" aria-labelledby="relacionadas-titulo">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="rotulo">Continue lendo</p>
+            <h2 id="relacionadas-titulo">Mais notícias</h2>
+          </div>
+          <a class="text-link" href="/noticias">Ver todas</a>
+        </div>
+        <div class="lista-noticias">
+          {relacionados.map((p) => <PostCard post={p} />)}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>
