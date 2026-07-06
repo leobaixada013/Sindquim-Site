@@ -18,9 +18,12 @@ import type {
   SchemaDirectus,
 } from './tipos';
 
-const DIRECTUS_URL = import.meta.env.DIRECTUS_URL ?? 'http://localhost:8055';
+// DIRECTUS_URL precisa ser lida em runtime (process.env): import.meta.env é
+// substituído no build, e a imagem Docker é buildada sem conhecer a rede final.
+const DIRECTUS_URL =
+  process.env.DIRECTUS_URL ?? import.meta.env.DIRECTUS_URL ?? 'http://localhost:8055';
 const PUBLIC_DIRECTUS_URL =
-  import.meta.env.PUBLIC_DIRECTUS_URL ?? DIRECTUS_URL;
+  process.env.PUBLIC_DIRECTUS_URL ?? import.meta.env.PUBLIC_DIRECTUS_URL ?? DIRECTUS_URL;
 
 const TTL_CONTEUDO = 60_000;
 
