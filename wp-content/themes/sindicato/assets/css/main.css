@@ -767,6 +767,31 @@ input {
   background-size: cover;
 }
 
+.podcast-feature__player {
+  width: 100%;
+}
+
+.podcast-feature__player iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 8px;
+}
+
+.podcast-feature--playing {
+  background-image: none !important;
+  background-color: var(--navy-950);
+}
+
+.podcast-feature--playing::before {
+  display: none;
+}
+
+.podcast-feature--playing .play-button {
+  display: none;
+}
+
 .instagram-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));

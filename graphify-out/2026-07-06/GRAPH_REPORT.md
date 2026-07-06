@@ -1,11 +1,11 @@
 # Graph Report - site sindicato  (2026-07-06)
 
 ## Corpus Check
-- 106 files · ~559,074 words
+- 107 files · ~559,838 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 889 nodes · 1091 edges · 101 communities (83 shown, 18 thin omitted)
+- 899 nodes · 1100 edges · 102 communities (84 shown, 18 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 24 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
@@ -95,6 +95,7 @@
 - [[_COMMUNITY_Community 96|Community 96]]
 - [[_COMMUNITY_Community 97|Community 97]]
 - [[_COMMUNITY_Community 99|Community 99]]
+- [[_COMMUNITY_Community 101|Community 101]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Task 6 Report` - 31 edges
@@ -123,7 +124,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (101 total, 18 thin omitted)
+## Communities (102 total, 18 thin omitted)
 
 ### Community 0 - "Design System and Typography"
 Cohesion: 0.12
@@ -131,15 +132,15 @@ Nodes (17): 1. Overview, 3. Typography, Design System: STI Baixada Santista, Ele
 
 ### Community 1 - "Banner Custom Post Type"
 Cohesion: 0.05
-Nodes (63): _sind_ativo, _sind_cta_link, _sind_cta_texto, _sind_data_fim, _sind_data_inicio, _sind_ordem, _sind_subtitulo, absint() (+55 more)
+Nodes (62): _sind_ativo, _sind_cta_link, _sind_cta_texto, _sind_data_fim, _sind_data_inicio, _sind_ordem, _sind_subtitulo, absint() (+54 more)
 
 ### Community 2 - "YouTube API Integration"
 Cohesion: 0.07
-Nodes (42): ABSPATH, array_slice, empty, esc_attr(), esc_html__, exit, get_option, get_transient (+34 more)
+Nodes (42): ABSPATH, array_slice, empty, esc_html__, exit, get_option, get_transient, HOUR_IN_SECONDS (+34 more)
 
 ### Community 3 - "Documents and Contact Templates"
-Cohesion: 0.17
-Nodes (16): .button--primary, CF7's own default AJAX response region, CF7 shortcode, Contato, .contato-form-card, detect.mjs, Filie-se, /filie-se/ page (+8 more)
+Cohesion: 0.15
+Nodes (17): .button--primary, CF7's own default AJAX response region, CF7 shortcode, Contato, .contato-form-card, detect.mjs, Filie-se, /filie-se/ page (+9 more)
 
 ### Community 4 - "Notice Custom Post Type"
 Cohesion: 0.05
@@ -150,8 +151,8 @@ Cohesion: 0.15
 Nodes (13): Área do Associado Section, Avisos Section, Benefícios Section, Contato Section, Convenções Section, Filie-se Section, Home Page Mockup, Instagram Section (+5 more)
 
 ### Community 6 - "WordPress Loop and Templates"
-Cohesion: 0.17
-Nodes (16): WordPress Archive Template, get_footer(), get_header(), get_permalink, get_the_category, get_the_date, get_the_excerpt, have_posts (+8 more)
+Cohesion: 0.19
+Nodes (15): WordPress Archive Template, esc_html(), get_permalink, get_the_category, get_the_date, get_the_excerpt, have_posts, single_cat_title (+7 more)
 
 ### Community 7 - "Contact Settings Configuration"
 Cohesion: 0.08
@@ -211,7 +212,7 @@ Nodes (14): Files Changed, Final Status, Git Commit, Implementation Summary, Iss
 
 ### Community 42 - "Community 42"
 Cohesion: 0.14
-Nodes (13): Acordo Coletivo, wp-content/themes/sindicato/archive-documento.php, Baixar PDF, .button--small, Convenção, Convenções e Documentos, documento CPT, esc_html() (+5 more)
+Nodes (13): Acordo Coletivo, wp-content/themes/sindicato/archive-documento.php, Baixar PDF, .button--small, Convenção, Convenções e Documentos, documento CPT, esc_attr() (+5 more)
 
 ### Community 43 - "Community 43"
 Cohesion: 0.14
@@ -227,7 +228,7 @@ Nodes (13): 11. Plano De Desenvolvimento, Fase 0: Aprovação Do Mockup, Fase 10
 
 ### Community 46 - "Community 46"
 Cohesion: 0.21
-Nodes (12): Hero Assembleia Sindicato Image, Sindicato Logo, Design Token: --navy-950, Design Token: --red-600, Design Token: --red-700, News Archive Page Critique, Home Page Critique, Design System Documentation (+4 more)
+Nodes (13): Hero Assembleia Sindicato Image, Sindicato Logo, Design Token: --navy-950, Design Token: --red-600, Design Token: --red-700, News Archive Page Critique, Home Page Critique, Design System Documentation (+5 more)
 
 ### Community 47 - "Community 47"
 Cohesion: 0.17
@@ -373,12 +374,16 @@ Nodes (3): 6. Do's and Don'ts, Do:, Don't:
 Cohesion: 0.67
 Nodes (3): 5.1 WordPress Tradicional, 5.2 Alternativa Moderna, 5. Arquitetura Recomendada
 
+### Community 101 - "Community 101"
+Cohesion: 0.20
+Nodes (9): Backup, Configurar YouTube e Instagram manualmente, Criar schema e conteúdo inicial, Deploy de teste atual, Deploy do site Astro + Directus, Primeiro boot do Directus, Subir ou atualizar, Variáveis de ambiente (+1 more)
+
 ## Ambiguous Edges - Review These
 - `wp-content/themes/sindicato/archive-documento.php` → `functions.php`  [AMBIGUOUS]
   .impeccable/critique/2026-07-01T22-04-56Z__wp-content-themes-sindicato-archive-documento-php.md · relation: related_to
 
 ## Knowledge Gaps
-- **447 isolated node(s):** `menuButton`, `menu`, `urgentNotices`, `quickNotices`, `COLECOES` (+442 more)
+- **455 isolated node(s):** `menuButton`, `menu`, `urgentNotices`, `quickNotices`, `COLECOES` (+450 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -387,15 +392,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `wp-content/themes/sindicato/archive-documento.php` and `functions.php`?**
   _Edge tagged AMBIGUOUS (relation: related_to) - confidence is low._
-- **Why does `functions.php` connect `Banner Custom Post Type` to `Documents and Contact Templates`, `Community 42`, `YouTube API Integration`?**
-  _High betweenness centrality (0.019) - this node is a cross-community bridge._
-- **Why does `WordPress Front Page Template` connect `Banner Custom Post Type` to `YouTube API Integration`, `UI Mockups and Components`, `WordPress Loop and Templates`, `Community 42`, `Community 46`?**
+- **Why does `functions.php` connect `Banner Custom Post Type` to `Documents and Contact Templates`, `Community 42`, `YouTube API Integration`, `WordPress Loop and Templates`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+- **Why does `WordPress Front Page Template` connect `Banner Custom Post Type` to `Documents and Contact Templates`, `UI Mockups and Components`, `WordPress Loop and Templates`, `Community 42`, `Community 46`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **Why does `Task 6 Report` connect `Banner Custom Post Type` to `WordPress Loop and Templates`?**
+- **Why does `Task 6 Report` connect `Banner Custom Post Type` to `Documents and Contact Templates`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **What connects `menuButton`, `menu`, `urgentNotices` to the rest of the system?**
-  _448 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _456 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System and Typography` be split into smaller, more focused modules?**
   _Cohesion score 0.12418300653594772 - nodes in this community are weakly interconnected._
 - **Should `Banner Custom Post Type` be split into smaller, more focused modules?**
-  _Cohesion score 0.05150905432595573 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05217391304347826 - nodes in this community are weakly interconnected._

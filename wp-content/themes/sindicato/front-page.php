@@ -161,17 +161,18 @@ $tem_conteudo    = $proximo_episodio || $destaque_video || $videos_youtube;
             <?php endif; ?>
         </article>
         <?php elseif ( $destaque_video ) : ?>
-        <article class="podcast-feature"<?php echo $destaque_video['thumbnail_url'] ? ' style="background-image:url(' . esc_url( $destaque_video['thumbnail_url'] ) . ')"' : ''; ?>>
-            <span class="play-button">Play</span>
-            <h3><?php echo esc_html( $destaque_video['titulo'] ); ?></h3>
-            <a class="text-link" href="<?php echo esc_url( $destaque_video['link'] ); ?>" target="_blank" rel="noopener">Assistir no YouTube</a>
+        <article class="podcast-feature" data-player<?php echo $destaque_video['thumbnail_url'] ? ' style="background-image:url(' . esc_url( $destaque_video['thumbnail_url'] ) . ')"' : ''; ?>>
+            <div class="podcast-feature__player" data-player-slot hidden></div>
+            <button class="play-button" type="button" data-video-id="<?php echo esc_attr( $destaque_video['video_id'] ); ?>" data-video-title="<?php echo esc_attr( $destaque_video['titulo'] ); ?>" aria-label="Assistir: <?php echo esc_attr( $destaque_video['titulo'] ); ?>">Play</button>
+            <h3 data-player-title><?php echo esc_html( $destaque_video['titulo'] ); ?></h3>
+            <a class="text-link" data-player-link href="<?php echo esc_url( $destaque_video['link'] ); ?>" target="_blank" rel="noopener">Assistir no YouTube</a>
         </article>
         <?php endif; ?>
 
         <?php if ( $videos_youtube ) : ?>
         <div class="podcast-list">
             <?php foreach ( $videos_youtube as $video ) : ?>
-            <a href="<?php echo esc_url( $video['link'] ); ?>" target="_blank" rel="noopener">
+            <a href="<?php echo esc_url( $video['link'] ); ?>" data-video-id="<?php echo esc_attr( $video['video_id'] ); ?>" data-video-title="<?php echo esc_attr( $video['titulo'] ); ?>" data-video-thumb="<?php echo esc_url( $video['thumbnail_url'] ); ?>" target="_blank" rel="noopener">
                 <span style="background-image:url(<?php echo esc_url( $video['thumbnail_url'] ); ?>)"></span>
                 <?php echo esc_html( $video['titulo'] ); ?>
             </a>

@@ -5,8 +5,8 @@
     "semantic_hash": "7bf81dca0376bde3a32244b82bc7cbc0"
   },
   ".claude/settings.local.json": {
-    "mtime": 1783305306.0414615,
-    "ast_hash": "018e04b352130047f4ff2d4e113cf0b5",
+    "mtime": 1783352766.9112992,
+    "ast_hash": "246b955311cc8b81db524f403490a2ee",
     "semantic_hash": ""
   },
   ".impeccable/design.json": {
@@ -375,22 +375,22 @@
     "semantic_hash": "d3a70c680c598a48f0f88400c6fefaac"
   },
   "scripts/directus-conteudo-exemplo.mjs": {
-    "mtime": 1783306553.9938607,
-    "ast_hash": "9d3cf763b74ae7cad78de1c7a2e0fb62",
+    "mtime": 1783334845.198063,
+    "ast_hash": "a50ad115d8ee591b29c4c47d3e2dd2bf",
     "semantic_hash": ""
   },
   "scripts/directus-schema.mjs": {
-    "mtime": 1783306491.4048915,
-    "ast_hash": "f4e66211ab895737f4cb542f78536773",
+    "mtime": 1783352746.498634,
+    "ast_hash": "552acc9a11e851d43461d9a291f8e34e",
     "semantic_hash": ""
   },
   "site/.astro/content.d.ts": {
-    "mtime": 1783307797.681207,
+    "mtime": 1783351991.7862492,
     "ast_hash": "4aaaf7e07990466432e5a0fcf9b2e58c",
     "semantic_hash": ""
   },
   "site/.astro/types.d.ts": {
-    "mtime": 1783307797.6822097,
+    "mtime": 1783351991.7867682,
     "ast_hash": "f3d48b2aa569815a445d3509aa161559",
     "semantic_hash": ""
   },
@@ -410,8 +410,8 @@
     "semantic_hash": ""
   },
   "site/package.json": {
-    "mtime": 1783306659.0797472,
-    "ast_hash": "e84b1896145036b2071c9053e25b32f3",
+    "mtime": 1783334869.2742608,
+    "ast_hash": "98830b5a20d36ffc66218b4bfcff0869",
     "semantic_hash": ""
   },
   "site/src/components/Estudio.astro": {
@@ -510,8 +510,8 @@
     "semantic_hash": ""
   },
   "site/src/pages/index.astro": {
-    "mtime": 1783306931.39954,
-    "ast_hash": "7029cc54c17562c2c080f4b21dc47d93",
+    "mtime": 1783334724.3826778,
+    "ast_hash": "103e909e77b3fcc04f72d781c34d3e7a",
     "semantic_hash": ""
   },
   "site/src/pages/noticias/[slug].astro": {
@@ -612,6 +612,11 @@
   "wp-content/themes/sindicato/assets/img/hero-assembleia-sindicato.webp": {
     "mtime": 1782965097.1651626,
     "ast_hash": "52992bc9060ec46d9cf0734932f82bb2",
+    "semantic_hash": ""
+  },
+  "deploy/README.md": {
+    "mtime": 1783334175.7283475,
+    "ast_hash": "9cc534954ecc311794b7cfe9623e7843",
     "semantic_hash": ""
   }
 }

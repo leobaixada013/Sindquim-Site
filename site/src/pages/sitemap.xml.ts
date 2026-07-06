@@ -4,8 +4,6 @@ import { getPosts } from '../lib/directus';
 const PAGINAS_FIXAS = [
   '/',
   '/noticias',
-  '/avisos',
-  '/convencoes',
   '/diretoria',
   '/contato',
   '/filie-se',
