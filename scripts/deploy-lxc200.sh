@@ -87,6 +87,8 @@ fi
 rm -rf "$REMOTE_DIR"
 mkdir -p "$REMOTE_DIR"
 cp -a "$tmp/." "$REMOTE_DIR/"
+mkdir -p "$REMOTE_DIR/deploy/directus/uploads"
+printf 'ok\n' > "$REMOTE_DIR/deploy/directus/uploads/directus-health-file"
 chown -R 1000:1000 "$REMOTE_DIR/deploy/directus" 2>/dev/null || true
 
 cd "$REMOTE_DIR/deploy"

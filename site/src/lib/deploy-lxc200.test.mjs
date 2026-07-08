@@ -57,4 +57,9 @@ describe('deploy LXC 200', () => {
     expect(output).toContain('scripts/backup-lxc200-data.sh --dry-run');
     expect(output.indexOf('scripts/backup-lxc200-data.sh --dry-run')).toBeLessThan(output.indexOf('rm -rf "$REMOTE_DIR"'));
   });
+
+  it('garante o arquivo usado pelo health detalhado do Directus antes de validar /server/health', () => {
+    expect(deploy).toContain('directus-health-file');
+    expect(deploy.indexOf('directus-health-file')).toBeLessThan(deploy.indexOf('/server/health'));
+  });
 });
