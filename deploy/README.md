@@ -122,13 +122,19 @@ curl -s -X POST \
 
 ## Backup
 
-Faça backup destas pastas:
+Antes de substituir a árvore remota no LXC 200, `scripts/deploy-lxc200.sh` executa `scripts/backup-lxc200-data.sh`.
 
+O backup salva estes dados persistentes em um `.tar.gz` timestampado no diretório remoto de backup:
+
+- `deploy/.env` — segredos e configuração do deploy.
 - `deploy/directus/database/` — banco SQLite.
 - `deploy/directus/uploads/` — imagens e PDFs.
+- `deploy/directus/extensions/` — extensões locais do Directus.
 
-Exemplo:
+O script valida a leitura do arquivo com `tar -tzf` e aborta o deploy antes de qualquer `rm -rf` se o backup falhar.
 
 ```bash
-tar -czf sindquim-directus-backup-$(date +%F).tar.gz directus/database directus/uploads
+scripts/backup-lxc200-data.sh
 ```
+
+Variáveis aceitas: `DEPLOY_HOST`, `DEPLOY_CT`, `DEPLOY_REMOTE_DIR`, `DEPLOY_BACKUP_DIR` e `DEPLOY_BACKUP_KEEP`.

@@ -1,12 +1,12 @@
 {
   ".claude/settings.json": {
-    "mtime": 1783378002.7055004,
-    "ast_hash": "45cb4cf4535b1f53e65f940f7116ed60",
+    "mtime": 1783476781.995474,
+    "ast_hash": "7bf81dca0376bde3a32244b82bc7cbc0",
     "semantic_hash": ""
   },
   ".claude/settings.local.json": {
-    "mtime": 1783367710.600258,
-    "ast_hash": "9bfad6cbe06e618c126cdd88b564353b",
+    "mtime": 1783455597.489125,
+    "ast_hash": "84c582499a435da9c4494b55a0df6fd6",
     "semantic_hash": ""
   },
   ".impeccable/design.json": {
@@ -165,14 +165,14 @@
     "semantic_hash": "e071ec3af9c723847b443f07a6af4cae"
   },
   ".superpowers/sdd/progress.md": {
-    "mtime": 1782926550.4607785,
-    "ast_hash": "393e7e31f829182fe983cbe45da26eb4",
-    "semantic_hash": "393e7e31f829182fe983cbe45da26eb4"
+    "mtime": 1783460551.42408,
+    "ast_hash": "0e936cb49b02b4024ec02a645592ec82",
+    "semantic_hash": ""
   },
   ".superpowers/sdd/task-1-brief.md": {
-    "mtime": 1782922684.7376564,
-    "ast_hash": "88c8398473114ec824ec97ce7d802131",
-    "semantic_hash": "88c8398473114ec824ec97ce7d802131"
+    "mtime": 1783459898.8490705,
+    "ast_hash": "c6f5c5b09b3af3204a677104f1deec30",
+    "semantic_hash": ""
   },
   ".superpowers/sdd/task-1-report.md": {
     "mtime": 1782923054.45315,
@@ -375,17 +375,17 @@
     "semantic_hash": ""
   },
   "scripts/directus-schema.mjs": {
-    "mtime": 1783378253.9216168,
-    "ast_hash": "6b35f3df971d91b2f560e3dad4e4052e",
+    "mtime": 1783476782.01784,
+    "ast_hash": "61596e647411af33e3c4782f89656968",
     "semantic_hash": ""
   },
   "site/.astro/content.d.ts": {
-    "mtime": 1783378662.7818606,
+    "mtime": 1783477805.4345334,
     "ast_hash": "4aaaf7e07990466432e5a0fcf9b2e58c",
     "semantic_hash": ""
   },
   "site/.astro/types.d.ts": {
-    "mtime": 1783378662.7818606,
+    "mtime": 1783477805.435567,
     "ast_hash": "f3d48b2aa569815a445d3509aa161559",
     "semantic_hash": ""
   },
@@ -405,8 +405,8 @@
     "semantic_hash": ""
   },
   "site/package.json": {
-    "mtime": 1783334869.2742608,
-    "ast_hash": "98830b5a20d36ffc66218b4bfcff0869",
+    "mtime": 1783477716.2898097,
+    "ast_hash": "dae013a39509bb51be1ef098aa9bc3ba",
     "semantic_hash": ""
   },
   "site/src/components/Estudio.astro": {
@@ -415,8 +415,8 @@
     "semantic_hash": ""
   },
   "site/src/components/PostCard.astro": {
-    "mtime": 1783306828.5712993,
-    "ast_hash": "1c9d5017eb972896490790c24007da6f",
+    "mtime": 1783476782.0219648,
+    "ast_hash": "029e1685d34c25ec2cb1a60bebd885fa",
     "semantic_hash": ""
   },
   "site/src/layouts/Base.astro": {
@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "site/src/lib/directus.ts": {
-    "mtime": 1783378369.3748372,
-    "ast_hash": "d7663181a46d0cee48cf4d66f1f7fa3e",
+    "mtime": 1783476782.0229971,
+    "ast_hash": "5d0a342e6004964f1940fecf502d7785",
     "semantic_hash": ""
   },
   "site/src/lib/formatar.test.ts": {
@@ -450,8 +450,8 @@
     "semantic_hash": ""
   },
   "site/src/lib/tipos.ts": {
-    "mtime": 1783378294.0070004,
-    "ast_hash": "6ce609aa4bc49ce460d145d56167c44b",
+    "mtime": 1783476782.0240295,
+    "ast_hash": "03acb6a82c6684e53a980ec284cccc19",
     "semantic_hash": ""
   },
   "site/src/lib/youtube.test.ts": {
@@ -495,13 +495,13 @@
     "semantic_hash": ""
   },
   "site/src/pages/index.astro": {
-    "mtime": 1783362841.0673668,
-    "ast_hash": "005ba3a461c1019b06ee879ff3fa33b1",
+    "mtime": 1783476782.0260916,
+    "ast_hash": "6ed2bd8f698150bff6aa41e0ee2e4bf1",
     "semantic_hash": ""
   },
   "site/src/pages/noticias/[slug].astro": {
-    "mtime": 1783306966.9636953,
-    "ast_hash": "b4d908b2a202cd30b404aed198ddf2ca",
+    "mtime": 1783476782.0286758,
+    "ast_hash": "70710f4a0d935e5ff1e873010dd9a61b",
     "semantic_hash": ""
   },
   "site/src/pages/noticias/index.astro": {
@@ -515,13 +515,13 @@
     "semantic_hash": ""
   },
   "site/src/pages/rss.xml.ts": {
-    "mtime": 1783307031.1344073,
-    "ast_hash": "fc65c4aa9c2808bb8fce8d0380bbdaec",
+    "mtime": 1783476782.029189,
+    "ast_hash": "c6cc6515da4d22c483714f274db0af20",
     "semantic_hash": ""
   },
   "site/src/pages/sitemap.xml.ts": {
-    "mtime": 1783366089.720834,
-    "ast_hash": "17db9a1fa2b589881d9203a6e2ae51e4",
+    "mtime": 1783476782.0302207,
+    "ast_hash": "f45da166386eddaad0ed85bdc8a9d287",
     "semantic_hash": ""
   },
   "site/tsconfig.json": {
@@ -530,7 +530,7 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1782950135.0626523,
+    "mtime": 1783476781.996521,
     "ast_hash": "8a6643a420fdad6bfb583523bc6cef16",
     "semantic_hash": ""
   },
@@ -600,8 +600,8 @@
     "semantic_hash": ""
   },
   "deploy/README.md": {
-    "mtime": 1783334175.7283475,
-    "ast_hash": "9cc534954ecc311794b7cfe9623e7843",
+    "mtime": 1783477748.8262265,
+    "ast_hash": "ef1a2f80ca83094b20ace9708d9bba8c",
     "semantic_hash": ""
   },
   "scripts/directus-atualizar-paginas.mjs": {
@@ -609,24 +609,14 @@
     "ast_hash": "c1b34567c3202e0a228a0ba1f43451d5",
     "semantic_hash": ""
   },
-  "design/codigo.tsx": {
-    "mtime": 1783373164.1318283,
-    "ast_hash": "77765d655f0d894c1e96196b4eb6ced0",
-    "semantic_hash": ""
-  },
   "site/src/pages/api/juridico.ts": {
-    "mtime": 1783378484.7426214,
-    "ast_hash": "30dc6a2a2808c26b5bed120c132917d2",
+    "mtime": 1783476782.0250573,
+    "ast_hash": "e2e150dfaa92b0bb863a05dbf83df523",
     "semantic_hash": ""
   },
   "site/src/pages/juridico.astro": {
-    "mtime": 1783378465.7606914,
-    "ast_hash": "9246d661c2be40e8186887588b2626f2",
-    "semantic_hash": ""
-  },
-  "design/Desing.md": {
-    "mtime": 1783371364.8267243,
-    "ast_hash": "122798e6db6da3b94440cdcb6d163ab2",
+    "mtime": 1783476782.0271232,
+    "ast_hash": "2a22a00f2d4e8fb1f7c4ec948e7eb9a6",
     "semantic_hash": ""
   },
   "scripts/directus-atualizar-juridico.mjs": {
@@ -642,6 +632,26 @@
   "site/.astro/settings.json": {
     "mtime": 1783377235.8498623,
     "ast_hash": "444e7c5027bb744bb568591f754eb546",
+    "semantic_hash": ""
+  },
+  "scripts/backup-lxc200-data.sh": {
+    "mtime": 1783477696.7475605,
+    "ast_hash": "87cc916063d2d8879933133d4a67be89",
+    "semantic_hash": ""
+  },
+  "scripts/deploy-lxc200.sh": {
+    "mtime": 1783477697.871943,
+    "ast_hash": "3de97e14fd19aa92900c400087e26a44",
+    "semantic_hash": ""
+  },
+  "site/src/lib/deploy-lxc200.test.mjs": {
+    "mtime": 1783477558.74608,
+    "ast_hash": "9dd052b36b215f1b9e14d6ecc5a75c12",
+    "semantic_hash": ""
+  },
+  "design/referencia-home-sindicato.png": {
+    "mtime": 1783476782.005405,
+    "ast_hash": "d3a70c680c598a48f0f88400c6fefaac",
     "semantic_hash": ""
   }
 }

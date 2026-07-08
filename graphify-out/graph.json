@@ -4,16 +4,6 @@
   "graph": {},
   "nodes": [
     {
-      "label": "codigo.tsx",
-      "file_type": "code",
-      "source_file": "design/codigo.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "design_codigo",
-      "community": 108,
-      "norm_label": "codigo.tsx"
-    },
-    {
       "label": "script.js",
       "file_type": "code",
       "source_file": "script.js",
@@ -82,6 +72,174 @@
       "id": "script_renderquicknotices",
       "community": 12,
       "norm_label": "renderquicknotices()"
+    },
+    {
+      "label": "backup-lxc200-data.sh",
+      "file_type": "code",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "scripts_backup_lxc200_data",
+      "community": 105,
+      "norm_label": "backup-lxc200-data.sh"
+    },
+    {
+      "label": "backup-lxc200-data.sh script",
+      "file_type": "code",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "c_users_eduardo_onedrive_documentos_site_sindicato_scripts_backup_lxc200_data_sh__entry",
+      "community": 105,
+      "norm_label": "backup-lxc200-data.sh script"
+    },
+    {
+      "label": "quote()",
+      "file_type": "code",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L22",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_backup_lxc200_data_quote",
+      "community": 105,
+      "norm_label": "quote()"
+    },
+    {
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L26",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_backup_lxc200_data_run",
+      "community": 105,
+      "norm_label": "run()"
+    },
+    {
+      "label": "remote()",
+      "file_type": "code",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L36",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_backup_lxc200_data_remote",
+      "community": 105,
+      "norm_label": "remote()"
+    },
+    {
+      "label": "cleanup()",
+      "file_type": "code",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L40",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_backup_lxc200_data_cleanup",
+      "community": 105,
+      "norm_label": "cleanup()"
+    },
+    {
+      "label": "deploy-lxc200.sh",
+      "file_type": "code",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "scripts_deploy_lxc200",
+      "community": 108,
+      "norm_label": "deploy-lxc200.sh"
+    },
+    {
+      "label": "deploy-lxc200.sh script",
+      "file_type": "code",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "c_users_eduardo_onedrive_documentos_site_sindicato_scripts_deploy_lxc200_sh__entry",
+      "community": 108,
+      "norm_label": "deploy-lxc200.sh script"
+    },
+    {
+      "label": "quote()",
+      "file_type": "code",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L24",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_deploy_lxc200_quote",
+      "community": 108,
+      "norm_label": "quote()"
+    },
+    {
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L28",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_deploy_lxc200_run",
+      "community": 108,
+      "norm_label": "run()"
+    },
+    {
+      "label": "remote()",
+      "file_type": "code",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L38",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_deploy_lxc200_remote",
+      "community": 108,
+      "norm_label": "remote()"
+    },
+    {
+      "label": "cleanup()",
+      "file_type": "code",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L42",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_deploy_lxc200_cleanup",
+      "community": 108,
+      "norm_label": "cleanup()"
     },
     {
       "label": "directus-atualizar-juridico.mjs",
@@ -1185,6 +1343,46 @@
       "id": "lib_constantes_menu",
       "community": 103,
       "norm_label": "menu"
+    },
+    {
+      "label": "deploy-lxc200.test.mjs",
+      "file_type": "code",
+      "source_file": "site/src/lib/deploy-lxc200.test.mjs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "lib_deploy_lxc200_test",
+      "community": 118,
+      "norm_label": "deploy-lxc200.test.mjs"
+    },
+    {
+      "label": "repoRoot",
+      "file_type": "code",
+      "source_file": "site/src/lib/deploy-lxc200.test.mjs",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "lib_deploy_lxc200_test_reporoot",
+      "community": 118,
+      "norm_label": "reporoot"
+    },
+    {
+      "label": "deploy",
+      "file_type": "code",
+      "source_file": "site/src/lib/deploy-lxc200.test.mjs",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "lib_deploy_lxc200_test_deploy",
+      "community": 118,
+      "norm_label": "deploy"
+    },
+    {
+      "label": "backup",
+      "file_type": "code",
+      "source_file": "site/src/lib/deploy-lxc200.test.mjs",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "lib_deploy_lxc200_test_backup",
+      "community": 118,
+      "norm_label": "backup"
     },
     {
       "label": "directus.ts",
@@ -3397,14 +3595,14 @@
       "norm_label": "progress.md"
     },
     {
-      "label": "Progress: Unifica\u00e7\u00e3o Podcast/YouTube (docs/superpowers/plans/2026-07-01-podcast-youtube-unificado.md)",
+      "label": "Progress: Data publica\u00e7\u00e3o posts",
       "file_type": "document",
       "source_file": ".superpowers/sdd/progress.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "sdd_progress_progress_unifica\u00e7\u00e3o_podcast_youtube_docs_superpowers_plans_2026_07_01_podcast_youtube_unificado_md",
+      "id": "sdd_progress_progress_data_publica\u00e7\u00e3o_posts",
       "community": 88,
-      "norm_label": "progress: unificacao podcast/youtube (docs/superpowers/plans/2026-07-01-podcast-youtube-unificado.md)"
+      "norm_label": "progress: data publicacao posts"
     },
     {
       "label": "task-1-brief.md",
@@ -3417,14 +3615,14 @@
       "norm_label": "task-1-brief.md"
     },
     {
-      "label": "Task 1: Resolu\u00e7\u00e3o De Canal E Busca De V\u00eddeos Do YouTube",
+      "label": "Task 1: Helper de data p\u00fablica do post",
       "file_type": "document",
       "source_file": ".superpowers/sdd/task-1-brief.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "sdd_task_1_brief_task_1_resolu\u00e7\u00e3o_de_canal_e_busca_de_v\u00eddeos_do_youtube",
+      "id": "sdd_task_1_brief_task_1_helper_de_data_p\u00fablica_do_post",
       "community": 90,
-      "norm_label": "task 1: resolucao de canal e busca de videos do youtube"
+      "norm_label": "task 1: helper de data publica do post"
     },
     {
       "label": "task-1-report.md",
@@ -5435,136 +5633,6 @@
       "id": "deploy_readme_backup",
       "community": 101,
       "norm_label": "backup"
-    },
-    {
-      "label": "Desing.md",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "design_desing",
-      "community": 105,
-      "norm_label": "desing.md"
-    },
-    {
-      "label": "Brand & Style",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L119",
-      "_origin": "ast",
-      "id": "design_desing_brand_style",
-      "community": 105,
-      "norm_label": "brand & style"
-    },
-    {
-      "label": "Colors",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L129",
-      "_origin": "ast",
-      "id": "design_desing_colors",
-      "community": 105,
-      "norm_label": "colors"
-    },
-    {
-      "label": "Typography",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L141",
-      "_origin": "ast",
-      "id": "design_desing_typography",
-      "community": 105,
-      "norm_label": "typography"
-    },
-    {
-      "label": "Layout & Spacing",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L149",
-      "_origin": "ast",
-      "id": "design_desing_layout_spacing",
-      "community": 105,
-      "norm_label": "layout & spacing"
-    },
-    {
-      "label": "Elevation & Depth",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L159",
-      "_origin": "ast",
-      "id": "design_desing_elevation_depth",
-      "community": 105,
-      "norm_label": "elevation & depth"
-    },
-    {
-      "label": "Shapes",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L168",
-      "_origin": "ast",
-      "id": "design_desing_shapes",
-      "community": 105,
-      "norm_label": "shapes"
-    },
-    {
-      "label": "Components",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L176",
-      "_origin": "ast",
-      "id": "design_desing_components",
-      "community": 105,
-      "norm_label": "components"
-    },
-    {
-      "label": "Buttons",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L178",
-      "_origin": "ast",
-      "id": "design_desing_buttons",
-      "community": 105,
-      "norm_label": "buttons"
-    },
-    {
-      "label": "Input Fields",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L183",
-      "_origin": "ast",
-      "id": "design_desing_input_fields",
-      "community": 105,
-      "norm_label": "input fields"
-    },
-    {
-      "label": "Cards",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L189",
-      "_origin": "ast",
-      "id": "design_desing_cards",
-      "community": 105,
-      "norm_label": "cards"
-    },
-    {
-      "label": "Chips / Tags",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L194",
-      "_origin": "ast",
-      "id": "design_desing_chips_tags",
-      "community": 105,
-      "norm_label": "chips / tags"
-    },
-    {
-      "label": "Lists",
-      "file_type": "document",
-      "source_file": "design/Desing.md",
-      "source_location": "L198",
-      "_origin": "ast",
-      "id": "design_desing_lists",
-      "community": 105,
-      "norm_label": "lists"
     },
     {
       "label": "campos-formularios.md",
@@ -8127,7 +8195,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 114,
       "norm_label": "wordpress front page template",
       "community_name": "WordPress Loop and Templates",
       "id": "front_page_php"
@@ -8477,7 +8545,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 6,
       "norm_label": "esc_attr()",
       "community_name": "YouTube API Integration",
       "id": "esc_attr"
@@ -8687,7 +8755,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 6,
       "norm_label": "get_header()",
       "community_name": "Documents and Contact Templates",
       "id": "get_header"
@@ -8701,7 +8769,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 6,
       "norm_label": "get_footer()",
       "community_name": "Documents and Contact Templates",
       "id": "get_footer"
@@ -9261,7 +9329,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 2,
       "norm_label": "rawurlencode",
       "community_name": "WordPress Loop and Templates",
       "id": "rawurlencode"
@@ -9653,7 +9721,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 114,
       "norm_label": "sindicato_get_aviso_urgente_ativo",
       "community_name": "Banner Custom Post Type",
       "id": "sindicato_get_aviso_urgente_ativo"
@@ -9667,7 +9735,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 114,
       "norm_label": "sindicato_get_avisos_rapidos_ativos",
       "community_name": "Banner Custom Post Type",
       "id": "sindicato_get_avisos_rapidos_ativos"
@@ -9681,7 +9749,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 114,
       "norm_label": "get_posts",
       "community_name": "Banner Custom Post Type",
       "id": "get_posts"
@@ -9695,7 +9763,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 114,
       "norm_label": "wp_query",
       "community_name": "Banner Custom Post Type",
       "id": "wp_query"
@@ -9933,7 +10001,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 114,
       "norm_label": "setup_postdata",
       "community_name": "WordPress Loop and Templates",
       "id": "setup_postdata"
@@ -9947,7 +10015,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 114,
       "norm_label": "wp_reset_postdata",
       "community_name": "WordPress Loop and Templates",
       "id": "wp_reset_postdata"
@@ -9989,7 +10057,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 114,
       "norm_label": "the_title_attribute",
       "community_name": "WordPress Loop and Templates",
       "id": "the_title_attribute"
@@ -10283,7 +10351,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 114,
       "norm_label": "has_post_thumbnail",
       "community_name": "WordPress Loop and Templates",
       "id": "has_post_thumbnail"
@@ -10297,7 +10365,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 114,
       "norm_label": "get_the_post_thumbnail_url",
       "community_name": "WordPress Loop and Templates",
       "id": "get_the_post_thumbnail_url"
@@ -10493,12 +10561,178 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "scripts_backup_lxc200_data",
+      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_scripts_backup_lxc200_data_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "scripts_backup_lxc200_data",
+      "target": "scripts_backup_lxc200_data_cleanup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "scripts_backup_lxc200_data",
+      "target": "scripts_backup_lxc200_data_quote",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "scripts_backup_lxc200_data",
+      "target": "scripts_backup_lxc200_data_remote",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "scripts_backup_lxc200_data",
+      "target": "scripts_backup_lxc200_data_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L96",
+      "weight": 1.0,
+      "context": "call",
+      "source": "c_users_eduardo_onedrive_documentos_site_sindicato_scripts_backup_lxc200_data_sh__entry",
+      "target": "scripts_backup_lxc200_data_remote",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L95",
+      "weight": 1.0,
+      "context": "call",
+      "source": "c_users_eduardo_onedrive_documentos_site_sindicato_scripts_backup_lxc200_data_sh__entry",
+      "target": "scripts_backup_lxc200_data_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/backup-lxc200-data.sh",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "call",
+      "source": "scripts_backup_lxc200_data_remote",
+      "target": "scripts_backup_lxc200_data_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "scripts_deploy_lxc200",
+      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_scripts_deploy_lxc200_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "scripts_deploy_lxc200",
+      "target": "scripts_deploy_lxc200_cleanup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "scripts_deploy_lxc200",
+      "target": "scripts_deploy_lxc200_quote",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "scripts_deploy_lxc200",
+      "target": "scripts_deploy_lxc200_remote",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "scripts_deploy_lxc200",
+      "target": "scripts_deploy_lxc200_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L64",
+      "weight": 1.0,
+      "context": "call",
+      "source": "c_users_eduardo_onedrive_documentos_site_sindicato_scripts_deploy_lxc200_sh__entry",
+      "target": "scripts_deploy_lxc200_remote",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L48",
+      "weight": 1.0,
+      "context": "call",
+      "source": "c_users_eduardo_onedrive_documentos_site_sindicato_scripts_deploy_lxc200_sh__entry",
+      "target": "scripts_deploy_lxc200_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy-lxc200.sh",
+      "source_location": "L39",
+      "weight": 1.0,
+      "context": "call",
+      "source": "scripts_deploy_lxc200_remote",
+      "target": "scripts_deploy_lxc200_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "scripts/directus-atualizar-juridico.mjs",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_juridico",
-      "target": "scripts_directus_atualizar_juridico_api",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_juridico_api"
     },
     {
       "relation": "contains",
@@ -10506,9 +10740,9 @@
       "source_file": "scripts/directus-atualizar-juridico.mjs",
       "source_location": "L134",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_juridico",
-      "target": "scripts_directus_atualizar_juridico_campos_formulario",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_juridico_campos_formulario"
     },
     {
       "relation": "contains",
@@ -10516,9 +10750,9 @@
       "source_file": "scripts/directus-atualizar-juridico.mjs",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_juridico",
-      "target": "scripts_directus_atualizar_juridico_direitos",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_juridico_direitos"
     },
     {
       "relation": "contains",
@@ -10526,9 +10760,9 @@
       "source_file": "scripts/directus-atualizar-juridico.mjs",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_juridico",
-      "target": "scripts_directus_atualizar_juridico_faq",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_juridico_faq"
     },
     {
       "relation": "contains",
@@ -10536,9 +10770,9 @@
       "source_file": "scripts/directus-atualizar-juridico.mjs",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_juridico",
-      "target": "scripts_directus_atualizar_juridico_pagina",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_juridico_pagina"
     },
     {
       "relation": "contains",
@@ -10546,9 +10780,9 @@
       "source_file": "scripts/directus-atualizar-juridico.mjs",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_juridico",
-      "target": "scripts_directus_atualizar_juridico_plantoes",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_juridico_plantoes"
     },
     {
       "relation": "contains",
@@ -10556,9 +10790,9 @@
       "source_file": "scripts/directus-atualizar-juridico.mjs",
       "source_location": "L181",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_juridico",
-      "target": "scripts_directus_atualizar_juridico_principal",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_juridico_principal"
     },
     {
       "relation": "contains",
@@ -10566,9 +10800,9 @@
       "source_file": "scripts/directus-atualizar-juridico.mjs",
       "source_location": "L170",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_juridico",
-      "target": "scripts_directus_atualizar_juridico_substituircolecao",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_juridico_substituircolecao"
     },
     {
       "relation": "calls",
@@ -10577,9 +10811,9 @@
       "source_file": "scripts/directus-atualizar-juridico.mjs",
       "source_location": "L190",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_juridico_principal",
-      "target": "scripts_directus_atualizar_juridico_api",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_juridico_api"
     },
     {
       "relation": "calls",
@@ -10588,9 +10822,9 @@
       "source_file": "scripts/directus-atualizar-juridico.mjs",
       "source_location": "L171",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_juridico_substituircolecao",
-      "target": "scripts_directus_atualizar_juridico_api",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_juridico_api"
     },
     {
       "relation": "calls",
@@ -10599,9 +10833,9 @@
       "source_file": "scripts/directus-atualizar-juridico.mjs",
       "source_location": "L193",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_atualizar_juridico_principal",
-      "target": "scripts_directus_atualizar_juridico_substituircolecao",
-      "confidence_score": 1.0
+      "target": "scripts_directus_atualizar_juridico_substituircolecao"
     },
     {
       "relation": "contains",
@@ -10783,9 +11017,9 @@
       "source_file": "scripts/directus-schema.mjs",
       "source_location": "L152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_schema",
-      "target": "scripts_directus_schema_campoordem",
-      "confidence_score": 1.0
+      "target": "scripts_directus_schema_campoordem"
     },
     {
       "relation": "contains",
@@ -10843,9 +11077,9 @@
       "source_file": "scripts/directus-schema.mjs",
       "source_location": "L418",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_schema",
-      "target": "scripts_directus_schema_garantircampo",
-      "confidence_score": 1.0
+      "target": "scripts_directus_schema_garantircampo"
     },
     {
       "relation": "contains",
@@ -10915,9 +11149,9 @@
       "source_file": "scripts/directus-schema.mjs",
       "source_location": "L420",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_schema_garantircampo",
-      "target": "scripts_directus_schema_api",
-      "confidence_score": 1.0
+      "target": "scripts_directus_schema_api"
     },
     {
       "relation": "calls",
@@ -10959,9 +11193,9 @@
       "source_file": "scripts/directus-schema.mjs",
       "source_location": "L447",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_directus_schema_garantircolecao",
-      "target": "scripts_directus_schema_garantircampo",
-      "confidence_score": 1.0
+      "target": "scripts_directus_schema_garantircampo"
     },
     {
       "relation": "calls",
@@ -11688,9 +11922,9 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "site/src/pages/juridico.astro",
+      "confidence_score": 1.0,
       "source": "pages_juridico",
-      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_directus",
-      "confidence_score": 1.0
+      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_directus"
     },
     {
       "relation": "imports_from",
@@ -11823,9 +12057,9 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "site/src/pages/juridico.astro",
+      "confidence_score": 1.0,
       "source": "pages_juridico",
-      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_tipos",
-      "confidence_score": 1.0
+      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_tipos"
     },
     {
       "relation": "imports_from",
@@ -12349,6 +12583,36 @@
       "target": "lib_constantes"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/deploy-lxc200.test.mjs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "lib_deploy_lxc200_test",
+      "target": "lib_deploy_lxc200_test_backup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/deploy-lxc200.test.mjs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "lib_deploy_lxc200_test",
+      "target": "lib_deploy_lxc200_test_deploy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/src/lib/deploy-lxc200.test.mjs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "lib_deploy_lxc200_test",
+      "target": "lib_deploy_lxc200_test_reporoot",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -12507,9 +12771,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L424",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_directus_getjuridicocamposformulario",
-      "confidence_score": 1.0
+      "target": "lib_directus_getjuridicocamposformulario"
     },
     {
       "relation": "contains",
@@ -12517,9 +12781,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L373",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_directus_getjuridicodireitos",
-      "confidence_score": 1.0
+      "target": "lib_directus_getjuridicodireitos"
     },
     {
       "relation": "contains",
@@ -12527,9 +12791,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L407",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_directus_getjuridicofaq",
-      "confidence_score": 1.0
+      "target": "lib_directus_getjuridicofaq"
     },
     {
       "relation": "contains",
@@ -12537,9 +12801,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L390",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_directus_getjuridicoplantoes",
-      "confidence_score": 1.0
+      "target": "lib_directus_getjuridicoplantoes"
     },
     {
       "relation": "contains",
@@ -12557,9 +12821,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L362",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_directus_getpaginajuridico",
-      "confidence_score": 1.0
+      "target": "lib_directus_getpaginajuridico"
     },
     {
       "relation": "contains",
@@ -12607,9 +12871,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L157",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_directus_juridico_campos_formulario_padrao",
-      "confidence_score": 1.0
+      "target": "lib_directus_juridico_campos_formulario_padrao"
     },
     {
       "relation": "contains",
@@ -12617,9 +12881,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_directus_juridico_direitos_padrao",
-      "confidence_score": 1.0
+      "target": "lib_directus_juridico_direitos_padrao"
     },
     {
       "relation": "contains",
@@ -12627,9 +12891,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_directus_juridico_faq_padrao",
-      "confidence_score": 1.0
+      "target": "lib_directus_juridico_faq_padrao"
     },
     {
       "relation": "contains",
@@ -12637,9 +12901,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L121",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_directus_juridico_plantoes_padrao",
-      "confidence_score": 1.0
+      "target": "lib_directus_juridico_plantoes_padrao"
     },
     {
       "relation": "contains",
@@ -12647,9 +12911,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_directus_pagina_juridico_padrao",
-      "confidence_score": 1.0
+      "target": "lib_directus_pagina_juridico_padrao"
     },
     {
       "relation": "contains",
@@ -12744,9 +13008,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_tipos_juridicocampoformulario",
-      "confidence_score": 1.0
+      "target": "lib_tipos_juridicocampoformulario"
     },
     {
       "relation": "imports",
@@ -12755,9 +13019,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_tipos_juridicodireito",
-      "confidence_score": 1.0
+      "target": "lib_tipos_juridicodireito"
     },
     {
       "relation": "imports",
@@ -12766,9 +13030,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_tipos_juridicofaq",
-      "confidence_score": 1.0
+      "target": "lib_tipos_juridicofaq"
     },
     {
       "relation": "imports",
@@ -12777,9 +13041,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_tipos_juridicoplantao",
-      "confidence_score": 1.0
+      "target": "lib_tipos_juridicoplantao"
     },
     {
       "relation": "imports",
@@ -12799,9 +13063,9 @@
       "source_file": "site/src/lib/directus.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_directus",
-      "target": "lib_tipos_paginajuridico",
-      "confidence_score": 1.0
+      "target": "lib_tipos_paginajuridico"
     },
     {
       "relation": "imports",
@@ -12909,9 +13173,9 @@
       "source_file": "site/src/pages/juridico.astro",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pages_juridico",
-      "target": "lib_directus",
-      "confidence_score": 1.0
+      "target": "lib_directus"
     },
     {
       "relation": "imports_from",
@@ -13206,9 +13470,9 @@
       "source_file": "site/src/pages/juridico.astro",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pages_juridico",
-      "target": "lib_directus_getpaginajuridico",
-      "confidence_score": 1.0
+      "target": "lib_directus_getpaginajuridico"
     },
     {
       "relation": "imports",
@@ -13217,9 +13481,9 @@
       "source_file": "site/src/pages/juridico.astro",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pages_juridico",
-      "target": "lib_directus_getjuridicodireitos",
-      "confidence_score": 1.0
+      "target": "lib_directus_getjuridicodireitos"
     },
     {
       "relation": "imports",
@@ -13228,9 +13492,9 @@
       "source_file": "site/src/pages/juridico.astro",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pages_juridico",
-      "target": "lib_directus_getjuridicoplantoes",
-      "confidence_score": 1.0
+      "target": "lib_directus_getjuridicoplantoes"
     },
     {
       "relation": "imports",
@@ -13239,9 +13503,9 @@
       "source_file": "site/src/pages/juridico.astro",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pages_juridico",
-      "target": "lib_directus_getjuridicofaq",
-      "confidence_score": 1.0
+      "target": "lib_directus_getjuridicofaq"
     },
     {
       "relation": "imports",
@@ -13250,9 +13514,9 @@
       "source_file": "site/src/pages/api/juridico.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_juridico",
-      "target": "lib_directus_getjuridicocamposformulario",
-      "confidence_score": 1.0
+      "target": "lib_directus_getjuridicocamposformulario"
     },
     {
       "relation": "calls",
@@ -13272,9 +13536,9 @@
       "source_file": "site/src/pages/juridico.astro",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pages_juridico",
-      "target": "lib_directus_getjuridicocamposformulario",
-      "confidence_score": 1.0
+      "target": "lib_directus_getjuridicocamposformulario"
     },
     {
       "relation": "imports",
@@ -13499,9 +13763,9 @@
       "source_file": "site/src/pages/api/juridico.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_juridico",
-      "target": "lib_tipos",
-      "confidence_score": 1.0
+      "target": "lib_tipos"
     },
     {
       "relation": "contains",
@@ -13579,9 +13843,9 @@
       "source_file": "site/src/lib/tipos.ts",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_tipos",
-      "target": "lib_tipos_juridicocampoformulario",
-      "confidence_score": 1.0
+      "target": "lib_tipos_juridicocampoformulario"
     },
     {
       "relation": "contains",
@@ -13589,9 +13853,9 @@
       "source_file": "site/src/lib/tipos.ts",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_tipos",
-      "target": "lib_tipos_juridicodireito",
-      "confidence_score": 1.0
+      "target": "lib_tipos_juridicodireito"
     },
     {
       "relation": "contains",
@@ -13599,9 +13863,9 @@
       "source_file": "site/src/lib/tipos.ts",
       "source_location": "L116",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_tipos",
-      "target": "lib_tipos_juridicofaq",
-      "confidence_score": 1.0
+      "target": "lib_tipos_juridicofaq"
     },
     {
       "relation": "contains",
@@ -13609,9 +13873,9 @@
       "source_file": "site/src/lib/tipos.ts",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_tipos",
-      "target": "lib_tipos_juridicoplantao",
-      "confidence_score": 1.0
+      "target": "lib_tipos_juridicoplantao"
     },
     {
       "relation": "contains",
@@ -13639,9 +13903,9 @@
       "source_file": "site/src/lib/tipos.ts",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_tipos",
-      "target": "lib_tipos_paginajuridico",
-      "confidence_score": 1.0
+      "target": "lib_tipos_paginajuridico"
     },
     {
       "relation": "contains",
@@ -13679,9 +13943,9 @@
       "source_file": "site/src/lib/tipos.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_tipos",
-      "target": "lib_tipos_statuspublicacao",
-      "confidence_score": 1.0
+      "target": "lib_tipos_statuspublicacao"
     },
     {
       "relation": "imports_from",
@@ -13690,9 +13954,9 @@
       "source_file": "site/src/pages/juridico.astro",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pages_juridico",
-      "target": "lib_tipos",
-      "confidence_score": 1.0
+      "target": "lib_tipos"
     },
     {
       "relation": "imports",
@@ -13701,9 +13965,9 @@
       "source_file": "site/src/pages/api/juridico.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_juridico",
-      "target": "lib_tipos_juridicocampoformulario",
-      "confidence_score": 1.0
+      "target": "lib_tipos_juridicocampoformulario"
     },
     {
       "relation": "imports",
@@ -13712,9 +13976,9 @@
       "source_file": "site/src/pages/juridico.astro",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pages_juridico",
-      "target": "lib_tipos_juridicocampoformulario",
-      "confidence_score": 1.0
+      "target": "lib_tipos_juridicocampoformulario"
     },
     {
       "relation": "imports_from",
@@ -13826,9 +14090,9 @@
       "source_file": "site/src/pages/api/juridico.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_juridico",
-      "target": "api_juridico_limitecampo",
-      "confidence_score": 1.0
+      "target": "api_juridico_limitecampo"
     },
     {
       "relation": "contains",
@@ -13846,9 +14110,9 @@
       "source_file": "site/src/pages/api/juridico.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_juridico",
-      "target": "api_juridico_valorehvalido",
-      "confidence_score": 1.0
+      "target": "api_juridico_valorehvalido"
     },
     {
       "relation": "contains",
@@ -13856,9 +14120,9 @@
       "source_file": "site/src/pages/api/juridico.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_juridico",
-      "target": "api_juridico_valortexto",
-      "confidence_score": 1.0
+      "target": "api_juridico_valortexto"
     },
     {
       "relation": "calls",
@@ -13867,9 +14131,9 @@
       "source_file": "site/src/pages/api/juridico.ts",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_juridico_post",
-      "target": "api_juridico_valortexto",
-      "confidence_score": 1.0
+      "target": "api_juridico_valortexto"
     },
     {
       "relation": "calls",
@@ -13878,9 +14142,9 @@
       "source_file": "site/src/pages/api/juridico.ts",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_juridico_post",
-      "target": "api_juridico_limitecampo",
-      "confidence_score": 1.0
+      "target": "api_juridico_limitecampo"
     },
     {
       "relation": "calls",
@@ -13889,9 +14153,9 @@
       "source_file": "site/src/pages/api/juridico.ts",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_juridico_post",
-      "target": "api_juridico_valorehvalido",
-      "confidence_score": 1.0
+      "target": "api_juridico_valorehvalido"
     },
     {
       "relation": "contains",
@@ -15408,9 +15672,9 @@
       "source_file": ".superpowers/sdd/progress.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "sdd_progress",
-      "target": "sdd_progress_progress_unifica\u00e7\u00e3o_podcast_youtube_docs_superpowers_plans_2026_07_01_podcast_youtube_unificado_md"
+      "target": "sdd_progress_progress_data_publica\u00e7\u00e3o_posts",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15418,9 +15682,9 @@
       "source_file": ".superpowers/sdd/task-1-brief.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "sdd_task_1_brief",
-      "target": "sdd_task_1_brief_task_1_resolu\u00e7\u00e3o_de_canal_e_busca_de_v\u00eddeos_do_youtube"
+      "target": "sdd_task_1_brief_task_1_helper_de_data_p\u00fablica_do_post",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -17491,126 +17755,6 @@
       "confidence_score": 1.0,
       "source": "deploy_readme_deploy_do_site_astro_directus",
       "target": "deploy_readme_verifica\u00e7\u00f5es_r\u00e1pidas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "design/Desing.md",
-      "source_location": "L119",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "design_desing",
-      "target": "design_desing_brand_style"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "design/Desing.md",
-      "source_location": "L129",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "design_desing",
-      "target": "design_desing_colors"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "design/Desing.md",
-      "source_location": "L176",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "design_desing",
-      "target": "design_desing_components"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "design/Desing.md",
-      "source_location": "L159",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "design_desing",
-      "target": "design_desing_elevation_depth"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "design/Desing.md",
-      "source_location": "L149",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "design_desing",
-      "target": "design_desing_layout_spacing"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "design/Desing.md",
-      "source_location": "L168",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "design_desing",
-      "target": "design_desing_shapes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "design/Desing.md",
-      "source_location": "L141",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "design_desing",
-      "target": "design_desing_typography"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "design/Desing.md",
-      "source_location": "L178",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "design_desing_components",
-      "target": "design_desing_buttons"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "design/Desing.md",
-      "source_location": "L189",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "design_desing_components",
-      "target": "design_desing_cards"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "design/Desing.md",
-      "source_location": "L194",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "design_desing_components",
-      "target": "design_desing_chips_tags"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "design/Desing.md",
-      "source_location": "L183",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "design_desing_components",
-      "target": "design_desing_input_fields"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "design/Desing.md",
-      "source_location": "L198",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "design_desing_components",
-      "target": "design_desing_lists"
     },
     {
       "relation": "contains",
@@ -22244,5 +22388,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "049dcdf4937a7211810701a63fcf782f0c420287"
+  "built_at_commit": "dfbf622c5d61cd95b03368182599faeb74af0e7a"
 }
