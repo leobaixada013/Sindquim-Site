@@ -58,6 +58,11 @@ describe('deploy LXC 200', () => {
     expect(output.indexOf('scripts/backup-lxc200-data.sh --dry-run')).toBeLessThan(output.indexOf('rm -rf "$REMOTE_DIR"'));
   });
 
+  it('para os containers antes de remover a árvore com bind mounts do Directus', () => {
+    expect(deploy).toContain('docker compose -f docker-compose.yml -f override-rede-tunnel.yml down');
+    expect(deploy.indexOf('docker compose -f docker-compose.yml -f override-rede-tunnel.yml down')).toBeLessThan(deploy.indexOf('rm -rf "$REMOTE_DIR"'));
+  });
+
   it('garante o arquivo usado pelo health detalhado do Directus antes de validar /server/health', () => {
     expect(deploy).toContain('directus-health-file');
     expect(deploy.indexOf('directus-health-file')).toBeLessThan(deploy.indexOf('/server/health'));

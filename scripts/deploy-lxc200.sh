@@ -84,6 +84,11 @@ if [[ -d "$REMOTE_DIR/deploy/directus" ]]; then
   cp -a "$REMOTE_DIR/deploy/directus" "$tmp/deploy/directus"
 fi
 
+if [[ -f "$REMOTE_DIR/deploy/docker-compose.yml" ]]; then
+  cd "$REMOTE_DIR/deploy"
+  docker compose -f docker-compose.yml -f override-rede-tunnel.yml down
+fi
+
 rm -rf "$REMOTE_DIR"
 mkdir -p "$REMOTE_DIR"
 cp -a "$tmp/." "$REMOTE_DIR/"
