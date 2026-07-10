@@ -1159,7 +1159,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_directus",
-      "community": 104,
+      "community": 103,
       "norm_label": "../../lib/directus"
     },
     {
@@ -1220,7 +1220,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_tipos",
-      "community": 3,
+      "community": 104,
       "norm_label": "../lib/tipos"
     },
     {
@@ -1331,7 +1331,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "lib_cache_comcache",
-      "community": 3,
+      "community": 102,
       "norm_label": "comcache()"
     },
     {
@@ -1541,7 +1541,7 @@
       "source_location": "L256",
       "_origin": "ast",
       "id": "lib_directus_contarposts",
-      "community": 109,
+      "community": 103,
       "norm_label": "contarposts()"
     },
     {
@@ -1571,7 +1571,7 @@
       "source_location": "L288",
       "_origin": "ast",
       "id": "lib_directus_getavisourgente",
-      "community": 104,
+      "community": 102,
       "norm_label": "getavisourgente()"
     },
     {
@@ -1581,7 +1581,7 @@
       "source_location": "L301",
       "_origin": "ast",
       "id": "lib_directus_getavisosrapidos",
-      "community": 104,
+      "community": 102,
       "norm_label": "getavisosrapidos()"
     },
     {
@@ -1591,7 +1591,7 @@
       "source_location": "L315",
       "_origin": "ast",
       "id": "lib_directus_getproximosvideos",
-      "community": 3,
+      "community": 102,
       "norm_label": "getproximosvideos()"
     },
     {
@@ -1611,7 +1611,7 @@
       "source_location": "L337",
       "_origin": "ast",
       "id": "lib_directus_getdocumentos",
-      "community": 4,
+      "community": 102,
       "norm_label": "getdocumentos()"
     },
     {
@@ -1621,7 +1621,7 @@
       "source_location": "L346",
       "_origin": "ast",
       "id": "lib_directus_getcardsinstagram",
-      "community": 3,
+      "community": 102,
       "norm_label": "getcardsinstagram()"
     },
     {
@@ -1641,7 +1641,7 @@
       "source_location": "L362",
       "_origin": "ast",
       "id": "lib_directus_getpaginajuridico",
-      "community": 3,
+      "community": 4,
       "norm_label": "getpaginajuridico()"
     },
     {
@@ -1651,7 +1651,7 @@
       "source_location": "L373",
       "_origin": "ast",
       "id": "lib_directus_getjuridicodireitos",
-      "community": 3,
+      "community": 4,
       "norm_label": "getjuridicodireitos()"
     },
     {
@@ -1661,7 +1661,7 @@
       "source_location": "L390",
       "_origin": "ast",
       "id": "lib_directus_getjuridicoplantoes",
-      "community": 3,
+      "community": 4,
       "norm_label": "getjuridicoplantoes()"
     },
     {
@@ -1671,7 +1671,7 @@
       "source_location": "L407",
       "_origin": "ast",
       "id": "lib_directus_getjuridicofaq",
-      "community": 3,
+      "community": 4,
       "norm_label": "getjuridicofaq()"
     },
     {
@@ -1801,7 +1801,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "lib_tipos_post",
-      "community": 4,
+      "community": 104,
       "norm_label": "post"
     },
     {
@@ -2135,16 +2135,6 @@
       "norm_label": "post()"
     },
     {
-      "label": "avisos.astro",
-      "file_type": "code",
-      "source_file": "site/src/pages/avisos.astro",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "pages_avisos",
-      "community": 104,
-      "norm_label": "avisos.astro"
-    },
-    {
       "label": "contato.astro",
       "file_type": "code",
       "source_file": "site/src/pages/contato.astro",
@@ -2163,16 +2153,6 @@
       "id": "pages_contato_estado",
       "community": 103,
       "norm_label": "estado"
-    },
-    {
-      "label": "convencoes.astro",
-      "file_type": "code",
-      "source_file": "site/src/pages/convencoes.astro",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "pages_convencoes",
-      "community": 4,
-      "norm_label": "convencoes.astro"
     },
     {
       "label": "diretoria.astro",
@@ -2201,7 +2181,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pages_juridico",
-      "community": 3,
+      "community": 4,
       "norm_label": "juridico.astro"
     },
     {
@@ -2251,7 +2231,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "noticias_index",
-      "community": 109,
+      "community": 103,
       "norm_label": "index.astro"
     },
     {
@@ -2318,7 +2298,7 @@
       "label": "GET()",
       "file_type": "code",
       "source_file": "site/src/pages/sitemap.xml.ts",
-      "source_location": "L16",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "pages_sitemap_xml_get",
       "community": 109,
@@ -8235,7 +8215,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 114,
       "norm_label": "wordpress front page template",
       "community_name": "WordPress Loop and Templates",
       "id": "front_page_php"
@@ -8445,7 +8425,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 42,
       "norm_label": "convencoes e documentos",
       "community_name": "Documents and Contact Templates",
       "id": "conven\u00e7\u00f5es_e_documentos"
@@ -8501,7 +8481,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": "detect.mjs",
       "community_name": "Documents and Contact Templates",
       "id": "detect_mjs"
@@ -8515,7 +8495,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": "scannable_extensions",
       "community_name": "Documents and Contact Templates",
       "id": "scannable_extensions"
@@ -8529,7 +8509,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": "html_extensions",
       "community_name": "Documents and Contact Templates",
       "id": "html_extensions"
@@ -8543,7 +8523,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 1,
       "norm_label": "absint()",
       "community_name": "Banner Custom Post Type",
       "id": "absint"
@@ -8557,7 +8537,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 1,
       "norm_label": "sanitize_text_field()",
       "community_name": "Banner Custom Post Type",
       "id": "sanitize_text_field"
@@ -8571,7 +8551,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 1,
       "norm_label": "wp_unslash()",
       "community_name": "Banner Custom Post Type",
       "id": "wp_unslash"
@@ -8585,7 +8565,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 6,
       "norm_label": "esc_attr()",
       "community_name": "YouTube API Integration",
       "id": "esc_attr"
@@ -8599,7 +8579,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 42,
       "norm_label": "esc_html()",
       "community_name": "WordPress Loop and Templates",
       "id": "esc_html"
@@ -8683,7 +8663,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 42,
       "norm_label": "termo aditivo",
       "community_name": "Documents and Contact Templates",
       "id": "termo_aditivo"
@@ -8697,7 +8677,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 42,
       "norm_label": "acordo coletivo",
       "community_name": "Documents and Contact Templates",
       "id": "acordo_coletivo"
@@ -8711,7 +8691,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 42,
       "norm_label": "convencao",
       "community_name": "Documents and Contact Templates",
       "id": "conven\u00e7\u00e3o"
@@ -8739,7 +8719,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": "wp-content/themes/sindicato/page-contato.php",
       "community_name": "Documents and Contact Templates",
       "id": "page_contato_php"
@@ -8753,7 +8733,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": "contato",
       "community_name": "Documents and Contact Templates",
       "id": "contato"
@@ -8767,7 +8747,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": "cf7's own default ajax response region",
       "community_name": "Documents and Contact Templates",
       "id": "cf7_ajax_response"
@@ -8781,7 +8761,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": ".button--primary",
       "community_name": "Documents and Contact Templates",
       "id": "button_primary"
@@ -8795,7 +8775,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 3,
       "norm_label": "get_header()",
       "community_name": "Documents and Contact Templates",
       "id": "get_header"
@@ -8809,7 +8789,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 3,
       "norm_label": "get_footer()",
       "community_name": "Documents and Contact Templates",
       "id": "get_footer"
@@ -8823,7 +8803,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": "cf7 shortcode",
       "community_name": "Documents and Contact Templates",
       "id": "cf7_shortcode"
@@ -8837,7 +8817,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": ".wpcf7-submit",
       "community_name": "Documents and Contact Templates",
       "id": "wpcf7_submit"
@@ -8851,7 +8831,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": ".wpcf7-form-control",
       "community_name": "Documents and Contact Templates",
       "id": "wpcf7_form_control"
@@ -8865,7 +8845,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": "lgpd consent checkbox",
       "community_name": "Documents and Contact Templates",
       "id": "lgpd_consent_checkbox"
@@ -8879,7 +8859,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": "/filie-se/ page",
       "community_name": "Documents and Contact Templates",
       "id": "filie_se_page"
@@ -8893,7 +8873,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": "wp-content/themes/sindicato/page-filie-se.php",
       "community_name": "Documents and Contact Templates",
       "id": "page_filie_se_php"
@@ -8907,7 +8887,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": "filie-se",
       "community_name": "Documents and Contact Templates",
       "id": "filie_se"
@@ -8921,7 +8901,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 3,
       "norm_label": ".contato-form-card",
       "community_name": "Documents and Contact Templates",
       "id": "contato_form_card"
@@ -9369,7 +9349,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 6,
       "norm_label": "rawurlencode",
       "community_name": "WordPress Loop and Templates",
       "id": "rawurlencode"
@@ -9635,7 +9615,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 110,
+      "community": 111,
       "norm_label": "task 4 report: custom post type aviso",
       "community_name": "Notice Custom Post Type",
       "id": "task_4_report"
@@ -9747,7 +9727,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 107,
       "norm_label": "sindicato_data_em_vigencia",
       "community_name": "Banner Custom Post Type",
       "id": "sindicato_data_em_vigencia"
@@ -9761,7 +9741,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 114,
       "norm_label": "sindicato_get_aviso_urgente_ativo",
       "community_name": "Banner Custom Post Type",
       "id": "sindicato_get_aviso_urgente_ativo"
@@ -9775,7 +9755,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 114,
       "norm_label": "sindicato_get_avisos_rapidos_ativos",
       "community_name": "Banner Custom Post Type",
       "id": "sindicato_get_avisos_rapidos_ativos"
@@ -9789,7 +9769,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 114,
       "norm_label": "get_posts",
       "community_name": "Banner Custom Post Type",
       "id": "get_posts"
@@ -9803,7 +9783,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 114,
       "norm_label": "wp_query",
       "community_name": "Banner Custom Post Type",
       "id": "wp_query"
@@ -9831,7 +9811,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 114,
       "norm_label": "get_post_meta",
       "community_name": "Banner Custom Post Type",
       "id": "get_post_meta"
@@ -10041,7 +10021,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 114,
       "norm_label": "setup_postdata",
       "community_name": "WordPress Loop and Templates",
       "id": "setup_postdata"
@@ -10055,7 +10035,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 114,
       "norm_label": "wp_reset_postdata",
       "community_name": "WordPress Loop and Templates",
       "id": "wp_reset_postdata"
@@ -10097,7 +10077,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 114,
       "norm_label": "the_title_attribute",
       "community_name": "WordPress Loop and Templates",
       "id": "the_title_attribute"
@@ -10209,7 +10189,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 114,
       "norm_label": "task 6 brief",
       "community_name": "Banner Custom Post Type",
       "id": "task_6_brief"
@@ -10237,7 +10217,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 114,
       "norm_label": "inc/template-tags.php",
       "community_name": "Banner Custom Post Type",
       "id": "inc_template_tags_php"
@@ -10251,7 +10231,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 114,
       "norm_label": "sindicato_get_banner_ativo",
       "community_name": "Banner Custom Post Type",
       "id": "sindicato_get_banner_ativo"
@@ -10335,7 +10315,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 1,
       "norm_label": "sindicato_salvar_banner",
       "community_name": "Banner Custom Post Type",
       "id": "sindicato_salvar_banner"
@@ -10349,7 +10329,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 1,
       "norm_label": "wp_verify_nonce",
       "community_name": "Banner Custom Post Type",
       "id": "wp_verify_nonce"
@@ -10363,7 +10343,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 1,
       "norm_label": "current_user_can",
       "community_name": "Banner Custom Post Type",
       "id": "current_user_can"
@@ -10377,7 +10357,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 42,
+      "community": 1,
       "norm_label": "esc_url_raw",
       "community_name": "Banner Custom Post Type",
       "id": "esc_url_raw"
@@ -10391,7 +10371,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 114,
       "norm_label": "has_post_thumbnail",
       "community_name": "WordPress Loop and Templates",
       "id": "has_post_thumbnail"
@@ -10405,7 +10385,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 114,
       "norm_label": "get_the_post_thumbnail_url",
       "community_name": "WordPress Loop and Templates",
       "id": "get_the_post_thumbnail_url"
@@ -10934,9 +10914,9 @@
       "source_file": "scripts/directus-conteudo-exemplo.mjs",
       "source_location": "L53",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "scripts_directus_conteudo_exemplo",
-      "target": "scripts_directus_conteudo_exemplo_criarseausente"
+      "target": "scripts_directus_conteudo_exemplo_criarseausente",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10975,9 +10955,9 @@
       "source_file": "scripts/directus-conteudo-exemplo.test.mjs",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "scripts_directus_conteudo_exemplo_test",
-      "target": "scripts_directus_conteudo_exemplo"
+      "target": "scripts_directus_conteudo_exemplo",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -11019,9 +10999,9 @@
       "source_file": "scripts/directus-conteudo-exemplo.mjs",
       "source_location": "L135",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "scripts_directus_conteudo_exemplo_principal",
-      "target": "scripts_directus_conteudo_exemplo_criarseausente"
+      "target": "scripts_directus_conteudo_exemplo_criarseausente",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -11030,9 +11010,9 @@
       "source_file": "scripts/directus-conteudo-exemplo.test.mjs",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "scripts_directus_conteudo_exemplo_test",
-      "target": "scripts_directus_conteudo_exemplo_criarseausente"
+      "target": "scripts_directus_conteudo_exemplo_criarseausente",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -11980,26 +11960,10 @@
     {
       "relation": "imports_from",
       "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source": "pages_avisos",
-      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_directus",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/contato.astro",
       "confidence_score": 1.0,
       "source": "pages_contato",
       "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_directus"
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/convencoes.astro",
-      "source": "pages_convencoes",
-      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_directus",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -12048,14 +12012,6 @@
       "confidence_score": 1.0,
       "source": "noticias_slug",
       "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_formatar"
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source": "pages_avisos",
-      "target": "c_users_eduardo_onedrive_documentos_site_sindicato_site_src_lib_formatar",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -12297,26 +12253,10 @@
     {
       "relation": "imports_from",
       "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source": "pages_avisos",
-      "target": "layouts_base",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/contato.astro",
       "confidence_score": 1.0,
       "source": "pages_contato",
       "target": "layouts_base"
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/convencoes.astro",
-      "source": "pages_convencoes",
-      "target": "layouts_base",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -13260,34 +13200,12 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "pages_avisos",
-      "target": "lib_directus",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/contato.astro",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "pages_contato",
       "target": "lib_directus"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/convencoes.astro",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "pages_convencoes",
-      "target": "lib_directus",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -13387,17 +13305,6 @@
       "confidence_score": 1.0,
       "source": "pages_index",
       "target": "lib_directus_urlimagem"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/convencoes.astro",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "pages_convencoes",
-      "target": "lib_directus_urlarquivo",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -13568,34 +13475,12 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "pages_avisos",
-      "target": "lib_directus_getavisourgente",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/index.astro",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "pages_index",
       "target": "lib_directus_getavisourgente"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "pages_avisos",
-      "target": "lib_directus_getavisosrapidos",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -13618,17 +13503,6 @@
       "confidence_score": 1.0,
       "source": "pages_diretoria",
       "target": "lib_directus_getdiretores"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/convencoes.astro",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "pages_convencoes",
-      "target": "lib_directus_getdocumentos",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -13894,17 +13768,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "pages_avisos",
-      "target": "lib_formatar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "site/src/pages/index.astro",
       "source_location": "L14",
       "weight": 1.0,
@@ -13922,17 +13785,6 @@
       "confidence_score": 1.0,
       "source": "noticias_slug",
       "target": "lib_formatar_formatardata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "site/src/pages/avisos.astro",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "pages_avisos",
-      "target": "lib_formatar_formatardata",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports",

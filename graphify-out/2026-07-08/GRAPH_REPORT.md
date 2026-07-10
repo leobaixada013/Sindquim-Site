@@ -1,11 +1,11 @@
 # Graph Report - site sindicato  (2026-07-08)
 
 ## Corpus Check
-- 117 files · ~564,691 words
+- 115 files · ~564,443 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 955 nodes · 1194 edges · 117 communities (98 shown, 19 thin omitted)
+- 953 nodes · 1181 edges · 117 communities (98 shown, 19 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 24 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
@@ -43,7 +43,6 @@
 - [[_COMMUNITY_Community 43|Community 43]]
 - [[_COMMUNITY_Community 44|Community 44]]
 - [[_COMMUNITY_Community 45|Community 45]]
-- [[_COMMUNITY_Community 46|Community 46]]
 - [[_COMMUNITY_Community 47|Community 47]]
 - [[_COMMUNITY_Community 48|Community 48]]
 - [[_COMMUNITY_Community 49|Community 49]]
@@ -108,6 +107,7 @@
 - [[_COMMUNITY_Community 111|Community 111]]
 - [[_COMMUNITY_Community 112|Community 112]]
 - [[_COMMUNITY_Community 113|Community 113]]
+- [[_COMMUNITY_Community 114|Community 114]]
 - [[_COMMUNITY_Community 115|Community 115]]
 - [[_COMMUNITY_Community 117|Community 117]]
 - [[_COMMUNITY_Community 118|Community 118]]
@@ -116,9 +116,9 @@
 1. `Task 6 Report` - 31 edges
 2. `WordPress Front Page Template` - 25 edges
 3. `comCache()` - 22 edges
-4. `../../layouts/Base.astro` - 21 edges
-5. `sindicato_get_youtube_videos` - 21 edges
-6. `Design System: STI Baixada Santista` - 20 edges
+4. `sindicato_get_youtube_videos` - 21 edges
+5. `Design System: STI Baixada Santista` - 20 edges
+6. `../../layouts/Base.astro` - 19 edges
 7. `wp-content/themes/sindicato/archive-documento.php` - 19 edges
 8. `Site Institucional Do Sindicato Implementation Plan` - 18 edges
 9. `functions.php` - 18 edges
@@ -146,28 +146,28 @@ Cohesion: 0.17
 Nodes (12): 1. Overview, 3. Typography, Design System: STI Baixada Santista, Hierarchy, Impeccable Rule, Named Rules, PRODUCT.md, Sindicato dos Trabalhadores das Indústrias Químicas, Farmacêuticas e de Fertilizantes - Baixada Santista (+4 more)
 
 ### Community 1 - "Banner Custom Post Type"
-Cohesion: 0.17
-Nodes (22): _sind_ativo, _sind_cta_link, _sind_cta_texto, _sind_data_fim, _sind_data_inicio, _sind_ordem, _sind_subtitulo, add_meta_box (+14 more)
+Cohesion: 0.15
+Nodes (24): _sind_ativo, _sind_cta_link, _sind_cta_texto, _sind_data_fim, _sind_data_inicio, _sind_ordem, _sind_subtitulo, absint() (+16 more)
 
 ### Community 2 - "YouTube API Integration"
 Cohesion: 0.07
-Nodes (42): ABSPATH, array_slice, empty, esc_html__, exit, get_option, get_transient, HOUR_IN_SECONDS (+34 more)
+Nodes (41): ABSPATH, array_slice, empty, esc_html__, exit, get_option, get_transient, HOUR_IN_SECONDS (+33 more)
 
 ### Community 3 - "Documents and Contact Templates"
-Cohesion: 0.31
-Nodes (8): ../lib/tipos, comCache(), getCardsInstagram(), getJuridicoDireitos(), getJuridicoFAQ(), getJuridicoPlantoes(), getPaginaJuridico(), getProximosVideos()
+Cohesion: 0.15
+Nodes (17): .button--primary, CF7's own default AJAX response region, CF7 shortcode, Contato, .contato-form-card, detect.mjs, Filie-se, /filie-se/ page (+9 more)
 
 ### Community 4 - "Notice Custom Post Type"
 Cohesion: 0.10
-Nodes (28): CAMPOS_POST, cliente, FILTRO_AVISO_VIGENTE, getDocumentos(), JURIDICO_CAMPOS_FORMULARIO_PADRAO, JURIDICO_DIREITOS_PADRAO, JURIDICO_FAQ_PADRAO, JURIDICO_PLANTOES_PADRAO (+20 more)
+Nodes (29): CAMPOS_POST, cliente, FILTRO_AVISO_VIGENTE, getJuridicoDireitos(), getJuridicoFAQ(), getJuridicoPlantoes(), getPaginaJuridico(), JURIDICO_CAMPOS_FORMULARIO_PADRAO (+21 more)
 
 ### Community 5 - "UI Mockups and Components"
-Cohesion: 0.06
-Nodes (41): Hero Assembleia Sindicato Image, Sindicato Logo, .button--primary, CF7's own default AJAX response region, CF7 shortcode, Design Token: --navy-950, Design Token: --red-600, Design Token: --red-700 (+33 more)
+Cohesion: 0.10
+Nodes (26): Hero Assembleia Sindicato Image, Sindicato Logo, Design Token: --navy-950, Design Token: --red-600, Design Token: --red-700, News Archive Page Critique, Home Page Critique, Design System Documentation (+18 more)
 
 ### Community 6 - "WordPress Loop and Templates"
-Cohesion: 0.15
-Nodes (22): WordPress Archive Template, esc_html(), WordPress Front Page Template, get_footer(), get_header(), get_permalink, get_the_category, get_the_date (+14 more)
+Cohesion: 0.18
+Nodes (15): WordPress Archive Template, esc_attr(), get_permalink, get_the_category, get_the_date, get_the_excerpt, have_posts, rawurlencode (+7 more)
 
 ### Community 7 - "Contact Settings Configuration"
 Cohesion: 0.08
@@ -226,8 +226,8 @@ Cohesion: 0.13
 Nodes (14): Files Changed, Final Status, Git Commit, Implementation Summary, Issues/Concerns, Link Validation, Markup Correctness, PHP/Security (+6 more)
 
 ### Community 42 - "Community 42"
-Cohesion: 0.13
-Nodes (16): absint(), wp-content/themes/sindicato/archive-documento.php, Baixar PDF, .button--small, current_user_can, documento CPT, esc_attr(), esc_url_raw (+8 more)
+Cohesion: 0.14
+Nodes (13): Acordo Coletivo, wp-content/themes/sindicato/archive-documento.php, Baixar PDF, .button--small, Convenção, Convenções e Documentos, documento CPT, esc_html() (+5 more)
 
 ### Community 43 - "Community 43"
 Cohesion: 0.14
@@ -240,10 +240,6 @@ Nodes (13): Active-banner state, Bug review, Cleanup, Commit, Concerns, Fallback
 ### Community 45 - "Community 45"
 Cohesion: 0.15
 Nodes (13): 11. Plano De Desenvolvimento, Fase 0: Aprovação Do Mockup, Fase 10: Homologação, Fase 11: Publicação, Fase 1: Descoberta E Conteúdo, Fase 2: Preparar Ambiente WordPress, Fase 3: Criar Tema Customizado, Fase 4: Tipos De Conteúdo E Campos (+5 more)
-
-### Community 46 - "Community 46"
-Cohesion: 0.50
-Nodes (4): Acordo Coletivo, Convenção, Convenções e Documentos, Termo Aditivo
 
 ### Community 47 - "Community 47"
 Cohesion: 0.17
@@ -394,16 +390,16 @@ Cohesion: 0.20
 Nodes (9): Backup, Configurar YouTube e Instagram manualmente, Criar schema e conteúdo inicial, Deploy de teste atual, Deploy do site Astro + Directus, Primeiro boot do Directus, Subir ou atualizar, Variáveis de ambiente (+1 more)
 
 ### Community 102 - "Community 102"
-Cohesion: 0.26
-Nodes (9): Entrada, limparCache(), memoria, getConfiguracoes(), getVideosYoutube(), parseYoutubeFeed(), resolverChannelId(), FEED_UM_VIDEO (+1 more)
+Cohesion: 0.18
+Nodes (15): comCache(), Entrada, limparCache(), memoria, getAvisosRapidos(), getAvisoUrgente(), getCardsInstagram(), getConfiguracoes() (+7 more)
 
 ### Community 103 - "Community 103"
 Cohesion: 0.14
-Nodes (10): @fontsource-variable/archivo, ../styles/global.css, ../../layouts/Base.astro, estadoNewsletter, urlCanonica, MENU, getDiretores(), getPagina() (+2 more)
+Nodes (12): @fontsource-variable/archivo, ../../lib/directus, ../styles/global.css, ../../layouts/Base.astro, estadoNewsletter, urlCanonica, MENU, contarPosts() (+4 more)
 
 ### Community 104 - "Community 104"
-Cohesion: 0.17
-Nodes (19): ../../lib/constantes, ../../lib/directus, ../../lib/formatar, ../lib/youtube, ../components/Estudio.astro, ../../components/PostCard.astro, imagem, getAvisosRapidos() (+11 more)
+Cohesion: 0.16
+Nodes (18): ../../lib/constantes, ../../lib/formatar, ../lib/tipos, ../lib/youtube, ../components/Estudio.astro, ../../components/PostCard.astro, imagem, getPostPorSlug() (+10 more)
 
 ### Community 105 - "Community 105"
 Cohesion: 0.53
@@ -414,24 +410,24 @@ Cohesion: 0.39
 Nodes (7): POST(), limiteCampo(), POST(), valorEhValido(), valorTexto(), criarMensagemContato(), getJuridicoCamposFormulario()
 
 ### Community 107 - "Community 107"
-Cohesion: 0.21
-Nodes (11): get_posts, sindicato_data_em_vigencia(), sindicato_get_aviso_urgente_ativo(), sindicato_get_avisos_rapidos_ativos(), sindicato_get_banner_ativo(), sindicato_link_telefone(), sindicato_link_whatsapp(), sindicato_normalizar_digitos_telefone() (+3 more)
+Cohesion: 0.27
+Nodes (8): sindicato_data_em_vigencia(), sindicato_get_aviso_urgente_ativo(), sindicato_get_avisos_rapidos_ativos(), sindicato_get_banner_ativo(), sindicato_link_telefone(), sindicato_link_whatsapp(), sindicato_normalizar_digitos_telefone(), sindicato_data_em_vigencia
 
 ### Community 108 - "Community 108"
 Cohesion: 0.53
 Nodes (3): deploy-lxc200.sh script, remote(), run()
 
 ### Community 109 - "Community 109"
-Cohesion: 0.28
-Nodes (6): contarPosts(), getPostBanner(), getPosts(), GET(), GET(), PAGINAS_FIXAS
+Cohesion: 0.38
+Nodes (5): getPostBanner(), getPosts(), GET(), GET(), PAGINAS_FIXAS
 
 ### Community 110 - "Community 110"
-Cohesion: 0.22
-Nodes (11): add_action, after_switch_theme (hook), functions.php, get_template_directory, require, sindicato_criar_categorias_padrao, Task 4 Report: Custom Post Type aviso, Task 5 Brief: Notícias Na Home (+3 more)
+Cohesion: 0.24
+Nodes (10): add_action, after_switch_theme (hook), functions.php, get_template_directory, require, sindicato_criar_categorias_padrao, Task 5 Brief: Notícias Na Home, Task 5 Report (+2 more)
 
 ### Community 111 - "Community 111"
-Cohesion: 0.18
-Nodes (6): Custom Post Type 'aviso', save_post_aviso (hook), sindicato_metabox_aviso, sindicato_render_metabox_aviso, sindicato_salvar_aviso, update_post_meta
+Cohesion: 0.17
+Nodes (7): Custom Post Type 'aviso', save_post_aviso (hook), sindicato_metabox_aviso, sindicato_render_metabox_aviso, sindicato_salvar_aviso, Task 4 Report: Custom Post Type aviso, update_post_meta
 
 ### Community 112 - "Community 112"
 Cohesion: 0.67
@@ -440,6 +436,10 @@ Nodes (3): api(), PAGINAS, principal()
 ### Community 113 - "Community 113"
 Cohesion: 0.31
 Nodes (8): api(), CAMPOS_FORMULARIO, DIREITOS, FAQ, PAGINA, PLANTOES, principal(), substituirColecao()
+
+### Community 114 - "Community 114"
+Cohesion: 0.21
+Nodes (14): WordPress Front Page Template, get_post_meta, get_posts, get_the_post_thumbnail_url, has_post_thumbnail, inc/template-tags.php, setup_postdata, sindicato_get_aviso_urgente_ativo (+6 more)
 
 ### Community 115 - "Community 115"
 Cohesion: 0.40
@@ -463,15 +463,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `wp-content/themes/sindicato/archive-documento.php` and `functions.php`?**
   _Edge tagged AMBIGUOUS (relation: related_to) - confidence is low._
-- **Why does `functions.php` connect `Community 110` to `Banner Custom Post Type`, `YouTube API Integration`, `UI Mockups and Components`, `Community 42`, `Community 107`, `Community 111`?**
+- **Why does `functions.php` connect `Community 110` to `Banner Custom Post Type`, `YouTube API Integration`, `Documents and Contact Templates`, `Community 42`, `Community 107`, `Community 111`, `Community 114`?**
   _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **Why does `WordPress Front Page Template` connect `WordPress Loop and Templates` to `Banner Custom Post Type`, `UI Mockups and Components`, `Community 42`, `Community 107`, `Community 110`?**
+- **Why does `WordPress Front Page Template` connect `Community 114` to `Banner Custom Post Type`, `Documents and Contact Templates`, `UI Mockups and Components`, `WordPress Loop and Templates`, `Community 42`, `Community 110`, `Community 111`?**
   _High betweenness centrality (0.010) - this node is a cross-community bridge._
-- **Why does `Task 6 Report` connect `Banner Custom Post Type` to `WordPress Loop and Templates`, `Community 42`, `Community 107`, `Community 110`, `Community 111`?**
+- **Why does `Task 6 Report` connect `Banner Custom Post Type` to `Documents and Contact Templates`, `Community 107`, `Community 110`, `Community 111`, `Community 114`?**
   _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **What connects `menuButton`, `menu`, `urgentNotices` to the rest of the system?**
   _472 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `YouTube API Integration` be split into smaller, more focused modules?**
-  _Cohesion score 0.06845513413506013 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07053140096618357 - nodes in this community are weakly interconnected._
 - **Should `Notice Custom Post Type` be split into smaller, more focused modules?**
-  _Cohesion score 0.0989247311827957 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09659090909090909 - nodes in this community are weakly interconnected._

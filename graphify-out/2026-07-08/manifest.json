@@ -380,12 +380,12 @@
     "semantic_hash": ""
   },
   "site/.astro/content.d.ts": {
-    "mtime": 1783483278.267548,
+    "mtime": 1783480987.9443636,
     "ast_hash": "4aaaf7e07990466432e5a0fcf9b2e58c",
     "semantic_hash": ""
   },
   "site/.astro/types.d.ts": {
-    "mtime": 1783483278.2685516,
+    "mtime": 1783480987.9443636,
     "ast_hash": "f3d48b2aa569815a445d3509aa161559",
     "semantic_hash": ""
   },
@@ -430,8 +430,8 @@
     "semantic_hash": ""
   },
   "site/src/lib/constantes.ts": {
-    "mtime": 1783483246.2220833,
-    "ast_hash": "5bb9ab948fc7c13cad1b96090e33ece0",
+    "mtime": 1783480581.6770568,
+    "ast_hash": "2cc49ad4cab40387a54529cd06c88b86",
     "semantic_hash": ""
   },
   "site/src/lib/directus.ts": {
@@ -520,8 +520,8 @@
     "semantic_hash": ""
   },
   "site/src/pages/sitemap.xml.ts": {
-    "mtime": 1783483255.2077825,
-    "ast_hash": "7576bcbd021a6e2048aafaf479d443ce",
+    "mtime": 1783476782.0302207,
+    "ast_hash": "f45da166386eddaad0ed85bdc8a9d287",
     "semantic_hash": ""
   },
   "site/tsconfig.json": {
@@ -657,16 +657,6 @@
   "scripts/directus-conteudo-exemplo.test.mjs": {
     "mtime": 1783480508.1600287,
     "ast_hash": "abc808b59ee7d4be5fcc26cd2dd64202",
-    "semantic_hash": ""
-  },
-  "site/src/pages/avisos.astro": {
-    "mtime": 1783483187.9050398,
-    "ast_hash": "bb1cdb80d1ed0b5d652c9cdfdb2d7e2a",
-    "semantic_hash": ""
-  },
-  "site/src/pages/convencoes.astro": {
-    "mtime": 1783483230.7727883,
-    "ast_hash": "7ee871c14694b5e139559e3d7c57e78d",
     "semantic_hash": ""
   }
 }

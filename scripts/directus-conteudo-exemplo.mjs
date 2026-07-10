@@ -1,12 +1,14 @@
 /**
  * Conteúdo de exemplo para testar o site (roda depois do directus-schema.mjs).
- * Não roda duas vezes: se já houver posts, não cria nada.
+ * Pode rodar mais de uma vez: completa o que faltar sem duplicar registros conhecidos.
  *
  * Uso:
  *   DIRECTUS_URL=... DIRECTUS_ADMIN_EMAIL=... DIRECTUS_ADMIN_PASSWORD=... \
  *   [YOUTUBE_URL_EXEMPLO=https://www.youtube.com/@canal] \
  *   node scripts/directus-conteudo-exemplo.mjs
  */
+
+import { pathToFileURL } from 'node:url';
 
 const URL_BASE = process.env.DIRECTUS_URL ?? 'http://localhost:8055';
 const EMAIL = process.env.DIRECTUS_ADMIN_EMAIL;
@@ -46,6 +48,12 @@ async function importarImagem(seed, largura = 1400, altura = 900) {
   } catch {
     return null; // sem internet no servidor, seguimos sem imagem
   }
+}
+
+export async function criarSeAusente(chamarApi, colecao, campo, dados) {
+  const valor = encodeURIComponent(dados[campo]);
+  const existentes = await chamarApi('GET', `/items/${colecao}?filter[${campo}][_eq]=${valor}&limit=1`);
+  return existentes[0] ?? chamarApi('POST', `/items/${colecao}`, dados);
 }
 
 const PARAGRAFO = `<p>Este é um texto de demonstração para validar o layout do site.
@@ -117,12 +125,6 @@ async function principal() {
   if (!login.ok) throw new Error(`login falhou (${login.status})`);
   token = (await login.json()).data.access_token;
 
-  const postsExistentes = await api('GET', '/items/posts?limit=1');
-  if (postsExistentes.length > 0) {
-    console.log('Já existe conteúdo — nada a fazer.');
-    return;
-  }
-
   const categorias = {};
   for (const [nome, slug] of [
     ['Campanha Salarial', 'campanha-salarial'],
@@ -130,8 +132,8 @@ async function principal() {
     ['Direitos', 'direitos'],
     ['Benefícios', 'beneficios'],
   ]) {
-    const criada = await api('POST', '/items/categorias', { nome, slug });
-    categorias[slug] = criada.id;
+    const categoria = await criarSeAusente(api, 'categorias', 'slug', { nome, slug });
+    categorias[slug] = categoria.id;
   }
   console.log('OK categorias');
 
@@ -169,7 +171,7 @@ async function principal() {
 
   for (const post of posts) {
     const { seed, ...dados } = post;
-    await api('POST', '/items/posts', {
+    await criarSeAusente(api, 'posts', 'slug', {
       ...dados,
       status: 'published',
       conteudo: PARAGRAFO,
@@ -180,7 +182,7 @@ async function principal() {
 
   const agora = Date.now();
   const dia = 24 * 60 * 60 * 1000;
-  await api('POST', '/items/avisos', {
+  await criarSeAusente(api, 'avisos', 'titulo', {
     status: 'published',
     titulo: 'Assembleia geral nesta quinta às 18h',
     mensagem_curta: 'Sede do sindicato — presença de todos é fundamental.',
@@ -195,7 +197,7 @@ async function principal() {
     ['Recadastramento de dependentes até 31/07', -3],
     ['Colônia de férias: sorteio de vagas em agosto', -5],
   ]) {
-    await api('POST', '/items/avisos', {
+    await criarSeAusente(api, 'avisos', 'titulo', {
       status: 'published',
       titulo,
       urgente: false,
@@ -204,7 +206,7 @@ async function principal() {
   }
   console.log('OK avisos');
 
-  await api('POST', '/items/proximos_videos', {
+  await criarSeAusente(api, 'proximos_videos', 'titulo', {
     status: 'published',
     titulo: 'Ao vivo: tira-dúvidas sobre a proposta patronal',
     descricao: 'A diretoria responde as principais perguntas da categoria antes da assembleia. Deixe sua pergunta nos comentários.',
@@ -220,7 +222,7 @@ async function principal() {
     ['Ana Lúcia Rodrigues', 'Secretária-geral'],
     ['Pedro Henrique Souza', 'Tesoureiro'],
   ]) {
-    await api('POST', '/items/diretores', {
+    await criarSeAusente(api, 'diretores', 'nome', {
       nome, cargo, ordem: ordem++, foto: await importarImagem(`diretor-${ordem}`, 600, 600),
     });
   }
@@ -231,12 +233,12 @@ async function principal() {
     ['Acordo coletivo — adicional de periculosidade', 'acordo', 2025],
     ['Ata da assembleia geral ordinária', 'ata', 2026],
   ]) {
-    await api('POST', '/items/documentos', { titulo, tipo, ano });
+    await criarSeAusente(api, 'documentos', 'titulo', { titulo, tipo, ano });
   }
   console.log('OK documentos');
 
   for (let i = 1; i <= 4; i++) {
-    await api('POST', '/items/cards_instagram', {
+    await criarSeAusente(api, 'cards_instagram', 'legenda', {
       imagem: await importarImagem(`reel-${i}`, 720, 1280),
       legenda: [
         'Corte do debate: reajuste real e cláusulas sociais',
@@ -249,7 +251,7 @@ async function principal() {
   console.log('OK Reels do Instagram');
 
   for (const [slug, pagina] of Object.entries(PAGINAS_INSTITUCIONAIS)) {
-    await api('POST', '/items/paginas', {
+    await criarSeAusente(api, 'paginas', 'slug', {
       titulo: pagina.titulo,
       slug,
       conteudo: pagina.conteudo,
@@ -271,7 +273,9 @@ async function principal() {
   console.log('\nConteúdo de exemplo criado.');
 }
 
-principal().catch((erro) => {
-  console.error(erro.message);
-  process.exit(1);
-});
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  principal().catch((erro) => {
+    console.error(erro.message);
+    process.exit(1);
+  });
+}

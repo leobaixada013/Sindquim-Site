@@ -6,8 +6,11 @@ export const DESCRICAO_PADRAO =
 export const MENU = [
   { rotulo: 'Início', href: '/' },
   { rotulo: 'Notícias', href: '/noticias' },
+  { rotulo: 'Avisos', href: '/avisos' },
   { rotulo: 'Benefícios', href: '/beneficios' },
   { rotulo: 'Jurídico', href: '/juridico' },
+  { rotulo: 'Convenções', href: '/convencoes' },
+  { rotulo: 'YouTube', href: '/#videos' },
   { rotulo: 'Diretoria', href: '/diretoria' },
   { rotulo: 'Filie-se', href: '/filie-se' },
   { rotulo: 'Contato', href: '/contato' },

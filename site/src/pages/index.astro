@@ -3,28 +3,45 @@ import Base from '../layouts/Base.astro';
 import PostCard from '../components/PostCard.astro';
 import Estudio from '../components/Estudio.astro';
 import {
+  getAvisoUrgente,
+  getAvisosRapidos,
   getCardsInstagram,
   getConfiguracoes,
   getPostBanner,
   getPosts,
   urlImagem,
 } from '../lib/directus';
-import { formatarData } from '../lib/formatar';
+import { formatarData, formatarDiaMes } from '../lib/formatar';
 
-const [banner, todosPosts, cards, config] = await Promise.all([
+const [banner, todosPosts, cards, config, avisoUrgente, avisosRapidos] = await Promise.all([
   getPostBanner(),
   getPosts(6),
   getCardsInstagram(4),
   getConfiguracoes(),
+  getAvisoUrgente(),
+  getAvisosRapidos(4),
 ]);
 
 const postsSemBanner = todosPosts.filter((post) => post.id !== banner?.id);
 const noticiaDestaque = postsSemBanner[0] ?? null;
 const noticiasGrade = postsSemBanner.slice(1, 4);
+const temAvisos = avisosRapidos.length > 0;
 const imagemBanner = banner ? urlImagem(banner.imagem, { largura: 1600, altura: 900 }) : null;
 ---
 
 <Base imagemOg={imagemBanner}>
+  {avisoUrgente && (
+    <aside class="alert-strip" aria-label="Aviso urgente">
+      <div class="container alert-strip__inner">
+        <strong>{avisoUrgente.titulo}</strong>
+        {avisoUrgente.mensagem_curta && <span>{avisoUrgente.mensagem_curta}</span>}
+        {avisoUrgente.link && (
+          <a href={avisoUrgente.link}>{avisoUrgente.texto_link ?? 'Saiba mais'}</a>
+        )}
+      </div>
+    </aside>
+  )}
+
   <section class="hero" aria-labelledby="hero-titulo">
     <div class="hero__media" style={imagemBanner ? `background-image:url('${imagemBanner}')` : undefined} aria-hidden="true"></div>
     {banner?.fixado_banner && <span class="carimbo" aria-hidden="true">Fixado pela diretoria</span>}
@@ -72,12 +89,32 @@ const imagemBanner = banner ? urlImagem(banner.imagem, { largura: 1600, altura: 
       </div>
 
       {noticiaDestaque ? (
-        <div class="news-layout news-layout--sem-avisos">
+        <div class:list={['news-layout', !temAvisos && 'news-layout--sem-avisos']}>
           <PostCard post={noticiaDestaque} destaque />
 
           <div class="post-grid" aria-label="Notícias recentes">
             {noticiasGrade.map((post) => <PostCard post={post} />)}
           </div>
+
+          {temAvisos && (
+            <aside class="notice-panel" aria-labelledby="avisos-titulo">
+              <div class="notice-panel__header">
+                <h3 id="avisos-titulo">Avisos</h3>
+              </div>
+              <ul class="notice-list">
+                {avisosRapidos.map((aviso) => (
+                  <li>
+                    <time datetime={aviso.data_inicio}>{formatarDiaMes(aviso.data_inicio)}</time>
+                    {aviso.link ? (
+                      <a href={aviso.link}>{aviso.titulo}</a>
+                    ) : (
+                      <span>{aviso.titulo}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )}
         </div>
       ) : (
         <p class="vazio">
