@@ -1,43 +1,75 @@
-# Astro Starter Kit: Minimal
+# Aplicação Astro — STI Baixada Santista
 
-```sh
-npm create astro@latest -- --template minimal
+Este diretório contém o site público em Astro do projeto STI Baixada Santista.
+
+Para a documentação completa do repositório, veja o [`README.md` da raiz](../README.md) e os guias em [`docs/`](../docs/README.md).
+
+## Stack
+
+- Astro 7
+- Adapter `@astrojs/node` em modo `standalone`
+- Directus SDK
+- Vitest
+- RSS via `@astrojs/rss`
+- Embed leve do YouTube via `lite-youtube-embed`
+
+## Scripts
+
+```bash
+npm install
+npm run dev
+npm run test:local
+npm test
+npm run build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Variáveis usadas pelo site
 
-## 🚀 Project Structure
+| Variável | Descrição |
+| --- | --- |
+| `DIRECTUS_URL` | URL interna usada pelo servidor Astro para consultar o Directus. |
+| `PUBLIC_DIRECTUS_URL` | URL pública usada para montar URLs de assets do Directus. |
+| `PUBLIC_SITE_URL` | URL canônica do site. |
 
-Inside of your Astro project, you'll see the following folders and files:
+Em desenvolvimento local:
+
+```bash
+DIRECTUS_URL=http://localhost:8055
+PUBLIC_DIRECTUS_URL=http://localhost:8055
+PUBLIC_SITE_URL=http://localhost:4321
+```
+
+## Estrutura
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── components/      # Componentes Astro reutilizáveis
+├── layouts/         # Layout base
+├── lib/             # Directus, cache, YouTube, tipos e utilitários
+├── pages/           # Rotas públicas e endpoints API
+└── styles/          # CSS global
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Rotas importantes
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- `/` — home.
+- `/noticias` e `/noticias/[slug]` — notícias.
+- `/avisos` — avisos.
+- `/convencoes` — documentos.
+- `/diretoria` — diretoria.
+- `/juridico` — atendimento jurídico.
+- `/contato` — contato.
+- `/[slug]` — páginas institucionais dinâmicas.
+- `/rss.xml`, `/sitemap.xml`, `/robots.txt` — SEO e distribuição.
+- `/api/newsletter`, `/api/contato`, `/api/juridico` — endpoints de formulário.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Build Docker
 
-## 🧞 Commands
+O `Dockerfile` gera a aplicação em `dist/` e executa:
 
-All commands are run from the root of the project, from a terminal:
+```bash
+node ./dist/server/entry.mjs
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+A porta exposta é `4321`.

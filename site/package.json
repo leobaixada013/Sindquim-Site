@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:local": "vitest run --exclude src/lib/deploy-lxc200.test.mjs"
   },
   "dependencies": {
     "@astrojs/node": "^11.0.2",
