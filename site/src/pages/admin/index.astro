@@ -1,0 +1,116 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { erroAutenticacaoExpirada, getAdminDashboardData, limparSessaoAdmin, tokenAdmin } from '../../lib/auth';
+
+const token = tokenAdmin(Astro.cookies);
+if (!token) return Astro.redirect('/admin/login');
+
+let dados;
+try {
+  dados = await getAdminDashboardData(token);
+} catch (falha) {
+  if (erroAutenticacaoExpirada(falha)) {
+    limparSessaoAdmin(Astro.cookies);
+    return Astro.redirect('/admin/login?erro=sessao');
+  }
+  throw falha;
+}
+
+function dataCurta(valor: string | null | undefined) {
+  if (!valor) return 'Sem data';
+  return new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(valor));
+}
+
+function resumo(texto: string | null | undefined, limite = 92) {
+  const limpo = String(texto ?? '').trim();
+  if (limpo.length <= limite) return limpo || 'Sem descrição cadastrada.';
+  return `${limpo.slice(0, limite).trim()}…`;
+}
+---
+
+<AdminLayout
+  titulo="Dashboard"
+  subtitulo="Visão geral real da operação do sindicato: chamados jurídicos, publicações sociais e sinais rápidos para agir hoje."
+>
+  <div slot="actions">
+    <a class="admin-button" href="/admin/juridico">Ver Jurídico</a>
+    <a class="admin-button admin-button--primary" href="/admin/social">Abrir Social Media</a>
+  </div>
+
+  <section class="admin-stats" aria-label="Resumo administrativo">
+    <article class="admin-card admin-stat">
+      <span>Total de chamados</span>
+      <strong>{dados.chamadosTotal}</strong>
+      <small class="admin-muted">Registros em chamados_juridicos</small>
+    </article>
+    <article class="admin-card admin-stat">
+      <span>Chamados abertos</span>
+      <strong>{dados.chamadosAbertos}</strong>
+      <small class="admin-muted">Demandas aguardando análise</small>
+    </article>
+    <article class="admin-card admin-stat">
+      <span>Posts sociais</span>
+      <strong>{dados.postsTotal}</strong>
+      <small class="admin-muted">Publicações cadastradas</small>
+    </article>
+    <article class="admin-card admin-stat">
+      <span>Posts publicados</span>
+      <strong>{dados.postsPublicados}</strong>
+      <small class="admin-muted">{dados.postsAgendados} agendados</small>
+    </article>
+  </section>
+
+  <section class="admin-two-col">
+    <article class="admin-panel">
+      <div class="admin-section-title">
+        <div>
+          <h2>Últimos chamados jurídicos</h2>
+          <p class="admin-muted">Triagem rápida para a equipe acompanhar demandas recentes.</p>
+        </div>
+        <span class="admin-tag">{dados.chamadosAbertos} abertos</span>
+      </div>
+      <div class="admin-list">
+        {dados.chamadosJuridicos.length === 0 && <p class="admin-muted">Nenhum chamado jurídico cadastrado ainda.</p>}
+        {dados.chamadosJuridicos.map((chamado) => (
+          <article class="admin-item admin-item--compact">
+            <div class="admin-item__badge" aria-hidden="true">§</div>
+            <div>
+              <h3>{chamado.tipo || 'Chamado jurídico'}</h3>
+              <p>{chamado.nome} · {dataCurta(chamado.date_created)}</p>
+              <div class="admin-metrics">
+                <span class:list={['admin-tag', chamado.status === 'Aberto' && 'admin-tag--success']}>{chamado.status}</span>
+                {chamado.email && <span class="admin-tag">{chamado.email}</span>}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </article>
+
+    <aside class="admin-panel">
+      <div class="admin-section-title">
+        <div>
+          <h2>Últimos posts sociais</h2>
+          <p class="admin-muted">Histórico recente vindo de posts_sociais.</p>
+        </div>
+        <span class="admin-tag">{dados.postsPublicados} publicados</span>
+      </div>
+      <div class="admin-list">
+        {dados.postsSociais.length === 0 && <p class="admin-muted">Nenhum post social cadastrado ainda.</p>}
+        {dados.postsSociais.map((post) => (
+          <article class="admin-item admin-item--compact">
+            <div class="admin-item__badge" aria-hidden="true">↗</div>
+            <div>
+              <h3>{resumo(post.legenda, 70)}</h3>
+              <p>{post.status} · {dataCurta(post.data_publicacao ?? post.date_created)}</p>
+              <div class="admin-metrics">
+                <span class="admin-tag">♥ {Number(post.curtidas ?? 0).toLocaleString('pt-BR')}</span>
+                <span class="admin-tag">💬 {Number(post.comentarios ?? 0).toLocaleString('pt-BR')}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </aside>
+  </section>
+</AdminLayout>

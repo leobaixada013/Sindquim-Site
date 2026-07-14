@@ -1,0 +1,49 @@
+---
+import '../../styles/admin.css';
+
+const erro = Astro.url.searchParams.get('erro');
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Entrar — Admin STI</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="admin-login-body">
+    <main class="admin-login-wrap">
+      <section class="admin-login-card" aria-labelledby="titulo-login">
+        <span class="admin-chip">Directus Headless</span>
+        <h1 id="titulo-login">Painel premium do sindicato</h1>
+        <p>
+          Entre para gerenciar Social Media, jurídico e conteúdo institucional sem abrir o Studio do Directus.
+        </p>
+
+        {erro && (
+          <p class="admin-alert admin-alert--error" role="alert">
+            {erro === 'sessao'
+              ? 'Sua sessão expirou. Entre novamente para continuar.'
+              : 'Não foi possível entrar. Confira seu e-mail e senha do Directus.'}
+          </p>
+        )}
+
+        <form class="admin-form" method="post" action="/api/admin/login">
+          <label class="admin-field">
+            E-mail administrativo
+            <input class="admin-input" type="email" name="email" autocomplete="username" required placeholder="admin@sindicato.org.br" />
+          </label>
+
+          <label class="admin-field">
+            Senha
+            <input class="admin-input" type="password" name="password" autocomplete="current-password" required placeholder="••••••••••••" />
+          </label>
+
+          <button class="admin-button admin-button--primary" type="submit">Entrar no painel</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

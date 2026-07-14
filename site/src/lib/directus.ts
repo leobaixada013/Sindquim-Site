@@ -10,6 +10,7 @@ import type {
   Aviso,
   CardInstagram,
   Configuracoes,
+  ConfiguracoesGlobais,
   Diretor,
   Documento,
   JuridicoCampoFormulario,
@@ -19,6 +20,7 @@ import type {
   Pagina,
   PaginaJuridico,
   Post,
+  PostSocial,
   ProximoVideo,
   SchemaDirectus,
 } from './tipos';
@@ -209,13 +211,47 @@ export function urlImagem(
 }
 
 export function urlArquivo(id: string | null): string | null {
-  return id ? `${PUBLIC_DIRECTUS_URL}/assets/${id}` : null;
+  return id ? `${PUBLIC_DIRECTUS_URL}/assets/${encodeURIComponent(id)}` : null;
+}
+
+export const CONFIGURACOES_GLOBAIS_PADRAO: ConfiguracoesGlobais = {
+  logo_site: null,
+  modulo_juridico_ativo: true,
+  modulo_youtube_ativo: false,
+  modulo_instagram_ativo: false,
+  youtube_channel_id: null,
+  youtube_api_key: null,
+  instagram_webhook_url: null,
+  instagram_token: null,
+};
+
+export function normalizarConfiguracoesGlobais(
+  config: Partial<ConfiguracoesGlobais> | null | undefined,
+): ConfiguracoesGlobais {
+  return {
+    ...CONFIGURACOES_GLOBAIS_PADRAO,
+    ...(config ?? {}),
+    modulo_juridico_ativo: config?.modulo_juridico_ativo ?? true,
+    modulo_youtube_ativo: config?.modulo_youtube_ativo ?? false,
+    modulo_instagram_ativo: config?.modulo_instagram_ativo ?? false,
+  };
 }
 
 export async function getConfiguracoes(): Promise<Configuracoes | null> {
   return comCache('configuracoes', TTL_CONTEUDO, () =>
     cliente.request(readSingleton('configuracoes')),
   );
+}
+
+export async function getConfiguracoesGlobais(): Promise<ConfiguracoesGlobais> {
+  try {
+    const config = await comCache('configuracoes-globais', TTL_CONTEUDO, () =>
+      cliente.request(readSingleton('configuracoes_globais')),
+    );
+    return normalizarConfiguracoesGlobais(config as ConfiguracoesGlobais | null);
+  } catch {
+    return CONFIGURACOES_GLOBAIS_PADRAO;
+  }
 }
 
 /**
@@ -345,9 +381,35 @@ export async function getDocumentos(): Promise<Documento[]> {
 
 export async function getCardsInstagram(limite: number): Promise<CardInstagram[]> {
   const cards = await comCache(`cards-instagram-${limite}`, TTL_CONTEUDO, () =>
-    cliente.request(readItems('cards_instagram', { limit: limite })),
+    cliente.request(readItems('cards_instagram', { sort: ['-curtidas', '-id'], limit: limite })),
   );
   return (cards ?? []) as CardInstagram[];
+}
+
+export async function getPostsSociais(limite: number): Promise<PostSocial[]> {
+  const posts = await comCache(`posts-sociais-${limite}`, TTL_CONTEUDO, () =>
+    cliente.request(
+      readItems('posts_sociais', {
+        fields: [
+          'id',
+          'legenda',
+          'midia',
+          'status',
+          'data_publicacao',
+          'link_original',
+          'visualizacoes',
+          'curtidas',
+          'comentarios',
+          'compartilhamentos',
+          'ultima_sincronizacao_metricas',
+        ],
+        filter: { status: { _eq: 'publicado' } },
+        sort: ['-data_publicacao', '-id'],
+        limit: limite,
+      }),
+    ),
+  );
+  return (posts ?? []) as PostSocial[];
 }
 
 export async function getPagina(slug: string): Promise<Pagina | null> {

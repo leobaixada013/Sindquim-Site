@@ -1,6 +1,6 @@
 import { XMLParser } from 'fast-xml-parser';
 import { comCache } from './cache';
-import { getConfiguracoes } from './directus';
+import { getConfiguracoes, getConfiguracoesGlobais } from './directus';
 
 export interface VideoYoutube {
   titulo: string;
@@ -77,8 +77,11 @@ export async function resolverChannelId(
 
 /** Vídeos mais recentes do canal configurado no Directus. */
 export async function getVideosYoutube(limite: number): Promise<VideoYoutube[]> {
-  const config = await getConfiguracoes();
+  const [config, globais] = await Promise.all([getConfiguracoes(), getConfiguracoesGlobais()]);
+  if (globais.modulo_youtube_ativo !== true) return [];
+
   const channelId =
+    globais.youtube_channel_id?.trim() ||
     config?.youtube_channel_id?.trim() ||
     (config?.youtube_url ? await resolverChannelId(config.youtube_url) : null);
   if (!channelId) return [];

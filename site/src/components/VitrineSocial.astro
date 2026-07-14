@@ -1,0 +1,145 @@
+---
+import 'lite-youtube-embed/src/lite-yt-embed.css';
+import {
+  getCardsInstagram,
+  getConfiguracoes,
+  getConfiguracoesGlobais,
+  getPostsSociais,
+  getProximosVideos,
+  urlImagem,
+} from '../lib/directus';
+import { formatarDataEstreia } from '../lib/formatar';
+import { getVideosYoutube } from '../lib/youtube';
+
+const [posts, proximosVideos, cardsInstagram, videosYoutube, config, globais] = await Promise.all([
+  getPostsSociais(6),
+  getProximosVideos(),
+  getCardsInstagram(4),
+  getVideosYoutube(3),
+  getConfiguracoes(),
+  getConfiguracoesGlobais(),
+]);
+
+const youtubeAtivo = globais.modulo_youtube_ativo === true;
+const instagramAtivo = globais.modulo_instagram_ativo === true;
+const postsVisiveis = youtubeAtivo || instagramAtivo ? posts : [];
+const proximosVideosVisiveis = youtubeAtivo ? proximosVideos : [];
+const cardsInstagramVisiveis = instagramAtivo ? cardsInstagram : [];
+const destaqueYoutube = youtubeAtivo ? videosYoutube[0] ?? null : null;
+const temConteudo = postsVisiveis.length > 0 || proximosVideosVisiveis.length > 0 || cardsInstagramVisiveis.length > 0 || destaqueYoutube !== null;
+
+function numero(valor: number | null | undefined) {
+  return Number(valor ?? 0).toLocaleString('pt-BR');
+}
+
+function resumo(texto: string | null | undefined, limite = 150) {
+  const limpo = (texto ?? '').trim();
+  if (limpo.length <= limite) return limpo;
+  return `${limpo.slice(0, limite).trim()}…`;
+}
+---
+
+{(temConteudo || (instagramAtivo && config?.instagram_url) || (youtubeAtivo && config?.youtube_url)) && (
+  <section id="vitrine-social" class="section vitrine-social reveal" aria-labelledby="vitrine-social-titulo">
+    <div class="container">
+      <div class="section-heading vitrine-social__heading">
+        <div>
+          <p class="rotulo">Vitrine social</p>
+          <h2 id="vitrine-social-titulo">Acompanhe o sindicato em todos os canais</h2>
+          <p class="vitrine-social__texto">
+            Publicações, vídeos e Reels reunidos em uma linha editorial única para a categoria acompanhar mobilizações, bastidores e orientações.
+          </p>
+        </div>
+        <div class="vitrine-social__acoes">
+          {instagramAtivo && config?.instagram_url && <a class="button button--tinta" href={config.instagram_url} target="_blank" rel="noopener">Instagram</a>}
+          {youtubeAtivo && config?.youtube_url && <a class="button button--primario" href={config.youtube_url} target="_blank" rel="noopener">YouTube</a>}
+        </div>
+      </div>
+
+      {temConteudo ? (
+        <div class="vitrine-social__grid">
+          {destaqueYoutube && (
+            <article class="vitrine-card vitrine-card--youtube vitrine-card--destaque">
+              <span class="vitrine-card__badge">Vídeo em destaque</span>
+              <div class="vitrine-card__player">
+                <lite-youtube
+                  videoid={destaqueYoutube.videoId}
+                  playlabel={`Assistir: ${destaqueYoutube.titulo}`}
+                  style={`background-image:url('${destaqueYoutube.thumbnailUrl}')`}
+                >
+                  <a class="lite-youtube-fallback" href={destaqueYoutube.link} target="_blank" rel="noopener">Assistir no YouTube: {destaqueYoutube.titulo}</a>
+                </lite-youtube>
+              </div>
+              <div class="vitrine-card__body">
+                <h3>{destaqueYoutube.titulo}</h3>
+                <a class="text-link" href={destaqueYoutube.link} target="_blank" rel="noopener">Abrir no YouTube</a>
+              </div>
+            </article>
+          )}
+
+          {postsVisiveis.map((post, indice) => (
+            <article class:list={['vitrine-card', 'vitrine-card--post', indice === 0 && !destaqueYoutube && 'vitrine-card--destaque']}>
+              {post.midia && <img class="vitrine-card__imagem" src={urlImagem(post.midia, { largura: 900, altura: 640 }) ?? ''} alt="" loading="lazy" decoding="async" />}
+              <div class="vitrine-card__body">
+                <span class="vitrine-card__badge">Post do sindicato</span>
+                <h3>{resumo(post.legenda, 110)}</h3>
+                <div class="vitrine-card__metrics">
+                  <span>👁 {numero(post.visualizacoes)}</span>
+                  <span>♥ {numero(post.curtidas)}</span>
+                  <span>💬 {numero(post.comentarios)}</span>
+                </div>
+                {post.link_original && <a class="text-link" href={post.link_original} target="_blank" rel="noopener">Ver publicação</a>}
+              </div>
+            </article>
+          ))}
+
+          {proximosVideosVisiveis.map((video) => (
+            <article class="vitrine-card vitrine-card--programacao">
+              {video.imagem && <img class="vitrine-card__imagem" src={urlImagem(video.imagem, { largura: 760, altura: 520 }) ?? ''} alt="" loading="lazy" decoding="async" />}
+              <div class="vitrine-card__body">
+                <span class="vitrine-card__badge">Próximo vídeo</span>
+                <h3>{video.titulo}</h3>
+                {video.descricao && <p>{resumo(video.descricao, 120)}</p>}
+                <strong class="vitrine-card__quando">{formatarDataEstreia(video.data_estreia)}</strong>
+              </div>
+            </article>
+          ))}
+
+          {cardsInstagramVisiveis.map((card, indice) => (
+            card.link ? (
+              <a class:list={['vitrine-card', 'vitrine-card--instagram', indice === 0 && 'vitrine-card--vertical']} href={card.link} target="_blank" rel="noopener">
+                {card.imagem && <img class="vitrine-card__imagem" src={urlImagem(card.imagem, { largura: 620, altura: 900 }) ?? ''} alt="" loading="lazy" decoding="async" />}
+                <div class="vitrine-card__body">
+                  <span class="vitrine-card__badge">Instagram</span>
+                  <h3>{card.legenda ?? 'Reel do sindicato'}</h3>
+                  <div class="vitrine-card__metrics">
+                    <span>👁 {numero(card.visualizacoes)}</span>
+                    <span>♥ {numero(card.curtidas)}</span>
+                    <span>💬 {numero(card.comentarios)}</span>
+                  </div>
+                </div>
+              </a>
+            ) : (
+              <article class:list={['vitrine-card', 'vitrine-card--instagram', indice === 0 && 'vitrine-card--vertical']}>
+                {card.imagem && <img class="vitrine-card__imagem" src={urlImagem(card.imagem, { largura: 620, altura: 900 }) ?? ''} alt="" loading="lazy" decoding="async" />}
+                <div class="vitrine-card__body">
+                  <span class="vitrine-card__badge">Instagram</span>
+                  <h3>{card.legenda ?? 'Reel do sindicato'}</h3>
+                </div>
+              </article>
+            )
+          ))}
+        </div>
+      ) : (
+        <div class="vitrine-social__vazio">
+          <h3>Em breve, novos conteúdos sociais por aqui.</h3>
+          <p>Acompanhe os canais oficiais enquanto a equipe publica os primeiros posts no painel.</p>
+        </div>
+      )}
+    </div>
+  </section>
+)}
+
+<script>
+  import 'lite-youtube-embed';
+</script>

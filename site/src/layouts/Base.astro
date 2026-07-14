@@ -2,7 +2,7 @@
 import '@fontsource-variable/archivo';
 import '@fontsource-variable/source-serif-4';
 import '../styles/global.css';
-import { getConfiguracoes } from '../lib/directus';
+import { getConfiguracoes, getConfiguracoesGlobais, urlArquivo } from '../lib/directus';
 import { DESCRICAO_PADRAO, MENU, NOME_CURTO, NOME_SITE } from '../lib/constantes';
 
 interface Props {
@@ -14,11 +14,20 @@ interface Props {
 
 const { titulo, descricao = DESCRICAO_PADRAO, imagemOg, tipoOg = 'website' } = Astro.props;
 const tituloFinal = titulo ? `${titulo} — ${NOME_CURTO}` : NOME_SITE;
-const config = await getConfiguracoes();
+const [config, globais] = await Promise.all([getConfiguracoes(), getConfiguracoesGlobais()]);
 const urlCanonica = new URL(Astro.url.pathname, Astro.site);
 const caminhoAtual = Astro.url.pathname.replace(/\/$/, '') || '/';
 const estadoNewsletter = Astro.url.searchParams.get('news');
 const linkWhatsapp = config?.whatsapp ? `https://wa.me/${config.whatsapp.replace(/\D/g, '')}` : null;
+const moduloJuridicoAtivo = globais.modulo_juridico_ativo !== false;
+const moduloYoutubeAtivo = globais.modulo_youtube_ativo === true;
+const moduloInstagramAtivo = globais.modulo_instagram_ativo === true;
+const logoSite = urlArquivo(globais.logo_site) ?? '/logo-sindicato.jpeg';
+const menuVisivel = MENU.filter((item) => {
+  if (item.href === '/juridico') return moduloJuridicoAtivo;
+  if (item.href === '/#videos') return moduloYoutubeAtivo;
+  return true;
+});
 ---
 
 <html lang="pt-BR">
@@ -53,8 +62,8 @@ const linkWhatsapp = config?.whatsapp ? `https://wa.me/${config.whatsapp.replace
         </div>
         <div class="topbar__links">
           {linkWhatsapp && <a href={linkWhatsapp} target="_blank" rel="noopener">WhatsApp</a>}
-          {config?.instagram_url && <a href={config.instagram_url} target="_blank" rel="noopener">Instagram</a>}
-          {config?.youtube_url && <a href={config.youtube_url} target="_blank" rel="noopener">YouTube</a>}
+          {moduloInstagramAtivo && config?.instagram_url && <a href={config.instagram_url} target="_blank" rel="noopener">Instagram</a>}
+          {moduloYoutubeAtivo && config?.youtube_url && <a href={config.youtube_url} target="_blank" rel="noopener">YouTube</a>}
         </div>
       </div>
     </div>
@@ -62,7 +71,7 @@ const linkWhatsapp = config?.whatsapp ? `https://wa.me/${config.whatsapp.replace
     <header class="mainnav">
       <div class="container mainnav__inner">
         <a class="brand" href="/">
-          <img class="brand__logo" src="/logo-sindicato.jpeg" alt="" width="46" height="46" />
+          <img class="brand__logo" src={logoSite} alt="" width="46" height="46" />
           <span class="brand__nome">{NOME_CURTO}<small>{NOME_SITE}</small></span>
         </a>
         <nav aria-label="Menu principal">
@@ -70,7 +79,7 @@ const linkWhatsapp = config?.whatsapp ? `https://wa.me/${config.whatsapp.replace
             Menu
           </button>
           <ul class="menu" id="menu-principal">
-            {MENU.map((item) => (
+            {menuVisivel.map((item) => (
               <li>
                 <a
                   href={item.href}
@@ -102,7 +111,7 @@ const linkWhatsapp = config?.whatsapp ? `https://wa.me/${config.whatsapp.replace
             <ul>
               <li><a href="/diretoria">Diretoria</a></li>
               <li><a href="/beneficios">Benefícios</a></li>
-              <li><a href="/juridico">Jurídico</a></li>
+              {moduloJuridicoAtivo && <li><a href="/juridico">Jurídico</a></li>}
               <li><a href="/filie-se">Filie-se</a></li>
               <li><a href="/contato">Contato</a></li>
             </ul>
@@ -112,7 +121,7 @@ const linkWhatsapp = config?.whatsapp ? `https://wa.me/${config.whatsapp.replace
             <ul>
               <li><a href="/noticias">Notícias</a></li>
               <li><a href="/beneficios">Benefícios</a></li>
-              <li><a href="/juridico">Jurídico</a></li>
+              {moduloJuridicoAtivo && <li><a href="/juridico">Jurídico</a></li>}
               <li><a href="/rss.xml">Feed RSS</a></li>
             </ul>
           </div>

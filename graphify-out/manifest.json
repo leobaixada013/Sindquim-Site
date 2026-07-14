@@ -1,7 +1,7 @@
 {
   ".claude/settings.json": {
-    "mtime": 1783476781.995474,
-    "ast_hash": "7bf81dca0376bde3a32244b82bc7cbc0",
+    "mtime": 1783799600.32772,
+    "ast_hash": "cbaae36a7a989527fc80d8beaa12a660",
     "semantic_hash": ""
   },
   ".claude/settings.local.json": {
@@ -375,8 +375,8 @@
     "semantic_hash": ""
   },
   "scripts/directus-schema.mjs": {
-    "mtime": 1783476782.01784,
-    "ast_hash": "61596e647411af33e3c4782f89656968",
+    "mtime": 1783755569.2077246,
+    "ast_hash": "0ef4a07d1d760fc363e46a426887a869",
     "semantic_hash": ""
   },
   "site/.astro/content.d.ts": {
@@ -400,18 +400,18 @@
     "semantic_hash": ""
   },
   "site/astro.config.mjs": {
-    "mtime": 1783306012.6051013,
-    "ast_hash": "5dc31711958d4086c9685f706ac86e29",
+    "mtime": 1783791168.2897005,
+    "ast_hash": "d0e80d2874556df62b7fad6201437df6",
     "semantic_hash": ""
   },
   "site/package.json": {
-    "mtime": 1783477716.2898097,
-    "ast_hash": "dae013a39509bb51be1ef098aa9bc3ba",
+    "mtime": 1783829008.1625059,
+    "ast_hash": "b2523d1d745ab11f54c6c1946589eb50",
     "semantic_hash": ""
   },
   "site/src/components/Estudio.astro": {
-    "mtime": 1783306841.6454082,
-    "ast_hash": "f79b158e4b0721f07caa0566c2ce5228",
+    "mtime": 1783804753.003736,
+    "ast_hash": "fd360708ddf478471526e5f5330ac5ae",
     "semantic_hash": ""
   },
   "site/src/components/PostCard.astro": {
@@ -420,8 +420,8 @@
     "semantic_hash": ""
   },
   "site/src/layouts/Base.astro": {
-    "mtime": 1783362107.8814828,
-    "ast_hash": "4414b5b32d11b47314df233dd9a0f1fe",
+    "mtime": 1783807308.197992,
+    "ast_hash": "e3083f23f771e795c83105a2daae1a08",
     "semantic_hash": ""
   },
   "site/src/lib/cache.ts": {
@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "site/src/lib/directus.ts": {
-    "mtime": 1783476782.0229971,
-    "ast_hash": "5d0a342e6004964f1940fecf502d7785",
+    "mtime": 1783807314.8931487,
+    "ast_hash": "531c5ebc8358106d362608ad5cab3fac",
     "semantic_hash": ""
   },
   "site/src/lib/formatar.test.ts": {
@@ -450,8 +450,8 @@
     "semantic_hash": ""
   },
   "site/src/lib/tipos.ts": {
-    "mtime": 1783476782.0240295,
-    "ast_hash": "03acb6a82c6684e53a980ec284cccc19",
+    "mtime": 1783868150.1648507,
+    "ast_hash": "9e13023605e9192c7373ca17f54a62df",
     "semantic_hash": ""
   },
   "site/src/lib/youtube.test.ts": {
@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   "site/src/lib/youtube.ts": {
-    "mtime": 1783306108.5044436,
-    "ast_hash": "15046c686d0cb2b609a6401586f90102",
+    "mtime": 1783804647.6972618,
+    "ast_hash": "65370e1652dc7b9c39652abd7e9fba16",
     "semantic_hash": ""
   },
   "site/src/pages/404.astro": {
@@ -495,8 +495,8 @@
     "semantic_hash": ""
   },
   "site/src/pages/index.astro": {
-    "mtime": 1783480574.4080005,
-    "ast_hash": "29183bd33388bad2d35f1f35c6e195cd",
+    "mtime": 1783804672.2548306,
+    "ast_hash": "f155927ef34376fbfefdce76e603d980",
     "semantic_hash": ""
   },
   "site/src/pages/noticias/[slug].astro": {
@@ -570,8 +570,8 @@
     "semantic_hash": ""
   },
   "site/README.md": {
-    "mtime": 1783305832.4407887,
-    "ast_hash": "2b1930198ce302fcdf2d29f674dbfb99",
+    "mtime": 1783716831.5058646,
+    "ast_hash": "b5c1d7607cb47bdd3591f3c9df0e1dc9",
     "semantic_hash": ""
   },
   "screenshots/task4-noticias-thumbnail.png": {
@@ -610,23 +610,18 @@
     "semantic_hash": ""
   },
   "site/src/pages/api/juridico.ts": {
-    "mtime": 1783476782.0250573,
-    "ast_hash": "e2e150dfaa92b0bb863a05dbf83df523",
+    "mtime": 1783829179.1851287,
+    "ast_hash": "5bebb5cfce7c63f50691a3ac169e9478",
     "semantic_hash": ""
   },
   "site/src/pages/juridico.astro": {
-    "mtime": 1783476782.0271232,
-    "ast_hash": "2a22a00f2d4e8fb1f7c4ec948e7eb9a6",
+    "mtime": 1783868369.3771675,
+    "ast_hash": "187f9dd036549c53a6f468bfb7ccee95",
     "semantic_hash": ""
   },
   "scripts/directus-atualizar-juridico.mjs": {
     "mtime": 1783378415.539176,
     "ast_hash": "2405590489b67717db3f844794315c64",
-    "semantic_hash": ""
-  },
-  "site/.astro/dev.json": {
-    "mtime": 1783377234.9780047,
-    "ast_hash": "b52a4327caa764e42e061ffd464dfb0f",
     "semantic_hash": ""
   },
   "site/.astro/settings.json": {
@@ -667,6 +662,676 @@
   "site/src/pages/convencoes.astro": {
     "mtime": 1783483230.7727883,
     "ast_hash": "7ee871c14694b5e139559e3d7c57e78d",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1783791543.2141645,
+    "ast_hash": "b75cce3a9e0e54ed497f6f39b18a813b",
+    "semantic_hash": ""
+  },
+  "docs/README.md": {
+    "mtime": 1783714965.6356366,
+    "ast_hash": "583f8d488aa687e316e5a48184478140",
+    "semantic_hash": ""
+  },
+  "docs/arquitetura.md": {
+    "mtime": 1783714863.8550234,
+    "ast_hash": "98185c1b2a9d0ed3fed00f0628a34b52",
+    "semantic_hash": ""
+  },
+  "docs/conteudo-directus.md": {
+    "mtime": 1783791566.413148,
+    "ast_hash": "81ac126cf42251c0e94d675fd667fb1a",
+    "semantic_hash": ""
+  },
+  "docs/deploy-checklist.md": {
+    "mtime": 1783714865.2039187,
+    "ast_hash": "3a1885b716598214ccb3c4c83359134c",
+    "semantic_hash": ""
+  },
+  "docs/desenvolvimento.md": {
+    "mtime": 1783716814.4970076,
+    "ast_hash": "69fcaff3b24fa39fe1859d1ac2a1a946",
+    "semantic_hash": ""
+  },
+  "scripts/dev-local.ps1": {
+    "mtime": 1783716776.0473504,
+    "ast_hash": "42bf5da661efb9ddfed17e2642685c80",
+    "semantic_hash": ""
+  },
+  "conversa_directus_site_robo_noticias.md": {
+    "mtime": 1783712672.554807,
+    "ast_hash": "9bfe2a16ffb124a8bf4b0bd867f125e7",
+    "semantic_hash": ""
+  },
+  "scripts/dev.ps1": {
+    "mtime": 1783797641.0654392,
+    "ast_hash": "746641705b16944301e7b5b2494fa145",
+    "semantic_hash": ""
+  },
+  "deploy/directus/.dev-directus-runner.ps1": {
+    "mtime": 1783864197.731178,
+    "ast_hash": "c6b2e59d8f709d1d809ae1f752d45bb8",
+    "semantic_hash": ""
+  },
+  "scripts/setup-directus-social.mjs": {
+    "mtime": 1783755591.486537,
+    "ast_hash": "d28c78bfff32d226db32b6d0b66b8bb0",
+    "semantic_hash": ""
+  },
+  "deploy/package.json": {
+    "mtime": 1783727113.4798696,
+    "ast_hash": "14cb6ddf276fc7a7d6324eae44ddaadd",
+    "semantic_hash": ""
+  },
+  "scripts/directus-analytics-branding.mjs": {
+    "mtime": 1783755751.3457603,
+    "ast_hash": "ee7ed7637207de17021889e3b475dc06",
+    "semantic_hash": ""
+  },
+  "scripts/sync-analytics.mjs": {
+    "mtime": 1783755824.4666245,
+    "ast_hash": "e5c1ec9f66dd7ebd65631ba76a41f06f",
+    "semantic_hash": ""
+  },
+  "site/src/layouts/AdminLayout.astro": {
+    "mtime": 1783868061.293877,
+    "ast_hash": "de55aa3bae1726aa485ad2045ed66019",
+    "semantic_hash": ""
+  },
+  "site/src/lib/auth.ts": {
+    "mtime": 1783868277.2169235,
+    "ast_hash": "fbf5bdc5590cc8204e72507ed0700dd1",
+    "semantic_hash": ""
+  },
+  "site/src/middleware.ts": {
+    "mtime": 1783791240.7550125,
+    "ast_hash": "ed1d1d87b2fce7905bf070fe382b8be5",
+    "semantic_hash": ""
+  },
+  "site/src/pages/admin/index.astro": {
+    "mtime": 1783868305.22122,
+    "ast_hash": "7cf3bfe5fe7b5d03c8f49328fb6f1379",
+    "semantic_hash": ""
+  },
+  "site/src/pages/admin/juridico.astro": {
+    "mtime": 1783830371.0990748,
+    "ast_hash": "443c7473e54c115a3a6f5b4eb2403551",
+    "semantic_hash": ""
+  },
+  "site/src/pages/admin/login.astro": {
+    "mtime": 1783797250.7064307,
+    "ast_hash": "16e313a8d6696ea4d796b5262be1ba0b",
+    "semantic_hash": ""
+  },
+  "site/src/pages/admin/social.astro": {
+    "mtime": 1783868240.3712277,
+    "ast_hash": "cedf081d0bde393bfbfd255c85ea83ec",
+    "semantic_hash": ""
+  },
+  "site/src/pages/api/admin/login.ts": {
+    "mtime": 1783791251.8314767,
+    "ast_hash": "a59faf7dff7d397cb3a84fefa711409e",
+    "semantic_hash": ""
+  },
+  "site/src/pages/api/admin/logout.ts": {
+    "mtime": 1783791258.1174679,
+    "ast_hash": "7d3e308a000da9d02cd79e108defbf02",
+    "semantic_hash": ""
+  },
+  "site/src/pages/api/admin/social/create.ts": {
+    "mtime": 1783797242.5122128,
+    "ast_hash": "8558d4a15aa4584d76e3d1c4e6452c0a",
+    "semantic_hash": ""
+  },
+  "site/src/components/VitrineSocial.astro": {
+    "mtime": 1783807288.8892477,
+    "ast_hash": "2a1ccaa684c28f6b0758678ff59a659a",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/.impeccable/design.json": {
+    "mtime": 1783457190.8179195,
+    "ast_hash": "5904f5cc9dc57c4dc9acaeeb501c7595",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/script.js": {
+    "mtime": 1783457191.003417,
+    "ast_hash": "fa5c5a0783be010ccf549bee495741be",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/scripts/directus-atualizar-juridico.mjs": {
+    "mtime": 1783457191.0044565,
+    "ast_hash": "47a2bb05c408a37c47b8bc159ac423fd",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/scripts/directus-atualizar-paginas.mjs": {
+    "mtime": 1783457191.005506,
+    "ast_hash": "a631169a3c85a0c364e961a6b3033daf",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/scripts/directus-conteudo-exemplo.mjs": {
+    "mtime": 1783457191.0065427,
+    "ast_hash": "4442ed5c88367cb2215942cc6880a09b",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/scripts/directus-schema.mjs": {
+    "mtime": 1783457191.0070565,
+    "ast_hash": "61596e647411af33e3c4782f89656968",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/astro.config.mjs": {
+    "mtime": 1783457191.0123801,
+    "ast_hash": "260f7e211d93c8bfb0121eb6c31c0f5f",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/package.json": {
+    "mtime": 1783457191.0144565,
+    "ast_hash": "841cff5488f3b99e0e6121f54fa2008a",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/components/Estudio.astro": {
+    "mtime": 1783457191.018612,
+    "ast_hash": "6b0998c2e99e1c174ac8d6da44932633",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/components/PostCard.astro": {
+    "mtime": 1783457191.0191336,
+    "ast_hash": "029e1685d34c25ec2cb1a60bebd885fa",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/layouts/Base.astro": {
+    "mtime": 1783457191.0202608,
+    "ast_hash": "016f013b8421947b7a7b83b81e2ecf91",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/cache.ts": {
+    "mtime": 1783457191.0207744,
+    "ast_hash": "e9d6cfeaa87c02b03cfda2ffdba1e549",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/constantes.ts": {
+    "mtime": 1783457191.0218203,
+    "ast_hash": "e345a35e8a2c2c0e5ca23c459d9e0309",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/directus.ts": {
+    "mtime": 1783457191.022339,
+    "ast_hash": "5d0a342e6004964f1940fecf502d7785",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/formatar.test.ts": {
+    "mtime": 1783457191.0228522,
+    "ast_hash": "947ef8bca68648f29b6aa93679137894",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/formatar.ts": {
+    "mtime": 1783457191.0233767,
+    "ast_hash": "c3a9c9fc99b71d501086a9c3e86c1ca6",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/tipos.ts": {
+    "mtime": 1783457191.0245245,
+    "ast_hash": "03acb6a82c6684e53a980ec284cccc19",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/youtube.test.ts": {
+    "mtime": 1783457191.0250442,
+    "ast_hash": "716ddd36b583fce6e89aa709e7afef5a",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/youtube.ts": {
+    "mtime": 1783457191.0255637,
+    "ast_hash": "737623117239e1fe49b626a7f4d70b40",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/404.astro": {
+    "mtime": 1783457191.0265923,
+    "ast_hash": "d2c3298c941ce6bfc6343541e2761a00",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/[slug].astro": {
+    "mtime": 1783457191.0271108,
+    "ast_hash": "72d863b9a0bcc43e97ecf9e111a49edc",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/api/contato.ts": {
+    "mtime": 1783457191.0276294,
+    "ast_hash": "443d8acc85360baaa8c58663d9411378",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/api/juridico.ts": {
+    "mtime": 1783457191.0286674,
+    "ast_hash": "e2e150dfaa92b0bb863a05dbf83df523",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/api/newsletter.ts": {
+    "mtime": 1783457191.0286674,
+    "ast_hash": "825d7b78a7ecc33e8ed979dbcb95b1ea",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/contato.astro": {
+    "mtime": 1783457191.0291824,
+    "ast_hash": "d4870f774e4e5948e2fe0a280e29383d",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/diretoria.astro": {
+    "mtime": 1783457191.029695,
+    "ast_hash": "89d7e8c5dde5ca617c8aa9e626386276",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/index.astro": {
+    "mtime": 1783457191.03074,
+    "ast_hash": "6ed2bd8f698150bff6aa41e0ee2e4bf1",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/juridico.astro": {
+    "mtime": 1783457191.031259,
+    "ast_hash": "2a22a00f2d4e8fb1f7c4ec948e7eb9a6",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/noticias/[slug].astro": {
+    "mtime": 1783457191.0322995,
+    "ast_hash": "70710f4a0d935e5ff1e873010dd9a61b",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/noticias/index.astro": {
+    "mtime": 1783457191.0328193,
+    "ast_hash": "77f2422a595f9abf754d87528f65c1d5",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/robots.txt.ts": {
+    "mtime": 1783457191.0333347,
+    "ast_hash": "092a3d063b1510903b27b897f9766654",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/rss.xml.ts": {
+    "mtime": 1783457191.0339148,
+    "ast_hash": "c6cc6515da4d22c483714f274db0af20",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/sitemap.xml.ts": {
+    "mtime": 1783457191.0344331,
+    "ast_hash": "f45da166386eddaad0ed85bdc8a9d287",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/tsconfig.json": {
+    "mtime": 1783457191.0365567,
+    "ast_hash": "c00462f26cfa157b3b5e5eff01a34df2",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/archive-documento.php": {
+    "mtime": 1783457191.0387037,
+    "ast_hash": "e70b51fba5f8fae0d76dcad71b30b3d7",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/archive.php": {
+    "mtime": 1783457191.0392187,
+    "ast_hash": "0ea0a1a39390e0d0ef964bc32cea8a06",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/assets/js/main.js": {
+    "mtime": 1783457191.0433621,
+    "ast_hash": "7ca99f4f3ec977646e8bfe4c67d5fe0a",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/footer.php": {
+    "mtime": 1783457191.0443952,
+    "ast_hash": "83b5ac58793b82d4eebc084e64437cf1",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/front-page.php": {
+    "mtime": 1783457191.0449114,
+    "ast_hash": "2f6d7d083e85d148c1f1df391ce9e9c2",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/functions.php": {
+    "mtime": 1783457191.0454276,
+    "ast_hash": "5e8bd22230633c2377edb8b5d493205c",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/header.php": {
+    "mtime": 1783457191.0459483,
+    "ast_hash": "f113af6e1a8e424e87623033ac864a92",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/cpt-aviso.php": {
+    "mtime": 1783457191.0469816,
+    "ast_hash": "e732eb607423345f0a9cb59266d71ff6",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/cpt-banner.php": {
+    "mtime": 1783457191.047499,
+    "ast_hash": "453f870c00a281a8fd5c9efdbd906841",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/cpt-card-social.php": {
+    "mtime": 1783457191.048542,
+    "ast_hash": "15b48d3a4cb2a3ef4b2ab07e6743ae6e",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/cpt-diretor.php": {
+    "mtime": 1783457191.0490704,
+    "ast_hash": "c8b5eb23833c68db4b7fe9091f1faccd",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/cpt-documento.php": {
+    "mtime": 1783457191.049584,
+    "ast_hash": "c4e3993f66ec16b39472394005832ac0",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/settings-contato.php": {
+    "mtime": 1783457191.0501041,
+    "ast_hash": "1cef64ff282fb26f2ecb7c4ef2036c17",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/settings-proximo-episodio.php": {
+    "mtime": 1783457191.0506227,
+    "ast_hash": "98f2a69c78745301c20acd32573d2c82",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/template-tags.php": {
+    "mtime": 1783457191.0516653,
+    "ast_hash": "df1d7004e1b902d1d1d991229f10519f",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/youtube.php": {
+    "mtime": 1783457191.052192,
+    "ast_hash": "a569b5d2ed6a70e82957366680378cd1",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/index.php": {
+    "mtime": 1783457191.0527344,
+    "ast_hash": "df44a7cfdfd08c28828d487262020b27",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/page-avisos.php": {
+    "mtime": 1783457191.0533605,
+    "ast_hash": "ba6a05b9cfa02d34cb6e8f5613552860",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/page-contato.php": {
+    "mtime": 1783457191.0538745,
+    "ast_hash": "169d37b22423d2e8005898b2d2fd5a97",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/page-diretoria.php": {
+    "mtime": 1783457191.0544002,
+    "ast_hash": "b7bae93459c12382257a77a1c13b981c",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/page-filie-se.php": {
+    "mtime": 1783457191.0549214,
+    "ast_hash": "77b400639e46ec2395eddcacefd21139",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/page-noticias.php": {
+    "mtime": 1783457191.0554419,
+    "ast_hash": "fd2980c09f117c9b93288f734d8c76a8",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/page.php": {
+    "mtime": 1783457191.0564759,
+    "ast_hash": "946d749af324b9e48ba99d4126f01097",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/single.php": {
+    "mtime": 1783457191.062158,
+    "ast_hash": "b1cf5fa9fb9948dacc34aaddf6e206bf",
+    "semantic_hash": ""
+  },
+  "scripts/setup-configuracoes.mjs": {
+    "mtime": 1783810894.7769945,
+    "ast_hash": "94b5a09ca9003cecce5a64c768d05235",
+    "semantic_hash": ""
+  },
+  "site/src/pages/admin/settings.astro": {
+    "mtime": 1783868100.217638,
+    "ast_hash": "64f2a0321ca2e5d3b3948e4841bc10e2",
+    "semantic_hash": ""
+  },
+  "site/src/pages/api/admin/settings/index.ts": {
+    "mtime": 1783868504.7329638,
+    "ast_hash": "6bc2da62c4cf5ee56d2761c6a96aec6a",
+    "semantic_hash": ""
+  },
+  "site/src/pages/api/admin/settings/logo.ts": {
+    "mtime": 1783807179.6163275,
+    "ast_hash": "d4ab50860f423cf9fc08fb68bdf78d9f",
+    "semantic_hash": ""
+  },
+  "site/src/pages/api/admin/settings/users.ts": {
+    "mtime": 1783807405.169531,
+    "ast_hash": "0826136b26e3575445c25213e2c34913",
+    "semantic_hash": ""
+  },
+  "site/src/pages/api/admin/settings/users/[id].ts": {
+    "mtime": 1783807411.150974,
+    "ast_hash": "1919375b4871b9a9521b5001d0f6c49d",
+    "semantic_hash": ""
+  },
+  "skills-lock.json": {
+    "mtime": 1783799060.8776748,
+    "ast_hash": "a5ce57e17f3444aa846187d8761e81f5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-taste-frontend/SKILL.md": {
+    "mtime": 1783799060.248637,
+    "ast_hash": "648c8bf98f84fbe7f14bf2da035c57fe",
+    "semantic_hash": ""
+  },
+  ".claude/skills/design-taste-frontend/SKILL.md": {
+    "mtime": 1783799060.248637,
+    "ast_hash": "648c8bf98f84fbe7f14bf2da035c57fe",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/.impeccable/critique/2026-07-01T20-28-00Z__wp-content-themes-sindicato-front-page-php.md": {
+    "mtime": 1783457190.8142886,
+    "ast_hash": "28e989fd8bbbc012f447ea38d85a302e",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/.impeccable/critique/2026-07-01T21-24-10Z__wp-content-themes-sindicato-archive-php.md": {
+    "mtime": 1783457190.8153193,
+    "ast_hash": "f11ce8c9fe48cdfda82f56163d6d08fd",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/.impeccable/critique/2026-07-01T22-04-56Z__wp-content-themes-sindicato-archive-documento-php.md": {
+    "mtime": 1783457190.8158362,
+    "ast_hash": "b65628a7dcd3a3cbbdb5346a351f362e",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/.impeccable/critique/2026-07-01T22-21-32Z__wp-content-themes-sindicato-page-contato-php.md": {
+    "mtime": 1783457190.8163474,
+    "ast_hash": "0c1d76e2ddcb25cd47bb7035ed38067c",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/.impeccable/critique/2026-07-01T22-40-47Z__wp-content-themes-sindicato-page-filie-se-php.md": {
+    "mtime": 1783457190.8174038,
+    "ast_hash": "e071ec3af9c723847b443f07a6af4cae",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/CLAUDE.md": {
+    "mtime": 1783457190.8184364,
+    "ast_hash": "8a6643a420fdad6bfb583523bc6cef16",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/DESIGN.md": {
+    "mtime": 1783457190.8189538,
+    "ast_hash": "b4d180d661b05f2991e2cb043bf2e0d1",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/PRODUCT.md": {
+    "mtime": 1783457190.8194654,
+    "ast_hash": "648c93bd024a3ac99e71d05b3d68a508",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/deploy/README.md": {
+    "mtime": 1783457190.8271823,
+    "ast_hash": "8d481e8e4219cfe1a07d5676d2513dde",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/deploy/docker-compose.yml": {
+    "mtime": 1783457190.8276951,
+    "ast_hash": "7191bdf051b1dc712c9a09d4456a98f3",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/deploy/override-rede-tunnel.yml": {
+    "mtime": 1783457190.828299,
+    "ast_hash": "e5eca53c9677fba752acc4ad7f527a76",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/lgpd/campos-formularios.md": {
+    "mtime": 1783457190.8360362,
+    "ast_hash": "4fee6bd1c1692efd8559f75af3be222c",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/plans/2026-06-30-site-sindicato-desenvolvimento.md": {
+    "mtime": 1783457190.8375795,
+    "ast_hash": "5e32c00f28236564f54e29516d3fe363",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/plans/2026-07-01-podcast-youtube-unificado.md": {
+    "mtime": 1783457190.8380942,
+    "ast_hash": "55ecad5eccd831fe09e8c212edd8429f",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/plans/2026-07-01-tema-wordpress-sindicato.md": {
+    "mtime": 1783457190.8391259,
+    "ast_hash": "fab109c86a573fd5afc7ca2e77299d7b",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/plans/2026-07-02-youtube-instagram-bugs-animacoes.md": {
+    "mtime": 1783457190.8396392,
+    "ast_hash": "56376b329382e729ac37c65977204bc1",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/specs/2026-07-01-podcast-youtube-unificado-design.md": {
+    "mtime": 1783457190.8406644,
+    "ast_hash": "e63a37cd6b7dfeb1e347c30481e1641f",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/specs/2026-07-01-sistema-de-design-impeccable-design.md": {
+    "mtime": 1783457190.8411798,
+    "ast_hash": "8a2a890e21761dbc12541a737f771cab",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/specs/2026-07-02-youtube-instagram-bugs-animacoes-design.md": {
+    "mtime": 1783457190.8416953,
+    "ast_hash": "e402b1efd82c583d95eb685fb071a2fa",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/specs/2026-07-05-migracao-astro-directus-design.md": {
+    "mtime": 1783457190.8422146,
+    "ast_hash": "c8a01ec4bd50cc2d7bc67b7ea8de6687",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/index.html": {
+    "mtime": 1783457190.9699974,
+    "ast_hash": "f893b948a31de7e4a75e57cc0fd0c481",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/AGENTS.md": {
+    "mtime": 1783457191.0103009,
+    "ast_hash": "1e2c4e154c1d009665b0a5facf2ace93",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/CLAUDE.md": {
+    "mtime": 1783457191.010825,
+    "ast_hash": "1e2c4e154c1d009665b0a5facf2ace93",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/README.md": {
+    "mtime": 1783457191.0118597,
+    "ast_hash": "8242d851e2de7046eccda9590db4484f",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/assets/hero-assembleia-sindicato.png": {
+    "mtime": 1783457190.8246038,
+    "ast_hash": "aae5bf22edd337af186398785c35e208",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/assets/sindicato-logo.jpeg": {
+    "mtime": 1783457190.825641,
+    "ast_hash": "b30650fe6b57caec8ea9f849442c076d",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/design/referencia-home-sindicato.png": {
+    "mtime": 1783457190.8350003,
+    "ast_hash": "d3a70c680c598a48f0f88400c6fefaac",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/screenshots/home-desktop.png": {
+    "mtime": 1783457190.9777434,
+    "ast_hash": "9c8495a97933c3865272923e68f223c6",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/screenshots/home-mobile.png": {
+    "mtime": 1783457190.9825284,
+    "ast_hash": "aebfa4767a2ff6dbf40c382896e05828",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/screenshots/home-notices-empty.png": {
+    "mtime": 1783457190.9908907,
+    "ast_hash": "3d3b8d6f469dd7ce6c0f21543e9b6967",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/screenshots/home-notices-visible.png": {
+    "mtime": 1783457190.9982264,
+    "ast_hash": "9c8495a97933c3865272923e68f223c6",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/screenshots/task4-noticias-thumbnail.png": {
+    "mtime": 1783457191.0013447,
+    "ast_hash": "7e1a7b9312850783d5e213d3a47f2a37",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/screenshots/task6-hero-webp.png": {
+    "mtime": 1783457191.0029,
+    "ast_hash": "4b06d801661fca582f2607e64fbcebed",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/public/favicon.svg": {
+    "mtime": 1783457191.016012,
+    "ast_hash": "2e60239ba96db0b94a6fedcc58e5631d",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/public/logo-sindicato.jpeg": {
+    "mtime": 1783457191.017052,
+    "ast_hash": "b30650fe6b57caec8ea9f849442c076d",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/assets/img/hero-assembleia-sindicato.webp": {
+    "mtime": 1783457191.0418077,
+    "ast_hash": "52992bc9060ec46d9cf0734932f82bb2",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/assets/img/logo-sindicato.jpeg": {
+    "mtime": 1783457191.0428462,
+    "ast_hash": "b30650fe6b57caec8ea9f849442c076d",
+    "semantic_hash": ""
+  },
+  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/screenshot.png": {
+    "mtime": 1783457191.0616422,
+    "ast_hash": "d3a70c680c598a48f0f88400c6fefaac",
+    "semantic_hash": ""
+  },
+  "scripts/setup-juridico.mjs": {
+    "mtime": 1783835366.5264893,
+    "ast_hash": "d2318501ad21110f1038b63e0644a465",
+    "semantic_hash": ""
+  },
+  "site/src/lib/juridico.ts": {
+    "mtime": 1783829164.8047576,
+    "ast_hash": "c5eb151b095967f792c5e253db5e93cc",
+    "semantic_hash": ""
+  },
+  "site/src/lib/mailer.ts": {
+    "mtime": 1783829101.0209167,
+    "ast_hash": "09a59a79c831c40e2d9c13ae73747efd",
+    "semantic_hash": ""
+  },
+  "site/src/pages/api/admin/juridico/reply.ts": {
+    "mtime": 1783829194.5743065,
+    "ast_hash": "d0dfe7ac86e49b0484cc4ac2a427750f",
     "semantic_hash": ""
   }
 }

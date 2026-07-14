@@ -15,6 +15,20 @@ Para a documentação completa do repositório, veja o [`README.md` da raiz](../
 
 ## Scripts
 
+No Windows, a partir da raiz do repositório, use:
+
+```bat
+dev-local.cmd
+```
+
+Se você já estiver dentro da pasta `site/`, use:
+
+```bat
+..\dev-local.cmd
+```
+
+Ou, dentro de `site/`, use os comandos npm diretamente:
+
 ```bash
 npm install
 npm run dev

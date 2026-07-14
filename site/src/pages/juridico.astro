@@ -1,28 +1,25 @@
 ---
 import Base from '../layouts/Base.astro';
 import {
-  getJuridicoCamposFormulario,
+  getConfiguracoesGlobais,
   getJuridicoDireitos,
   getJuridicoFAQ,
   getJuridicoPlantoes,
   getPaginaJuridico,
 } from '../lib/directus';
-import type { JuridicoCampoFormulario } from '../lib/tipos';
-
 const estado = Astro.url.searchParams.get('agendamento');
-const [pagina, direitos, plantoes, faq, camposFormulario] = await Promise.all([
+const estadoChamado = Astro.url.searchParams.get('chamado');
+const globais = await getConfiguracoesGlobais();
+if (globais.modulo_juridico_ativo === false) {
+  return Astro.redirect('/');
+}
+
+const [pagina, direitos, plantoes, faq] = await Promise.all([
   getPaginaJuridico(),
   getJuridicoDireitos(),
   getJuridicoPlantoes(),
   getJuridicoFAQ(),
-  getJuridicoCamposFormulario(),
 ]);
-
-const opcoesCampo = (campo: JuridicoCampoFormulario) =>
-  (campo.opcoes ?? '')
-    .split('\n')
-    .map((opcao) => opcao.trim())
-    .filter(Boolean);
 ---
 
 <Base titulo="Jurídico" descricao="Atendimento jurídico do sindicato para orientação e defesa dos direitos trabalhistas.">
@@ -98,60 +95,72 @@ const opcoesCampo = (campo: JuridicoCampoFormulario) =>
         ))}
       </div>
 
-      <div class="juridico-agenda__form-wrap">
+      <div class="juridico-agenda__form-wrap chamado-card">
         {estado === 'ok' && (
           <p class="form-ok" role="status">Agendamento enviado. Entraremos em contato em até 2 dias úteis.</p>
         )}
         {estado === 'erro' && (
           <p class="form-erro" role="alert">Não foi possível enviar. Tente novamente ou ligue para a sede.</p>
         )}
+        {estadoChamado === 'ok' && (
+          <p class="form-ok" role="status">Chamado jurídico aberto com sucesso. A equipe jurídica analisará sua documentação.</p>
+        )}
+        {estadoChamado === 'erro' && (
+          <p class="form-erro" role="alert">Não foi possível abrir o chamado. Revise os campos e o anexo e tente novamente.</p>
+        )}
 
-        <form class="form-grid juridico-agenda__form" method="POST" action="/api/juridico">
+        <div class="chamado-card__intro">
+          <span class="tag">Novo fluxo</span>
+          <h3>Abra um chamado jurídico</h3>
+          <p>
+            Envie sua solicitação com um documento de apoio. O atendimento jurídico responderá pelo e-mail informado.
+          </p>
+        </div>
+
+        <form class="form-grid juridico-agenda__form chamado-form" method="POST" action="/api/juridico" enctype="multipart/form-data">
           <label>
-            Nome Completo
-            <input type="text" name="nome" required maxlength="120" autocomplete="name" />
+            Nome completo
+            <input type="text" name="nome" required maxlength="120" autocomplete="name" placeholder="Seu nome completo" />
+          </label>
+          <label>
+            CPF
+            <input type="text" name="cpf" required maxlength="14" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" />
           </label>
           <label>
             E-mail
-            <input type="email" name="email" required maxlength="180" autocomplete="email" />
+            <input type="email" name="email" required maxlength="180" autocomplete="email" placeholder="voce@email.com" />
           </label>
-
-          {camposFormulario.map((campo) => (
-            <label class:list={[campo.tipo === 'textarea' || campo.tipo === 'select' ? 'form-grid__full' : undefined]}>
-              {campo.rotulo}
-              {campo.tipo === 'select' ? (
-                <select name={campo.chave} required={campo.obrigatorio}>
-                  <option value="" disabled selected>{campo.placeholder || 'Selecione...'}</option>
-                  {opcoesCampo(campo).map((opcao) => <option value={opcao}>{opcao}</option>)}
-                </select>
-              ) : campo.tipo === 'textarea' ? (
-                <textarea
-                  name={campo.chave}
-                  rows="4"
-                  required={campo.obrigatorio}
-                  maxlength={campo.max_length ?? 1000}
-                  placeholder={campo.placeholder ?? undefined}
-                ></textarea>
-              ) : (
-                <input
-                  type={campo.tipo}
-                  name={campo.chave}
-                  required={campo.obrigatorio}
-                  maxlength={campo.max_length ?? 180}
-                  placeholder={campo.placeholder ?? undefined}
-                />
-              )}
-            </label>
-          ))}
-
+          <label>
+            Telefone
+            <input type="tel" name="telefone" required maxlength="40" autocomplete="tel" placeholder="(00) 00000-0000" />
+          </label>
           <label class="form-grid__full">
-            Breve Relato
-            <textarea name="relato" rows="5" required maxlength="4000" placeholder="Conte em poucas linhas o que aconteceu."></textarea>
+            Tipo de demanda
+            <select name="tipo" required>
+              <option value="" disabled selected>Selecione o assunto principal</option>
+              <option value="Demissão / Rescisão">Demissão / Rescisão</option>
+              <option value="Horas Extras / Jornada">Horas Extras / Jornada</option>
+              <option value="Assédio / Discriminação">Assédio / Discriminação</option>
+              <option value="Acidente de Trabalho">Acidente de Trabalho</option>
+              <option value="Dúvida Geral">Dúvida Geral</option>
+            </select>
           </label>
+          <label class="form-grid__full">
+            Descrição do caso
+            <textarea name="descricao" rows="6" required maxlength="5000" placeholder="Conte o que aconteceu, datas relevantes, empresa envolvida e qual orientação você precisa."></textarea>
+          </label>
+          <label class="form-grid__full chamado-upload">
+            Documento de apoio
+            <input type="file" name="anexo" required accept=".pdf,.jpg,.jpeg,.png,.webp,application/pdf,image/jpeg,image/png,image/webp" />
+            <small>Envie PDF ou imagem com até 10 MB. Não inclua documentos de terceiros sem autorização.</small>
+          </label>
+          <p class="form-grid__full chamado-lgpd">
+            Seus dados serão usados apenas para triagem e resposta jurídica do sindicato. O anexo não é exibido publicamente.
+          </p>
           <label class="campo-honeypot" aria-hidden="true">
             Não preencha <input type="text" name="site" tabindex="-1" autocomplete="off" />
           </label>
-          <button class="button button--primario" type="submit">Solicitar Agendamento</button>
+          <button class="button button--primario" type="submit">Abrir chamado jurídico</button>
         </form>
       </div>
     </div>
@@ -189,3 +198,62 @@ const opcoesCampo = (campo: JuridicoCampoFormulario) =>
     </div>
   </section>
 </Base>
+
+<style>
+  .chamado-card {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(20px, 3vw, 28px);
+    border: 1px solid rgba(69, 128, 172, 0.18);
+    border-radius: 28px;
+    background:
+      radial-gradient(circle at 8% 0%, rgba(69, 128, 172, 0.14), transparent 36%),
+      radial-gradient(circle at 92% 12%, rgba(231, 58, 63, 0.08), transparent 32%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(245, 248, 252, 0.94));
+    box-shadow: 0 18px 48px rgba(9, 20, 38, 0.12);
+  }
+
+  .chamado-card__intro {
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(69, 128, 172, 0.14);
+  }
+
+  .chamado-card__intro h3 {
+    margin: 12px 0 8px;
+    font-size: clamp(1.45rem, 3vw, 2.2rem);
+    letter-spacing: -0.04em;
+  }
+
+  .chamado-card__intro p {
+    margin: 0;
+    color: var(--texto-suave);
+    line-height: 1.6;
+  }
+
+  .chamado-form {
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .chamado-form select,
+  .chamado-form input[type='file'] {
+    width: 100%;
+  }
+
+  .chamado-upload small,
+  .chamado-lgpd {
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .chamado-lgpd {
+    margin: 0;
+    padding: 14px 16px;
+    border: 1px solid rgba(69, 128, 172, 0.18);
+    border-radius: 18px;
+    background: rgba(69, 128, 172, 0.08);
+  }
+</style>

@@ -1,0 +1,257 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { erroAutenticacaoExpirada, limparSessaoAdmin, tokenAdmin } from '../../lib/auth';
+import { listarChamadosJuridicos } from '../../lib/juridico';
+
+const token = tokenAdmin(Astro.cookies);
+if (!token) return Astro.redirect('/admin/login');
+
+let dashboard;
+try {
+  dashboard = await listarChamadosJuridicos(token);
+} catch (falha) {
+  if (erroAutenticacaoExpirada(falha)) {
+    limparSessaoAdmin(Astro.cookies);
+    return Astro.redirect('/admin/login?erro=sessao');
+  }
+  throw falha;
+}
+
+const { metricas, chamados } = dashboard;
+const statusClasses = {
+  Aberto: 'status-badge--aberto',
+  'Em Análise': 'status-badge--analise',
+  Concluído: 'status-badge--concluido',
+};
+
+function dataCurta(valor: string | null | undefined) {
+  if (!valor) return 'Sem data';
+  return new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(valor));
+}
+
+function resumo(texto: string, limite = 120) {
+  return texto.length > limite ? `${texto.slice(0, limite).trim()}…` : texto;
+}
+---
+
+<AdminLayout
+  titulo="Jurídico"
+  subtitulo="Gestão de chamados legais, anexos dos trabalhadores e respostas do departamento jurídico."
+>
+  <div slot="actions">
+    <a class="admin-button" href="/juridico" target="_blank" rel="noopener">Ver página pública</a>
+  </div>
+
+  <p class="admin-alert" id="juridico-feedback" role="status" hidden></p>
+
+  <section class="admin-stats juridico-stats" aria-label="Métricas dos chamados jurídicos">
+    <article class="admin-card admin-stat"><span>Total</span><strong>{metricas.total}</strong><small class="admin-muted">Chamados registrados</small></article>
+    <article class="admin-card admin-stat"><span>Abertos</span><strong>{metricas.abertos}</strong><small class="admin-muted">Aguardando triagem</small></article>
+    <article class="admin-card admin-stat"><span>Em Análise</span><strong>{metricas.emAnalise}</strong><small class="admin-muted">Em atendimento</small></article>
+    <article class="admin-card admin-stat"><span>Concluídos</span><strong>{metricas.concluidos}</strong><small class="admin-muted">Resposta enviada</small></article>
+  </section>
+
+  <section class="admin-panel juridico-panel">
+    <div class="admin-section-title">
+      <div>
+        <h2>Chamados jurídicos</h2>
+        <p class="admin-muted">Abra um chamado para visualizar dados, baixar o anexo e responder ao trabalhador.</p>
+      </div>
+      <span class="admin-tag">{chamados.length} chamados</span>
+    </div>
+
+    <div class="juridico-table-wrap">
+      <table class="juridico-table">
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Trabalhador</th>
+            <th>Tipo</th>
+            <th>Descrição</th>
+            <th>Entrada</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {chamados.length === 0 && (
+            <tr><td colspan="6" class="admin-muted">Nenhum chamado jurídico aberto ainda.</td></tr>
+          )}
+          {chamados.map((chamado) => (
+            <tr>
+              <td><span class:list={['status-badge', statusClasses[chamado.status] ?? '']}>{chamado.status}</span></td>
+              <td class="juridico-worker"><strong>{chamado.nome}</strong><small>{chamado.cpf_mascarado} · {chamado.email}</small></td>
+              <td>{chamado.tipo}</td>
+              <td>{resumo(chamado.descricao)}</td>
+              <td>{dataCurta(chamado.date_created)}</td>
+              <td>
+                <button
+                  class="admin-button"
+                  type="button"
+                  data-open-chamado
+                  data-id={chamado.id}
+                  data-nome={chamado.nome}
+                  data-cpf={chamado.cpf}
+                  data-email={chamado.email}
+                  data-telefone={chamado.telefone}
+                  data-tipo={chamado.tipo}
+                  data-status={chamado.status}
+                  data-descricao={chamado.descricao}
+                  data-resposta={chamado.resposta_advogado ?? ''}
+                  data-anexo={chamado.anexo_url ?? ''}
+                >Abrir</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="admin-modal juridico-modal" id="juridico-modal" hidden>
+    <button class="admin-modal__backdrop" type="button" aria-label="Fechar modal" data-close-modal></button>
+    <section class="admin-modal__dialog juridico-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <div class="admin-section-title">
+        <div>
+          <span class="admin-chip">Chamado jurídico</span>
+          <h2 id="modal-titulo">Responder chamado</h2>
+          <p class="admin-muted" id="modal-subtitulo">Dados do trabalhador e resposta oficial.</p>
+        </div>
+        <button class="admin-button" type="button" data-close-modal>Fechar</button>
+      </div>
+
+      <div class="juridico-modal__grid">
+        <article class="juridico-detail-card">
+          <h3>Dados do trabalhador</h3>
+          <dl>
+            <dt>Nome</dt><dd id="modal-nome">—</dd>
+            <dt>CPF</dt><dd id="modal-cpf">—</dd>
+            <dt>E-mail</dt><dd id="modal-email">—</dd>
+            <dt>Telefone</dt><dd id="modal-telefone">—</dd>
+            <dt>Tipo</dt><dd id="modal-tipo">—</dd>
+            <dt>Anexo</dt><dd><a class="text-link" id="modal-anexo" href="#" target="_blank" rel="noopener">Abrir documento</a></dd>
+          </dl>
+        </article>
+
+        <article class="juridico-detail-card juridico-detail-card--wide">
+          <h3>Descrição do caso</h3>
+          <p id="modal-descricao">—</p>
+        </article>
+      </div>
+
+      <form class="admin-form juridico-reply-form" id="juridico-reply-form">
+        <input type="hidden" name="id" id="modal-id" />
+        <label class="admin-field">
+          Status
+          <select class="admin-select" name="status" id="modal-status" required>
+            <option value="Em Análise">Em Análise</option>
+            <option value="Concluído">Concluído</option>
+          </select>
+        </label>
+        <label class="admin-field">
+          Resposta do advogado
+          <textarea class="admin-textarea" name="resposta_advogado" id="modal-resposta" rows="8" maxlength="8000" placeholder="Escreva a orientação jurídica que será enviada ao trabalhador quando o chamado for concluído."></textarea>
+        </label>
+        <div class="admin-modal__actions">
+          <button class="admin-button" type="button" data-close-modal>Cancelar</button>
+          <button class="admin-button admin-button--primary" type="submit">Salvar resposta</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</AdminLayout>
+
+<style>
+  .juridico-table-wrap { overflow-x: auto; }
+  .juridico-table { width: 100%; border-collapse: collapse; }
+  .juridico-table th,
+  .juridico-table td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,.10); text-align: left; vertical-align: top; }
+  .juridico-table th { color: var(--admin-muted); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+  .juridico-worker strong,
+  .juridico-worker small { display: block; }
+  .juridico-worker small { color: var(--admin-muted); margin-top: 4px; }
+  .status-badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 7px 11px; font-size: .76rem; font-weight: 850; }
+  .status-badge--aberto { background: rgba(240, 187, 91, .14); color: #ffe2a8; }
+  .status-badge--analise { background: rgba(107, 182, 234, .16); color: #bfe7ff; }
+  .status-badge--concluido { background: rgba(79, 209, 139, .14); color: #d7ffe8; }
+  .juridico-modal__dialog { width: min(1040px, 100%); }
+  .juridico-modal__grid { display: grid; grid-template-columns: minmax(260px, .8fr) minmax(0, 1.2fr); gap: 16px; margin-bottom: 18px; }
+  .juridico-detail-card { padding: 18px; border: 1px solid rgba(255,255,255,.12); border-radius: 22px; background: rgba(255,255,255,.055); }
+  .juridico-detail-card h3 { margin: 0 0 14px; }
+  .juridico-detail-card dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 9px 14px; margin: 0; }
+  .juridico-detail-card dt { color: var(--admin-muted); }
+  .juridico-detail-card dd { margin: 0; word-break: break-word; }
+  .juridico-detail-card--wide p { white-space: pre-wrap; color: var(--admin-muted); line-height: 1.6; }
+  @media (max-width: 780px) { .juridico-modal__grid { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  const modal = document.getElementById('juridico-modal');
+  const feedback = document.getElementById('juridico-feedback');
+  const form = document.getElementById('juridico-reply-form');
+
+  function setText(id, valor) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = valor || '—';
+  }
+
+  function abrirModal(botao) {
+    if (!modal) return;
+    document.getElementById('modal-id').value = botao.dataset.id || '';
+    document.getElementById('modal-status').value = botao.dataset.status === 'Concluído' ? 'Concluído' : 'Em Análise';
+    document.getElementById('modal-resposta').value = botao.dataset.resposta || '';
+    setText('modal-nome', botao.dataset.nome);
+    setText('modal-cpf', botao.dataset.cpf);
+    setText('modal-email', botao.dataset.email);
+    setText('modal-telefone', botao.dataset.telefone);
+    setText('modal-tipo', botao.dataset.tipo);
+    setText('modal-descricao', botao.dataset.descricao);
+    const anexo = document.getElementById('modal-anexo');
+    if (anexo) {
+      anexo.href = botao.dataset.anexo || '#';
+      anexo.hidden = !botao.dataset.anexo;
+    }
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function fecharModal() {
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-open-chamado]').forEach((botao) => {
+    botao.addEventListener('click', () => abrirModal(botao));
+  });
+  document.querySelectorAll('[data-close-modal]').forEach((botao) => botao.addEventListener('click', fecharModal));
+  document.addEventListener('keydown', (evento) => {
+    if (evento.key === 'Escape' && modal && !modal.hidden) fecharModal();
+  });
+
+  form?.addEventListener('submit', async (evento) => {
+    evento.preventDefault();
+    const dados = Object.fromEntries(new FormData(form).entries());
+    try {
+      const resposta = await fetch('/api/admin/juridico/reply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados),
+      });
+      const json = await resposta.json().catch(() => ({}));
+      if (!resposta.ok || !json.ok) throw new Error(json.erro || 'Não foi possível salvar a resposta.');
+      if (feedback) {
+        feedback.hidden = false;
+        feedback.classList.remove('admin-alert--error');
+        feedback.textContent = json.emailEnviado ? 'Chamado concluído e e-mail enviado ao trabalhador.' : 'Chamado salvo. O e-mail não foi enviado porque o SMTP não está configurado ou o status não exige envio.';
+      }
+      fecharModal();
+      window.setTimeout(() => window.location.reload(), 900);
+    } catch (erro) {
+      if (feedback) {
+        feedback.hidden = false;
+        feedback.classList.add('admin-alert--error');
+        feedback.textContent = erro.message || 'Não foi possível salvar a resposta.';
+      }
+    }
+  });
+</script>

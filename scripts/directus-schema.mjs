@@ -162,6 +162,35 @@ function campoOrdem() {
   };
 }
 
+function campoMetrica(nome, rotulo, nota) {
+  return {
+    field: nome,
+    type: 'integer',
+    schema: { default_value: 0, is_nullable: false },
+    meta: {
+      interface: 'input',
+      width: 'half',
+      note: nota,
+      translations: [{ language: 'pt-BR', translation: rotulo }],
+    },
+  };
+}
+
+function campoUltimaSincronizacaoMetricas() {
+  return {
+    field: 'ultima_sincronizacao_metricas',
+    type: 'timestamp',
+    schema: { is_nullable: true },
+    meta: {
+      interface: 'datetime',
+      width: 'half',
+      readonly: true,
+      translations: [{ language: 'pt-BR', translation: 'Última sincronização das métricas' }],
+      note: 'Atualizado automaticamente pelos scripts de analytics.',
+    },
+  };
+}
+
 const COLECOES = [
   {
     collection: 'categorias',
@@ -221,6 +250,11 @@ const COLECOES = [
       campoTexto('descricao', 'Descrição', { interface: 'input-multiline' }),
       campoData('data_estreia', 'Data e hora da estreia', true),
       campoArquivo('imagem', 'Imagem (opcional)'),
+      campoMetrica('visualizacoes', 'Visualizações', 'Total de visualizações registradas no YouTube.'),
+      campoMetrica('curtidas', 'Curtidas', 'Total de curtidas registradas no YouTube.'),
+      campoMetrica('comentarios', 'Comentários', 'Total de comentários registrados no YouTube.'),
+      campoMetrica('compartilhamentos', 'Compartilhamentos', 'Total de compartilhamentos ou interações equivalentes.'),
+      campoUltimaSincronizacaoMetricas(),
     ],
   },
   {
@@ -264,6 +298,11 @@ const COLECOES = [
       campoArquivo('imagem', 'Capa do Reel'),
       campoTexto('legenda', 'Título/legenda do Reel'),
       campoTexto('link', 'Link do Reel'),
+      campoMetrica('visualizacoes', 'Visualizações', 'Total de visualizações registradas no Instagram.'),
+      campoMetrica('curtidas', 'Curtidas', 'Total de curtidas registradas no Instagram.'),
+      campoMetrica('comentarios', 'Comentários', 'Total de comentários registrados no Instagram.'),
+      campoMetrica('compartilhamentos', 'Compartilhamentos', 'Total de compartilhamentos ou interações equivalentes.'),
+      campoUltimaSincronizacaoMetricas(),
     ],
   },
   {

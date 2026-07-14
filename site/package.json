@@ -15,15 +15,23 @@
   },
   "dependencies": {
     "@astrojs/node": "^11.0.2",
+    "@astrojs/react": "^5.0.0",
     "@astrojs/rss": "^4.0.19",
+    "@astryxdesign/core": "latest",
+    "@astryxdesign/theme-neutral": "latest",
     "@directus/sdk": "^23.0.0",
     "@fontsource-variable/archivo": "^5.2.8",
     "@fontsource-variable/source-serif-4": "^5.2.9",
+    "@types/nodemailer": "^8.0.1",
     "astro": "^7.0.6",
     "fast-xml-parser": "^5.9.3",
-    "lite-youtube-embed": "^0.3.4"
+    "lite-youtube-embed": "^0.3.4",
+    "nodemailer": "^9.0.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@astryxdesign/cli": "latest",
     "vitest": "^4.1.9"
   }
 }

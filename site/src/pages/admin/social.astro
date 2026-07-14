@@ -1,0 +1,370 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import {
+  assetAdminUrl,
+  erroAutenticacaoExpirada,
+  getAdminSocialData,
+  limparSessaoAdmin,
+  tokenAdmin,
+} from '../../lib/auth';
+
+const token = tokenAdmin(Astro.cookies);
+if (!token) return Astro.redirect('/admin/login');
+
+const criado = Astro.url.searchParams.get('criado');
+const erro = Astro.url.searchParams.get('erro');
+let dados;
+try {
+  dados = await getAdminSocialData(token);
+} catch (falha) {
+  if (erroAutenticacaoExpirada(falha)) {
+    limparSessaoAdmin(Astro.cookies);
+    return Astro.redirect('/admin/login?erro=sessao');
+  }
+  throw falha;
+}
+
+function timestamp(valor: string | null | undefined) {
+  if (!valor) return 0;
+  const data = new Date(valor).getTime();
+  return Number.isNaN(data) ? 0 : data;
+}
+
+function dataOrdenacao(item: { data_publicacao?: string | null; data_estreia?: string | null; date_created?: string | null; date_updated?: string | null }) {
+  return timestamp(item.data_publicacao ?? item.data_estreia ?? item.date_created ?? item.date_updated ?? null);
+}
+
+const postsHistorico = [...dados.postsSociais].sort((a, b) => dataOrdenacao(b) - dataOrdenacao(a));
+const videosHistorico = [...dados.proximosVideos].sort((a, b) => dataOrdenacao(b) - dataOrdenacao(a));
+const instagramHistorico = [...dados.cardsInstagram].sort((a, b) => dataOrdenacao(b) - dataOrdenacao(a));
+const todos = [...postsHistorico, ...instagramHistorico, ...videosHistorico];
+const visualizacoes = todos.reduce((soma, item) => soma + Number(item.visualizacoes ?? 0), 0);
+const curtidas = todos.reduce((soma, item) => soma + Number(item.curtidas ?? 0), 0);
+const comentarios = todos.reduce((soma, item) => soma + Number(item.comentarios ?? 0), 0);
+const compartilhamentos = todos.reduce((soma, item) => soma + Number(item.compartilhamentos ?? 0), 0);
+const topPosts = [...postsHistorico]
+  .sort((a, b) => {
+    const engajamentoA = Number(a.curtidas ?? 0) + Number(a.comentarios ?? 0) + Number(a.compartilhamentos ?? 0);
+    const engajamentoB = Number(b.curtidas ?? 0) + Number(b.comentarios ?? 0) + Number(b.compartilhamentos ?? 0);
+    return engajamentoB - engajamentoA;
+  })
+  .slice(0, 5);
+
+function numero(valor: number | null | undefined) {
+  return Number(valor ?? 0).toLocaleString('pt-BR');
+}
+
+function dataCurta(valor: string | null | undefined) {
+  if (!valor) return 'Sem data';
+  return new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(valor));
+}
+
+function dataSocial(item: { data_publicacao?: string | null; data_estreia?: string | null; date_created?: string | null; date_updated?: string | null }) {
+  return item.data_publicacao ?? item.data_estreia ?? item.date_created ?? item.date_updated ?? null;
+}
+
+function mediaCard(id: string | null, largura = 560) {
+  return assetAdminUrl(id, largura);
+}
+---
+
+<AdminLayout
+  titulo="Social Media"
+  subtitulo="Crie publicações, envie mídia e acompanhe sinais de engajamento em uma interface própria, organizada por canal."
+>
+  <div slot="actions">
+    <button class="admin-button admin-button--primary" type="button" data-modal-open="novo-post-modal">Novo Post Social</button>
+  </div>
+
+  {criado === 'ok' && <p class="admin-alert">Post social criado com sucesso.</p>}
+  {erro && <p class="admin-alert admin-alert--error">Não foi possível criar o post. Revise os campos e tente novamente.</p>}
+
+  <section class="admin-tabs" data-admin-tabs>
+    <div class="admin-tabs__list" role="tablist" aria-label="Seções de Social Media">
+      <button class="admin-tab" type="button" role="tab" id="tab-geral" aria-controls="panel-geral" aria-selected="true" data-tab-target="geral">Visão Geral</button>
+      <button class="admin-tab" type="button" role="tab" id="tab-publicacoes" aria-controls="panel-publicacoes" aria-selected="false" data-tab-target="publicacoes">Publicações</button>
+      <button class="admin-tab" type="button" role="tab" id="tab-youtube" aria-controls="panel-youtube" aria-selected="false" data-tab-target="youtube">YouTube</button>
+      <button class="admin-tab" type="button" role="tab" id="tab-instagram" aria-controls="panel-instagram" aria-selected="false" data-tab-target="instagram">Instagram</button>
+    </div>
+
+    <div class="admin-tab-panel" role="tabpanel" id="panel-geral" aria-labelledby="tab-geral" data-tab-panel="geral">
+      <section class="admin-stats" aria-label="Métricas sociais">
+        <article class="admin-card admin-stat">
+          <span>Visualizações</span>
+          <strong>{numero(visualizacoes)}</strong>
+          <small class="admin-muted">Somatório dos canais</small>
+        </article>
+        <article class="admin-card admin-stat">
+          <span>Curtidas</span>
+          <strong>{numero(curtidas)}</strong>
+          <small class="admin-muted">Reels, posts e vídeos</small>
+        </article>
+        <article class="admin-card admin-stat">
+          <span>Comentários</span>
+          <strong>{numero(comentarios)}</strong>
+          <small class="admin-muted">Conversas geradas</small>
+        </article>
+        <article class="admin-card admin-stat">
+          <span>Compartilhamentos</span>
+          <strong>{numero(compartilhamentos)}</strong>
+          <small class="admin-muted">Distribuição orgânica</small>
+        </article>
+      </section>
+
+      <section class="admin-overview-grid">
+        <article class="admin-panel">
+          <div class="admin-section-title">
+            <h2>Top Posts</h2>
+            <span class="admin-tag">Engajamento</span>
+          </div>
+          <div class="admin-rank-list">
+            {topPosts.length === 0 && <p class="admin-muted">Nenhum post social cadastrado ainda.</p>}
+            {topPosts.map((post, indice) => (
+              <article class="admin-rank-item">
+                <span class="admin-rank-item__index">{String(indice + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>{post.legenda}</h3>
+                  <p>{post.status} · {dataCurta(dataSocial(post))}</p>
+                  <div class="admin-metrics">
+                    <span class="admin-tag">♥ {numero(post.curtidas)}</span>
+                    <span class="admin-tag">💬 {numero(post.comentarios)}</span>
+                    <span class="admin-tag">↗ {numero(post.compartilhamentos)}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </article>
+
+        <aside class="admin-panel">
+          <div class="admin-section-title">
+            <h2>Volume por canal</h2>
+          </div>
+          <div class="admin-channel-grid">
+            <a class="admin-channel-card" href="#panel-publicacoes" data-tab-link="publicacoes">
+              <span>Posts locais</span>
+              <strong>{postsHistorico.length}</strong>
+            </a>
+            <a class="admin-channel-card" href="#panel-youtube" data-tab-link="youtube">
+              <span>YouTube</span>
+              <strong>{videosHistorico.length}</strong>
+            </a>
+            <a class="admin-channel-card" href="#panel-instagram" data-tab-link="instagram">
+              <span>Instagram</span>
+              <strong>{instagramHistorico.length}</strong>
+            </a>
+          </div>
+        </aside>
+      </section>
+    </div>
+
+    <div class="admin-tab-panel" role="tabpanel" id="panel-publicacoes" aria-labelledby="tab-publicacoes" data-tab-panel="publicacoes" hidden>
+      <article class="admin-panel">
+        <div class="admin-section-title">
+          <div>
+            <h2>Publicações do Sindicato</h2>
+            <p class="admin-muted">Posts criados pela equipe local para distribuir nas redes sociais.</p>
+          </div>
+          <button class="admin-button admin-button--primary" type="button" data-modal-open="novo-post-modal">Novo Post Social</button>
+        </div>
+        <div class="admin-card-grid">
+          {postsHistorico.length === 0 && <p class="admin-muted">Nenhum post social cadastrado ainda.</p>}
+          {postsHistorico.map((post) => (
+            <article class="admin-content-card">
+              {mediaCard(post.midia) ? (
+                <img class="admin-content-card__media" src={mediaCard(post.midia) ?? ''} alt="" loading="lazy" />
+              ) : (
+                <div class="admin-content-card__media" aria-hidden="true"></div>
+              )}
+              <div class="admin-content-card__body">
+                <span class="admin-tag">{post.status}</span>
+                <h3>{post.legenda}</h3>
+                <p>{dataCurta(dataSocial(post))}</p>
+                {post.link_original && <a class="admin-muted" href={post.link_original} target="_blank" rel="noopener">Abrir publicação original</a>}
+                <div class="admin-metrics">
+                  <span class="admin-tag">👁 {numero(post.visualizacoes)}</span>
+                  <span class="admin-tag">♥ {numero(post.curtidas)}</span>
+                  <span class="admin-tag">💬 {numero(post.comentarios)}</span>
+                  <span class="admin-tag">↗ {numero(post.compartilhamentos)}</span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </article>
+    </div>
+
+    <div class="admin-tab-panel" role="tabpanel" id="panel-youtube" aria-labelledby="tab-youtube" data-tab-panel="youtube" hidden>
+      <article class="admin-panel">
+        <div class="admin-section-title">
+          <div>
+            <h2>YouTube</h2>
+            <p class="admin-muted">Programação e métricas dos próximos vídeos/transmissões.</p>
+          </div>
+          <span class="admin-tag">{videosHistorico.length} itens</span>
+        </div>
+        <div class="admin-card-grid admin-card-grid--wide">
+          {videosHistorico.length === 0 && <p class="admin-muted">Nenhum vídeo encontrado no histórico administrativo.</p>}
+          {videosHistorico.map((video) => (
+            <article class="admin-content-card admin-content-card--video">
+              {mediaCard(video.imagem, 720) ? (
+                <img class="admin-content-card__media" src={mediaCard(video.imagem, 720) ?? ''} alt="" loading="lazy" />
+              ) : (
+                <div class="admin-content-card__media" aria-hidden="true"></div>
+              )}
+              <div class="admin-content-card__body">
+                <span class="admin-tag">Próximo vídeo</span>
+                <h3>{video.titulo}</h3>
+                <p>{dataCurta(dataSocial(video))}</p>                {video.descricao && <p>{video.descricao}</p>}
+                <div class="admin-metrics">
+                  <span class="admin-tag">👁 {numero(video.visualizacoes)}</span>
+                  <span class="admin-tag">♥ {numero(video.curtidas)}</span>
+                  <span class="admin-tag">💬 {numero(video.comentarios)}</span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </article>
+    </div>
+
+    <div class="admin-tab-panel" role="tabpanel" id="panel-instagram" aria-labelledby="tab-instagram" data-tab-panel="instagram" hidden>
+      <article class="admin-panel">
+        <div class="admin-section-title">
+          <div>
+            <h2>Instagram</h2>
+            <p class="admin-muted">Reels e cards capturados para a vitrine pública.</p>
+          </div>
+          <span class="admin-tag">{instagramHistorico.length} cards</span>
+        </div>
+        <div class="admin-card-grid">
+          {instagramHistorico.length === 0 && <p class="admin-muted">Nenhum card de Instagram cadastrado.</p>}
+          {instagramHistorico.map((card) => (
+            <article class="admin-content-card admin-content-card--reel">
+              {mediaCard(card.imagem, 520) ? (
+                <img class="admin-content-card__media" src={mediaCard(card.imagem, 520) ?? ''} alt="" loading="lazy" />
+              ) : (
+                <div class="admin-content-card__media" aria-hidden="true"></div>
+              )}
+              <div class="admin-content-card__body">
+                <span class="admin-tag">Reel</span>
+                <h3>{card.legenda ?? 'Reel sem legenda'}</h3>
+                {card.link && <a class="admin-muted" href={card.link} target="_blank" rel="noopener">Abrir no Instagram</a>}
+                <div class="admin-metrics">
+                  <span class="admin-tag">👁 {numero(card.visualizacoes)}</span>
+                  <span class="admin-tag">♥ {numero(card.curtidas)}</span>
+                  <span class="admin-tag">💬 {numero(card.comentarios)}</span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="admin-modal" id="novo-post-modal" hidden>
+    <button class="admin-modal__backdrop" type="button" aria-label="Fechar modal" data-modal-close></button>
+    <section class="admin-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="novo-post-titulo">
+      <div class="admin-section-title">
+        <div>
+          <span class="admin-chip">Upload direto</span>
+          <h2 id="novo-post-titulo">Novo Post Social</h2>
+          <p class="admin-muted">Crie uma publicação local e envie mídia para o Directus Headless.</p>
+        </div>
+        <button class="admin-button" type="button" data-modal-close>Fechar</button>
+      </div>
+
+      <form class="admin-form" method="post" action="/api/admin/social/create" enctype="multipart/form-data">
+        <label class="admin-field">
+          Legenda
+          <textarea class="admin-textarea" name="legenda" required maxlength="2200" placeholder="Escreva a legenda principal do post..."></textarea>
+        </label>
+
+        <div class="admin-form__split">
+          <label class="admin-field">
+            Status
+            <select class="admin-select" name="status" required>
+              <option value="rascunho">Rascunho</option>
+              <option value="agendado">Agendado</option>
+              <option value="publicado">Publicado</option>
+            </select>
+          </label>
+
+          <label class="admin-field">
+            Data de publicação
+            <input class="admin-input" type="datetime-local" name="data_publicacao" />
+          </label>
+        </div>
+
+        <label class="admin-field">
+          Link original
+          <input class="admin-input" type="url" name="link_original" placeholder="https://..." />
+        </label>
+
+        <label class="admin-field">
+          Mídia
+          <input class="admin-input" type="file" name="midia" accept="image/*,video/*" />
+        </label>
+
+        <div class="admin-modal__actions">
+          <button class="admin-button" type="button" data-modal-close>Cancelar</button>
+          <button class="admin-button admin-button--primary" type="submit">Criar post social</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</AdminLayout>
+
+<script>
+  const tabsRoot = document.querySelector('[data-admin-tabs]');
+  if (tabsRoot) {
+    const tabs = Array.from(tabsRoot.querySelectorAll('[data-tab-target]'));
+    const panels = Array.from(tabsRoot.querySelectorAll('[data-tab-panel]'));
+
+    function ativarTab(id) {
+      for (const tab of tabs) {
+        const ativo = tab.getAttribute('data-tab-target') === id;
+        tab.setAttribute('aria-selected', String(ativo));
+      }
+      for (const panel of panels) {
+        panel.hidden = panel.getAttribute('data-tab-panel') !== id;
+      }
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => ativarTab(tab.getAttribute('data-tab-target')));
+    });
+
+    document.querySelectorAll('[data-tab-link]').forEach((link) => {
+      link.addEventListener('click', (evento) => {
+        evento.preventDefault();
+        const id = link.getAttribute('data-tab-link');
+        ativarTab(id);
+      });
+    });
+  }
+
+  const modal = document.getElementById('novo-post-modal');
+  const abrirModal = document.querySelectorAll('[data-modal-open="novo-post-modal"]');
+  const fecharModal = document.querySelectorAll('[data-modal-close]');
+
+  function abrir() {
+    if (!modal) return;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    modal.querySelector('textarea, input, select, button')?.focus();
+  }
+
+  function fechar() {
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  abrirModal.forEach((botao) => botao.addEventListener('click', abrir));
+  fecharModal.forEach((botao) => botao.addEventListener('click', fechar));
+  document.addEventListener('keydown', (evento) => {
+    if (evento.key === 'Escape' && modal && !modal.hidden) fechar();
+  });
+</script>

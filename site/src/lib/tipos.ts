@@ -38,6 +38,13 @@ export interface ProximoVideo {
   descricao: string | null;
   data_estreia: string;
   imagem: string | null;
+  visualizacoes: number;
+  curtidas: number;
+  comentarios: number;
+  compartilhamentos: number;
+  ultima_sincronizacao_metricas: string | null;
+  date_created?: string | null;
+  date_updated?: string | null;
 }
 
 export interface Diretor {
@@ -61,6 +68,29 @@ export interface CardInstagram {
   imagem: string | null;
   legenda: string | null;
   link: string | null;
+  visualizacoes: number;
+  curtidas: number;
+  comentarios: number;
+  compartilhamentos: number;
+  ultima_sincronizacao_metricas: string | null;
+  date_created?: string | null;
+  date_updated?: string | null;
+}
+
+export interface PostSocial {
+  id: number;
+  legenda: string;
+  midia: string | null;
+  status: 'rascunho' | 'agendado' | 'publicado';
+  data_publicacao: string | null;
+  link_original: string | null;
+  visualizacoes: number;
+  curtidas: number;
+  comentarios: number;
+  compartilhamentos: number;
+  ultima_sincronizacao_metricas: string | null;
+  date_created?: string | null;
+  date_updated?: string | null;
 }
 
 export interface Pagina {
@@ -144,6 +174,36 @@ export interface Configuracoes {
   youtube_channel_id: string | null;
 }
 
+export interface ConfiguracoesGlobais {
+  logo_site: string | null;
+  modulo_juridico_ativo: boolean | null;
+  modulo_youtube_ativo: boolean | null;
+  modulo_instagram_ativo: boolean | null;
+  youtube_channel_id: string | null;
+  youtube_api_key: string | null;
+  instagram_webhook_url: string | null;
+  instagram_token: string | null;
+}
+
+export type StatusChamadoJuridico = 'Aberto' | 'Em Análise' | 'Concluído';
+
+export interface ChamadoJuridico {
+  id: string;
+  nome: string;
+  cpf: string;
+  email: string;
+  telefone: string;
+  tipo: string;
+  descricao: string;
+  anexo: string | null;
+  status: StatusChamadoJuridico;
+  resposta_advogado: string | null;
+  date_created?: string;
+  date_updated?: string;
+  respondido_em?: string | null;
+  email_resposta_enviado_em?: string | null;
+}
+
 export interface InscricaoNewsletter {
   id: string;
   email: string;
@@ -164,6 +224,7 @@ export interface SchemaDirectus {
   diretores: Diretor[];
   documentos: Documento[];
   cards_instagram: CardInstagram[];
+  posts_sociais: PostSocial[];
   paginas: Pagina[];
   pagina_juridico: PaginaJuridico;
   juridico_direitos: JuridicoDireito[];
@@ -171,6 +232,8 @@ export interface SchemaDirectus {
   juridico_faq: JuridicoFAQ[];
   juridico_campos_formulario: JuridicoCampoFormulario[];
   configuracoes: Configuracoes;
+  configuracoes_globais: ConfiguracoesGlobais;
+  chamados_juridicos: ChamadoJuridico[];
   inscricoes_newsletter: InscricaoNewsletter[];
   mensagens_contato: MensagemContato[];
 }
