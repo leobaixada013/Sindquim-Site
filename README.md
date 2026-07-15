@@ -70,6 +70,28 @@ A versão atual usa **Astro em modo servidor** para o site público e **Directus
 
 ## Como rodar localmente
 
+### Caminho rápido no Windows
+
+Use o script local da raiz do projeto:
+
+```bat
+dev-local.cmd
+```
+
+Ele abre um menu com opções para:
+
+1. limpar servidores npm/Astro em conflito;
+2. abrir o site em modo desenvolvimento;
+3. limpar conflitos e abrir o site em modo desenvolvimento.
+
+Ao abrir o site por esse script, o servidor Astro roda na mesma janela. Quando você pressionar `Ctrl+C` ou fechar a janela após verificar as alterações, o servidor npm/Astro será encerrado.
+
+Também é possível chamar diretamente pelo PowerShell:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/dev-local.ps1
+```
+
 ### 1. Instalar dependências
 
 ```bash
@@ -118,6 +140,8 @@ set -a
 set +a
 export DIRECTUS_URL=http://localhost:8055
 node scripts/directus-schema.mjs
+node scripts/setup-directus-social.mjs
+node scripts/directus-analytics-branding.mjs
 node scripts/directus-conteudo-exemplo.mjs
 ```
 
@@ -153,11 +177,16 @@ Na raiz do repositório:
 | Script | Função |
 | --- | --- |
 | `node scripts/directus-schema.mjs` | Cria/atualiza coleções, campos e permissões do Directus de forma idempotente. |
+| `node scripts/setup-directus-social.mjs` | Cria/atualiza a central de posts sociais, role Social Media e preset em cards. |
+| `node scripts/directus-analytics-branding.mjs` | Aplica branding visual, URLs oficiais e dashboard de Social Media no Directus. |
+| `node scripts/sync-analytics.mjs` | Sincroniza métricas sociais quando houver tokens oficiais das plataformas. |
 | `node scripts/directus-conteudo-exemplo.mjs` | Cria conteúdo de demonstração para validar layout e integrações. |
 | `node scripts/directus-atualizar-paginas.mjs` | Atualiza páginas institucionais no Directus. |
 | `node scripts/directus-atualizar-juridico.mjs` | Atualiza conteúdo do módulo jurídico no Directus. |
 | `bash scripts/backup-lxc200-data.sh` | Gera backup remoto dos dados persistentes do Directus. |
 | `bash scripts/deploy-lxc200.sh` | Empacota o projeto, faz backup, envia ao LXC e recria os containers. |
+| `dev-local.cmd` | Abre o menu local de desenvolvimento no Windows. |
+| `powershell -ExecutionPolicy Bypass -File scripts/dev-local.ps1` | Executa o menu local de desenvolvimento pelo PowerShell. |
 
 ## Variáveis de ambiente
 
@@ -178,6 +207,10 @@ Na raiz do repositório:
 | `DIRECTUS_ADMIN_PASSWORD` | Senha inicial do administrador. |
 | `PUBLIC_SITE_URL` | URL pública do site. |
 | `PUBLIC_DIRECTUS_URL` | URL pública do painel e dos assets. |
+| `INSTAGRAM_URL` | URL oficial opcional usada pelo script de branding/analytics. |
+| `YOUTUBE_URL` | URL oficial opcional usada pelo script de branding/analytics. |
+| `YOUTUBE_API_KEY` | Opcional; habilita métricas detalhadas via YouTube Data API no `sync-analytics`. |
+| `META_ACCESS_TOKEN` | Opcional; habilita métricas via Meta Graph API no `sync-analytics`. |
 
 ### Scripts de deploy
 
@@ -200,6 +233,7 @@ O schema atual cria as seguintes coleções:
 - `diretores`
 - `documentos`
 - `cards_instagram`
+- `posts_sociais`
 - `paginas`
 - `pagina_juridico`
 - `juridico_direitos`
@@ -211,6 +245,16 @@ O schema atual cria as seguintes coleções:
 - `mensagens_contato`
 
 As leituras públicas usam cache em memória de curta duração para reduzir impacto quando Directus ou YouTube estão lentos ou indisponíveis.
+
+## Painel administrativo customizado
+
+O Directus opera como API Headless invisível. A interface editorial premium fica no Astro:
+
+- `/admin/login` — login com credenciais do Directus.
+- `/admin` — dashboard administrativo customizado.
+- `/admin/social` — central de Social Media com leitura de `posts_sociais`, `proximos_videos` e `cards_instagram`, além de criação de post social com upload de mídia.
+
+O painel usa cookie HttpOnly para manter o token no servidor Astro. O navegador não precisa acessar diretamente a porta `8055` do Directus.
 
 ## Rotas principais
 

@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-O Directus é o painel editorial do site. Ele guarda notícias, avisos, páginas institucionais, documentos, diretoria, dados jurídicos, configurações gerais e mensagens recebidas pelos formulários.
+O Directus é a API Headless do site. Ele guarda notícias, avisos, páginas institucionais, documentos, diretoria, dados jurídicos, configurações gerais e mensagens recebidas pelos formulários. A interface editorial principal passa a ser o painel customizado do Astro em `/admin`.
 
 O schema é criado e atualizado por `scripts/directus-schema.mjs`. O script é idempotente: coleções, campos e permissões existentes são mantidos ou pulados quando já existem.
 
@@ -63,6 +63,11 @@ Campos principais:
 - `descricao`
 - `data_estreia`
 - `imagem`
+- `visualizacoes`
+- `curtidas`
+- `comentarios`
+- `compartilhamentos`
+- `ultima_sincronizacao_metricas`
 
 ### `diretores`
 
@@ -95,8 +100,30 @@ Campos principais:
 - `imagem`
 - `legenda`
 - `link`
+- `visualizacoes`
+- `curtidas`
+- `comentarios`
+- `compartilhamentos`
+- `ultima_sincronizacao_metricas`
 
 O feed automático do Instagram não é usado no projeto atual.
+
+### `posts_sociais`
+
+Central de posts para redes sociais, com legenda, mídia, status editorial, data de publicação, link original e métricas de engajamento.
+
+Campos principais:
+
+- `legenda`
+- `midia`
+- `status`
+- `data_publicacao`
+- `link_original`
+- `visualizacoes`
+- `curtidas`
+- `comentarios`
+- `compartilhamentos`
+- `ultima_sincronizacao_metricas`
 
 ### `paginas`
 
@@ -227,15 +254,36 @@ YOUTUBE_CHANNEL_ID_EXEMPLO=UC...
 INSTAGRAM_URL_EXEMPLO=https://www.instagram.com/perfil/
 ```
 
+## Analytics e Social Media
+
+O script `scripts/directus-analytics-branding.mjs` aplica o visual institucional do painel, atualiza as URLs oficiais em `configuracoes` e cria o dashboard **Social Media** no módulo Insights.
+
+O script `scripts/sync-analytics.mjs` prepara a sincronização das métricas públicas. Sem tokens externos, ele não faz scraping frágil: apenas registra avisos e mantém os campos prontos para preenchimento manual ou integração oficial.
+
+Variáveis opcionais para métricas:
+
+```bash
+YOUTUBE_API_KEY=...
+META_ACCESS_TOKEN=...
+```
+
 ## Operação editorial
 
-Para publicar conteúdo:
+Para Social Media, use o painel customizado:
 
-1. Entre no painel Directus.
-2. Crie ou edite o item na coleção correspondente.
-3. Marque `status` como `published` quando houver campo de status.
-4. Confira datas de início/fim em avisos.
-5. Use imagens otimizadas; o site solicita WebP com dimensões adequadas via endpoint de assets do Directus.
+1. Acesse `/admin/login`.
+2. Entre com uma conta válida do Directus.
+3. Abra `/admin/social`.
+4. Crie posts sociais com legenda, status, data, link original e upload de mídia.
+5. Acompanhe métricas de visualizações, curtidas, comentários e compartilhamentos.
+
+Para coleções ainda não migradas ao admin customizado, o Directus Studio pode continuar sendo usado internamente durante a transição. Em produção, a meta é manter o Directus invisível e operar pelo Astro.
+
+Cuidados gerais:
+
+- Marque `status` como `published` quando houver campo de status público.
+- Confira datas de início/fim em avisos.
+- Use imagens otimizadas; o site solicita WebP com dimensões adequadas via endpoint de assets do Directus.
 
 ## Cuidados
 

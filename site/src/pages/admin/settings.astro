@@ -100,6 +100,7 @@ function acaoUsuario(usuario) {
           </div>
 
           <form class="logo-upload" id="logo-form" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" id="logo-csrf" />
             <div class="logo-preview">
               <img id="logo-preview" src={logoAtual ?? ''} alt="Logo atual do site" width="180" height="180" hidden={!logoAtual} />
               {!logoAtual && <div class="logo-preview__fallback" id="logo-preview-fallback" aria-label="Logo não configurada">STI</div>}
@@ -503,6 +504,7 @@ function acaoUsuario(usuario) {
     feedback.textContent = mensagem;
     feedback.hidden = false;
     feedback.classList.toggle('admin-alert--error', erro);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   async function enviarJson(url, dados) {
@@ -561,6 +563,11 @@ function acaoUsuario(usuario) {
   logoForm?.addEventListener('submit', async (evento) => {
     evento.preventDefault();
     const formData = new FormData(logoForm);
+    const tokenCsrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+    if (tokenCsrf) {
+        formData.set('csrf_token', tokenCsrf);
+    }
+
     try {
       const resposta = await fetch('/api/admin/settings/logo', { method: 'POST', body: formData });
       const json = await resposta.json().catch(() => ({}));

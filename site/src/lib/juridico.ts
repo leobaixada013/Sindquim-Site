@@ -91,6 +91,12 @@ export function mascararCpf(cpf: string): string {
   return `${digitos.slice(0, 3)}.***.***-${digitos.slice(9)}`;
 }
 
+export function assetAnexoJuridicoUrl(id: string | null, token: string | null): string | null {
+  if (!id || !token) return null;
+  const DIRECTUS_URL = process.env.DIRECTUS_URL ?? import.meta.env.DIRECTUS_URL ?? 'http://localhost:8055';
+  return `${DIRECTUS_URL}/assets/${encodeURIComponent(id)}`;
+}
+
 function validarAnexo(arquivo: FormDataEntryValue | null): arquivo is File {
   return arquivo instanceof File && arquivo.size > 0;
 }
@@ -108,7 +114,7 @@ function normalizarChamado(chamado: ChamadoJuridico): ChamadoJuridicoAdmin {
   return {
     ...chamado,
     cpf_mascarado: mascararCpf(chamado.cpf),
-    anexo_url: assetAdminUrl(chamado.anexo, 1200),
+    anexo_url: chamado.anexo ? `/api/admin/juridico/anexo/${chamado.anexo}` : null,
   };
 }
 
@@ -220,6 +226,50 @@ export async function responderChamadoJuridico({
   const cliente = criarClienteAdmin(tokenAdmin);
   const anterior = await cliente.request(readItem('chamados_juridicos', id)) as ChamadoJuridico;
   const agora = new Date().toISOString();
+  let emailEnviado = false;
+  let erroEmail: string | undefined;
+
+  if (status === 'Concluído' && (!anterior.status || anterior.status !== 'Concluído' || !anterior.email_resposta_enviado_em)) {
+    try {
+      emailEnviado = await enviarRespostaJuridica({
+        para: anterior.email,
+        nome: anterior.nome,
+        tipo: anterior.tipo,
+        resposta: resposta || anterior.resposta_advogado || '',
+        chamadoId: anterior.id,
+      });
+
+      if (emailEnviado) {
+        const comEmail = await cliente.request(
+          updateItem('chamados_juridicos', id, {
+            status: 'Concluído',
+            resposta_advogado: resposta || anterior.resposta_advogado,
+            respondido_em: agora,
+            email_resposta_enviado_em: new Date().toISOString()
+          }),
+        ) as ChamadoJuridico;
+        return { ok: true, emailEnviado, chamado: normalizarChamado(comEmail) };
+      } else {
+        erroEmail = 'O servidor SMTP não conseguiu enviar o e-mail.';
+      }
+    } catch (err) {
+      console.error('Falha ao enviar e-mail jurídico:', err);
+      erroEmail = 'Falha técnica ao tentar enviar o e-mail.';
+      emailEnviado = false;
+    }
+
+    // Se o envio falhar e o chamado não era concluído antes, salvamos a resposta mas deixamos "Em Análise"
+    if (!emailEnviado) {
+       const mantidoEmAnalise = await cliente.request(
+        updateItem('chamados_juridicos', id, {
+          status: 'Em Análise',
+          resposta_advogado: resposta || anterior.resposta_advogado,
+        }),
+      ) as ChamadoJuridico;
+      return { ok: false, emailEnviado: false, erro: erroEmail || 'Falha ao enviar e-mail.', chamado: normalizarChamado(mantidoEmAnalise) };
+    }
+  }
+
   const atualizado = await cliente.request(
     updateItem('chamados_juridicos', id, {
       status,
@@ -227,23 +277,6 @@ export async function responderChamadoJuridico({
       respondido_em: status === 'Concluído' ? agora : anterior.respondido_em ?? null,
     }),
   ) as ChamadoJuridico;
-
-  let emailEnviado = false;
-  if (status === 'Concluído' && anterior.status !== 'Concluído' && !anterior.email_resposta_enviado_em) {
-    emailEnviado = await enviarRespostaJuridica({
-      para: atualizado.email,
-      nome: atualizado.nome,
-      tipo: atualizado.tipo,
-      resposta: resposta || atualizado.resposta_advogado || '',
-      chamadoId: atualizado.id,
-    });
-    if (emailEnviado) {
-      const comEmail = await cliente.request(
-        updateItem('chamados_juridicos', id, { email_resposta_enviado_em: new Date().toISOString() }),
-      ) as ChamadoJuridico;
-      return { ok: true, emailEnviado, chamado: normalizarChamado(comEmail) };
-    }
-  }
 
   return { ok: true, emailEnviado, chamado: normalizarChamado(atualizado) };
 }

@@ -1,6 +1,7 @@
 ---
 import '../styles/admin.css';
-import { getAdminSettingsData, getAdminUser, limparSessaoAdmin, tokenAdmin } from '../lib/auth';
+import { getAdminSettingsData, getAdminUser, limparSessaoAdmin, tokenAdmin, cookieSeguro } from '../lib/auth';
+import { tokenCsrfAtual } from '../lib/adminSecurity';
 
 interface Props {
   titulo?: string;
@@ -20,6 +21,8 @@ if (!usuario || !token) {
   limparSessaoAdmin(Astro.cookies);
   return Astro.redirect('/admin/login?erro=sessao');
 }
+
+const csrfToken = tokenCsrfAtual(Astro.cookies, cookieSeguro());
 
 let logoUrl = logoUrlProp;
 if (!logoUrl) {
@@ -53,6 +56,7 @@ const nav = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow" />
+    <meta name="csrf-token" content={csrfToken} />
     <title>{titulo} — Admin STI</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
@@ -99,6 +103,7 @@ const nav = [
               <small class="admin-muted">Sessão administrativa</small>
             </span>
             <form method="post" action="/api/admin/logout">
+              <input type="hidden" name="csrf_token" value={csrfToken} />
               <button class="admin-button admin-button--danger" type="submit">Sair</button>
             </form>
           </div>
@@ -116,5 +121,26 @@ const nav = [
         <slot />
       </main>
     </div>
+
+    <script is:inline>
+      // Injeta o token CSRF automaticamente em todos os fetches da mesma origem
+      const tokenCsrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+      if (tokenCsrf) {
+        const originalFetch = window.fetch;
+        window.fetch = async function(...args) {
+          const [resource, config] = args;
+          const url = typeof resource === 'string' ? resource : (resource instanceof Request ? resource.url : '');
+          const isMutacao = config?.method && !['GET', 'HEAD', 'OPTIONS'].includes(config.method.toUpperCase());
+
+          if (isMutacao && (!url.startsWith('http') || url.startsWith(window.location.origin))) {
+            config.headers = {
+              ...config.headers,
+              'x-csrf-token': tokenCsrf
+            };
+          }
+          return originalFetch.apply(this, args);
+        };
+      }
+    </script>
   </body>
 </html>

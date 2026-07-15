@@ -69,6 +69,30 @@ node scripts/directus-conteudo-exemplo.mjs
 
 ## Rodar o site
 
+### Modo recomendado no Windows
+
+Na raiz do repositório, execute:
+
+```bat
+dev-local.cmd
+```
+
+O script abre um menu com três ações principais:
+
+1. limpar servidores npm/Astro em conflito;
+2. abrir o site em modo dev;
+3. limpar conflitos e abrir o site em modo dev.
+
+Quando o site é aberto pelo script, o Astro roda na mesma janela. Ao pressionar `Ctrl+C` ou fechar a janela, o servidor é encerrado.
+
+Também é possível usar PowerShell diretamente:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/dev-local.ps1
+```
+
+### Modo manual
+
 ```bash
 cd site
 npm run dev

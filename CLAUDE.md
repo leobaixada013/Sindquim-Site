@@ -1,3 +1,11 @@
+## Restrições de API — Leia antes de qualquer tarefa
+
+**PROIBIDO** — Nunca utilize ferramentas externas ou APIs para criar arquivos visuais ou mídias. A conta não tem permissão.
+
+Se precisar de um mockup para o projeto, use **placeholders de texto, emojis ou SVG inline**. Nunca tente criar arquivos visuais via API.
+
+---
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.

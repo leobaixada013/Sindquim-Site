@@ -118,9 +118,9 @@ export const PATCH: APIRoute = async ({ request, cookies }) => {
 
   const youtubeApiKey = texto(corpo.youtube_api_key);
   const instagramToken = texto(corpo.instagram_token);
-  if (corpo.limpar_youtube_api_key === true) payload.youtube_api_key = null;
+  if (booleano(corpo.limpar_youtube_api_key) === true) payload.youtube_api_key = null;
   else if (youtubeApiKey) payload.youtube_api_key = youtubeApiKey;
-  if (corpo.limpar_instagram_token === true) payload.instagram_token = null;
+  if (booleano(corpo.limpar_instagram_token) === true) payload.instagram_token = null;
   else if (instagramToken) payload.instagram_token = instagramToken;
 
   try {

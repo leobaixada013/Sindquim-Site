@@ -31,6 +31,25 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     return redirect('/admin/social?erro=legenda');
   }
 
+  if (linkOriginal) {
+    try {
+      new URL(linkOriginal);
+    } catch {
+      return redirect('/admin/social?erro=link');
+    }
+  }
+
+  const arquivoTratado = arquivo instanceof File ? arquivo : null;
+  if (arquivoTratado && arquivoTratado.size > 0) {
+    if (arquivoTratado.size > 20 * 1024 * 1024) {
+      return redirect('/admin/social?erro=tamanho');
+    }
+    const mimesPermitidos = ['image/jpeg', 'image/png', 'image/webp', 'video/mp4'];
+    if (!mimesPermitidos.includes(arquivoTratado.type)) {
+      return redirect('/admin/social?erro=formato');
+    }
+  }
+
   try {
     await criarPostSocialAdmin(
       token,
@@ -40,7 +59,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
         data_publicacao: normalizarData(dados.get('data_publicacao')),
         link_original: linkOriginal,
       },
-      arquivo instanceof File ? arquivo : null,
+      arquivoTratado,
     );
 
     return redirect('/admin/social?criado=ok');

@@ -90,13 +90,9 @@ function resumo(texto: string, limite = 120) {
                   data-open-chamado
                   data-id={chamado.id}
                   data-nome={chamado.nome}
-                  data-cpf={chamado.cpf}
-                  data-email={chamado.email}
-                  data-telefone={chamado.telefone}
+                  data-cpf-mascarado={chamado.cpf_mascarado}
                   data-tipo={chamado.tipo}
                   data-status={chamado.status}
-                  data-descricao={chamado.descricao}
-                  data-resposta={chamado.resposta_advogado ?? ''}
                   data-anexo={chamado.anexo_url ?? ''}
                 >Abrir</button>
               </td>
@@ -110,33 +106,33 @@ function resumo(texto: string, limite = 120) {
   <div class="admin-modal juridico-modal" id="juridico-modal" hidden>
     <button class="admin-modal__backdrop" type="button" aria-label="Fechar modal" data-close-modal></button>
     <section class="admin-modal__dialog juridico-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
-      <div class="admin-section-title">
-        <div>
-          <span class="admin-chip">Chamado jurídico</span>
-          <h2 id="modal-titulo">Responder chamado</h2>
-          <p class="admin-muted" id="modal-subtitulo">Dados do trabalhador e resposta oficial.</p>
-        </div>
-        <button class="admin-button" type="button" data-close-modal>Fechar</button>
+    <div class="admin-section-title">
+      <div>
+        <span class="admin-chip">Chamado jurídico</span>
+        <h2 id="modal-titulo">Responder chamado</h2>
+        <p class="admin-muted" id="modal-subtitulo">Dados do trabalhador e resposta oficial.</p>
       </div>
+      <button class="admin-button" type="button" data-close-modal>Fechar</button>
+    </div>
 
-      <div class="juridico-modal__grid">
-        <article class="juridico-detail-card">
-          <h3>Dados do trabalhador</h3>
-          <dl>
-            <dt>Nome</dt><dd id="modal-nome">—</dd>
-            <dt>CPF</dt><dd id="modal-cpf">—</dd>
-            <dt>E-mail</dt><dd id="modal-email">—</dd>
-            <dt>Telefone</dt><dd id="modal-telefone">—</dd>
-            <dt>Tipo</dt><dd id="modal-tipo">—</dd>
-            <dt>Anexo</dt><dd><a class="text-link" id="modal-anexo" href="#" target="_blank" rel="noopener">Abrir documento</a></dd>
-          </dl>
-        </article>
+    <div class="juridico-modal__grid">
+      <article class="juridico-detail-card">
+        <h3>Dados do trabalhador</h3>
+        <dl>
+          <dt>Nome</dt><dd id="modal-nome">—</dd>
+          <dt>CPF</dt><dd id="modal-cpf-mascarado">—</dd>
+          <dt>E-mail</dt><dd id="modal-email">—</dd>
+          <dt>Telefone</dt><dd id="modal-telefone">—</dd>
+          <dt>Tipo</dt><dd id="modal-tipo">—</dd>
+          <dt>Anexo</dt><dd><a class="text-link" id="modal-anexo" href="#" target="_blank" rel="noopener">Abrir documento</a></dd>
+        </dl>
+      </article>
 
-        <article class="juridico-detail-card juridico-detail-card--wide">
-          <h3>Descrição do caso</h3>
-          <p id="modal-descricao">—</p>
-        </article>
-      </div>
+      <article class="juridico-detail-card juridico-detail-card--wide">
+        <h3>Descrição do caso</h3>
+        <p id="modal-descricao">—</p>
+      </article>
+    </div>
 
       <form class="admin-form juridico-reply-form" id="juridico-reply-form">
         <input type="hidden" name="id" id="modal-id" />
@@ -194,24 +190,47 @@ function resumo(texto: string, limite = 120) {
     if (el) el.textContent = valor || '—';
   }
 
-  function abrirModal(botao) {
+  async function abrirModal(botao) {
     if (!modal) return;
+
+    // Mostra estado de loading
     document.getElementById('modal-id').value = botao.dataset.id || '';
     document.getElementById('modal-status').value = botao.dataset.status === 'Concluído' ? 'Concluído' : 'Em Análise';
-    document.getElementById('modal-resposta').value = botao.dataset.resposta || '';
+    document.getElementById('modal-resposta').value = '';
+
     setText('modal-nome', botao.dataset.nome);
-    setText('modal-cpf', botao.dataset.cpf);
-    setText('modal-email', botao.dataset.email);
-    setText('modal-telefone', botao.dataset.telefone);
+    setText('modal-cpf-mascarado', botao.dataset.cpfMascarado);
     setText('modal-tipo', botao.dataset.tipo);
-    setText('modal-descricao', botao.dataset.descricao);
+    setText('modal-email', 'Carregando...');
+    setText('modal-telefone', 'Carregando...');
+    setText('modal-descricao', 'Carregando detalhes do caso...');
+
     const anexo = document.getElementById('modal-anexo');
     if (anexo) {
       anexo.href = botao.dataset.anexo || '#';
       anexo.hidden = !botao.dataset.anexo;
     }
+
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
+
+    try {
+      const response = await fetch(`/api/admin/juridico/${botao.dataset.id}`);
+      if (response.ok) {
+        const dados = await response.json();
+        setText('modal-email', dados.email);
+        setText('modal-telefone', dados.telefone);
+        setText('modal-descricao', dados.descricao);
+        document.getElementById('modal-resposta').value = dados.resposta_advogado || '';
+      } else {
+        setText('modal-descricao', 'Não foi possível carregar os detalhes sensíveis deste chamado.');
+        setText('modal-email', 'Erro ao carregar');
+        setText('modal-telefone', 'Erro ao carregar');
+      }
+    } catch (e) {
+      console.error(e);
+      setText('modal-descricao', 'Falha na conexão ao carregar detalhes.');
+    }
   }
 
   function fecharModal() {

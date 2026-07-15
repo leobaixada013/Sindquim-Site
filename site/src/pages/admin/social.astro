@@ -6,10 +6,14 @@ import {
   getAdminSocialData,
   limparSessaoAdmin,
   tokenAdmin,
+  cookieSeguro
 } from '../../lib/auth';
+import { tokenCsrfAtual } from '../../lib/adminSecurity';
 
 const token = tokenAdmin(Astro.cookies);
 if (!token) return Astro.redirect('/admin/login');
+
+const csrfToken = tokenCsrfAtual(Astro.cookies, cookieSeguro());
 
 const criado = Astro.url.searchParams.get('criado');
 const erro = Astro.url.searchParams.get('erro');
@@ -276,6 +280,7 @@ function mediaCard(id: string | null, largura = 560) {
       </div>
 
       <form class="admin-form" method="post" action="/api/admin/social/create" enctype="multipart/form-data">
+        <input type="hidden" name="csrf_token" value={csrfToken} />
         <label class="admin-field">
           Legenda
           <textarea class="admin-textarea" name="legenda" required maxlength="2200" placeholder="Escreva a legenda principal do post..."></textarea>
