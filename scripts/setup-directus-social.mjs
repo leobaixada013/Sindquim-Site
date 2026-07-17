@@ -228,6 +228,18 @@ const POSTS_SOCIAIS = {
     campoMetrica('comentarios', 'Comentários', 'Total de comentários registrados na rede social.'),
     campoMetrica('compartilhamentos', 'Compartilhamentos', 'Total de compartilhamentos ou interações equivalentes.'),
     campoUltimaSincronizacaoMetricas(),
+    {
+      field: 'date_created',
+      type: 'timestamp',
+      schema: { is_nullable: true },
+      meta: { readonly: true, hidden: true, special: ['date-created'] }
+    },
+    {
+      field: 'date_updated',
+      type: 'timestamp',
+      schema: { is_nullable: true },
+      meta: { readonly: true, hidden: true, special: ['date-updated'] }
+    }
   ],
 };
 

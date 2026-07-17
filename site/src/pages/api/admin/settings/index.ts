@@ -67,7 +67,12 @@ function aplicarBooleano(
   campo: CampoBooleano,
   formulario: boolean,
 ) {
-  if (!(campo in corpo)) return;
+  if (!(campo in corpo)) {
+    if (formulario) {
+      payload[campo] = false;
+    }
+    return;
+  }
 
   const valor = booleano(corpo[campo]);
   if (valor === undefined) {

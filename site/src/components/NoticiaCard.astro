@@ -17,7 +17,9 @@ const link = `/noticias/${post.slug}`;
   {imagem ? (
     <img class="post-image" src={imagem} alt="" loading={destaque ? 'eager' : 'lazy'} decoding="async" />
   ) : (
-    <span class="post-image" aria-hidden="true"></span>
+    <div class="post-image post-image--placeholder" aria-hidden="true" style="display:flex;align-items:center;justify-content:center;background:#f3f4f6;color:#9ca3af;font-size:3rem;">
+      📰
+    </div>
   )}
   <div class="post-body">
     <div class="post-meta">

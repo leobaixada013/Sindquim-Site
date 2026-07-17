@@ -1,6 +1,6 @@
 import { defineMiddleware } from 'astro:middleware';
 import { ADMIN_TOKEN_COOKIE, cookieSeguro } from './lib/auth';
-import { validarOrigemAdmin, validarTokenCsrf } from './lib/adminSecurity';
+import { validarOrigemAdmin, validarTokenCsrf, obterOuCriarSegredoCsrf } from './lib/adminSecurity';
 
 const ROTAS_PUBLICAS_ADMIN = new Set(['/admin/login', '/api/admin/login']);
 
@@ -21,6 +21,12 @@ export const onRequest = defineMiddleware(async (context, next) => {
     }
 
     return context.redirect('/admin/login');
+  }
+
+  // Garante que o segredo CSRF seja criado (ou recuperado) ANTES da página renderizar,
+  // prevenindo que o layout tente chamar cookies.set() quando a stream já iniciou.
+  if (rotaAdmin) {
+    obterOuCriarSegredoCsrf(context.cookies, context.url.protocol === 'https:');
   }
 
   if (apiAdmin) {

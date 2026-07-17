@@ -324,6 +324,7 @@ graphify update .
 
 ## Documentação adicional
 
+- [`PLANO_PROJETO.md`](PLANO_PROJETO.md) — roteiro de fases e objetivo final do Sindicato Digital.
 - [`docs/README.md`](docs/README.md) — índice da documentação técnica.
 - [`docs/arquitetura.md`](docs/arquitetura.md) — arquitetura, fluxos e integrações.
 - [`docs/desenvolvimento.md`](docs/desenvolvimento.md) — rotina de desenvolvimento local.

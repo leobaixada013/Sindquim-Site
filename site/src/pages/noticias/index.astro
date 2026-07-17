@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import PostCard from '../../components/PostCard.astro';
+import NoticiaCard from '../../components/NoticiaCard.astro';
 import { contarPosts, getPosts } from '../../lib/directus';
 
 const POR_PAGINA = 9;
@@ -25,7 +25,7 @@ const totalPaginas = Math.max(1, Math.ceil(total / POR_PAGINA));
       {posts.length > 0 ? (
         <>
           <div class="lista-noticias">
-            {posts.map((post) => <PostCard post={post} />)}
+            {posts.map((post) => <NoticiaCard post={post} />)}
           </div>
 
           {totalPaginas > 1 && (

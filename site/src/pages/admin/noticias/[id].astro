@@ -1,0 +1,189 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { erroAutenticacaoExpirada, limparSessaoAdmin, tokenAdmin } from '../../../lib/auth';
+import { getAdminPost } from '../../../lib/adminNoticias';
+
+const { id } = Astro.params;
+const token = tokenAdmin(Astro.cookies);
+if (!token) return Astro.redirect('/admin/login');
+
+const isNew = id === 'novo';
+let post: any = null;
+
+if (!isNew) {
+  try {
+    post = await getAdminPost(token, id as string);
+  } catch (falha) {
+    if (erroAutenticacaoExpirada(falha)) {
+      limparSessaoAdmin(Astro.cookies);
+      return Astro.redirect('/admin/login?erro=sessao');
+    }
+    return Astro.redirect('/admin/noticias');
+  }
+}
+
+const tituloPagina = isNew ? 'Nova Notícia' : 'Editar Notícia';
+const subtituloPagina = isNew ? 'Crie uma nova publicação.' : 'Atualize os dados desta publicação.';
+---
+
+<AdminLayout titulo={tituloPagina} subtitulo={subtituloPagina}>
+  <div slot="actions">
+    <a class="admin-button" href="/admin/noticias">Voltar</a>
+  </div>
+
+  <p class="admin-alert" id="post-feedback" role="status" hidden></p>
+
+  <section class="admin-panel" style="max-width: 800px; margin: 0 auto;">
+    <form class="admin-form" id="post-form" enctype="multipart/form-data">
+      <input type="hidden" name="id" value={isNew ? '' : post.id} />
+
+      <label class="admin-field">
+        Título da Notícia
+        <input class="admin-input" type="text" name="titulo" value={post?.titulo || ''} required placeholder="Ex: Sindicato fecha novo acordo coletivo..." />
+      </label>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <label class="admin-field">
+          Status
+          <select class="admin-select" name="status" required>
+            <option value="draft" selected={post?.status === 'draft'}>Rascunho</option>
+            <option value="published" selected={post?.status === 'published'}>Publicado</option>
+            <option value="archived" selected={post?.status === 'archived'}>Arquivado</option>
+          </select>
+        </label>
+
+        <label class="admin-field">
+          Slug (URL amigável)
+          <input class="admin-input" type="text" name="slug" value={post?.slug || ''} placeholder="Deixe em branco para auto-gerar" />
+        </label>
+      </div>
+
+      <label class="admin-field">
+        Resumo (opcional)
+        <textarea class="admin-textarea" name="resumo" rows="3" placeholder="Pequena descrição ou linha de apoio da matéria.">{post?.resumo || ''}</textarea>
+      </label>
+
+      <label class="admin-field">
+        Imagem de Capa
+        {post?.imagem && (
+          <div style="margin-bottom: 10px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+            <p class="admin-muted" style="margin: 0 0 5px; font-size: 0.85rem;">Imagem atual (ID: {post.imagem}):</p>
+            <img src={`http://localhost:8055/assets/${post.imagem}?width=300&height=150&fit=cover`} alt="Capa atual" style="border-radius: 4px; max-width: 100%; height: auto; display: block;" />
+            <input type="hidden" name="imagem_atual" value={post.imagem} />
+          </div>
+        )}
+        <input class="admin-input" type="file" name="imagem" accept="image/png, image/jpeg, image/webp" />
+        <small class="admin-muted" style="margin-top: 4px; display: block;">Selecione um novo arquivo para substituir a imagem de capa.</small>
+      </label>
+
+      <label class="admin-field" style="margin-top: 1rem;">
+        Conteúdo Completo
+        <!-- Container for Quill editor -->
+        <div id="quill-editor" style="background: white; color: black; border-radius: 4px 4px 0 0; min-height: 300px;"></div>
+        <textarea name="conteudo" id="conteudo-real" style="display: none;" required></textarea>
+      </label>
+
+      <div style="display: flex; gap: 16px; margin-top: 2rem;">
+        <button class="admin-button admin-button--primary" type="submit" id="btn-salvar">
+          {isNew ? 'Publicar Notícia' : 'Salvar Alterações'}
+        </button>
+      </div>
+    </form>
+  </section>
+</AdminLayout>
+
+<!-- Load Quill stylesheet and script from CDN since we don't have a bundler for CSS easily here without affecting global layout -->
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+<style>
+  .ql-toolbar { background: #f0f0f0; border-radius: 4px 4px 0 0; border: none !important; }
+  .ql-container { border: none !important; font-size: 1.05rem; }
+  .ql-editor { padding: 1rem; }
+  /* Make sure links inside editor have decent contrast if edited */
+  .ql-editor a { color: #0066cc; }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+
+<script define:vars={{ postConteudo: post?.conteudo || '' }}>
+  // Initialize Quill editor
+  const quill = new Quill('#quill-editor', {
+    theme: 'snow',
+    placeholder: 'Escreva a matéria aqui...',
+    modules: {
+      toolbar: [
+        [{ 'header': [2, 3, 4, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        ['blockquote', 'code-block'],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        ['link'],
+        ['clean']
+      ]
+    }
+  });
+
+  // Load existing content
+  if (postConteudo) {
+    const delta = quill.clipboard.convert({ html: postConteudo });
+    quill.setContents(delta, 'silent');
+  }
+
+  const form = document.getElementById('post-form');
+  const conteudoReal = document.getElementById('conteudo-real');
+  const feedback = document.getElementById('post-feedback');
+  const btnSalvar = document.getElementById('btn-salvar');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Sync Quill HTML content to the hidden textarea
+    const htmlContent = quill.root.innerHTML;
+    conteudoReal.value = htmlContent === '<p><br></p>' ? '' : htmlContent;
+
+    if (!conteudoReal.value.trim()) {
+      alert("O conteúdo da notícia não pode estar vazio.");
+      return;
+    }
+
+    const originalText = btnSalvar.textContent;
+    btnSalvar.textContent = 'Salvando...';
+    btnSalvar.disabled = true;
+
+    try {
+      const formData = new FormData(form);
+
+      const resposta = await fetch('/api/admin/noticias/salvar', {
+        method: 'POST',
+        // FormData boundary is set automatically
+        body: formData,
+      });
+
+      const json = await resposta.json().catch(() => ({}));
+
+      if (!resposta.ok || !json.ok) {
+        throw new Error(json.erro || 'Falha ao salvar a notícia.');
+      }
+
+      if (feedback) {
+        feedback.hidden = false;
+        feedback.classList.remove('admin-alert--error');
+        feedback.textContent = 'Notícia salva com sucesso!';
+      }
+
+      // Se foi criação, redireciona para a tela de edição do novo ID
+      if (!formData.get('id') && json.id) {
+        window.location.href = `/admin/noticias/${json.id}`;
+      } else {
+        window.setTimeout(() => window.location.reload(), 1000);
+      }
+
+    } catch (erro) {
+      if (feedback) {
+        feedback.hidden = false;
+        feedback.classList.add('admin-alert--error');
+        feedback.textContent = erro.message || 'Erro inesperado ao salvar.';
+      }
+      btnSalvar.textContent = originalText;
+      btnSalvar.disabled = false;
+    }
+  });
+</script>

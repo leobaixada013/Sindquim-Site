@@ -1,9 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
-import PostCard from '../../components/PostCard.astro';
+import NoticiaCard from '../../components/NoticiaCard.astro';
 import { getPostPorSlug, getPosts, urlImagem } from '../../lib/directus';
 import { formatarData, formatarDataLonga } from '../../lib/formatar';
 import { NOME_SITE } from '../../lib/constantes';
+import DOMPurify from 'isomorphic-dompurify';
 
 const { slug } = Astro.params;
 const post = slug ? await getPostPorSlug(slug) : null;
@@ -38,13 +39,17 @@ const jsonLd = JSON.stringify({
         </div>
         <h1>{post.titulo}</h1>
         {post.resumo && <p class="prosa" style="font-size:1.2rem;color:var(--texto-suave)">{post.resumo}</p>}
-        {imagemCapa && <img class="artigo-capa" src={imagemCapa} alt="" />}
+        {imagemCapa ? (
+          <img class="artigo-capa" src={imagemCapa} alt="" />
+        ) : (
+          <div class="artigo-capa artigo-capa--placeholder" style="display:flex;align-items:center;justify-content:center;background:#f3f4f6;color:#9ca3af;font-size:5rem;aspect-ratio:16/9;border-radius:var(--raio-lg);">📰</div>
+        )}
       </div>
     </header>
 
     <div class="section" style="padding-top:36px">
       <div class="container">
-        <div class="prosa" set:html={post.conteudo ?? ''} />
+        <div class="prosa" set:html={post.conteudo ? DOMPurify.sanitize(post.conteudo) : ''} />
       </div>
     </div>
   </article>
@@ -60,7 +65,7 @@ const jsonLd = JSON.stringify({
           <a class="text-link" href="/noticias">Ver todas</a>
         </div>
         <div class="lista-noticias">
-          {relacionados.map((p) => <PostCard post={p} />)}
+          {relacionados.map((p) => <NoticiaCard post={p} />)}
         </div>
       </div>
     </section>

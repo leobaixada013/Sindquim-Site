@@ -1,0 +1,86 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { erroAutenticacaoExpirada, limparSessaoAdmin, tokenAdmin } from '../../../lib/auth';
+import { listarAdminPosts } from '../../../lib/adminNoticias';
+
+const token = tokenAdmin(Astro.cookies);
+if (!token) return Astro.redirect('/admin/login');
+
+let posts = [];
+try {
+  posts = await listarAdminPosts(token);
+} catch (falha) {
+  if (erroAutenticacaoExpirada(falha)) {
+    limparSessaoAdmin(Astro.cookies);
+    return Astro.redirect('/admin/login?erro=sessao');
+  }
+  throw falha;
+}
+
+const statusClasses: Record<string, string> = {
+  published: 'status-badge--concluido',
+  draft: 'status-badge--analise',
+  archived: 'status-badge--fechado',
+};
+
+const statusLabels: Record<string, string> = {
+  published: 'Publicado',
+  draft: 'Rascunho',
+  archived: 'Arquivado',
+};
+
+function dataCurta(valor: string | null | undefined) {
+  if (!valor) return 'Sem data';
+  return new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(valor));
+}
+---
+
+<AdminLayout
+  titulo="Notícias"
+  subtitulo="Gerencie as publicações, comunicados e notícias do Sindicato."
+>
+  <div slot="actions">
+    <a class="admin-button admin-button--primary" href="/admin/noticias/novo">
+      Nova Notícia
+    </a>
+  </div>
+
+  <section class="admin-table-wrapper" aria-label="Lista de Notícias">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Status</th>
+          <th>Título</th>
+          <th>Data de Criação</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {posts.length === 0 ? (
+          <tr>
+            <td colspan="5" style="text-align: center; padding: 2rem;">Nenhuma notícia encontrada.</td>
+          </tr>
+        ) : (
+          posts.map((post: any) => (
+            <tr>
+              <td>#{post.id}</td>
+              <td>
+                <span class={`status-badge ${statusClasses[post.status] || ''}`}>
+                  {statusLabels[post.status] || post.status}
+                </span>
+              </td>
+              <td>{post.titulo}</td>
+              <td>{dataCurta(post.date_created)}</td>
+              <td>
+                <a class="admin-button admin-button--small" href={`/admin/noticias/${post.id}`}>
+                  Editar
+                </a>
+              </td>
+            </tr>
+          ))
+        )}
+      </tbody>
+    </table>
+  </section>
+</AdminLayout>
