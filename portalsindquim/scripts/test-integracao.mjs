@@ -122,6 +122,7 @@ async function principal() {
     corpo: {
       status: 'draft', titulo: `${PREFIXO} rascunho editorial`, conteudo: '<p>Conteúdo temporário.</p>',
       imagem: arquivos[0].id, imagem_alt: 'Imagem de demonstração usada pelo teste automatizado.',
+      fonte_nome: 'SINDQUIM', fonte_url: null,
     },
   });
   limpar.posts.push(post.id);
