@@ -130,5 +130,9 @@ const jsonLd = serializarJsonLd({
   .fontes-noticia { margin-top: 42px; padding: 24px; background: var(--nevoa); border-left: 4px solid var(--vermelho-600); }
   .fontes-noticia h2 { margin-top: 0; }
   .fontes-noticia a { display: block; width: fit-content; margin-top: 8px; }
-  @media (max-width: 680px) { .galeria-noticia__grid { grid-template-columns: 1fr; } }
+  @media (max-width: 680px) {
+    .galeria-noticia__grid { grid-template-columns: 1fr; }
+    .artigo-header .post-meta { flex-wrap: wrap; row-gap: 6px; }
+    .artigo-header .post-meta time { flex-basis: 100%; }
+  }
 </style>

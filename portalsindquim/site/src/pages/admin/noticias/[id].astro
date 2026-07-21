@@ -1,5 +1,351 @@
 ---
-return Astro.redirect(Astro.params.id === 'novo'
-  ? `${(process.env.PUBLIC_DIRECTUS_URL ?? import.meta.env.PUBLIC_DIRECTUS_URL ?? 'http://localhost:8055').replace(/\/$/, '')}/admin/content/posts/+`
-  : `${(process.env.PUBLIC_DIRECTUS_URL ?? import.meta.env.PUBLIC_DIRECTUS_URL ?? 'http://localhost:8055').replace(/\/$/, '')}/admin/content/posts/${encodeURIComponent(Astro.params.id ?? '')}`);
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { erroAutenticacaoExpirada, getAdminNoticia, getAdminNoticiasData, limparSessaoAdmin, tokenAdmin } from '../../../lib/auth';
+import { tituloVisivelNoEditor } from '../../../lib/editorial';
+import { sanitizarHtmlEditorial } from '../../../lib/sanitize';
+import type { Post } from '../../../lib/tipos';
+
+const token = tokenAdmin(Astro.cookies);
+if (!token) return Astro.redirect('/admin/login');
+const id = String(Astro.params.id ?? 'novo');
+const criando = id === 'novo';
+let noticia: Post | null = null;
+let categorias = [] as Awaited<ReturnType<typeof getAdminNoticiasData>>['categorias'];
+try {
+  const dados = await getAdminNoticiasData(token);
+  categorias = dados.categorias;
+  if (!criando) noticia = await getAdminNoticia(token, id);
+} catch (erro) {
+  if (erroAutenticacaoExpirada(erro)) {
+    limparSessaoAdmin(Astro.cookies);
+    return Astro.redirect('/admin/login?erro=sessao');
+  }
+  if (!criando && (erro as { status?: number })?.status === 404) return Astro.redirect('/admin/noticias');
+  throw erro;
+}
+
+const categoriaId = typeof noticia?.categoria === 'object' ? noticia.categoria?.id : noticia?.categoria;
+const galeria = [...(noticia?.galeria ?? [])].sort((a, b) => (a.ordem ?? 999) - (b.ordem ?? 999));
+const dataLocal = noticia?.agendado_para ? new Date(noticia.agendado_para).toLocaleString('sv-SE', {
+  timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
+}).replace(' ', 'T') : '';
+const fontePropria = !noticia?.fonte_url && (!noticia?.fonte_nome || noticia.fonte_nome === 'SINDQUIM');
+const conteudoHtml = sanitizarHtmlEditorial(noticia?.conteudo);
+const resultado = Astro.url.searchParams.get('resultado');
+const mensagemResultado = resultado === 'published'
+  ? 'Notícia publicada no site.'
+  : resultado === 'scheduled'
+    ? 'Notícia agendada com sucesso.'
+    : resultado === 'draft'
+      ? 'Rascunho salvo. Você pode continuar depois.'
+      : '';
 ---
+
+<AdminLayout
+  titulo={criando ? 'Nova notícia' : 'Editar notícia'}
+  subtitulo="Siga as etapas. Você pode salvar um rascunho mesmo sem terminar."
+>
+  <div slot="actions"><a class="admin-button" href="/admin/noticias">Voltar às notícias</a></div>
+
+  <div class="editor-progress" aria-label="Etapas desta notícia">
+    <span>1. Escreva</span><span>2. Fotos</span><span>3. Fonte</span><span>4. Publicação</span>
+  </div>
+
+  <div class="admin-alert" id="feedback-editor" role="status" aria-live="polite" hidden={!mensagemResultado}>{mensagemResultado}</div>
+  <div class="admin-alert admin-alert--error" id="erros-editor" role="alert" tabindex="-1" hidden></div>
+
+  <form class="editor-form" id="form-noticia" enctype="multipart/form-data" novalidate>
+    <input type="hidden" name="id" value={noticia?.id ?? ''} />
+    <input type="hidden" name="imagem_atual" value={noticia?.imagem ?? ''} />
+
+    <section class="admin-form-card editor-section" aria-labelledby="etapa-escrever">
+      <header><span class="step-number">1</span><div><h2 id="etapa-escrever">Escreva a notícia</h2><p>Título e texto principal. O resumo é opcional.</p></div></header>
+      <label class="admin-field">Título da notícia
+        <input class="admin-input title-input" name="titulo" id="titulo" value={tituloVisivelNoEditor(noticia?.titulo)} maxlength="180" placeholder="Ex.: Sindicato abre inscrições para novo curso" />
+      </label>
+      <label class="admin-field">Resumo curto <span>Opcional — duas ou três frases</span>
+        <textarea class="admin-textarea" name="resumo" rows="3" maxlength="500" placeholder="Explique rapidamente por que esta notícia é importante.">{noticia?.resumo ?? ''}</textarea>
+      </label>
+      <div class="admin-field">
+        <span id="conteudo-label" class="field-label">Texto da notícia</span>
+        <div class="editor-toolbar" role="toolbar" aria-label="Formatação do texto">
+          <button type="button" data-command="bold" aria-label="Negrito"><strong>N</strong></button>
+          <button type="button" data-command="italic" aria-label="Itálico"><em>I</em></button>
+          <button type="button" data-block="h2">Subtítulo</button>
+          <button type="button" data-command="insertUnorderedList">Lista</button>
+          <button type="button" data-link>Adicionar link</button>
+          <button type="button" data-command="removeFormat">Limpar formato</button>
+        </div>
+        <div
+          class="rich-editor"
+          id="conteudo"
+          contenteditable="true"
+          role="textbox"
+          aria-multiline="true"
+          aria-labelledby="conteudo-label"
+          data-placeholder="Escreva a matéria aqui…"
+          set:html={conteudoHtml}
+        ></div>
+        <input type="hidden" name="conteudo_html" id="conteudo-html" value={conteudoHtml} />
+        <span>Use os botões somente quando quiser destacar uma parte do texto.</span>
+      </div>
+    </section>
+
+    <section class="admin-form-card editor-section" aria-labelledby="etapa-fotos">
+      <header><span class="step-number">2</span><div><h2 id="etapa-fotos">Escolha as fotos</h2><p>Envie a capa e, se quiser, várias fotos adicionais.</p></div></header>
+      <div class="cover-grid">
+        <div class="image-preview" id="preview-capa">
+          {noticia?.imagem ? <img src={`/api/admin/noticias/asset/${noticia.imagem}`} alt="Prévia da foto de capa atual" /> : <span>Nenhuma foto de capa escolhida</span>}
+        </div>
+        <div class="admin-form">
+          <button class="upload-button" type="button" id="escolher-capa">{noticia?.imagem ? 'Trocar foto de capa' : 'Escolher foto de capa'}</button>
+          <input class="visually-hidden" type="file" id="capa" name="capa" accept="image/jpeg,image/png,image/webp" />
+          <p class="field-help">JPG, PNG ou WebP. Máximo de 20 MB. Prefira imagem horizontal.</p>
+          <label class="admin-field">Descreva o que aparece na capa
+            <input class="admin-input" name="imagem_alt" id="imagem_alt" value={noticia?.imagem_alt ?? ''} placeholder="Ex.: Trabalhadores reunidos em frente à fábrica" />
+          </label>
+          <div class="admin-form__split">
+            <label class="admin-field">Legenda <span>Opcional</span><input class="admin-input" name="imagem_legenda" value={noticia?.imagem_legenda ?? ''} /></label>
+            <label class="admin-field">Crédito <span>Opcional</span><input class="admin-input" name="imagem_credito" value={noticia?.imagem_credito ?? ''} /></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-heading">
+        <div><h3>Outras fotos da matéria</h3><p>Você pode escolher várias de uma vez.</p></div>
+        <button class="admin-button" type="button" id="escolher-galeria">Adicionar outras fotos</button>
+        <input class="visually-hidden" type="file" id="galeria-arquivos" name="galeria_arquivos" accept="image/jpeg,image/png,image/webp" multiple />
+      </div>
+
+      <div class="gallery-grid" id="galeria-lista">
+        {galeria.map((foto, indice) => (
+          <article class="gallery-card" data-existing-card>
+            <img src={`/api/admin/noticias/asset/${foto.imagem}`} alt="" />
+            <div class="gallery-card__fields">
+              <input type="hidden" name="galeria_id" value={foto.id} />
+              <input type="hidden" name="galeria_ordem" value={foto.ordem ?? indice + 1} />
+              <input type="hidden" name="galeria_remover" value="" data-remove-value />
+              <label class="admin-field">Descrição da foto<input class="admin-input" name="galeria_alt" value={foto.texto_alternativo ?? ''} /></label>
+              <label class="admin-field">Legenda <span>Opcional</span><input class="admin-input" name="galeria_legenda" value={foto.legenda ?? ''} /></label>
+              <label class="admin-field">Crédito <span>Opcional</span><input class="admin-input" name="galeria_credito" value={foto.credito ?? ''} /></label>
+              <button type="button" class="text-danger" data-remove-existing={foto.id}>Remover esta foto</button>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p class="gallery-empty" id="galeria-vazia" hidden={galeria.length > 0}>Nenhuma foto adicional. Isso é opcional.</p>
+    </section>
+
+    <section class="admin-form-card editor-section" aria-labelledby="etapa-fonte">
+      <header><span class="step-number">3</span><div><h2 id="etapa-fonte">Informe a fonte e os detalhes</h2><p>Ajude o leitor a saber de onde veio a informação.</p></div></header>
+      <label class="check-card"><input type="checkbox" name="fonte_propria" value="1" checked={fontePropria} /><span><strong>Esta notícia é do próprio SINDQUIM</strong><small>Marque quando a apuração ou o comunicado é do sindicato.</small></span></label>
+      <div class="admin-form__split" id="campos-fonte-externa" hidden={fontePropria}>
+        <label class="admin-field">Nome da fonte<input class="admin-input" name="fonte_nome" id="fonte_nome" value={fontePropria ? '' : noticia?.fonte_nome ?? ''} placeholder="Ex.: Ministério do Trabalho" /></label>
+        <label class="admin-field">Link da fonte<input class="admin-input" name="fonte_url" id="fonte_url" type="url" value={noticia?.fonte_url ?? ''} placeholder="https://..." /></label>
+      </div>
+      <div class="admin-form__split">
+        <label class="admin-field">Categoria<select class="admin-select" name="categoria"><option value="">Sem categoria</option>{categorias.map((categoria) => <option value={categoria.id} selected={String(categoria.id) === String(categoriaId ?? '')}>{categoria.nome}</option>)}</select></label>
+        <label class="admin-field">Empresa ou entidade <span>Opcional</span><input class="admin-input" name="empresa" value={noticia?.empresa ?? ''} placeholder="Ex.: Petrobras/RPBC" /></label>
+        <label class="admin-field">Cidade <span>Opcional</span><select class="admin-select" name="cidade"><option value="">Escolha</option>{['Bertioga','Cubatão','Guarujá','Itanhaém','Mongaguá','Praia Grande','Santos','São Vicente','Baixada Santista'].map((cidade) => <option value={cidade} selected={noticia?.cidade === cidade}>{cidade}</option>)}</select></label>
+        <label class="admin-field">Data do fato <span>Opcional</span><input class="admin-input" type="date" name="data_fato" value={noticia?.data_fato?.slice(0, 10) ?? ''} /></label>
+      </div>
+    </section>
+
+    <section class="admin-form-card editor-section publish-section" aria-labelledby="etapa-publicar">
+      <header><span class="step-number">4</span><div><h2 id="etapa-publicar">Salve ou publique</h2><p>Rascunhos podem ficar incompletos. Para publicar, conferimos o essencial.</p></div></header>
+      <label class="check-card"><input type="checkbox" name="fixado_banner" value="1" checked={noticia?.fixado_banner} /><span><strong>Destacar na página inicial</strong><small>Use apenas para a notícia mais importante do momento.</small></span></label>
+      <label class="admin-field schedule-field">Quando deseja publicar? <span>Preencha apenas se for agendar.</span><input class="admin-input" type="datetime-local" id="agendado_para" name="agendado_para" value={dataLocal} /></label>
+      <div class="publish-actions">
+        <button class="admin-button" type="submit" name="acao" value="draft">Salvar rascunho</button>
+        <button class="admin-button" type="submit" name="acao" value="schedule">Agendar</button>
+        <button class="admin-button admin-button--primary" type="submit" name="acao" value="publish">Publicar agora</button>
+      </div>
+      <p class="save-note">Nada será publicado por engano: somente o botão “Publicar agora” coloca a notícia no site imediatamente.</p>
+    </section>
+  </form>
+</AdminLayout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#form-noticia');
+  const capa = document.querySelector<HTMLInputElement>('#capa');
+  const escolherCapa = document.querySelector<HTMLButtonElement>('#escolher-capa');
+  const previewCapa = document.querySelector<HTMLElement>('#preview-capa');
+  const galeriaInput = document.querySelector<HTMLInputElement>('#galeria-arquivos');
+  const escolherGaleria = document.querySelector<HTMLButtonElement>('#escolher-galeria');
+  const galeriaLista = document.querySelector<HTMLElement>('#galeria-lista');
+  const galeriaVazia = document.querySelector<HTMLElement>('#galeria-vazia');
+  const fontePropria = document.querySelector<HTMLInputElement>('input[name="fonte_propria"]');
+  const camposFonte = document.querySelector<HTMLElement>('#campos-fonte-externa');
+  const feedback = document.querySelector<HTMLElement>('#feedback-editor');
+  const erros = document.querySelector<HTMLElement>('#erros-editor');
+  const editor = document.querySelector<HTMLElement>('#conteudo');
+  const conteudoHtml = document.querySelector<HTMLInputElement>('#conteudo-html');
+  let arquivosGaleria: File[] = [];
+
+  const escapar = (valor: string) => valor.replace(/[&<>'"]/g, (caractere) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[caractere] || caractere));
+  const atualizarVazio = () => {
+    if (galeriaVazia) galeriaVazia.hidden = Boolean(document.querySelector('.gallery-card:not([hidden])'));
+  };
+  const sincronizarArquivos = () => {
+    if (!galeriaInput) return;
+    const transferencia = new DataTransfer();
+    arquivosGaleria.forEach((arquivo) => transferencia.items.add(arquivo));
+    galeriaInput.files = transferencia.files;
+  };
+  const desenharNovasFotos = () => {
+    document.querySelectorAll('[data-new-card]').forEach((elemento) => elemento.remove());
+    arquivosGaleria.forEach((arquivo, indice) => {
+      const card = document.createElement('article');
+      card.className = 'gallery-card';
+      card.dataset.newCard = String(indice);
+      card.innerHTML = `
+        <img src="${URL.createObjectURL(arquivo)}" alt="Prévia de ${escapar(arquivo.name)}">
+        <div class="gallery-card__fields">
+          <input type="hidden" name="galeria_nova_ordem" value="${document.querySelectorAll('[data-existing-card]:not([hidden])').length + indice + 1}">
+          <label class="admin-field">Descrição da foto<input class="admin-input" name="galeria_nova_alt" placeholder="Explique o que aparece nesta foto"></label>
+          <label class="admin-field">Legenda <span>Opcional</span><input class="admin-input" name="galeria_nova_legenda"></label>
+          <label class="admin-field">Crédito <span>Opcional</span><input class="admin-input" name="galeria_nova_credito"></label>
+          <button type="button" class="text-danger" data-remove-new="${indice}">Remover esta foto</button>
+        </div>`;
+      galeriaLista?.appendChild(card);
+    });
+    atualizarVazio();
+  };
+
+  escolherCapa?.addEventListener('click', () => capa?.click());
+  escolherGaleria?.addEventListener('click', () => galeriaInput?.click());
+  capa?.addEventListener('change', () => {
+    const arquivo = capa.files?.[0];
+    if (arquivo && previewCapa) previewCapa.innerHTML = `<img src="${URL.createObjectURL(arquivo)}" alt="Prévia da nova foto de capa">`;
+  });
+  galeriaInput?.addEventListener('change', () => {
+    arquivosGaleria = [...(galeriaInput.files || [])].slice(0, 20);
+    sincronizarArquivos();
+    desenharNovasFotos();
+  });
+  galeriaLista?.addEventListener('click', (evento) => {
+    const alvo = evento.target as HTMLElement;
+    const removerNovo = alvo.closest<HTMLElement>('[data-remove-new]');
+    if (removerNovo) {
+      arquivosGaleria.splice(Number(removerNovo.dataset.removeNew), 1);
+      sincronizarArquivos(); desenharNovasFotos(); return;
+    }
+    const removerExistente = alvo.closest<HTMLElement>('[data-remove-existing]');
+    if (removerExistente) {
+      const card = removerExistente.closest<HTMLElement>('[data-existing-card]');
+      const campo = card?.querySelector<HTMLInputElement>('[data-remove-value]');
+      if (campo) campo.value = removerExistente.dataset.removeExisting || '';
+      if (card) card.hidden = true;
+      atualizarVazio();
+    }
+  });
+  fontePropria?.addEventListener('change', () => { if (camposFonte) camposFonte.hidden = fontePropria.checked; });
+  document.querySelector('.editor-toolbar')?.addEventListener('click', (evento) => {
+    const botao = (evento.target as HTMLElement).closest<HTMLButtonElement>('button');
+    if (!botao || !editor) return;
+    editor.focus();
+    if (botao.dataset.link !== undefined) {
+      const url = window.prompt('Cole o link completo, começando com https://');
+      if (url && /^https?:\/\//i.test(url)) document.execCommand('createLink', false, url);
+      return;
+    }
+    if (botao.dataset.block) document.execCommand('formatBlock', false, botao.dataset.block);
+    else if (botao.dataset.command) document.execCommand(botao.dataset.command, false);
+  });
+
+  form?.addEventListener('submit', async (evento) => {
+    evento.preventDefault();
+    const botao = (evento as SubmitEvent).submitter as HTMLButtonElement | null;
+    const acao = botao?.value || 'draft';
+    feedback?.setAttribute('hidden', '');
+    erros?.setAttribute('hidden', '');
+    const botoes = [...form.querySelectorAll<HTMLButtonElement>('button[type="submit"]')];
+    botoes.forEach((item) => item.disabled = true);
+    if (botao) botao.textContent = acao === 'publish' ? 'Publicando…' : acao === 'schedule' ? 'Agendando…' : 'Salvando…';
+    const dados = new FormData(form);
+    if (conteudoHtml) {
+      conteudoHtml.value = editor?.innerHTML || '';
+      dados.set('conteudo_html', conteudoHtml.value);
+    }
+    dados.set('acao', acao);
+    try {
+      const resposta = await fetch('/api/admin/noticias/save', { method: 'POST', body: dados });
+      const json = await resposta.json();
+      if (json.sessaoExpirada) { window.location.href = '/admin/login?erro=sessao'; return; }
+      if (!resposta.ok || !json.ok) {
+        const lista = Array.isArray(json.erros) ? json.erros : [{ mensagem: json.erro || 'Não foi possível salvar.' }];
+        if (erros) {
+          erros.innerHTML = `<strong>Confira antes de continuar:</strong><ul>${lista.map((item: { mensagem: string }) => `<li>${escapar(item.mensagem)}</li>`).join('')}</ul>`;
+          erros.hidden = false; erros.focus();
+        }
+        return;
+      }
+      window.location.href = `/admin/noticias/${json.id}?resultado=${encodeURIComponent(json.status)}`;
+    } catch {
+      if (erros) { erros.textContent = 'A conexão falhou. Seu texto continua nesta tela; tente salvar novamente.'; erros.hidden = false; erros.focus(); }
+    } finally {
+      botoes.forEach((item) => item.disabled = false);
+      if (botao) botao.textContent = acao === 'publish' ? 'Publicar agora' : acao === 'schedule' ? 'Agendar' : 'Salvar rascunho';
+    }
+  });
+  atualizarVazio();
+</script>
+
+<style>
+  .editor-progress { position: sticky; top: 12px; z-index: 5; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 18px; padding: 8px; border: 1px solid var(--admin-line); border-radius: 999px; background: rgba(7,9,19,.88); backdrop-filter: blur(18px); }
+  .editor-progress span { padding: 9px; border-radius: 999px; color: var(--admin-muted); text-align: center; font-size: .78rem; font-weight: 850; }
+  .editor-progress span:first-child { background: rgba(69,128,172,.2); color: #fff; }
+  .editor-form { display: grid; gap: 22px; }
+  .editor-section { display: grid; gap: 22px; }
+  .editor-section > header { display: flex; gap: 14px; align-items: flex-start; padding-bottom: 18px; border-bottom: 1px solid var(--admin-line); }
+  .editor-section h2, .editor-section h3, .editor-section p { margin: 0; }
+  .editor-section header p, .gallery-heading p, .field-help, .save-note { margin-top: 5px; color: var(--admin-muted); line-height: 1.5; }
+  .step-number { display: grid; flex: 0 0 auto; place-items: center; width: 42px; height: 42px; border-radius: 14px; background: rgba(69,128,172,.22); color: var(--admin-primary-strong); font-weight: 950; }
+  .admin-field > span { color: var(--admin-soft); font-size: .78rem; font-weight: 500; }
+  .title-input { min-height: 62px; font-size: 1.18rem; font-weight: 800; }
+  .field-label { color: var(--admin-muted); font-size: .9rem; font-weight: 700; }
+  .editor-toolbar { display: flex; flex-wrap: wrap; gap: 7px; padding: 8px; border: 1px solid rgba(255,255,255,.14); border-bottom: 0; border-radius: 16px 16px 0 0; background: rgba(255,255,255,.05); }
+  .editor-toolbar button { min-height: 40px; padding: 0 12px; border: 1px solid var(--admin-line); border-radius: 10px; background: rgba(5,8,18,.46); color: var(--admin-text); font-weight: 800; }
+  .editor-toolbar button:focus-visible { outline: 3px solid var(--admin-primary-strong); outline-offset: 2px; }
+  .rich-editor { min-height: 380px; padding: 18px; overflow-wrap: anywhere; border: 1px solid rgba(255,255,255,.14); border-radius: 0 0 16px 16px; background: rgba(5,8,18,.48); color: var(--admin-text); line-height: 1.7; outline: none; }
+  .rich-editor:focus { border-color: rgba(107,182,234,.75); box-shadow: 0 0 0 4px rgba(69,128,172,.16); }
+  .rich-editor:empty::before { content: attr(data-placeholder); color: var(--admin-soft); pointer-events: none; }
+  .rich-editor :global(h2) { margin: 1.3em 0 .55em; font-size: 1.4rem; }
+  .rich-editor :global(p) { margin: 0 0 1em; }
+  .rich-editor :global(a) { color: var(--admin-primary-strong); text-decoration: underline; }
+  .cover-grid { display: grid; grid-template-columns: minmax(260px,.8fr) minmax(0,1.2fr); gap: 22px; align-items: start; }
+  .image-preview { display: grid; place-items: center; min-height: 260px; overflow: hidden; border: 1px dashed rgba(107,182,234,.35); border-radius: 20px; background: rgba(5,8,18,.42); color: var(--admin-soft); text-align: center; }
+  .image-preview img { width: 100%; height: 100%; min-height: 260px; max-height: 380px; object-fit: cover; }
+  .upload-button { display: inline-flex; justify-content: center; align-items: center; min-height: 52px; padding: 0 18px; border: 1px solid rgba(107,182,234,.45); border-radius: 16px; background: rgba(69,128,172,.18); color: #fff; font-weight: 900; cursor: pointer; }
+  .upload-button:focus-visible { outline: 3px solid var(--admin-primary-strong); outline-offset: 3px; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  .gallery-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+  .gallery-card { display: grid; grid-template-columns: 150px minmax(0,1fr); gap: 14px; padding: 14px; border: 1px solid var(--admin-line); border-radius: 20px; background: rgba(255,255,255,.05); }
+  .gallery-card > img { width: 150px; height: 150px; object-fit: cover; border-radius: 14px; }
+  .gallery-card__fields { display: grid; gap: 10px; }
+  .text-danger { justify-self: start; padding: 0; border: 0; background: transparent; color: #ffb9bc; font-weight: 800; text-decoration: underline; }
+  .gallery-empty { padding: 18px; border: 1px dashed var(--admin-line); border-radius: 18px; color: var(--admin-muted); text-align: center; }
+  .check-card { display: flex; gap: 12px; padding: 16px; border: 1px solid var(--admin-line); border-radius: 18px; background: rgba(255,255,255,.05); cursor: pointer; }
+  .check-card input { width: 20px; height: 20px; accent-color: var(--admin-primary); }
+  .check-card span { display: grid; gap: 5px; }
+  .check-card small { color: var(--admin-muted); line-height: 1.4; }
+  .publish-section { border-color: rgba(107,182,234,.34); }
+  .publish-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 12px; }
+  .publish-actions button:disabled { cursor: wait; opacity: .65; }
+  .save-note { text-align: right; font-size: .82rem; }
+  #erros-editor ul { margin: 10px 0 0; padding-left: 22px; }
+  #feedback-editor, #erros-editor { margin-bottom: 18px; }
+  @media (max-width: 920px) {
+    .cover-grid, .gallery-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 680px) {
+    .editor-progress { position: static; grid-template-columns: repeat(2,1fr); border-radius: 22px; }
+    .editor-section { padding: 18px; }
+    .gallery-heading, .publish-actions { align-items: stretch; flex-direction: column; }
+    .gallery-heading .admin-button, .publish-actions .admin-button { width: 100%; }
+    .gallery-card { grid-template-columns: 1fr; }
+    .gallery-card > img { width: 100%; height: 210px; }
+    .save-note { text-align: left; }
+  }
+</style>

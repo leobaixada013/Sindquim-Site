@@ -1,7 +1,9 @@
 import {
   createDirectus,
   createItem,
+  deleteItem,
   inviteUser,
+  readItem,
   readItems,
   readMe,
   readRoles,
@@ -10,11 +12,12 @@ import {
   rest,
   staticToken,
   updateSingleton,
+  updateItem,
   updateUser,
   uploadFiles,
 } from '@directus/sdk';
 import { normalizarConfiguracoesGlobais } from './directus';
-import type { CardInstagram, ChamadoJuridico, ConfiguracoesGlobais, PostSocial, ProximoVideo, SchemaDirectus } from './tipos';
+import type { CardInstagram, Categoria, ChamadoJuridico, ConfiguracoesGlobais, Post, PostGaleria, PostSocial, ProximoVideo, SchemaDirectus } from './tipos';
 
 export const ADMIN_TOKEN_COOKIE = 'admin_access_token';
 
@@ -80,6 +83,11 @@ export interface NovoPostSocial {
   link_original: string | null;
 }
 
+export interface AdminNoticiasData {
+  noticias: Post[];
+  categorias: Categoria[];
+}
+
 type CookieStore = {
   get(name: string): { value: string } | undefined;
   delete?: (name: string, options?: Record<string, unknown>) => void;
@@ -105,11 +113,131 @@ export function limparSessaoAdmin(cookies: CookieStore): void {
 export function erroAutenticacaoExpirada(erro: unknown): boolean {
   const status = (erro as { status?: number })?.status;
   const mensagem = String((erro as { message?: string })?.message ?? erro).toLowerCase();
-  return status === 401 || status === 403 || mensagem.includes('token expired') || mensagem.includes('invalid token');
+  return status === 401 || mensagem.includes('token expired') || mensagem.includes('invalid token');
 }
 
 export function criarClienteAdmin(token: string) {
   return createDirectus<SchemaDirectus>(DIRECTUS_URL).with(staticToken(token)).with(rest());
+}
+
+export async function exigirAcessoEditorial(token: string): Promise<AdminUser> {
+  const usuario = await getAdminUser({ get: (nome) => (nome === ADMIN_TOKEN_COOKIE ? { value: token } : undefined) });
+  const role = usuario?.role;
+  const nomeRole = typeof role === 'object' && role !== null ? String(role.name ?? '') : '';
+  if (!usuario || (!usuarioAdminSistema(usuario) && nomeRole !== 'Editor')) {
+    throw new Error('Sua conta não tem acesso ao editor de notícias.');
+  }
+  return usuario;
+}
+
+const CAMPOS_NOTICIA_ADMIN = [
+  'id', 'status', 'titulo', 'slug', 'resumo', 'conteudo', 'imagem', 'imagem_alt',
+  'imagem_legenda', 'imagem_credito', 'fonte_nome', 'fonte_url', 'empresa', 'cidade',
+  'data_fato', 'youtube_url', 'fixado_banner', 'publicado_em', 'agendado_para',
+  'date_created', 'date_updated',
+  { categoria: ['id', 'nome', 'slug'] },
+  { galeria: ['id', 'post', 'ordem', 'imagem', 'texto_alternativo', 'legenda', 'credito'] },
+] as any;
+
+export async function getAdminNoticiasData(token: string): Promise<AdminNoticiasData> {
+  await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  const [noticias, categorias] = await Promise.all([
+    cliente.request(readItems('posts', {
+      fields: CAMPOS_NOTICIA_ADMIN,
+      sort: ['-date_updated', '-date_created'],
+      limit: -1,
+    } as any)),
+    cliente.request(readItems('categorias', {
+      fields: ['id', 'nome', 'slug'],
+      sort: ['nome'],
+      limit: -1,
+    })),
+  ]);
+  return {
+    noticias: (noticias ?? []) as unknown as Post[],
+    categorias: (categorias ?? []) as Categoria[],
+  };
+}
+
+export async function getAdminNoticia(token: string, id: string | number, acessoJaValidado = false): Promise<Post> {
+  if (!acessoJaValidado) await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  return await cliente.request(readItem('posts', id as any, {
+    fields: CAMPOS_NOTICIA_ADMIN,
+  } as any)) as unknown as Post;
+}
+
+export async function enviarImagemEditorialAdmin(
+  token: string,
+  arquivo: File,
+  titulo: string,
+  descricao: string,
+  acessoJaValidado = false,
+): Promise<string> {
+  if (!acessoJaValidado) await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  const formData = new FormData();
+  formData.append('title', titulo.slice(0, 180));
+  formData.append('description', descricao.slice(0, 500));
+  formData.append('file', arquivo, arquivo.name);
+  const enviado = await cliente.request(uploadFiles(formData)) as { id: string } | Array<{ id: string }>;
+  const id = Array.isArray(enviado) ? enviado[0]?.id : enviado.id;
+  if (!id) throw new Error('O Directus não retornou o identificador da imagem enviada.');
+  return id;
+}
+
+export async function criarNoticiaAdmin(token: string, dados: Record<string, unknown>, acessoJaValidado = false): Promise<Post> {
+  if (!acessoJaValidado) await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  return await cliente.request(createItem('posts', dados as any)) as unknown as Post;
+}
+
+export async function atualizarNoticiaAdmin(
+  token: string,
+  id: string | number,
+  dados: Record<string, unknown>,
+  acessoJaValidado = false,
+): Promise<Post> {
+  if (!acessoJaValidado) await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  return await cliente.request(updateItem('posts', id as any, dados as any)) as unknown as Post;
+}
+
+export async function criarFotoGaleriaAdmin(token: string, dados: Record<string, unknown>, acessoJaValidado = false): Promise<PostGaleria> {
+  if (!acessoJaValidado) await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  return await cliente.request(createItem('posts_galeria', dados as any)) as unknown as PostGaleria;
+}
+
+export async function atualizarFotoGaleriaAdmin(
+  token: string,
+  id: string | number,
+  dados: Record<string, unknown>,
+  acessoJaValidado = false,
+): Promise<PostGaleria> {
+  if (!acessoJaValidado) await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  return await cliente.request(updateItem('posts_galeria', id as any, dados as any)) as unknown as PostGaleria;
+}
+
+export async function removerFotoGaleriaAdmin(token: string, id: string | number, acessoJaValidado = false): Promise<void> {
+  if (!acessoJaValidado) await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  await cliente.request(deleteItem('posts_galeria', id as any));
+}
+
+export async function obterAssetEditorialAdmin(token: string, id: string, transformacoes?: URLSearchParams): Promise<Response> {
+  await exigirAcessoEditorial(token);
+  const params = new URLSearchParams();
+  for (const chave of ['width', 'height', 'quality', 'fit', 'format']) {
+    const valor = transformacoes?.get(chave);
+    if (valor) params.set(chave, valor);
+  }
+  const query = params.size ? `?${params.toString()}` : '';
+  return fetch(`${DIRECTUS_URL}/assets/${encodeURIComponent(id)}${query}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 }
 
 export async function loginAdmin(email: string, password: string): Promise<string> {
@@ -146,8 +274,9 @@ export async function getAdminUser(cookies: CookieStore): Promise<AdminUser | nu
         ] as any,
       }),
     ) as unknown as AdminUser;
-  } catch {
-    return null;
+  } catch (erro) {
+    if (erroAutenticacaoExpirada(erro)) return null;
+    throw erro;
   }
 }
 

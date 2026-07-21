@@ -1,8 +1,8 @@
 # Portal Sindquim
 
-Portal institucional em Astro 7 com Directus 11 e PostgreSQL 17. A publicação de notícias foi organizada para ser direta: título, texto, capa e descrição da imagem são o núcleo obrigatório; fonte, galeria, vídeo, destaque e agendamento aparecem como complementos.
+Portal institucional em Astro 7 com Directus 11 e PostgreSQL 17. A central Astro oferece um editor guiado de notícias; o Directus permanece como CMS, autenticação e fonte oficial dos dados.
 
-Release atual: **1.4.0**.
+Release atual: **1.5.0**.
 
 O projeto não possui módulo público de editais, documentos, acordos ou convenções. A área jurídica é informativa e editável, mas a triagem preserva aviso de privacidade, consentimento, controles de acesso e anexos privados.
 
@@ -56,21 +56,21 @@ O importador cria apenas itens ausentes, preserva edições posteriores e arquiv
 
 ## Fluxo editorial
 
-O Directus é o CMS e a fonte oficial dos dados. O Astro entrega o site público e uma central de atalhos por função.
+O Directus é o CMS e a fonte oficial dos dados. O Astro entrega o site público e uma central editorial simplificada por função.
 
 - **Editor:** cria e atualiza notícias, benefícios, avisos e textos públicos; não exclui conteúdo nem vê chamados, usuários ou segredos.
 - **Jurídico:** lê e trata chamados jurídicos e seus anexos privados; não administra o restante do sistema.
 - **Administrador:** configura a instalação e convida usuários.
 
-Para publicar uma notícia no Directus:
+Para publicar uma notícia:
 
-1. abra **Conteúdo → Notícias → Criar item**;
-2. preencha a seção **1. Escreva a notícia**;
-3. use **2. Complete se precisar** apenas para galeria, fonte, vídeo e outros complementos;
-4. em **3. Revise e publique**, escolha `Publicado` ou `Agendado`;
-5. salve.
+1. abra **Central do portal → Notícias → Criar notícia**;
+2. escreva título, resumo opcional e texto;
+3. escolha a capa e, se quiser, até vinte fotos adicionais sem sair da matéria;
+4. informe se a fonte é o SINDQUIM ou preencha nome e link da fonte externa;
+5. escolha **Salvar rascunho**, **Agendar** ou **Publicar agora**.
 
-O slug e a data de publicação são automáticos. Uma publicação só é aceita com título, conteúdo, capa e texto alternativo da capa. O hook editorial também processa publicações agendadas.
+Rascunhos podem ficar incompletos. O slug e a primeira data de publicação são automáticos e estáveis. Uma publicação só é aceita com título, conteúdo, capa, descrição da capa, descrição das fotos adicionais e fonte válida. O hook editorial também valida e processa publicações agendadas. O painel técnico do Directus continua disponível para administradores e tarefas avançadas.
 
 ## Área jurídica editável e protegida
 

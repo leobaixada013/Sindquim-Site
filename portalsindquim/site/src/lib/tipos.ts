@@ -4,10 +4,10 @@ export interface Categoria {
   slug: string;
 }
 
-type StatusPublicacao = 'published' | 'draft' | 'archived';
+export type StatusPublicacao = 'published' | 'draft' | 'scheduled' | 'archived';
 
 export interface Post {
-  id: string;
+  id: number | string;
   status: StatusPublicacao;
   titulo: string;
   slug: string;
@@ -33,7 +33,8 @@ export interface Post {
 }
 
 export interface PostGaleria {
-  id: string;
+  id: number | string;
+  post?: number | string;
   ordem: number | null;
   imagem: string;
   texto_alternativo: string | null;

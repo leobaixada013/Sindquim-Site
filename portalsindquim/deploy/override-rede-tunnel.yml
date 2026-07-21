@@ -4,15 +4,21 @@
 services:
   directus:
     networks:
-      - default
-      - portaria
+      backend:
+      edge:
+      tunnel:
+        aliases:
+          - sindquim-directus
 
   site:
     networks:
-      - default
-      - portaria
+      edge:
+      backend:
+      tunnel:
+        aliases:
+          - sindquim-site
 
 networks:
-  portaria:
+  tunnel:
     name: connectai_portaria-network
     external: true

@@ -49,7 +49,7 @@ const iniciais = nomeUsuario
 
 const nav = [
   { href: '/admin', rotulo: 'Início', icone: '⌂', mostrar: true },
-  { href: `${directusPublico}/admin/content/posts`, rotulo: 'Notícias', icone: 'N', mostrar: editor, externo: true },
+  { href: '/admin/noticias', rotulo: 'Notícias', icone: 'N', mostrar: editor },
   { href: `${directusPublico}/admin/content/beneficios`, rotulo: 'Benefícios', icone: 'B', mostrar: editor, externo: true },
   { href: `${directusPublico}/admin/content/pagina_juridico`, rotulo: 'Página Jurídico', icone: 'J', mostrar: editor, externo: true },
   { href: '/admin/juridico', rotulo: 'Atendimentos', icone: '§', mostrar: juridico },
@@ -84,7 +84,7 @@ const nav = [
 
         <nav class="admin-nav">
           {nav.map((item) => {
-            const ativo = caminhoAtual === item.href;
+            const ativo = caminhoAtual === item.href || (!item.externo && item.href !== '/admin' && caminhoAtual.startsWith(`${item.href}/`));
             return (
               <a href={item.href} aria-current={ativo ? 'page' : undefined} rel={item.externo ? 'noopener' : undefined}>
                 <span class="admin-nav__icon" aria-hidden="true">{item.icone}</span>

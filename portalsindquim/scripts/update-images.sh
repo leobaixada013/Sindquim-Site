@@ -4,7 +4,11 @@ set -Eeuo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 ENV_FILE="${PORTALSINDQUIM_ENV_FILE:-${PROJECT_DIR}/deploy/.env}"
-COMPOSE=(docker compose --env-file "${ENV_FILE}" -f "${PROJECT_DIR}/deploy/docker-compose.yml")
+COMPOSE_FILES=(-f "${PROJECT_DIR}/deploy/docker-compose.yml")
+if docker network inspect connectai_portaria-network >/dev/null 2>&1; then
+  COMPOSE_FILES+=(-f "${PROJECT_DIR}/deploy/override-rede-tunnel.yml")
+fi
+COMPOSE=(docker compose --env-file "${ENV_FILE}" "${COMPOSE_FILES[@]}")
 
 [[ -f "${ENV_FILE}" ]] || { echo "Crie ${ENV_FILE} a partir de deploy/.env.example." >&2; exit 1; }
 

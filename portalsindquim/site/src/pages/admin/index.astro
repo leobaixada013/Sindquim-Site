@@ -16,7 +16,7 @@ const juridico = admin || /jur[ií]dico/i.test(role);
 const tarefas = [
   {
     mostrar: editor,
-    href: `${directus}/admin/content/posts/+`,
+    href: '/admin/noticias/novo',
     titulo: 'Criar uma notícia',
     texto: 'Adicione título, foto de capa e texto. A notícia começa como rascunho.',
     acao: 'Começar agora',
@@ -24,7 +24,7 @@ const tarefas = [
   },
   {
     mostrar: editor,
-    href: `${directus}/admin/content/posts`,
+    href: '/admin/noticias',
     titulo: 'Revisar notícias',
     texto: 'Continue um rascunho, agende uma publicação ou corrija uma matéria.',
     acao: 'Ver notícias',
@@ -99,10 +99,10 @@ const tarefas = [
       <h2>Para publicar uma notícia</h2>
     </div>
     <ol>
-      <li>Escreva o título.</li>
-      <li>Escolha uma foto e descreva o que aparece nela.</li>
-      <li>Escreva a matéria e confira a prévia.</li>
-      <li>Troque “Rascunho” por “Publicado” somente quando estiver tudo certo.</li>
+      <li>Escreva o título e o texto.</li>
+      <li>Escolha a capa e, se quiser, outras fotos.</li>
+      <li>Informe a fonte da notícia.</li>
+      <li>Use “Salvar rascunho”, “Agendar” ou “Publicar agora”.</li>
     </ol>
   </aside>
 </AdminLayout>

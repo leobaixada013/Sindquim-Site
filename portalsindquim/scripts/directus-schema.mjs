@@ -64,6 +64,7 @@ function campoStatus() {
     meta: {
       interface: 'select-dropdown',
       width: 'half',
+      note: 'Rascunho não aparece no site. Publicado entra no ar ao salvar. Agendado entra no ar na data escolhida.',
       translations: [{ language: 'pt-BR', translation: 'Situação' }],
       options: {
         choices: [
@@ -91,7 +92,7 @@ function campoBooleano(nome, rotulo, nota) {
   };
 }
 
-function campoData(nome, rotulo, comHora = false) {
+function campoData(nome, rotulo, comHora = false, opcoes = {}) {
   return {
     field: nome,
     type: comHora ? 'timestamp' : 'date',
@@ -99,19 +100,24 @@ function campoData(nome, rotulo, comHora = false) {
     meta: {
       interface: 'datetime',
       width: 'half',
+      note: opcoes.nota,
+      readonly: Boolean(opcoes.somenteLeitura),
       translations: [{ language: 'pt-BR', translation: rotulo }],
     },
   };
 }
 
-function campoArquivo(nome, rotulo, imagem = true) {
+function campoArquivo(nome, rotulo, imagem = true, opcoes = {}) {
   return {
     field: nome,
     type: 'uuid',
-    schema: {},
+    schema: { is_nullable: !opcoes.obrigatorio, ...(opcoes.schema ?? {}) },
     meta: {
       interface: imagem ? 'file-image' : 'file',
       special: ['file'],
+      required: Boolean(opcoes.obrigatorio),
+      note: opcoes.nota,
+      options: opcoes.options ?? {},
       translations: [{ language: 'pt-BR', translation: rotulo }],
     },
   };
@@ -266,8 +272,10 @@ const COLECOES = [
     fields: [
       campoGrupo('essencial', '1. Escreva a notícia', true, 'Comece por estes quatro campos.'),
       noGrupo(campoTexto('titulo', 'Título da notícia', { obrigatorio: true, nota: 'Escreva uma frase curta e direta. Ex.: Sindicato abre inscrições para curso.' }), 'essencial'),
-      noGrupo(campoArquivo('imagem', 'Foto de capa'), 'essencial'),
-      noGrupo(campoTexto('imagem_alt', 'O que aparece na foto?', { obrigatorio: true, nota: 'Uma frase simples ajuda pessoas que não conseguem ver a imagem.' }), 'essencial'),
+      noGrupo(campoArquivo('imagem', 'Foto de capa — envie aqui', true, {
+        nota: 'Clique no primeiro botão para enviar do computador ou celular. Use JPG, PNG ou WebP horizontal (de preferência 16:9).',
+      }), 'essencial'),
+      noGrupo(campoTexto('imagem_alt', 'Descreva a foto', { obrigatorio: true, nota: 'Ex.: Trabalhadores reunidos em frente à fábrica. Essa descrição ajuda pessoas que não conseguem ver a imagem.' }), 'essencial'),
       noGrupo(campoWysiwyg('conteudo', 'Texto da notícia'), 'essencial'),
 
       campoGrupo('complementos', '2. Complete se precisar', false, 'Resumo, categoria, galeria, crédito, fonte e vídeo são opcionais.'),
@@ -297,19 +305,28 @@ const COLECOES = [
       noGrupo(campoData('data_fato', 'Data do fato'), 'complementos'),
       noGrupo(campoTexto('youtube_url', 'Vídeo relacionado', { nota: 'Opcional. Cole o link oficial do YouTube.' }), 'complementos'),
 
-      campoGrupo('publicacao', '3. Revise e publique', true, 'Mantenha como rascunho até conferir tudo.'),
+      campoGrupo('publicacao', '3. Revise e publique', true, 'Para publicar agora: escolha “Publicado” e clique no botão ✓ no canto superior direito. Se ainda estiver revisando, deixe como “Rascunho”.'),
       noGrupo(campoStatus(), 'publicacao'),
-      noGrupo(campoData('publicado_em', 'Data da publicação', true), 'publicacao'),
-      noGrupo(campoData('agendado_para', 'Publicar em', true), 'publicacao'),
+      noGrupo(campoData('publicado_em', 'Publicado em (automático)', true, { somenteLeitura: true, nota: 'O sistema preenche esta data quando a notícia entra no ar.' }), 'publicacao'),
+      noGrupo(campoData('agendado_para', 'Agendar publicação', true, { nota: 'Preencha somente se escolher “Agendado” na situação.' }), 'publicacao'),
       noGrupo(campoBooleano('fixado_banner', 'Destacar na página inicial', 'Somente pessoas autorizadas devem usar este destaque.'), 'publicacao'),
 
-      campoTexto('slug', 'Endereço automático', { obrigatorio: true, schema: { is_unique: true }, meta: { hidden: true, readonly: true }, nota: 'Criado automaticamente a partir do título.' }),
+      // O banco continua exigindo e garantindo unicidade, mas o Data Studio não
+      // pode validar um campo oculto antes de o hook items.create gerar o valor.
+      campoTexto('slug', 'Endereço automático', {
+        schema: { is_nullable: false, is_unique: true },
+        meta: { hidden: true, readonly: true, required: false },
+        nota: 'Criado automaticamente a partir do título.',
+      }),
       campoDataCriacao(),
       campoDataAtualizacao(),
       campoUsuarioSistema('user_created', 'user-created'),
       campoUsuarioSistema('user_updated', 'user-updated'),
     ],
-    relacoes: [{ field: 'categoria', related_collection: 'categorias' }],
+    relacoes: [
+      { field: 'categoria', related_collection: 'categorias' },
+      { field: 'imagem', related_collection: 'directus_files', schema: { on_delete: 'RESTRICT' } },
+    ],
   },
   {
     collection: 'posts_galeria',
@@ -319,12 +336,15 @@ const COLECOES = [
       { field: 'id', type: 'integer', schema: { is_primary_key: true, has_auto_increment: true }, meta: { hidden: true } },
       { field: 'post', type: 'integer', schema: { is_nullable: false }, meta: { interface: 'select-dropdown-m2o', special: ['m2o'], hidden: true } },
       campoOrdem(),
-      campoArquivo('imagem', 'Foto'),
+      campoArquivo('imagem', 'Foto', true, { obrigatorio: true, nota: 'Escolha uma foto JPG, PNG ou WebP.' }),
       campoTexto('texto_alternativo', 'Descrição da foto', { obrigatorio: true }),
       campoTexto('legenda', 'Legenda'),
       campoTexto('credito', 'Crédito'),
     ],
-    relacoes: [{ field: 'post', related_collection: 'posts', meta: { one_field: 'galeria' } }],
+    relacoes: [
+      { field: 'post', related_collection: 'posts', schema: { on_delete: 'CASCADE' }, meta: { one_field: 'galeria' } },
+      { field: 'imagem', related_collection: 'directus_files', schema: { on_delete: 'RESTRICT' } },
+    ],
   },
   {
     collection: 'avisos',
@@ -357,6 +377,7 @@ const COLECOES = [
       campoMetrica('compartilhamentos', 'Compartilhamentos', 'Total de compartilhamentos ou interações equivalentes.'),
       campoUltimaSincronizacaoMetricas(),
     ],
+    relacoes: [{ field: 'imagem', related_collection: 'directus_files' }],
   },
   {
     collection: 'diretores',
@@ -400,6 +421,7 @@ const COLECOES = [
       noGrupo(campoStatus(), 'diretoria_publicacao'),
       { field: 'ordem', type: 'integer', schema: {}, meta: { interface: 'input', hidden: true } },
     ],
+    relacoes: [{ field: 'foto', related_collection: 'directus_files' }],
   },
   {
     collection: 'cards_instagram',
@@ -415,6 +437,7 @@ const COLECOES = [
       campoMetrica('compartilhamentos', 'Compartilhamentos', 'Total de compartilhamentos ou interações equivalentes.'),
       campoUltimaSincronizacaoMetricas(),
     ],
+    relacoes: [{ field: 'imagem', related_collection: 'directus_files' }],
   },
   {
     collection: 'paginas',
@@ -472,6 +495,7 @@ const COLECOES = [
       campoDataAtualizacao(),
       campoUsuarioSistema('user_updated', 'user-updated'),
     ],
+    relacoes: [{ field: 'imagem', related_collection: 'directus_files' }],
   },
   {
     collection: 'pagina_juridico',
@@ -595,7 +619,10 @@ const LEITURA_PUBLICA = {
     fields: ['id', 'status', 'titulo', 'slug', 'resumo', 'conteudo', 'imagem', 'imagem_alt', 'imagem_legenda', 'imagem_credito', 'categoria', 'galeria', 'fonte_nome', 'fonte_url', 'empresa', 'cidade', 'data_fato', 'youtube_url', 'fixado_banner', 'publicado_em', 'agendado_para', 'date_created', 'date_updated'],
     permissions: { status: { _eq: 'published' }, _or: [{ publicado_em: { _null: true } }, { publicado_em: { _lte: '$NOW' } }] },
   },
-  posts_galeria: { fields: ['id', 'post', 'ordem', 'imagem', 'texto_alternativo', 'legenda', 'credito'], permissions: {} },
+  posts_galeria: {
+    fields: ['id', 'post', 'ordem', 'imagem', 'texto_alternativo', 'legenda', 'credito'],
+    permissions: { post: { status: { _eq: 'published' }, _or: [{ publicado_em: { _null: true } }, { publicado_em: { _lte: '$NOW' } }] } },
+  },
   categorias: { fields: ['id', 'nome', 'slug'], permissions: {} },
   avisos: { fields: ['id', 'status', 'titulo', 'mensagem_curta', 'urgente', 'data_inicio', 'data_fim', 'link', 'texto_link'], permissions: { status: { _eq: 'published' } } },
   proximos_videos: { fields: ['id', 'status', 'titulo', 'descricao', 'data_estreia', 'imagem'], permissions: { status: { _eq: 'published' } } },
@@ -653,6 +680,14 @@ async function garantirColecao(def) {
 
   for (const relacao of relacoes ?? []) {
     try {
+      await api('GET', `/relations/${def.collection}/${relacao.field}`);
+      await api('PATCH', `/relations/${def.collection}/${relacao.field}`, {
+        schema: { on_delete: 'SET NULL', ...(relacao.schema ?? {}) },
+        meta: relacao.meta,
+      });
+      console.log(`OK   relação ${def.collection}.${relacao.field} (reconciliada)`);
+    } catch (erro) {
+      if (erro.status !== 403 && erro.status !== 404) throw erro;
       await api('POST', '/relations', {
         collection: def.collection,
         field: relacao.field,
@@ -660,8 +695,7 @@ async function garantirColecao(def) {
         schema: { on_delete: 'SET NULL', ...(relacao.schema ?? {}) },
         meta: relacao.meta,
       });
-    } catch (erro) {
-      if (erro.status !== 400) throw erro;
+      console.log(`OK   relação ${def.collection}.${relacao.field}`);
     }
   }
 }
@@ -727,6 +761,10 @@ async function garantirRoleEditor(pastaPublicaId) {
     await garantirPermissao(politica.id, 'posts', acao, { fields: camposPost, validation: acao === 'read' ? {} : validacaoPost, presets: acao === 'create' ? { status: 'draft' } : null });
     await garantirPermissao(politica.id, 'posts_galeria', acao, { fields: ['id', 'post', 'ordem', 'imagem', 'texto_alternativo', 'legenda', 'credito'] });
   }
+  await garantirPermissao(politica.id, 'posts_galeria', 'delete', {
+    fields: ['id'],
+    permissions: {},
+  });
   await garantirPermissao(politica.id, 'categorias', 'read', { fields: ['id', 'nome', 'slug'] });
   for (const colecao of ['avisos', 'proximos_videos', 'diretores', 'cards_instagram', 'paginas', 'pagina_beneficios', 'beneficios', 'pagina_juridico', 'juridico_direitos', 'juridico_plantoes', 'juridico_faq', 'configuracoes']) {
     const grupos = colecao === 'pagina_juridico'
@@ -737,14 +775,39 @@ async function garantirRoleEditor(pastaPublicaId) {
     const campos = [...grupos, ...(LEITURA_PUBLICA[colecao]?.fields ?? ['*'])];
     for (const acao of ['create', 'read', 'update']) await garantirPermissao(politica.id, colecao, acao, { fields: campos, presets: acao === 'create' && !colecao.startsWith('pagina_') ? { status: 'draft' } : null });
   }
-  for (const acao of ['create', 'read', 'update']) {
-    await garantirPermissao(politica.id, 'directus_files', acao, { fields: ['id', 'title', 'description', 'type', 'filename_download', 'folder', 'width', 'height', 'filesize'], permissions: { folder: { _eq: pastaPublicaId } }, validation: { folder: { _eq: pastaPublicaId } }, presets: { folder: pastaPublicaId } });
-  }
+  const camposArquivoEditor = [
+    'id', 'title', 'description', 'type', 'filename_download', 'folder',
+    'width', 'height', 'filesize',
+  ];
+  const somentePastaPublica = { folder: { _eq: pastaPublicaId } };
+  const imagemPublicaValida = { _and: [
+    somentePastaPublica,
+    { type: { _in: ['image/jpeg', 'image/png', 'image/webp'] } },
+    { filesize: { _lte: 20971520 } },
+  ] };
+  await garantirPermissao(politica.id, 'directus_files', 'create', {
+    fields: [...camposArquivoEditor, 'storage'],
+    // Em criação não existe um registro anterior para filtrar. A pasta é
+    // imposta pelo preset e conferida pela validação abaixo.
+    permissions: {},
+    validation: imagemPublicaValida,
+    presets: { folder: pastaPublicaId },
+  });
+  await garantirPermissao(politica.id, 'directus_files', 'read', {
+    fields: [...camposArquivoEditor, 'modified_on', 'uploaded_on'],
+    permissions: somentePastaPublica,
+  });
+  await garantirPermissao(politica.id, 'directus_files', 'update', {
+    fields: camposArquivoEditor,
+    permissions: somentePastaPublica,
+    validation: somentePastaPublica,
+  });
   await garantirPermissao(politica.id, 'directus_folders', 'read', { fields: ['id', 'name', 'parent'], permissions: { id: { _eq: pastaPublicaId } } });
 
   const colecoesConteudo = ['posts', 'posts_galeria', 'avisos', 'proximos_videos', 'diretores', 'cards_instagram', 'paginas', 'pagina_beneficios', 'beneficios', 'pagina_juridico', 'juridico_direitos', 'juridico_plantoes', 'juridico_faq', 'configuracoes'];
   const permitidasEditor = new Set([
     ...colecoesConteudo.flatMap((colecao) => ['create', 'read', 'update'].map((acao) => `${colecao}:${acao}`)),
+    'posts_galeria:delete',
     'categorias:read',
     'directus_files:create', 'directus_files:read', 'directus_files:update',
     'directus_folders:read',
@@ -774,6 +837,7 @@ async function principal() {
     project_name: 'Portal Sindquim',
     project_descriptor: 'Notícias, Benefícios e Jurídico',
     project_color: '#d31a1f',
+    default_language: 'pt-BR',
   });
   console.log('OK   identidade do painel Directus');
 
@@ -784,6 +848,15 @@ async function principal() {
   const pastaPublica = await garantirPasta('Portal — mídia pública');
   const pastaJuridica = await garantirPasta('Portal — anexos jurídicos privados');
   console.log(`OK   pastas públicas/privadas (${pastaPublica.id}, ${pastaJuridica.id})`);
+
+  // A pessoa envia ou escolhe a foto dentro da própria notícia. O arquivo ainda
+  // é guardado pelo Directus na pasta pública, sem exigir uma etapa separada.
+  for (const [colecao, campo] of [['posts', 'imagem'], ['posts_galeria', 'imagem']]) {
+    await api('PATCH', `/fields/${colecao}/${campo}`, {
+      meta: { options: { folder: pastaPublica.id } },
+    });
+  }
+  console.log('OK   upload de imagens configurado dentro do formulário editorial');
 
   const politicaPublica = await acharPoliticaPublica();
   for (const [colecao, configuracao] of Object.entries(LEITURA_PUBLICA)) {

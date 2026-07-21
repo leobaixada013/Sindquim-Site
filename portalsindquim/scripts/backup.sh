@@ -39,7 +39,7 @@ created_at=${STAMP}
 project=portalsindquim
 database=valor configurado em POSTGRES_DB
 directus_expected=11.17.4
-site_expected=1.4.0
+site_expected=1.5.0
 contents=database.dump,uploads.tar.gz,images.json,package-lock.json,docker-compose.yml
 secrets_included=false
 EOF

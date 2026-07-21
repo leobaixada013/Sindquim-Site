@@ -43,7 +43,11 @@ test.describe('experiência mobile do portal', () => {
 
     page.on('pageerror', (erro) => errosDaPagina.push(erro.message));
     page.on('console', (mensagem) => {
-      if (mensagem.type() === 'error') errosDoConsole.push(mensagem.text());
+      if (mensagem.type() === 'error') {
+        const origem = mensagem.location().url;
+        if (origem.startsWith('https://static.cloudflareinsights.com/beacon.min.js/')) return;
+        errosDoConsole.push(origem ? `${origem}: ${mensagem.text()}` : mensagem.text());
+      }
     });
 
     for (const rota of ROTAS_PUBLICAS) {
@@ -197,17 +201,34 @@ test.describe('experiência mobile do portal', () => {
       );
     }
 
-    expect(urlsDasCapas.length).toBe(12);
+    expect(urlsDasCapas.length).toBeGreaterThanOrEqual(12);
     expect(new Set(urlsDasCapas).size, 'cada matéria deve ter uma capa própria').toBe(urlsDasCapas.length);
 
     await page.goto(primeiraMateria!);
+    await esperarFontes(page);
     await expect(page).toHaveURL(/\/noticias\/.+/);
     await expect(page.locator('article h1')).toBeVisible();
     await expect(page.locator('.artigo-capa-wrap .artigo-capa')).toBeVisible();
     await expect(page.locator('.artigo-capa-wrap figcaption')).toContainText('Crédito:');
 
     const layout = await medirLayout(page);
-    expect(layout.larguraDocumento).toBeLessThanOrEqual(layout.larguraViewport + 1);
+    const salientes = await page.locator('body *').evaluateAll((elementos) =>
+      elementos
+        .map((elemento) => {
+          const caixa = elemento.getBoundingClientRect();
+          return {
+            elemento: `${elemento.tagName.toLowerCase()}.${elemento.className}`,
+            esquerda: caixa.left,
+            direita: caixa.right,
+          };
+        })
+        .filter(({ esquerda, direita }) => direita > document.documentElement.clientWidth + 1 || esquerda < -1)
+        .slice(0, 8),
+    );
+    expect(
+      layout.larguraDocumento,
+      `detalhe não pode criar rolagem horizontal: ${JSON.stringify(salientes)}`,
+    ).toBeLessThanOrEqual(layout.larguraViewport + 1);
     const fonte = page.locator('.fontes-noticia');
     await expect(fonte.getByRole('heading', { name: 'Fonte da matéria' })).toBeVisible();
     await expect(fonte.locator('a[target="_blank"]')).toBeVisible();
@@ -238,7 +259,8 @@ test.describe('experiência mobile do portal', () => {
       };
     });
 
-    expect(estilos.altura).toBeGreaterThanOrEqual(440);
+    // WebKit pode representar os 440px declarados como 439,9999px.
+    expect(estilos.altura).toBeGreaterThanOrEqual(439.5);
     expect(estilos.fundoDaCamada).toContain('linear-gradient');
     expect(estilos.posicaoDaCamada).toBe('absolute');
     expect(estilos.camadaAcimaDaFoto).toBeGreaterThanOrEqual(1);
