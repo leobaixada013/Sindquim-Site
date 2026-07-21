@@ -1,5 +1,10 @@
 # Histórico de versões
 
+## 1.5.2 — 2026-07-21
+
+- Corrige a permissão de leitura das datas de criação e atualização usadas pela lista editorial.
+- Mantém esses campos de sistema somente para leitura e cobre o contrato completo do painel no teste de integração.
+
 ## 1.5.1 — 2026-07-21
 
 - Corrige login e formulários administrativos quando o Cloudflare Tunnel reescreve o `Host` interno.

@@ -2,7 +2,7 @@
 
 Portal institucional em Astro 7 com Directus 11 e PostgreSQL 17. A central Astro oferece um editor guiado de notícias; o Directus permanece como CMS, autenticação e fonte oficial dos dados.
 
-Release atual: **1.5.1**.
+Release atual: **1.5.2**.
 
 O projeto não possui módulo público de editais, documentos, acordos ou convenções. A área jurídica é informativa e editável, mas a triagem preserva aviso de privacidade, consentimento, controles de acesso e anexos privados.
 

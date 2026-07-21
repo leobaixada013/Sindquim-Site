@@ -132,6 +132,22 @@ async function principal() {
     corpo: { status: 'published' },
   });
   if (publicado.status !== 'published' || !publicado.publicado_em) throw new Error('Publicação editorial não registrou data.');
+  const camposPainel = [
+    'id', 'status', 'titulo', 'slug', 'resumo', 'conteudo', 'imagem', 'imagem_alt',
+    'imagem_legenda', 'imagem_credito', 'fonte_nome', 'fonte_url', 'empresa', 'cidade',
+    'data_fato', 'youtube_url', 'fixado_banner', 'publicado_em', 'agendado_para',
+    'date_created', 'date_updated', 'categoria.id', 'categoria.nome', 'categoria.slug',
+    'galeria.id', 'galeria.post', 'galeria.ordem', 'galeria.imagem',
+    'galeria.texto_alternativo', 'galeria.legenda', 'galeria.credito',
+  ].join(',');
+  const leituraPainel = await requisitar(
+    'GET',
+    `/items/posts/${post.id}?fields=${encodeURIComponent(camposPainel)}`,
+    { token: TOKEN_EDITOR },
+  );
+  if (!leituraPainel.date_created || !leituraPainel.date_updated) {
+    throw new Error('Editor não conseguiu ler as datas necessárias para a lista de notícias.');
+  }
   await requisitar('DELETE', `/items/posts/${post.id}`, { token: TOKEN_EDITOR, status: 403 });
 
   const nomeDiretor = `${PREFIXO} integrante da diretoria`;

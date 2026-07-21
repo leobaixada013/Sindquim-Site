@@ -753,12 +753,13 @@ async function garantirRoleEditor(pastaPublicaId) {
   });
 
   const camposPost = ['id', 'essencial', 'complementos', 'publicacao', 'status', 'titulo', 'slug', 'resumo', 'conteudo', 'imagem', 'imagem_alt', 'imagem_legenda', 'imagem_credito', 'categoria', 'galeria', 'fonte_nome', 'fonte_url', 'empresa', 'cidade', 'data_fato', 'youtube_url', 'publicado_em', 'agendado_para', 'fixado_banner'];
+  const camposPostLeitura = [...camposPost, 'date_created', 'date_updated'];
   const validacaoPost = { _or: [
     { status: { _neq: 'published' } },
     { _and: [{ titulo: { _nnull: true } }, { conteudo: { _nnull: true } }, { imagem: { _nnull: true } }, { imagem_alt: { _nnull: true } }] },
   ] };
   for (const acao of ['create', 'read', 'update']) {
-    await garantirPermissao(politica.id, 'posts', acao, { fields: camposPost, validation: acao === 'read' ? {} : validacaoPost, presets: acao === 'create' ? { status: 'draft' } : null });
+    await garantirPermissao(politica.id, 'posts', acao, { fields: acao === 'read' ? camposPostLeitura : camposPost, validation: acao === 'read' ? {} : validacaoPost, presets: acao === 'create' ? { status: 'draft' } : null });
     await garantirPermissao(politica.id, 'posts_galeria', acao, { fields: ['id', 'post', 'ordem', 'imagem', 'texto_alternativo', 'legenda', 'credito'] });
   }
   await garantirPermissao(politica.id, 'posts_galeria', 'delete', {
