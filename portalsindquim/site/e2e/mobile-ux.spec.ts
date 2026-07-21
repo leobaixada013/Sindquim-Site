@@ -213,6 +213,40 @@ test.describe('experiência mobile do portal', () => {
     await expect(fonte.locator('a[target="_blank"]')).toBeVisible();
   });
 
+  test('notícia em destaque mantém contraste sobre qualquer fotografia', async ({ page }) => {
+    await esperarPagina(page, '/');
+    await esperarRevelacoes(page);
+
+    const destaque = page.locator('.featured-post');
+    await expect(destaque).toBeVisible();
+    await expect(destaque.locator('.post-image')).toBeVisible();
+    await expect(destaque.locator('.post-body h3')).toBeVisible();
+
+    const estilos = await destaque.evaluate((elemento) => {
+      const corpo = elemento.querySelector<HTMLElement>('.post-body')!;
+      const titulo = elemento.querySelector<HTMLElement>('.post-body h3 a')!;
+      const camada = getComputedStyle(elemento, '::after');
+      const caixa = elemento.getBoundingClientRect();
+      return {
+        altura: caixa.height,
+        fundoDaCamada: camada.backgroundImage,
+        posicaoDaCamada: camada.position,
+        camadaAcimaDaFoto: Number.parseInt(camada.zIndex, 10),
+        corpoAcimaDaCamada: Number.parseInt(getComputedStyle(corpo).zIndex, 10),
+        corDoTitulo: getComputedStyle(titulo).color,
+        sombraDoTexto: getComputedStyle(corpo).textShadow,
+      };
+    });
+
+    expect(estilos.altura).toBeGreaterThanOrEqual(440);
+    expect(estilos.fundoDaCamada).toContain('linear-gradient');
+    expect(estilos.posicaoDaCamada).toBe('absolute');
+    expect(estilos.camadaAcimaDaFoto).toBeGreaterThanOrEqual(1);
+    expect(estilos.corpoAcimaDaCamada).toBeGreaterThan(estilos.camadaAcimaDaFoto);
+    expect(estilos.corDoTitulo).toBe('rgb(255, 255, 255)');
+    expect(estilos.sombraDoTexto).not.toBe('none');
+  });
+
   test('conteúdo continua disponível com redução de movimento', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await esperarPagina(page, '/');

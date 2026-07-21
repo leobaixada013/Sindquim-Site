@@ -349,12 +349,25 @@ button, input, textarea { font: inherit; }
 .featured-post {
   grid-area: destaque;
   display: grid;
-  grid-template-rows: 260px auto;
+  position: relative;
+  min-height: clamp(440px, 46vw, 620px);
+  isolation: isolate;
   border-radius: var(--raio);
   overflow: hidden;
-  background: var(--papel);
+  color: #fff;
+  background: var(--tinta-950);
   box-shadow: var(--sombra-suave);
   transition: transform var(--dur) ease, box-shadow var(--dur) ease;
+}
+.featured-post::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(20, 18, 42, 0.04) 8%, rgba(20, 18, 42, 0.38) 48%, rgba(20, 18, 42, 0.96) 100%),
+    linear-gradient(90deg, rgba(20, 18, 42, 0.52) 0%, rgba(20, 18, 42, 0.12) 72%);
 }
 .featured-post:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
 .post-grid {
@@ -380,8 +393,32 @@ button, input, textarea { font: inherit; }
   object-fit: cover;
   background: linear-gradient(135deg, var(--tinta-800), var(--aco-600));
 }
-.featured-post .post-image { height: 100%; }
+.featured-post .post-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: 100%;
+}
 .post-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.featured-post .post-body {
+  position: relative;
+  z-index: 2;
+  align-self: end;
+  width: min(100%, 980px);
+  padding: clamp(26px, 4vw, 52px);
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.64);
+}
+.featured-post .post-body h3 a,
+.featured-post .post-body h3 a:hover { color: #fff; }
+.featured-post .post-body p {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+}
+.featured-post .post-meta { color: rgba(255, 255, 255, 0.84); }
+.featured-post .post-meta span { color: #ff777b; }
+.featured-post .text-link { color: #fff; }
+.featured-post .text-link:hover { color: #ffb5b7; }
 .post-body h3 { margin: 0; }
 .post-body h3 a:hover { color: var(--vermelho-600); }
 .post-body p {
