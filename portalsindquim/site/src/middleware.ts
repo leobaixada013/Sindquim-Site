@@ -2,14 +2,26 @@ import { defineMiddleware } from 'astro:middleware';
 import { ADMIN_TOKEN_COOKIE } from './lib/auth';
 import { validarOrigemAdmin, validarTokenCsrf, obterOuCriarSegredoCsrf } from './lib/adminSecurity';
 
-const ROTAS_PUBLICAS_ADMIN = new Set(['/admin/login', '/api/admin/login']);
+const PAGINA_LOGIN = '/admin/login';
+const API_LOGIN = '/api/admin/login';
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const { pathname } = context.url;
   const rotaAdmin = pathname === '/admin' || pathname.startsWith('/admin/');
   const apiAdmin = pathname.startsWith('/api/admin/');
 
-  if ((!rotaAdmin && !apiAdmin) || ROTAS_PUBLICAS_ADMIN.has(pathname)) {
+  if ((!rotaAdmin && !apiAdmin) || pathname === PAGINA_LOGIN) {
+    return next();
+  }
+
+  const sitePublico = process.env.PUBLIC_SITE_URL ?? import.meta.env.PUBLIC_SITE_URL;
+  if (pathname === API_LOGIN) {
+    if (!validarOrigemAdmin(context.request, sitePublico)) {
+      return new Response(JSON.stringify({ erro: 'Origem não autorizada.' }), {
+        status: 403,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
     return next();
   }
 
@@ -31,7 +43,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   if (apiAdmin) {
     // 1. Validar a origem da requisição
-    if (!validarOrigemAdmin(context.request)) {
+    if (!validarOrigemAdmin(context.request, sitePublico)) {
       return new Response(JSON.stringify({ erro: 'Origem não autorizada.' }), {
         status: 403,
         headers: { 'Content-Type': 'application/json' },

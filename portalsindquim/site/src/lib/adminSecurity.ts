@@ -50,7 +50,7 @@ export function validarTokenCsrf(cookies: CookieStore, tokenEnviado: string | nu
   return tokenEnviado === tokenEsperado;
 }
 
-export function validarOrigemAdmin(request: Request): boolean {
+export function validarOrigemAdmin(request: Request, urlPublica?: string): boolean {
   const method = request.method;
 
   // Apenas mutações importam para proteção CSRF/Origin
@@ -59,14 +59,22 @@ export function validarOrigemAdmin(request: Request): boolean {
   }
 
   const origin = request.headers.get('origin');
-  const host = request.headers.get('host'); // Astro usa node adaptors, host é confiável
+  const host = request.headers.get('host');
+  const hostsPermitidos = new Set([host].filter(Boolean));
+  if (urlPublica) {
+    try {
+      hostsPermitidos.add(new URL(urlPublica).host);
+    } catch {
+      return false;
+    }
+  }
 
   // 1. Origin header é a defesa primária
   if (origin) {
     try {
       const originUrl = new URL(origin);
       // Confirma que a origem bate com o host (domain + port) acessado
-      return originUrl.host === host;
+      return hostsPermitidos.has(originUrl.host);
     } catch {
       return false;
     }
@@ -77,7 +85,7 @@ export function validarOrigemAdmin(request: Request): boolean {
   if (referer) {
     try {
       const refererUrl = new URL(referer);
-      return refererUrl.host === host;
+      return hostsPermitidos.has(refererUrl.host);
     } catch {
       return false;
     }

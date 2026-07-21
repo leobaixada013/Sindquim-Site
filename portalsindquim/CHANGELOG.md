@@ -1,5 +1,10 @@
 # Histórico de versões
 
+## 1.5.1 — 2026-07-21
+
+- Corrige login e formulários administrativos quando o Cloudflare Tunnel reescreve o `Host` interno.
+- Mantém a proteção de origem usando o domínio público configurado e os tokens CSRF do painel.
+
 ## 1.5.0 — 2026-07-21
 
 - Novo editor de notícias dentro da central Astro, organizado em quatro etapas curtas.
