@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import { getDiretores, urlImagem } from '../lib/directus';
+
+const diretores = await getDiretores();
+const nomesGrupos = {
+  'diretoria-executiva': 'Diretoria executiva',
+  'conselho-fiscal': 'Conselho fiscal',
+  suplencia: 'Suplência',
+  representacao: 'Representação junto à federação',
+} as const;
+const ordemGrupos = Object.keys(nomesGrupos) as Array<keyof typeof nomesGrupos>;
+const grupos = ordemGrupos
+  .map((chave) => ({
+    chave,
+    titulo: nomesGrupos[chave],
+    pessoas: diretores.filter((diretor) => (diretor.grupo ?? 'diretoria-executiva') === chave),
+  }))
+  .filter((grupo) => grupo.pessoas.length > 0);
+const iniciais = (nome: string) => nome.split(/\s+/).filter(Boolean).slice(0, 2).map((parte) => parte[0]).join('').toUpperCase();
+const formatarMesAno = (data: string) => new Intl.DateTimeFormat('pt-BR', {
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+}).format(new Date(`${data}T12:00:00Z`));
+---
+
+<Base titulo="Diretoria" descricao="Conheça a diretoria do Sindicato dos Químicos da Baixada Santista.">
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="rotulo">Quem faz o sindicato</p>
+          <h1>Diretoria</h1>
+          <p class="diretoria-intro">Pessoas eleitas para representar, organizar e defender os trabalhadores da categoria na Baixada Santista.</p>
+        </div>
+      </div>
+
+      {grupos.length > 0 ? (
+        <div class="diretoria-secoes">
+          {grupos.map((grupo) => (
+            <section class="diretoria-grupo" aria-labelledby={`grupo-${grupo.chave}`}>
+              <h2 id={`grupo-${grupo.chave}`}>{grupo.titulo}</h2>
+              <div class="diretoria-grid">
+                {grupo.pessoas.map((diretor) => (
+                  <article class="diretor-card">
+                    {diretor.foto ? (
+                      <img src={urlImagem(diretor.foto, { largura: 500, altura: 500 })} alt={`Foto de ${diretor.nome}`} loading="lazy" />
+                    ) : (
+                      <span class="diretor-card__iniciais" aria-hidden="true">{iniciais(diretor.nome)}</span>
+                    )}
+                    <div class="diretor-card__texto">
+                      <strong>{diretor.nome}</strong>
+                      {diretor.cargo && <small>{diretor.cargo}</small>}
+                      {diretor.descricao && <p>{diretor.descricao}</p>}
+                      {(diretor.mandato_inicio || diretor.mandato_fim) && (
+                        <p class="diretor-card__mandato">
+                          {diretor.mandato_inicio && diretor.mandato_fim
+                            ? `Mandato: ${formatarMesAno(diretor.mandato_inicio)} a ${formatarMesAno(diretor.mandato_fim)}`
+                            : diretor.mandato_inicio
+                              ? `Gestão iniciada em ${formatarMesAno(diretor.mandato_inicio)}`
+                              : `Mandato até ${formatarMesAno(diretor.mandato_fim!)}`}
+                        </p>
+                      )}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      ) : (
+        <p class="vazio">Os membros da diretoria cadastrados no painel aparecem aqui.</p>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .diretoria-intro { max-width: 46rem; margin: 12px 0 0; color: var(--texto-suave); font-size: 1.08rem; }
+  .diretoria-secoes { display: grid; gap: 46px; }
+  .diretoria-grupo h2 { margin-bottom: 20px; }
+  .diretor-card__iniciais {
+    display: grid;
+    width: 92px;
+    height: 92px;
+    flex: 0 0 92px;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--tinta-800), var(--aco-600));
+    color: white;
+    font-family: var(--fonte-titulo);
+    font-size: 1.7rem;
+    font-weight: 850;
+    letter-spacing: .04em;
+  }
+  .diretor-card__texto { min-width: 0; }
+  .diretor-card__texto p { margin: 12px 0 0; color: var(--texto-suave); font-size: .92rem; }
+  .diretor-card__texto .diretor-card__mandato { font-size: .8rem; font-weight: 700; }
+</style>

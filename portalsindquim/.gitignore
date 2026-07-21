@@ -1,0 +1,10 @@
+.DS_Store
+backups/
+deploy/.env
+site/.env
+site/.astro/
+site/dist/
+site/node_modules/
+site/coverage/
+site/playwright-report/
+site/test-results/
