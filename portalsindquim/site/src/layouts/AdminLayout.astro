@@ -34,7 +34,6 @@ if (!logoUrl) {
 }
 
 const caminhoAtual = Astro.url.pathname.replace(/\/$/, '') || '/admin';
-const directusPublico = (process.env.PUBLIC_DIRECTUS_URL ?? import.meta.env.PUBLIC_DIRECTUS_URL ?? 'http://localhost:8055').replace(/\/$/, '');
 const nomeUsuario = [usuario.first_name, usuario.last_name].filter(Boolean).join(' ') || usuario.email || 'Usuário';
 const roleUsuario = typeof usuario.role === 'object' && usuario.role ? String(usuario.role.name ?? '') : '';
 const administrador = usuarioAdminSistema(usuario);
@@ -51,8 +50,8 @@ const nav = [
   { href: '/admin', rotulo: 'Início', icone: '⌂', mostrar: true },
   { href: '/admin/noticias', rotulo: 'Notícias', icone: 'N', mostrar: editor },
   { href: '/admin/podcast', rotulo: 'Podcast', icone: '▶', mostrar: editor },
-  { href: `${directusPublico}/admin/content/beneficios`, rotulo: 'Benefícios', icone: 'B', mostrar: editor, externo: true },
-  { href: `${directusPublico}/admin/content/pagina_juridico`, rotulo: 'Página Jurídico', icone: 'J', mostrar: editor, externo: true },
+  { href: '/admin/beneficios', rotulo: 'Benefícios', icone: 'B', mostrar: editor },
+  { href: '/admin/pagina-juridico', rotulo: 'Página Jurídico', icone: 'J', mostrar: editor },
   { href: '/admin/juridico', rotulo: 'Atendimentos', icone: '§', mostrar: juridico },
   { href: '/admin/settings', rotulo: 'Usuários e ajustes', icone: '⚙', mostrar: administrador },
 ].filter((item) => item.mostrar);
@@ -83,11 +82,11 @@ const nav = [
           </span>
         </a>
 
-        <nav class="admin-nav">
+        <nav class="admin-nav" aria-label="Navegação administrativa">
           {nav.map((item) => {
-            const ativo = caminhoAtual === item.href || (!item.externo && item.href !== '/admin' && caminhoAtual.startsWith(`${item.href}/`));
+            const ativo = caminhoAtual === item.href || (item.href !== '/admin' && caminhoAtual.startsWith(`${item.href}/`));
             return (
-              <a href={item.href} aria-current={ativo ? 'page' : undefined} rel={item.externo ? 'noopener' : undefined}>
+              <a href={item.href} aria-current={ativo ? 'page' : undefined}>
                 <span class="admin-nav__icon" aria-hidden="true">{item.icone}</span>
                 <span>{item.rotulo}</span>
               </a>

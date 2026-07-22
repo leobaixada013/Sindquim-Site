@@ -1,16 +1,16 @@
 # Graph Report - Sindquim-Site-release-v1.4  (2026-07-21)
 
 ## Corpus Check
-- 267 files · ~1,664,784 words
+- 272 files · ~1,666,826 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2671 nodes · 3649 edges · 444 communities (236 shown, 208 thin omitted)
+- 2696 nodes · 3739 edges · 446 communities (237 shown, 209 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 13 edges (avg confidence: 0.61)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c9f5c9b0`
+- Built from commit: `adc9fe79`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -418,18 +418,19 @@
 - playwright.config.ts
 - lite-youtube-embed
 - nodemailer
+- criarInscricaoNewsletter
 
 ## God Nodes (most connected - your core abstractions)
-1. `tokenAdmin()` - 34 edges
-2. `criarClienteAdmin()` - 31 edges
-3. `limparSessaoAdmin()` - 29 edges
-4. `erroAutenticacaoExpirada()` - 28 edges
+1. `tokenAdmin()` - 40 edges
+2. `criarClienteAdmin()` - 36 edges
+3. `limparSessaoAdmin()` - 35 edges
+4. `erroAutenticacaoExpirada()` - 34 edges
 5. `POST()` - 27 edges
 6. `tokenAdmin()` - 27 edges
 7. `Plano de Implementação — Publicação de Notícias Intuitiva no Directus` - 26 edges
-8. `../../layouts/AdminLayout.astro` - 24 edges
-9. `../../layouts/Base.astro` - 24 edges
-10. `comCache()` - 24 edges
+8. `../../layouts/AdminLayout.astro` - 25 edges
+9. `exigirAcessoEditorial()` - 25 edges
+10. `../../layouts/Base.astro` - 24 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Home Page Mockup` --conceptually_related_to--> `WordPress Front Page Template`  [INFERRED]
@@ -440,13 +441,13 @@
   styles.css → wp-content/themes/sindicato/assets/css/main.css
 - `AdminSettingsData` --references--> `ConfiguracoesGlobais`  [EXTRACTED]
   portalsindquim/site/src/lib/auth.ts → portalsindquim/site/src/lib/tipos.ts
-- `AdminDashboardData` --references--> `PostSocial`  [EXTRACTED]
+- `AdminDashboardData` --references--> `ChamadoJuridico`  [EXTRACTED]
   portalsindquim/site/src/lib/auth.ts → portalsindquim/site/src/lib/tipos.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (444 total, 208 thin omitted)
+## Communities (446 total, 209 thin omitted)
 
 ### Community 0 - "Design System and Typography"
 Cohesion: 0.31
@@ -461,8 +462,8 @@ Cohesion: 0.04
 Nodes (45): 10.1 Viewports mínimos, 10.2 Cenários públicos, 10.3 Cenários administrativos, 10.4 Automação recomendada, 10. Plano responsivo e E2E, 11. Sequência de implementação com gates, 12. Definição de pronto desta frente, 1. Parecer executivo (+37 more)
 
 ### Community 3 - "Documents and Contact Templates"
-Cohesion: 0.08
-Nodes (32): AdminSettingsData, AdminSocialData, CAMPOS_POST, cliente, CONFIGURACOES_GLOBAIS_PADRAO, criarInscricaoNewsletter(), criarMensagemContato(), FILTRO_AVISO_VIGENTE (+24 more)
+Cohesion: 0.09
+Nodes (29): AdminSocialData, CAMPOS_POST, cliente, CONFIGURACOES_GLOBAIS_PADRAO, criarMensagemContato(), FILTRO_AVISO_VIGENTE, JURIDICO_CAMPOS_FORMULARIO_PADRAO, JURIDICO_DIREITOS_PADRAO (+21 more)
 
 ### Community 4 - "Notice Custom Post Type"
 Cohesion: 0.05
@@ -473,20 +474,20 @@ Cohesion: 0.15
 Nodes (13): Sindicato Logo, Área do Associado Section, Avisos Section, Benefícios Section, Contato Section, Convenções Section, Filie-se Section, Home Page Mockup (+5 more)
 
 ### Community 7 - "Contact Settings Configuration"
-Cohesion: 0.15
-Nodes (27): atualizarFotoGaleriaAdmin(), atualizarNoticiaAdmin(), criarFotoGaleriaAdmin(), criarNoticiaAdmin(), getAdminNoticia(), removerFotoGaleriaAdmin(), AcaoEditorial, DadosValidacaoEditorial (+19 more)
+Cohesion: 0.13
+Nodes (37): atualizarFotoGaleriaAdmin(), atualizarNoticiaAdmin(), atualizarPodcastConfigAdmin(), atualizarProximoPodcastAdmin(), criarFotoGaleriaAdmin(), criarNoticiaAdmin(), criarProximoPodcastAdmin(), enviarImagemEditorialAdmin() (+29 more)
 
 ### Community 8 - "Episode Settings Management"
 Cohesion: 0.08
 Nodes (24): Analytics e Social Media, `avisos`, `cards_instagram`, `categorias`, Coleções, `configuracoes`, Conteúdo de exemplo, Conteúdo no Directus (+16 more)
 
 ### Community 9 - "Knowledge Graph Tooling"
-Cohesion: 0.16
-Nodes (25): atualizarStatusUsuarioAdmin(), convidarUsuarioAdmin(), criarPostSocialAdmin(), enviarLogoConfiguracoesAdmin(), erroAutenticacaoExpirada(), limparSessaoAdmin(), listarUsuariosAdmin(), obterAssetEditorialAdmin() (+17 more)
+Cohesion: 0.10
+Nodes (37): atualizarConfiguracoesGlobaisAdmin(), atualizarStatusUsuarioAdmin(), convidarUsuarioAdmin(), criarPostSocialAdmin(), enviarLogoConfiguracoesAdmin(), erroAutenticacaoExpirada(), exigirAdminSistema(), getAdminSettingsData() (+29 more)
 
 ### Community 10 - "Episode List Logic"
-Cohesion: 0.09
-Nodes (21): ../../layouts/AdminLayout.astro, administrador, csrfToken, directusPublico, nav, token, getAdminUser(), usuarioAdminSistema() (+13 more)
+Cohesion: 0.11
+Nodes (19): CAMPOS_POST, cliente, CONFIGURACOES_GLOBAIS_PADRAO, FILTRO_AVISO_VIGENTE, getBeneficios(), getDiretores(), getPaginaBeneficios(), JURIDICO_DIREITOS_PADRAO (+11 more)
 
 ### Community 12 - "Notice Rendering Scripts"
 Cohesion: 0.29
@@ -497,16 +498,16 @@ Cohesion: 0.13
 Nodes (14): sindicato_contato_defaults(), sindicato_registrar_configuracoes(), sindicato_render_campo_contato(), sindicato_data_em_vigencia(), sindicato_get_aviso_urgente_ativo(), sindicato_get_avisos_rapidos_ativos(), sindicato_get_banner_ativo(), sindicato_get_contato() (+6 more)
 
 ### Community 14 - "Project Version Control"
-Cohesion: 0.09
-Nodes (32): AdminPodcastData, AdminSettingsData, AdminSocialData, NovoPostSocial, CAMPOS_POST, cliente, CONFIGURACOES_GLOBAIS_PADRAO, FILTRO_AVISO_VIGENTE (+24 more)
+Cohesion: 0.13
+Nodes (28): AdminBeneficiosData, AdminDashboardData, AdminNoticiasData, AdminPodcastData, AdminSettingsData, AdminSocialData, AdminUser, atualizarPaginaJuridicoAdmin() (+20 more)
 
 ### Community 15 - "Banner Metabox Logic"
 Cohesion: 0.17
 Nodes (16): ../../components/NoticiaCard.astro, imagem, getAvisosRapidos(), getAvisoUrgente(), getPostPorSlug(), formatarData(), formatarDataEstreia(), formatarDataLonga() (+8 more)
 
 ### Community 16 - "Social Card Post Type"
-Cohesion: 0.08
-Nodes (32): AdminDashboardData, criarInscricaoNewsletter(), criarMensagemContato(), abrirChamadoJuridico(), apenasDigitos(), assinaturaAnexoValida(), ChamadoJuridicoAdmin, criarClienteServico() (+24 more)
+Cohesion: 0.11
+Nodes (27): abrirChamadoJuridico(), apenasDigitos(), assinaturaAnexoValida(), ChamadoJuridicoAdmin, criarClienteServico(), DashboardJuridico, listarChamadosJuridicos(), mascararCpf() (+19 more)
 
 ### Community 17 - "Director Custom Post Type"
 Cohesion: 0.12
@@ -521,8 +522,8 @@ Cohesion: 0.14
 Nodes (13): Global Constraints, Task 10: Animações sutis com `prefers-reduced-motion`, Task 11: Verificação final e atualização do grafo, Task 1: Bug 8 — Aviso urgente some sem meta de prioridade, Task 2: Bugs 1+2 — Âncoras do menu quebradas fora da home, Task 3: Bug 4 — Telefone e WhatsApp tocáveis (tel:/wa.me), Task 4: Bug 3 — Cards de notícia usam a imagem destacada real, Task 5: Bug 5 — Newsletter funcional via Contact Form 7 (+5 more)
 
 ### Community 21 - "Option Management Tasks"
-Cohesion: 0.20
-Nodes (15): comCache(), Entrada, limparCache(), memoria, getConfiguracoes(), getConfiguracoesGlobais(), getJuridicoDireitos(), getJuridicoFAQ() (+7 more)
+Cohesion: 0.15
+Nodes (19): comCache(), Entrada, limparCache(), memoria, getCardsInstagram(), getConfiguracoes(), getConfiguracoesGlobais(), getJuridicoDireitos() (+11 more)
 
 ### Community 24 - "Archive Template"
 Cohesion: 0.15
@@ -573,8 +574,8 @@ Cohesion: 0.15
 Nodes (17): api(), buscarPrimeiro(), __dirname, __filename, garantirCampo(), garantirColecao(), garantirPermissao(), garantirPermissoesSocialMedia() (+9 more)
 
 ### Community 36 - "Single Post Template"
-Cohesion: 0.11
-Nodes (17): AdminNoticiasData, AdminRoleConvidavel, AdminUser, AdminUsuarioDirectus, CAMPOS_NOTICIA_ADMIN, cookieSeguro(), CookieStore, listarRolesConvidaveisAdmin() (+9 more)
+Cohesion: 0.17
+Nodes (6): AdminRoleConvidavel, AdminUsuarioDirectus, listarRolesConvidaveisAdmin(), ROLES_CONVIDAVEIS, abaSolicitada, token
 
 ### Community 37 - "Community 37"
 Cohesion: 0.04
@@ -597,8 +598,8 @@ Cohesion: 0.22
 Nodes (8): Arquitetura E Fluxo De Dados, Contexto, Estrutura De Arquivos, Fallbacks E Tratamento De Erros, Objetivo, Próximo Episódio, Teste, Unificação Podcast/YouTube Design
 
 ### Community 43 - "Community 43"
-Cohesion: 0.10
-Nodes (19): getBeneficios(), getPagina(), getPaginaBeneficios(), getPostPorSlug(), formatarDataLonga(), ATRIBUTOS_PERMITIDOS, serializarJsonLd(), TAGS_PERMITIDAS (+11 more)
+Cohesion: 0.13
+Nodes (17): getPagina(), getPostPorSlug(), formatarDataLonga(), ATRIBUTOS_PERMITIDOS, sanitizarHtmlEditorial(), serializarJsonLd(), TAGS_PERMITIDAS, urlHttpSegura() (+9 more)
 
 ### Community 44 - "Community 44"
 Cohesion: 0.09
@@ -609,8 +610,8 @@ Cohesion: 0.20
 Nodes (19): api(), aplicarBranding(), atualizarConfiguracoes(), buscarPrimeiro(), CUSTOM_CSS, __dirname, __filename, filtroNome() (+11 more)
 
 ### Community 47 - "Community 47"
-Cohesion: 0.15
-Nodes (14): CookieStore, gerarSecretoString(), gerarTokenDaString(), obterOuCriarSegredoCsrf(), tokenCsrfAtual(), validarOrigemAdmin(), validarTokenCsrf(), assetAdminUrl() (+6 more)
+Cohesion: 0.06
+Nodes (40): ../../layouts/AdminLayout.astro, administrador, csrfToken, nav, token, CookieStore, gerarSecretoString(), gerarTokenDaString() (+32 more)
 
 ### Community 48 - "Community 48"
 Cohesion: 0.25
@@ -635,7 +636,7 @@ Nodes (13): ../../layouts/AdminLayout.astro, csrfToken, nav, token, getAdminPost
 
 ### Community 54 - "Community 54"
 Cohesion: 0.13
-Nodes (11): ../../layouts/Base.astro, menuVisivel, urlCanonica, MENU, contarPosts(), getDiretores(), urlArquivo(), telefone (+3 more)
+Nodes (11): ../../layouts/Base.astro, menuVisivel, urlCanonica, MENU, contarPosts(), urlArquivo(), telefone, whatsapp (+3 more)
 
 ### Community 55 - "Community 55"
 Cohesion: 0.12
@@ -718,8 +719,8 @@ Cohesion: 0.13
 Nodes (15): scripts, astro, build, check, dev, playwright:install, preview, test (+7 more)
 
 ### Community 84 - "Community 84"
-Cohesion: 0.39
-Nodes (11): atualizarPodcastConfigAdmin(), atualizarProximoPodcastAdmin(), criarProximoPodcastAdmin(), enviarImagemEditorialAdmin(), exigirAcessoEditorial(), getAdminPodcastData(), mensagemErro(), POST() (+3 more)
+Cohesion: 0.24
+Nodes (10): criarInscricaoNewsletter(), criarMensagemContato(), Janela, janelas, permitirTentativa(), POST(), aceitaJson(), POST() (+2 more)
 
 ### Community 87 - "Community 87"
 Cohesion: 0.14
@@ -734,8 +735,8 @@ Cohesion: 0.14
 Nodes (14): 10. Plano de implementação por fases, Fase 0 — contenção, licenciamento e verdade da produção, Fase 0I — PoC opcional do Instatic, em trilha paralela, Fase 10 — corte e hypercare, Fase 1 — build reproduzível e baseline Docker, Fase 2 — fechar a exposição de dados, Fase 3 — schema aditivo e versionado, Fase 4 — UX nativa do Directus (+6 more)
 
 ### Community 90 - "Community 90"
-Cohesion: 0.27
-Nodes (11): criarClienteAdmin(), enviarLogoConfiguracoesAdmin(), getAdminSocialData(), getAdminUser(), tokenAdmin(), assetAnexoJuridicoUrl(), GET(), GET() (+3 more)
+Cohesion: 0.23
+Nodes (9): criarClienteAdmin(), getAdminDashboardData(), getAdminSocialData(), getAdminUser(), tokenAdmin(), assetAnexoJuridicoUrl(), token, GET() (+1 more)
 
 ### Community 91 - "Community 91"
 Cohesion: 0.15
@@ -758,8 +759,8 @@ Cohesion: 0.15
 Nodes (12): ✅ Fase 1: Módulo Notícias (Concluído), ⏳ Fase 2: Módulo Avisos (Próximo), ⏳ Fase 3: Módulo Benefícios, ⏳ Fase 4: Módulo Jurídico, ⏳ Fase 5: Módulo Convenções Coletivas, ⏳ Fase 6: Módulo Diretoria, ⏳ Fase 7: Filie-se e Contato, ⏳ Fase 8: A Cereja do Bolo (Home Integrada) (+4 more)
 
 ### Community 99 - "Community 99"
-Cohesion: 0.18
-Nodes (14): ../../components/NoticiaCard.astro, imagem, getAvisosRapidos(), getAvisoUrgente(), getCardsInstagram(), getPostsSociais(), getProximosVideos(), urlImagem() (+6 more)
+Cohesion: 0.33
+Nodes (8): ../../components/NoticiaCard.astro, imagem, getAvisosRapidos(), getAvisoUrgente(), formatarData(), formatarDataEstreia(), formatarDiaMes(), ../../lib/formatar
 
 ### Community 101 - "Community 101"
 Cohesion: 0.22
@@ -770,8 +771,8 @@ Cohesion: 0.15
 Nodes (12): ../../layouts/Base.astro, estadoNewsletter, menuVisivel, urlCanonica, MENU, contarPosts(), getDocumentos(), getPagina() (+4 more)
 
 ### Community 104 - "Community 104"
-Cohesion: 0.19
-Nodes (16): comCache(), Entrada, limparCache(), memoria, getConfiguracoes(), getConfiguracoesGlobais(), getJuridicoCamposFormulario(), getJuridicoDireitos() (+8 more)
+Cohesion: 0.18
+Nodes (17): comCache(), Entrada, limparCache(), memoria, getConfiguracoes(), getConfiguracoesGlobais(), getJuridicoCamposFormulario(), getJuridicoDireitos() (+9 more)
 
 ### Community 105 - "Community 105"
 Cohesion: 0.53
@@ -850,8 +851,8 @@ Cohesion: 0.26
 Nodes (14): api(), buscarMetricasInstagram(), buscarMetricasYoutube(), __dirname, extrairInstagramMediaId(), extrairYoutubeVideoId(), __filename, loginAdmin() (+6 more)
 
 ### Community 320 - "limparSessaoAdmin"
-Cohesion: 0.21
-Nodes (15): atualizarStatusUsuarioAdmin(), CookieStore, criarPostSocialAdmin(), erroAutenticacaoExpirada(), exigirAdminSistema(), limparSessaoAdmin(), listarUsuariosAdmin(), GET() (+7 more)
+Cohesion: 0.22
+Nodes (15): atualizarStatusUsuarioAdmin(), CookieStore, enviarLogoConfiguracoesAdmin(), erroAutenticacaoExpirada(), exigirAdminSistema(), limparSessaoAdmin(), listarUsuariosAdmin(), POST() (+7 more)
 
 ### Community 321 - "site/src/lib/adminSecurity.ts"
 Cohesion: 0.16
@@ -971,8 +972,8 @@ Cohesion: 0.25
 Nodes (7): exclude, extends, include, **/*, astro/tsconfigs/strict, .astro/types.d.ts, dist
 
 ### Community 350 - "Histórico de versões"
-Cohesion: 0.20
-Nodes (9): 1.4.0 — 2026-07-21, 1.5.0 — 2026-07-21, 1.5.1 — 2026-07-21, 1.5.2 — 2026-07-21, 1.6.0 — 2026-07-21, 1.6.1 — 2026-07-21, 1.7.0 — 2026-07-21, 1.8.0 — 2026-07-21 (+1 more)
+Cohesion: 0.18
+Nodes (10): 1.4.0 — 2026-07-21, 1.5.0 — 2026-07-21, 1.5.1 — 2026-07-21, 1.5.2 — 2026-07-21, 1.6.0 — 2026-07-21, 1.6.1 — 2026-07-21, 1.7.0 — 2026-07-21, 1.8.0 — 2026-07-21 (+2 more)
 
 ### Community 351 - "Conteúdo e painel Directus"
 Cohesion: 0.29
@@ -1195,8 +1196,8 @@ Cohesion: 0.13
 Nodes (8): carregarUsuarios(), escapeHtml(), logoForm, logoInput, logoPreview, tabsRoot, token, usuarios
 
 ### Community 409 - "site/src/lib/auth.ts"
-Cohesion: 0.14
-Nodes (15): AdminDashboardData, AdminUser, AdminUsuarioDirectus, cookieSeguro(), getAdminDashboardData(), loginAdmin(), NovoPostSocial, normalizarConfiguracoesGlobais() (+7 more)
+Cohesion: 0.16
+Nodes (17): AdminDashboardData, AdminSettingsData, AdminUser, AdminUsuarioDirectus, cookieSeguro(), criarPostSocialAdmin(), loginAdmin(), NovoPostSocial (+9 more)
 
 ### Community 410 - "site/src/pages/admin/juridico.astro"
 Cohesion: 0.20
@@ -1211,8 +1212,8 @@ Cohesion: 0.32
 Nodes (11): atualizarConfiguracoesGlobaisAdmin(), getAdminSettingsData(), aplicarBooleano(), booleano(), CampoBooleano, CAMPOS_BOOLEANOS, GET(), lerCorpo() (+3 more)
 
 ### Community 413 - "site/src/pages/admin/social.astro"
-Cohesion: 0.31
-Nodes (12): atualizarConfiguracoesGlobaisAdmin(), exigirAdminSistema(), getAdminSettingsData(), aplicarBooleano(), booleano(), CampoBooleano, CAMPOS_BOOLEANOS, GET() (+4 more)
+Cohesion: 0.46
+Nodes (7): atualizarPaginaBeneficiosAdmin(), salvarBeneficioAdmin(), CATEGORIAS, destino(), POST(), texto(), textoOuNulo()
 
 ### Community 414 - "5. Escopo exato da PoC"
 Cohesion: 0.67
@@ -1235,28 +1236,28 @@ Cohesion: 0.21
 Nodes (6): getCardsInstagram(), getDiretores(), getPostsSociais(), getProximosVideos(), urlImagem(), ../lib/youtube
 
 ### Community 426 - "@astryxdesign/core"
-Cohesion: 0.30
-Nodes (10): criarClienteAdmin(), exigirAcessoJuridico(), getAdminDashboardData(), getAdminNoticiasData(), assetAnexoJuridicoUrl(), listarChamadosJuridicos(), normalizarChamado(), responderChamadoJuridico() (+2 more)
+Cohesion: 0.23
+Nodes (13): criarClienteAdmin(), exigirAcessoJuridico(), getAdminDashboardData(), getAdminUser(), tokenAdmin(), usuarioAdminSistema(), assetAnexoJuridicoUrl(), admin (+5 more)
 
 ## Knowledge Gaps
-- **1340 isolated node(s):** `name`, `version`, `type`, `@directus/errors`, `type` (+1335 more)
+- **1348 isolated node(s):** `name`, `version`, `type`, `@directus/errors`, `type` (+1343 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **208 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **209 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `../../layouts/Base.astro` connect `Community 54` to `Community 99`, `criarInscricaoNewsletter`, `Community 43`, `Project Version Control`, `Option Management Tasks`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+- **Why does `Plano de Implementação — Publicação de Notícias Intuitiva no Directus` connect `Community 88` to `12. Alterações no site público`, `3. Estado atual observado`, `10. Live Preview`, `13. Retirada do editor Astro duplicado`, `15. Estrutura de scripts recomendada`, `19. Rollback`, `21. Arquivos previstos`, `6. Modelo de dados proposto`, `14. Remoção de documentos, convenções e acordos`, `7. Especificação da experiência no Data Studio`, `2026-07-21-plano-mestre-validado-docker-ux.md`, `8. Automações e validações`, `18. Deploy e cutover`, `17. Estratégia de testes`, `9. Permissões e segurança`, `Community 94`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **Why does `../../layouts/Base.astro` connect `Community 54` to `Community 99`, `criarInscricaoNewsletter`, `Episode List Logic`, `Community 43`, `Option Management Tasks`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **Why does `../../layouts/Base.astro` connect `Community 103` to `Documents and Contact Templates`, `urlImagem`, `Community 104`, `Banner Metabox Logic`, `Community 54`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **Why does `Plano de Implementação — Publicação de Notícias Intuitiva no Directus` connect `Community 88` to `12. Alterações no site público`, `3. Estado atual observado`, `10. Live Preview`, `13. Retirada do editor Astro duplicado`, `15. Estrutura de scripts recomendada`, `19. Rollback`, `21. Arquivos previstos`, `6. Modelo de dados proposto`, `14. Remoção de documentos, convenções e acordos`, `7. Especificação da experiência no Data Studio`, `2026-07-21-plano-mestre-validado-docker-ux.md`, `8. Automações e validações`, `18. Deploy e cutover`, `17. Estratégia de testes`, `9. Permissões e segurança`, `Community 94`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `type` to the rest of the system?**
-  _1340 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1348 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Banner Custom Post Type` be split into smaller, more focused modules?**
   _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._
 - **Should `YouTube API Integration` be split into smaller, more focused modules?**
   _Cohesion score 0.043478260869565216 - nodes in this community are weakly interconnected._
 - **Should `Documents and Contact Templates` be split into smaller, more focused modules?**
-  _Cohesion score 0.08412698412698413 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09475806451612903 - nodes in this community are weakly interconnected._

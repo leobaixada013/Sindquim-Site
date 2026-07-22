@@ -162,7 +162,6 @@ button, input, textarea { font: inherit; }
   gap: clamp(18px, 3vw, 40px);
   min-height: 64px;
 }
-.topbar__links { display: flex; gap: 22px; }
 .topbar a:hover { color: var(--vermelho-500); }
 .topbar__aside {
   display: flex;
@@ -171,7 +170,6 @@ button, input, textarea { font: inherit; }
   gap: 18px;
   min-width: 0;
 }
-.topbar__contatos { font-size: 0.76rem; }
 .brand--topbar { color: #fff; }
 .brand--topbar .brand__logo {
   width: 42px;
@@ -334,12 +332,30 @@ button, input, textarea { font: inherit; }
 }
 .menu-toggle {
   display: none;
-  border: 1px solid var(--linha);
-  background: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 8px;
-  padding: 9px 12px;
+  color: #fff;
   cursor: pointer;
 }
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform var(--dur) ease, opacity var(--dur) ease;
+}
+.menu-toggle[aria-expanded='true'] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded='true'] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 /* ---------- Hero: a notícia fixada é a capa do boletim ---------- */
 .hero {
@@ -1560,7 +1576,6 @@ button, input, textarea { font: inherit; }
 /* ---------- Responsivo ---------- */
 @media (max-width: 1020px) {
   .topbar__inner { grid-template-columns: minmax(200px, auto) minmax(220px, 1fr) auto; }
-  .topbar__contatos { display: none; }
   .menu { gap: clamp(18px, 3.2vw, 34px); }
   .news-layout {
     grid-template-columns: 1fr;
@@ -1586,7 +1601,10 @@ button, input, textarea { font: inherit; }
     padding: 10px 0;
   }
   .site-search { grid-column: 1 / -1; grid-row: 2; }
-  .mainnav__inner { justify-content: flex-end; min-height: 58px; }
+  .topbar__aside { gap: 8px; }
+  .social-links a { width: 38px; height: 38px; }
+  .mainnav { min-height: 0; border-bottom: 0; }
+  .mainnav__inner { justify-content: flex-end; min-height: 0; }
   .mainnav__inner > nav { width: 100%; }
   .menu {
     position: absolute;
@@ -1604,7 +1622,7 @@ button, input, textarea { font: inherit; }
   .menu[hidden] { display: none; }
   .menu li { border-top: 1px solid var(--nevoa); }
   .menu a { display: block; padding: 14px 4px; }
-  .menu-toggle { display: inline-flex; margin-left: auto; }
+  .menu-toggle { display: inline-flex; }
 }
 
 @media (max-width: 640px) {

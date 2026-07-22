@@ -17,7 +17,7 @@ import {
   uploadFiles,
 } from '@directus/sdk';
 import { normalizarConfiguracoesGlobais } from './directus';
-import type { CardInstagram, Categoria, ChamadoJuridico, Configuracoes, ConfiguracoesGlobais, Post, PostGaleria, PostSocial, ProximoVideo, SchemaDirectus } from './tipos';
+import type { Beneficio, CardInstagram, Categoria, ChamadoJuridico, Configuracoes, ConfiguracoesGlobais, PaginaBeneficios, PaginaJuridico, Post, PostGaleria, PostSocial, ProximoVideo, SchemaDirectus } from './tipos';
 
 export const ADMIN_TOKEN_COOKIE = 'admin_access_token';
 
@@ -47,6 +47,11 @@ export interface AdminSocialData {
 export interface AdminPodcastData {
   configuracoes: Configuracoes;
   proximosVideos: ProximoVideo[];
+}
+
+export interface AdminBeneficiosData {
+  pagina: PaginaBeneficios;
+  beneficios: Beneficio[];
 }
 
 export interface AdminSettingsData {
@@ -181,6 +186,58 @@ export async function getAdminNoticia(token: string, id: string | number, acesso
   return await cliente.request(readItem('posts', id as any, {
     fields: CAMPOS_NOTICIA_ADMIN,
   } as any)) as unknown as Post;
+}
+
+export async function getAdminBeneficiosData(token: string): Promise<AdminBeneficiosData> {
+  await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  const [pagina, beneficios] = await Promise.all([
+    cliente.request(readSingleton('pagina_beneficios')),
+    cliente.request(readItems('beneficios', {
+      fields: ['id', 'status', 'ordem', 'titulo', 'categoria', 'resumo', 'detalhes', 'elegibilidade', 'como_usar', 'requisitos', 'validade_inicio', 'validade_fim', 'cta_texto', 'cta_url', 'imagem', 'imagem_alt', 'destaque'],
+      sort: ['ordem', 'titulo'],
+      limit: -1,
+    })),
+  ]);
+  return {
+    pagina: pagina as PaginaBeneficios,
+    beneficios: (beneficios ?? []) as Beneficio[],
+  };
+}
+
+export async function atualizarPaginaBeneficiosAdmin(
+  token: string,
+  dados: Partial<PaginaBeneficios>,
+): Promise<PaginaBeneficios> {
+  await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  return await cliente.request(updateSingleton('pagina_beneficios', dados)) as PaginaBeneficios;
+}
+
+export async function salvarBeneficioAdmin(
+  token: string,
+  id: string | null,
+  dados: Partial<Beneficio>,
+): Promise<Beneficio> {
+  await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  if (id) return await cliente.request(updateItem('beneficios', id, dados as any)) as Beneficio;
+  return await cliente.request(createItem('beneficios', dados as any)) as Beneficio;
+}
+
+export async function getAdminPaginaJuridico(token: string): Promise<PaginaJuridico> {
+  await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  return await cliente.request(readSingleton('pagina_juridico')) as PaginaJuridico;
+}
+
+export async function atualizarPaginaJuridicoAdmin(
+  token: string,
+  dados: Partial<PaginaJuridico>,
+): Promise<PaginaJuridico> {
+  await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  return await cliente.request(updateSingleton('pagina_juridico', dados)) as PaginaJuridico;
 }
 
 export async function enviarImagemEditorialAdmin(

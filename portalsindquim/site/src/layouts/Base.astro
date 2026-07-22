@@ -18,7 +18,6 @@ const tituloFinal = titulo ? `${titulo} — ${NOME_CURTO}` : NOME_SITE;
 const [config, globais] = await Promise.all([getConfiguracoes(), getConfiguracoesGlobais()]);
 const urlCanonica = new URL(Astro.url.pathname, Astro.site);
 const caminhoAtual = Astro.url.pathname.replace(/\/$/, '') || '/';
-const linkWhatsapp = config?.whatsapp ? `https://wa.me/${config.whatsapp.replace(/\D/g, '')}` : null;
 const moduloJuridicoAtivo = globais.modulo_juridico_ativo !== false;
 const moduloYoutubeAtivo = config?.podcast_ativo === true || globais.modulo_youtube_ativo === true;
 const ambienteDemonstracao = String(process.env.PORTAL_DEMO ?? import.meta.env.PORTAL_DEMO ?? '').toLowerCase() === 'true';
@@ -83,15 +82,6 @@ const menuVisivel = MENU.filter((item) => {
         </form>
 
         <div class="topbar__aside">
-          {(config?.telefone || config?.email || linkWhatsapp) && (
-            <div class="topbar__links topbar__contatos">
-              {config?.telefone && (
-                <a href={`tel:+55${config.telefone.replace(/\D/g, '')}`}>{config.telefone}</a>
-              )}
-              {config?.email && <a href={`mailto:${config.email}`}>{config.email}</a>}
-              {linkWhatsapp && <a href={linkWhatsapp} target="_blank" rel="noopener">WhatsApp</a>}
-            </div>
-          )}
           <nav class="social-links" aria-label="Redes sociais">
             <span>Acompanhe pelas redes</span>
             {config?.instagram_url && (
@@ -105,6 +95,11 @@ const menuVisivel = MENU.filter((item) => {
               </a>
             )}
           </nav>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu principal">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
         </div>
       </div>
     </div>
@@ -112,9 +107,6 @@ const menuVisivel = MENU.filter((item) => {
     <header class="mainnav">
       <div class="container mainnav__inner">
         <nav aria-label="Menu principal">
-          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
-            Menu
-          </button>
           <ul class="menu" id="menu-principal">
             {menuVisivel.map((item) => (
               <li>
@@ -178,6 +170,7 @@ const menuVisivel = MENU.filter((item) => {
         botao.addEventListener('click', () => {
           const aberto = botao.getAttribute('aria-expanded') === 'true';
           botao.setAttribute('aria-expanded', String(!aberto));
+          botao.setAttribute('aria-label', aberto ? 'Abrir menu principal' : 'Fechar menu principal');
           menu.hidden = aberto;
         });
       }

@@ -1,0 +1,86 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { cookieSeguro, erroAutenticacaoExpirada, getAdminPaginaJuridico, limparSessaoAdmin, tokenAdmin } from '../../lib/auth';
+import { tokenCsrfAtual } from '../../lib/adminSecurity';
+
+const token = tokenAdmin(Astro.cookies);
+if (!token) return Astro.redirect('/admin/login');
+
+let pagina;
+try {
+  pagina = await getAdminPaginaJuridico(token);
+} catch (erro) {
+  if (erroAutenticacaoExpirada(erro)) {
+    limparSessaoAdmin(Astro.cookies);
+    return Astro.redirect('/admin/login?erro=sessao');
+  }
+  return Astro.redirect('/admin?erro=pagina-juridico');
+}
+
+const csrfToken = tokenCsrfAtual(Astro.cookies, cookieSeguro());
+const salvo = Astro.url.searchParams.get('salvo') === '1';
+const erro = Astro.url.searchParams.get('erro') === '1';
+---
+
+<AdminLayout titulo="Página Jurídico" subtitulo="Edite somente a comunicação pública. Privacidade, CPF, anexos e proteção dos chamados permanecem preservados.">
+  <div slot="actions"><a class="admin-button" href="/juridico" target="_blank" rel="noopener">Ver página pública</a></div>
+
+  {salvo && <p class="admin-alert admin-alert--success" role="status">Página Jurídico atualizada com sucesso.</p>}
+  {erro && <p class="admin-alert admin-alert--error" role="alert">Não foi possível salvar. Confira sua permissão e tente novamente.</p>}
+
+  <form class="admin-form juridico-editor" method="post" action="/api/admin/pagina-juridico/save">
+    <input type="hidden" name="csrf_token" value={csrfToken} />
+
+    <section class="admin-panel editor-group">
+      <div class="admin-section-title"><div><span class="admin-chip">1. Abertura</span><h2>Apresentação da página</h2></div></div>
+      <div class="editor-grid">
+        <label class="admin-field">Chamada curta<input class="admin-input" name="hero_rotulo" value={pagina.hero_rotulo ?? ''} maxlength="80" /></label>
+        <label class="admin-field editor-span-2">Título principal<input class="admin-input" name="hero_titulo" value={pagina.hero_titulo ?? ''} maxlength="180" /></label>
+        <label class="admin-field editor-span-2">Resumo<textarea class="admin-textarea" name="hero_resumo" rows="4" maxlength="700">{pagina.hero_resumo ?? ''}</textarea></label>
+        <label class="admin-field">Primeiro botão<input class="admin-input" name="hero_cta_primario_texto" value={pagina.hero_cta_primario_texto ?? ''} maxlength="80" /></label>
+        <label class="admin-field">Destino<input class="admin-input" name="hero_cta_primario_href" value={pagina.hero_cta_primario_href ?? ''} maxlength="300" /></label>
+        <label class="admin-field">Segundo botão<input class="admin-input" name="hero_cta_secundario_texto" value={pagina.hero_cta_secundario_texto ?? ''} maxlength="80" /></label>
+        <label class="admin-field">Destino<input class="admin-input" name="hero_cta_secundario_href" value={pagina.hero_cta_secundario_href ?? ''} maxlength="300" /></label>
+      </div>
+    </section>
+
+    <section class="admin-panel editor-group">
+      <div class="admin-section-title"><div><span class="admin-chip">2. Orientação</span><h2>Direitos e atendimento</h2></div></div>
+      <div class="editor-grid">
+        <label class="admin-field">Chamada dos direitos<input class="admin-input" name="direitos_rotulo" value={pagina.direitos_rotulo ?? ''} maxlength="80" /></label>
+        <label class="admin-field">Título dos direitos<input class="admin-input" name="direitos_titulo" value={pagina.direitos_titulo ?? ''} maxlength="180" /></label>
+        <label class="admin-field">Chamada do agendamento<input class="admin-input" name="agendamento_rotulo" value={pagina.agendamento_rotulo ?? ''} maxlength="80" /></label>
+        <label class="admin-field">Título do agendamento<input class="admin-input" name="agendamento_titulo" value={pagina.agendamento_titulo ?? ''} maxlength="180" /></label>
+        <label class="admin-field editor-span-2">Explicação do atendimento<textarea class="admin-textarea" name="agendamento_texto" rows="4" maxlength="1000">{pagina.agendamento_texto ?? ''}</textarea></label>
+        <label class="admin-field">Título dos horários<input class="admin-input" name="plantao_titulo" value={pagina.plantao_titulo ?? ''} maxlength="180" /></label>
+        <label class="admin-field">Título do formulário protegido<input class="admin-input" name="chamado_titulo" value={pagina.chamado_titulo ?? ''} maxlength="180" /></label>
+        <label class="admin-field editor-span-2">Resumo do formulário<textarea class="admin-textarea" name="chamado_resumo" rows="3" maxlength="700">{pagina.chamado_resumo ?? ''}</textarea></label>
+        <label class="admin-field editor-span-2">Prazo de resposta<textarea class="admin-textarea" name="chamado_prazo_texto" rows="2" maxlength="400">{pagina.chamado_prazo_texto ?? ''}</textarea></label>
+      </div>
+    </section>
+
+    <section class="admin-panel editor-group">
+      <div class="admin-section-title"><div><span class="admin-chip">3. Encerramento</span><h2>Perguntas e chamada final</h2></div></div>
+      <div class="editor-grid">
+        <label class="admin-field">Chamada das perguntas<input class="admin-input" name="faq_rotulo" value={pagina.faq_rotulo ?? ''} maxlength="80" /></label>
+        <label class="admin-field">Título das perguntas<input class="admin-input" name="faq_titulo" value={pagina.faq_titulo ?? ''} maxlength="180" /></label>
+        <label class="admin-field">Chamada final<input class="admin-input" name="cta_rotulo" value={pagina.cta_rotulo ?? ''} maxlength="80" /></label>
+        <label class="admin-field">Título final<input class="admin-input" name="cta_titulo" value={pagina.cta_titulo ?? ''} maxlength="180" /></label>
+        <label class="admin-field">Texto do botão<input class="admin-input" name="cta_link_texto" value={pagina.cta_link_texto ?? ''} maxlength="80" /></label>
+        <label class="admin-field">Destino do botão<input class="admin-input" name="cta_link_href" value={pagina.cta_link_href ?? ''} maxlength="300" /></label>
+        <label class="admin-field editor-span-2">Descrição para buscadores<textarea class="admin-textarea" name="seo_descricao" rows="3" maxlength="180">{pagina.seo_descricao ?? ''}</textarea></label>
+      </div>
+    </section>
+
+    <div class="editor-save"><button class="admin-button admin-button--primary" type="submit">Salvar página Jurídico</button></div>
+  </form>
+</AdminLayout>
+
+<style>
+  .juridico-editor { display: grid; gap: 22px; }
+  .editor-group { margin: 0; }
+  .editor-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .editor-span-2 { grid-column: 1 / -1; }
+  .editor-save { position: sticky; bottom: 18px; display: flex; justify-content: flex-end; padding: 12px; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; background: rgba(20,18,42,.92); backdrop-filter: blur(12px); }
+  @media (max-width: 760px) { .editor-grid { grid-template-columns: 1fr; } .editor-span-2 { grid-column: auto; } .editor-save .admin-button { width: 100%; } }
+</style>

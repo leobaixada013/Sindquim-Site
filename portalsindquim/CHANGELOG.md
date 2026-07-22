@@ -1,5 +1,14 @@
 # Histórico de versões
 
+## 1.9.0 — 2026-07-22
+
+- Remove telefone e e-mail da barra superior para evitar quebras e mantém esses canais na página de contato.
+- Move o menu hambúrguer para a barra superior no celular, com estados acessíveis de abrir e fechar.
+- Substitui os atalhos externos de **Benefícios** e **Página Jurídico** por editores internos da central Astro, preservando a sessão autenticada.
+- Permite editar apresentação, textos, categorias e itens de benefícios sem sair do painel do portal.
+- Permite editar a comunicação pública da página jurídica sem expor nem alterar os controles sensíveis de privacidade, CPF e anexos.
+- Adiciona teste ponta a ponta autenticado para impedir regressões de redirecionamento ao login.
+
 ## 1.8.0 — 2026-07-21
 
 - Redesenha a página de contato como uma central direta, sem formulário, com telefone, e-mail e WhatsApp.

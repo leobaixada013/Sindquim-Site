@@ -1,0 +1,120 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { cookieSeguro, erroAutenticacaoExpirada, getAdminBeneficiosData, limparSessaoAdmin, tokenAdmin } from '../../lib/auth';
+import { tokenCsrfAtual } from '../../lib/adminSecurity';
+import type { Beneficio } from '../../lib/tipos';
+
+const token = tokenAdmin(Astro.cookies);
+if (!token) return Astro.redirect('/admin/login');
+
+let dados;
+try {
+  dados = await getAdminBeneficiosData(token);
+} catch (erro) {
+  if (erroAutenticacaoExpirada(erro)) {
+    limparSessaoAdmin(Astro.cookies);
+    return Astro.redirect('/admin/login?erro=sessao');
+  }
+  return Astro.redirect('/admin?erro=beneficios');
+}
+
+const csrfToken = tokenCsrfAtual(Astro.cookies, cookieSeguro());
+const salvo = Astro.url.searchParams.get('salvo') === '1';
+const erro = Astro.url.searchParams.get('erro') === '1';
+const mensagem = Astro.url.searchParams.get('mensagem');
+const categorias = [
+  ['saude', 'Saúde'], ['educacao', 'Educação'], ['bem-estar', 'Bem-estar'],
+  ['servicos', 'Serviços'], ['outros', 'Outros'],
+] as const;
+
+const vazio: Beneficio = {
+  id: '', status: 'draft', ordem: null, titulo: '', categoria: 'servicos', resumo: '',
+  detalhes: null, elegibilidade: null, como_usar: null, requisitos: null,
+  validade_inicio: null, validade_fim: null, cta_texto: null, cta_url: null,
+  imagem: null, imagem_alt: null, destaque: false,
+};
+---
+
+<AdminLayout titulo="Benefícios" subtitulo="Edite a apresentação e as vantagens oferecidas aos associados sem sair do painel.">
+  <div slot="actions">
+    <a class="admin-button" href="/beneficios" target="_blank" rel="noopener">Ver página pública</a>
+  </div>
+
+  {salvo && <p class="admin-alert admin-alert--success" role="status">Alterações salvas. A página pública será atualizada automaticamente.</p>}
+  {erro && <p class="admin-alert admin-alert--error" role="alert">{mensagem || 'Não foi possível salvar. Tente novamente.'}</p>}
+
+  <section class="admin-panel editor-section">
+    <div class="admin-section-title">
+      <div><span class="admin-chip">Apresentação</span><h2>Textos da página</h2><p class="admin-muted">Esses textos explicam os benefícios antes da lista de vantagens.</p></div>
+    </div>
+    <form class="admin-form editor-grid" method="post" action="/api/admin/beneficios/save">
+      <input type="hidden" name="csrf_token" value={csrfToken} />
+      <input type="hidden" name="tipo" value="pagina" />
+      <label class="admin-field">Chamada curta<input class="admin-input" name="hero_rotulo" value={dados.pagina.hero_rotulo ?? ''} maxlength="80" /></label>
+      <label class="admin-field editor-span-2">Título principal<input class="admin-input" name="hero_titulo" value={dados.pagina.hero_titulo ?? ''} maxlength="180" /></label>
+      <label class="admin-field editor-span-2">Resumo principal<textarea class="admin-textarea" name="hero_resumo" rows="3" maxlength="500">{dados.pagina.hero_resumo ?? ''}</textarea></label>
+      <label class="admin-field">Título da introdução<input class="admin-input" name="introducao_titulo" value={dados.pagina.introducao_titulo ?? ''} maxlength="180" /></label>
+      <label class="admin-field">Texto da introdução<textarea class="admin-textarea" name="introducao_texto" rows="3" maxlength="800">{dados.pagina.introducao_texto ?? ''}</textarea></label>
+      <label class="admin-field">Título do aviso<input class="admin-input" name="aviso_titulo" value={dados.pagina.aviso_titulo ?? ''} maxlength="180" /></label>
+      <label class="admin-field">Texto do aviso<textarea class="admin-textarea" name="aviso_texto" rows="3" maxlength="800">{dados.pagina.aviso_texto ?? ''}</textarea></label>
+      <label class="admin-field">Título final<input class="admin-input" name="cta_titulo" value={dados.pagina.cta_titulo ?? ''} maxlength="180" /></label>
+      <label class="admin-field">Texto final<textarea class="admin-textarea" name="cta_texto" rows="3" maxlength="500">{dados.pagina.cta_texto ?? ''}</textarea></label>
+      <label class="admin-field">Texto do botão<input class="admin-input" name="cta_link_texto" value={dados.pagina.cta_link_texto ?? ''} maxlength="80" /></label>
+      <label class="admin-field">Destino do botão<input class="admin-input" name="cta_link_href" value={dados.pagina.cta_link_href ?? ''} maxlength="300" /></label>
+      <div class="editor-actions editor-span-2"><button class="admin-button admin-button--primary" type="submit">Salvar textos da página</button></div>
+    </form>
+  </section>
+
+  <section class="admin-panel editor-section">
+    <div class="admin-section-title">
+      <div><span class="admin-chip">Vantagens</span><h2>Benefícios cadastrados</h2><p class="admin-muted">Abra um cartão para corrigir informações ou publicar. Rascunhos não aparecem no site.</p></div>
+      <span class="admin-tag">{dados.beneficios.length} itens</span>
+    </div>
+
+    <div class="benefit-editor-list">
+      {[vazio, ...dados.beneficios].map((beneficio, indice) => (
+        <details class="benefit-editor" open={indice === 0}>
+          <summary>
+            <span>{indice === 0 ? '＋ Adicionar novo benefício' : beneficio.titulo}</span>
+            <small>{indice === 0 ? 'Comece por aqui' : beneficio.status === 'published' ? 'Publicado' : 'Rascunho'}</small>
+          </summary>
+          <form class="admin-form editor-grid" method="post" action="/api/admin/beneficios/save">
+            <input type="hidden" name="csrf_token" value={csrfToken} />
+            <input type="hidden" name="tipo" value="beneficio" />
+            <input type="hidden" name="id" value={beneficio.id} />
+            <label class="admin-field editor-span-2">Nome do benefício<input class="admin-input" name="titulo" value={beneficio.titulo} required maxlength="180" /></label>
+            <label class="admin-field">Situação<select class="admin-select" name="status"><option value="draft" selected={beneficio.status !== 'published'}>Rascunho</option><option value="published" selected={beneficio.status === 'published'}>Publicado</option></select></label>
+            <label class="admin-field">Categoria<select class="admin-select" name="categoria">{categorias.map(([valor, rotulo]) => <option value={valor} selected={beneficio.categoria === valor}>{rotulo}</option>)}</select></label>
+            <label class="admin-field">Ordem<input class="admin-input" type="number" name="ordem" value={beneficio.ordem ?? ''} min="0" max="999" /></label>
+            <label class="admin-check"><input type="checkbox" name="destaque" value="1" checked={beneficio.destaque} /><span>Destacar na página</span></label>
+            <label class="admin-field editor-span-2">Resumo<textarea class="admin-textarea" name="resumo" rows="3" required maxlength="500">{beneficio.resumo}</textarea></label>
+            <label class="admin-field">Detalhes<textarea class="admin-textarea" name="detalhes" rows="4" maxlength="1800">{beneficio.detalhes ?? ''}</textarea></label>
+            <label class="admin-field">Quem pode usar<textarea class="admin-textarea" name="elegibilidade" rows="4" maxlength="1000">{beneficio.elegibilidade ?? ''}</textarea></label>
+            <label class="admin-field">Como usar<textarea class="admin-textarea" name="como_usar" rows="4" maxlength="1200">{beneficio.como_usar ?? ''}</textarea></label>
+            <label class="admin-field">O que precisa levar<textarea class="admin-textarea" name="requisitos" rows="4" maxlength="1000">{beneficio.requisitos ?? ''}</textarea></label>
+            <label class="admin-field">Válido a partir de<input class="admin-input" type="date" name="validade_inicio" value={beneficio.validade_inicio?.slice(0, 10) ?? ''} /></label>
+            <label class="admin-field">Válido até<input class="admin-input" type="date" name="validade_fim" value={beneficio.validade_fim?.slice(0, 10) ?? ''} /></label>
+            <label class="admin-field">Texto do botão<input class="admin-input" name="cta_texto" value={beneficio.cta_texto ?? ''} maxlength="80" /></label>
+            <label class="admin-field">Link do botão<input class="admin-input" name="cta_url" value={beneficio.cta_url ?? ''} maxlength="500" /></label>
+            <div class="editor-actions editor-span-2"><button class="admin-button admin-button--primary" type="submit">{indice === 0 ? 'Criar benefício' : 'Salvar benefício'}</button></div>
+          </form>
+        </details>
+      ))}
+    </div>
+  </section>
+</AdminLayout>
+
+<style>
+  .editor-section + .editor-section { margin-top: 22px; }
+  .editor-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .editor-span-2 { grid-column: 1 / -1; }
+  .editor-actions { display: flex; justify-content: flex-end; }
+  .benefit-editor-list { display: grid; gap: 12px; }
+  .benefit-editor { overflow: hidden; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; background: rgba(255,255,255,.035); }
+  .benefit-editor summary { display: flex; justify-content: space-between; gap: 18px; padding: 18px; cursor: pointer; font-weight: 800; }
+  .benefit-editor summary small { color: var(--admin-muted); font-weight: 650; }
+  .benefit-editor form { padding: 4px 18px 20px; }
+  .admin-check { display: flex; align-items: center; gap: 10px; min-height: 48px; }
+  .admin-check input { width: 22px; height: 22px; }
+  @media (max-width: 760px) { .editor-grid { grid-template-columns: 1fr; } .editor-span-2 { grid-column: auto; } .editor-actions .admin-button { width: 100%; } }
+</style>

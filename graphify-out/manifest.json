@@ -510,8 +510,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1784686300.473066,
-    "ast_hash": "acf81d1d8c52f4e8860b090767a42413",
+    "mtime": 1784689070.0115726,
+    "ast_hash": "fff7e01094e461f1d77739795e23f0f0",
     "semantic_hash": ""
   },
   "docs/README.md": {
@@ -680,8 +680,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/scripts/backup.sh": {
-    "mtime": 1784686300.4737303,
-    "ast_hash": "b7607a6b7afc5eff468f81c906a66be5",
+    "mtime": 1784689070.012931,
+    "ast_hash": "55f01540f56630b1b57b0dfa30d474a4",
     "semantic_hash": ""
   },
   "portalsindquim/scripts/bootstrap-local.mjs": {
@@ -785,8 +785,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/e2e/mobile-ux.spec.ts": {
-    "mtime": 1784686218.4701471,
-    "ast_hash": "5f56bdc8b0d1a0dbc25a737a15088645",
+    "mtime": 1784688763.0950682,
+    "ast_hash": "58750d51b82a8f0ccab60fb49b3feb5c",
     "semantic_hash": ""
   },
   "portalsindquim/site/e2e/podcast-editorial.spec.ts": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/package.json": {
-    "mtime": 1784686304.9616742,
-    "ast_hash": "667660dda2eb2b7e730f9cf05e710d75",
+    "mtime": 1784689075.06391,
+    "ast_hash": "c8603d103126c7ff594624de90ea5306",
     "semantic_hash": ""
   },
   "portalsindquim/site/playwright.config.ts": {
@@ -820,13 +820,13 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/src/layouts/AdminLayout.astro": {
-    "mtime": 1784679409.0583289,
-    "ast_hash": "ca5302397bf21ce297ba6404e8bb0cc7",
+    "mtime": 1784688958.4547055,
+    "ast_hash": "ede705c137bfe8bd8e105e0fb208b4e6",
     "semantic_hash": ""
   },
   "portalsindquim/site/src/layouts/Base.astro": {
-    "mtime": 1784686128.1583362,
-    "ast_hash": "7931aeaf32644e7fa4d633086bf0525d",
+    "mtime": 1784688500.1234505,
+    "ast_hash": "b176c060aee66a3980504fed0732cd49",
     "semantic_hash": ""
   },
   "portalsindquim/site/src/lib/adminSecurity.test.ts": {
@@ -840,8 +840,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/src/lib/auth.ts": {
-    "mtime": 1784680135.3539195,
-    "ast_hash": "e5ef624f860c3af8c1ccc2878b108a1d",
+    "mtime": 1784688520.6299129,
+    "ast_hash": "446ec606d4e9e2c5e0fa1d95e734d706",
     "semantic_hash": ""
   },
   "portalsindquim/site/src/lib/cache.ts": {
@@ -945,8 +945,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/src/pages/admin/index.astro": {
-    "mtime": 1784679665.8296473,
-    "ast_hash": "eea2b6ee5198deaa5306eb8b708484a3",
+    "mtime": 1784688691.2368097,
+    "ast_hash": "e6dec42774afbed7fa2c3587e1c7ac05",
     "semantic_hash": ""
   },
   "portalsindquim/site/src/pages/admin/juridico.astro": {
@@ -1195,8 +1195,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/CHANGELOG.md": {
-    "mtime": 1784686300.4739249,
-    "ast_hash": "2cc4720114f574488500fa561bd7a8f8",
+    "mtime": 1784689070.0131528,
+    "ast_hash": "6944355512058aad881f5be7ea9ef052",
     "semantic_hash": ""
   },
   "portalsindquim/CLAUDE.md": {
@@ -1225,8 +1225,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/README.md": {
-    "mtime": 1784686300.4733357,
-    "ast_hash": "16d1277ecfad27f6ba8799b3931fdca7",
+    "mtime": 1784689070.0123599,
+    "ast_hash": "df54f6d6d159b40cb40301fde082e411",
     "semantic_hash": ""
   },
   "portalsindquim/assets/noticias/README.md": {
@@ -1240,8 +1240,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/deploy/docker-compose.yml": {
-    "mtime": 1784686300.4735432,
-    "ast_hash": "bfc9113148e3c81fc9f05704e910bb66",
+    "mtime": 1784689070.0127058,
+    "ast_hash": "83f224c871d4ecb7829d5c4a026ad33e",
     "semantic_hash": ""
   },
   "portalsindquim/deploy/override-rede-tunnel.yml": {
@@ -1682,6 +1682,31 @@
   "portalsindquim/site/src/pages/buscar.astro": {
     "mtime": 1784684687.3127427,
     "ast_hash": "be9101161c2659270022450c8d66cd01",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/e2e/admin-navigation.spec.ts": {
+    "mtime": 1784688763.095326,
+    "ast_hash": "b067309ff424c39d3e30a31914db3766",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/admin/beneficios.astro": {
+    "mtime": 1784688730.26154,
+    "ast_hash": "6dd36d4188ac33938c3446ea988f0872",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/admin/pagina-juridico.astro": {
+    "mtime": 1784688730.2618525,
+    "ast_hash": "5900993925a5e9cdd4f54f2dca5c32de",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/beneficios/save.ts": {
+    "mtime": 1784688558.1843705,
+    "ast_hash": "a6bd623c60780b20267382b8a27640e0",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/pagina-juridico/save.ts": {
+    "mtime": 1784688558.1846747,
+    "ast_hash": "39e1a5d98b445cfd56d39322d5090a3e",
     "semantic_hash": ""
   }
 }

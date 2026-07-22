@@ -82,7 +82,10 @@ test.describe('experiência mobile do portal', () => {
     const menu = page.locator('#menu-principal');
 
     await expect(botao).toBeVisible();
+    await expect(page.locator('.topbar').locator('.menu-toggle')).toHaveCount(1);
+    await expect(page.locator('.mainnav').locator('.menu-toggle')).toHaveCount(0);
     await expect(botao).toHaveAttribute('aria-expanded', 'false');
+    await expect(botao).toHaveAttribute('aria-label', 'Abrir menu principal');
     await expect(menu).toBeHidden();
 
     const caixaBotao = await botao.boundingBox();
@@ -91,6 +94,7 @@ test.describe('experiência mobile do portal', () => {
 
     await botao.click();
     await expect(botao).toHaveAttribute('aria-expanded', 'true');
+    await expect(botao).toHaveAttribute('aria-label', 'Fechar menu principal');
     await expect(menu).toBeVisible();
 
     const textos = await menu.locator('a').allTextContents();
@@ -130,6 +134,8 @@ test.describe('experiência mobile do portal', () => {
     await expect(redes.getByRole('link', { name: 'YouTube' })).toBeVisible();
     await expect(redes.getByRole('link', { name: 'Instagram' })).toHaveClass(/social-links__instagram/);
     await expect(redes.getByRole('link', { name: 'YouTube' })).toHaveClass(/social-links__youtube/);
+    await expect(page.locator('.topbar a[href^="tel:"]')).toHaveCount(0);
+    await expect(page.locator('.topbar a[href^="mailto:"]')).toHaveCount(0);
   });
 
   test('contato prioriza canais diretos, mapa e não exibe formulários removidos', async ({ page }) => {
