@@ -1,0 +1,125 @@
+---
+import 'lite-youtube-embed/src/lite-yt-embed.css';
+import { getConfiguracoes, getConfiguracoesGlobais, getProximosVideos, urlImagem } from '../lib/directus';
+import { formatarDataEstreia } from '../lib/formatar';
+import { criarUrlPlaylistUploads, getVideosYoutube } from '../lib/youtube';
+import { YoutubeLogoIcon } from '@phosphor-icons/react/ssr';
+
+const [config, globais, proximos, videos] = await Promise.all([
+  getConfiguracoes(),
+  getConfiguracoesGlobais(),
+  getProximosVideos(),
+  getVideosYoutube(5),
+]);
+
+const podcastAtivo = config?.podcast_ativo === true || globais.modulo_youtube_ativo === true;
+const canalUrl = podcastAtivo ? config?.youtube_url ?? null : null;
+const proximo = podcastAtivo ? proximos[0] ?? null : null;
+const destaque = podcastAtivo ? videos[0] ?? null : null;
+const recentes = podcastAtivo ? videos.slice(1, 5) : [];
+const channelId = globais.youtube_channel_id?.trim() || config?.youtube_channel_id?.trim() || null;
+const playlistUploadsUrl = podcastAtivo && !destaque ? criarUrlPlaylistUploads(channelId) : null;
+const titulo = config?.podcast_titulo?.trim() || 'Podcast Reação Química';
+const rotulo = config?.podcast_rotulo?.trim() || 'Informação e debate';
+const temConteudo = proximo !== null || destaque !== null || playlistUploadsUrl !== null;
+const temRail = proximo !== null || recentes.length > 0;
+const imagemProximo = proximo?.imagem ? urlImagem(proximo.imagem, { largura: 800, altura: 800 }) : null;
+---
+
+{podcastAtivo && (temConteudo || canalUrl) && (
+  <section id="videos" class="section estudio reveal" aria-labelledby="estudio-titulo">
+    <div class="container">
+      <div class="section-heading estudio__heading">
+        <div>
+          <p class="rotulo rotulo--claro">{rotulo}</p>
+          <h2 id="estudio-titulo">{titulo}</h2>
+          <p class="estudio__intro">Conversas sobre trabalho, indústria química, direitos e os assuntos que movem a categoria.</p>
+        </div>
+        {canalUrl && (
+          <a class="button button--youtube" href={canalUrl} target="_blank" rel="noopener">
+            <YoutubeLogoIcon size={22} weight="bold" aria-hidden="true" />
+            <span>Ver canal no YouTube</span>
+          </a>
+        )}
+      </div>
+
+      {temConteudo ? (
+        <div class:list={['estudio__layout', !proximo && 'estudio__layout--sem-agenda', !temRail && 'estudio__layout--sem-rail']}>
+          <div class="estudio__destaque">
+            {destaque ? (
+              <>
+                <p class="estudio__eyebrow">Episódio mais recente</p>
+                <div class="estudio__player">
+                  <lite-youtube
+                    videoid={destaque.videoId}
+                    playlabel={`Assistir: ${destaque.titulo}`}
+                    style={`background-image:url('${destaque.thumbnailUrl}')`}
+                  ></lite-youtube>
+                </div>
+                <h3 class="estudio__player-titulo">{destaque.titulo}</h3>
+              </>
+            ) : playlistUploadsUrl ? (
+              <>
+                <p class="estudio__eyebrow">Episódios mais recentes</p>
+                <div class="estudio__player estudio__player--playlist">
+                  <iframe
+                    src={playlistUploadsUrl}
+                    title="Episódios do Podcast Reação Química no YouTube"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </>
+            ) : proximo ? (
+              <div class="estudio__aguarde">
+                <p class="estudio__eyebrow">Em breve</p>
+                <h3>O primeiro episódio aparecerá aqui automaticamente.</h3>
+                <p>Enquanto isso, confira a data do próximo encontro.</p>
+              </div>
+            ) : null}
+          </div>
+
+          {temRail && <div class="estudio__rail">
+            {proximo && (
+              <article class:list={['proximo-video', imagemProximo && 'proximo-video--com-imagem']}>
+                {imagemProximo && <img class="proximo-video__arte" src={imagemProximo} alt={proximo.imagem_alt || ''} loading="lazy" decoding="async" />}
+                <div class="proximo-video__conteudo">
+                  <span class="chip-estreia">Próximo podcast</span>
+                  {proximo.episodio_numero && <span class="proximo-video__episodio">Episódio {proximo.episodio_numero}</span>}
+                  <h3>{proximo.titulo}</h3>
+                  {proximo.descricao && <p>{proximo.descricao}</p>}
+                  <time class="proximo-video__quando" datetime={proximo.data_estreia}>{formatarDataEstreia(proximo.data_estreia)}</time>
+                  {proximo.link_estreia && <a class="proximo-video__link" href={proximo.link_estreia} target="_blank" rel="noopener">Abrir estreia no YouTube</a>}
+                </div>
+              </article>
+            )}
+
+            {recentes.length > 0 && (
+              <div class="video-lista">
+                <p class="video-lista__titulo">Outros episódios</p>
+                {recentes.slice(0, proximo ? 3 : 4).map((video) => (
+                  <a class="video-item" href={video.link} target="_blank" rel="noopener">
+                    <img src={video.thumbnailUrl} alt="" loading="lazy" decoding="async" width="116" height="65" />
+                    <span>{video.titulo}</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>}
+        </div>
+      ) : (
+        <div class="estudio__vazio">
+          <h3>Novos episódios em breve.</h3>
+          <p>O conteúdo do canal aparecerá aqui automaticamente assim que for publicado.</p>
+          {canalUrl && <a class="text-link" href={canalUrl} target="_blank" rel="noopener">Acessar o canal</a>}
+        </div>
+      )}
+    </div>
+  </section>
+)}
+
+<script>
+  import 'lite-youtube-embed';
+</script>

@@ -1,0 +1,29 @@
+name: portalsindquim-instatic-poc
+
+services:
+  instatic:
+    image: ghcr.io/corebunch/instatic:0.0.11@sha256:4fe8eceb7b4366af9f13c69e924aa0254d43c29bd823818b72760db2877d0359
+    platform: linux/amd64
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${INSTATIC_PORT:-3029}:3001"
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      STATIC_DIR: /app/dist
+      UPLOADS_DIR: /app/uploads
+    volumes:
+      - instatic_data:/app/data
+      - instatic_uploads:/app/uploads
+    healthcheck:
+      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:3001/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 20s
+      timeout: 5s
+      start_period: 30s
+      retries: 5
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  instatic_data:
+  instatic_uploads:

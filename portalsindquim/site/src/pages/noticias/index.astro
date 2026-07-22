@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import NoticiaCard from '../../components/NoticiaCard.astro';
+import { contarPosts, getPosts } from '../../lib/directus';
+
+const POR_PAGINA = 9;
+const paginaAtual = Math.max(1, Number(Astro.url.searchParams.get('pagina')) || 1);
+const [posts, total] = await Promise.all([
+  getPosts(POR_PAGINA, (paginaAtual - 1) * POR_PAGINA),
+  contarPosts(),
+]);
+const totalPaginas = Math.max(1, Math.ceil(total / POR_PAGINA));
+---
+
+<Base titulo="Notícias" descricao="Todas as notícias e comunicados oficiais do sindicato.">
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="rotulo">Boletim da categoria</p>
+          <h1>Notícias</h1>
+        </div>
+      </div>
+
+      {posts.length > 0 ? (
+        <>
+          <div class="lista-noticias">
+            {posts.map((post) => <NoticiaCard post={post} />)}
+          </div>
+
+          {totalPaginas > 1 && (
+            <nav class="paginacao" aria-label="Paginação">
+              {paginaAtual > 1 && (
+                <a href={`/noticias?pagina=${paginaAtual - 1}`} rel="prev">Anterior</a>
+              )}
+              {Array.from({ length: totalPaginas }, (_, i) => i + 1).map((n) =>
+                n === paginaAtual ? (
+                  <span aria-current="page">{n}</span>
+                ) : (
+                  <a href={`/noticias?pagina=${n}`}>{n}</a>
+                ),
+              )}
+              {paginaAtual < totalPaginas && (
+                <a href={`/noticias?pagina=${paginaAtual + 1}`} rel="next">Próxima</a>
+              )}
+            </nav>
+          )}
+        </>
+      ) : (
+        <p class="vazio">Nenhuma notícia publicada ainda. As matérias criadas no painel aparecem aqui.</p>
+      )}
+    </div>
+  </section>
+</Base>

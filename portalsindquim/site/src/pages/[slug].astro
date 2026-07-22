@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import { getPagina } from '../lib/directus';
+import { sanitizarHtmlEditorial } from '../lib/sanitize';
+
+const { slug } = Astro.params;
+const SLUGS_INSTITUCIONAIS = new Set(['filie-se']);
+const pagina = slug && SLUGS_INSTITUCIONAIS.has(slug) ? await getPagina(slug) : null;
+if (!pagina) {
+  return Astro.rewrite('/404');
+}
+const paginaEmValidacao = /^\[DEMONSTRAÇÃO\]\s*/i.test(pagina.titulo);
+const tituloPublico = pagina.titulo.replace(/^\[DEMONSTRAÇÃO\]\s*/i, '');
+---
+
+<Base titulo={tituloPublico}>
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="rotulo">{paginaEmValidacao ? 'Conteúdo em validação' : 'Sindicato'}</p>
+          <h1>{tituloPublico}</h1>
+        </div>
+      </div>
+      <div class="prosa" set:html={sanitizarHtmlEditorial(pagina.conteudo)} />
+    </div>
+  </section>
+</Base>

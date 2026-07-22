@@ -1,0 +1,49 @@
+---
+import '../../styles/admin.css';
+
+const erro = Astro.url.searchParams.get('erro');
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Entrar — Portal Sindquim</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="admin-login-body">
+    <main class="admin-login-wrap">
+      <section class="admin-login-card" aria-labelledby="titulo-login">
+        <span class="admin-chip">Área restrita</span>
+        <h1 id="titulo-login">Entre para cuidar do portal</h1>
+        <p>
+          Use seu e-mail e sua senha. Depois, escolha a tarefa que deseja realizar.
+        </p>
+
+        {erro && (
+          <p class="admin-alert admin-alert--error" role="alert">
+            {erro === 'sessao'
+              ? 'Sua sessão expirou. Entre novamente para continuar.'
+              : 'Não foi possível entrar. Confira seu e-mail e sua senha.'}
+          </p>
+        )}
+
+        <form class="admin-form" method="post" action="/api/admin/login">
+          <label class="admin-field">
+            Seu e-mail
+            <input class="admin-input" type="email" name="email" autocomplete="username" required placeholder="voce@sindicato.org.br" />
+          </label>
+
+          <label class="admin-field">
+            Senha
+            <input class="admin-input" type="password" name="password" autocomplete="current-password" required placeholder="••••••••••••" />
+          </label>
+
+          <button class="admin-button admin-button--primary" type="submit">Entrar</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

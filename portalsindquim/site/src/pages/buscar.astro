@@ -1,0 +1,151 @@
+---
+import Base from '../layouts/Base.astro';
+import { getBeneficios, getPosts } from '../lib/directus';
+import { limitarResumo, resultadoCorresponde, type ResultadoBusca } from '../lib/busca';
+import { MagnifyingGlassIcon } from '@phosphor-icons/react/ssr';
+
+const termo = Astro.url.searchParams.get('q')?.trim().slice(0, 100) ?? '';
+const termoValido = termo.length >= 2;
+
+const paginas: ResultadoBusca[] = [
+  {
+    tipo: 'Página',
+    titulo: 'Benefícios',
+    resumo: 'Descontos, serviços e vantagens disponíveis para associados e dependentes.',
+    href: '/beneficios',
+    campos: ['benefícios', 'descontos', 'vantagens', 'associados', 'dependentes', 'serviços'],
+  },
+  {
+    tipo: 'Página',
+    titulo: 'Atendimento jurídico',
+    resumo: 'Orientação trabalhista, abertura e acompanhamento de solicitações jurídicas.',
+    href: '/juridico',
+    campos: ['jurídico', 'advogado', 'direitos', 'trabalhista', 'rescisão', 'atendimento'],
+  },
+  {
+    tipo: 'Página',
+    titulo: 'Diretoria',
+    resumo: 'Conheça as pessoas que representam os trabalhadores da categoria.',
+    href: '/diretoria',
+    campos: ['diretoria', 'presidente', 'representantes', 'sindicato'],
+  },
+  {
+    tipo: 'Página',
+    titulo: 'Filie-se',
+    resumo: 'Fortaleça o sindicato e solicite sua filiação.',
+    href: '/filie-se',
+    campos: ['filiação', 'filiar', 'associar', 'associado', 'sócio', 'sindicato'],
+  },
+  {
+    tipo: 'Página',
+    titulo: 'Fale conosco',
+    resumo: 'Envie sua dúvida ou solicite atendimento pelo canal oficial.',
+    href: '/contato',
+    campos: ['contato', 'telefone', 'email', 'mensagem', 'atendimento', 'endereço'],
+  },
+  {
+    tipo: 'Página',
+    titulo: 'Podcast Reação Química',
+    resumo: 'Episódios e conversas sobre trabalho, indústria química e direitos.',
+    href: '/#videos',
+    campos: ['podcast', 'reação química', 'youtube', 'vídeo', 'episódios', 'debate'],
+  },
+];
+
+let resultados: ResultadoBusca[] = [];
+
+if (termoValido) {
+  const [posts, beneficios] = await Promise.all([getPosts(200), getBeneficios()]);
+  const noticias: ResultadoBusca[] = posts.map((post) => ({
+    tipo: 'Notícia',
+    titulo: post.titulo,
+    resumo: limitarResumo(post.resumo || post.conteudo || 'Leia a matéria completa.'),
+    href: `/noticias/${post.slug}`,
+    campos: [
+      post.titulo,
+      post.resumo,
+      post.conteudo,
+      post.categoria?.nome,
+      post.empresa,
+      post.cidade,
+      post.fonte_nome,
+    ],
+  }));
+  const vantagens: ResultadoBusca[] = beneficios.map((beneficio) => ({
+    tipo: 'Benefício',
+    titulo: beneficio.titulo,
+    resumo: limitarResumo(beneficio.resumo || beneficio.detalhes),
+    href: `/beneficios?categoria=${encodeURIComponent(beneficio.categoria)}#lista-beneficios`,
+    campos: [
+      beneficio.titulo,
+      beneficio.resumo,
+      beneficio.detalhes,
+      beneficio.categoria,
+      beneficio.elegibilidade,
+      beneficio.como_usar,
+      beneficio.requisitos,
+    ],
+  }));
+  resultados = [...noticias, ...vantagens, ...paginas].filter((resultado) =>
+    resultadoCorresponde(resultado, termo),
+  );
+}
+---
+
+<Base titulo="Busca" descricao="Encontre notícias, benefícios e serviços do Sindicato dos Químicos da Baixada Santista.">
+  <meta slot="head" name="robots" content="noindex,follow" />
+  <section class="section busca-page" aria-labelledby="busca-titulo">
+    <div class="container busca-page__container">
+      <p class="rotulo">Encontre no portal</p>
+      <h1 id="busca-titulo">Busca</h1>
+      <form class="busca-page__form" role="search" method="get" action="/buscar">
+        <label for="busca-pagina">O que você procura?</label>
+        <div>
+          <input
+            id="busca-pagina"
+            type="search"
+            name="q"
+            value={termo}
+            minlength="2"
+            maxlength="100"
+            placeholder="Ex.: Cubatão, benefícios ou rescisão"
+            autofocus
+          />
+          <button class="button button--primario" type="submit">
+            <MagnifyingGlassIcon size={20} weight="bold" aria-hidden="true" />
+            Buscar
+          </button>
+        </div>
+      </form>
+
+      {!termo ? (
+        <p class="busca-page__orientacao">Digite ao menos duas letras para buscar notícias, benefícios e páginas do sindicato.</p>
+      ) : !termoValido ? (
+        <p class="busca-page__orientacao" role="alert">Digite ao menos duas letras para realizar a busca.</p>
+      ) : resultados.length > 0 ? (
+        <div class="busca-resultados" aria-live="polite">
+          <p class="busca-resultados__contagem">
+            {resultados.length} {resultados.length === 1 ? 'resultado encontrado' : 'resultados encontrados'} para <strong>“{termo}”</strong>
+          </p>
+          <ul>
+            {resultados.map((resultado) => (
+              <li>
+                <a href={resultado.href}>
+                  <span>{resultado.tipo}</span>
+                  <strong>{resultado.titulo}</strong>
+                  <small>{resultado.resumo}</small>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div class="busca-vazia" role="status">
+          <h2>Nenhum resultado encontrado</h2>
+          <p>Tente usar menos palavras ou buscar por uma empresa, cidade, benefício ou assunto.</p>
+          <a class="text-link" href="/noticias">Ver todas as notícias</a>
+        </div>
+      )}
+    </div>
+  </section>
+</Base>

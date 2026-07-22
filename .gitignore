@@ -41,3 +41,13 @@ Thumbs.db
 *.tmp
 *.bak
 *.tar.gz
+
+# Mapas técnicos gerados localmente
+graphify-out/
+
+# O hook editorial do Directus precisa do artefato compilado dentro da imagem.
+!portalsindquim/deploy/directus/extensions/
+!portalsindquim/deploy/directus/extensions/directus-extension-portal-editorial/
+!portalsindquim/deploy/directus/extensions/directus-extension-portal-editorial/**
+!portalsindquim/deploy/directus/extensions/directus-extension-portal-editorial/dist/
+!portalsindquim/deploy/directus/extensions/directus-extension-portal-editorial/dist/index.js

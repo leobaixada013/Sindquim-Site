@@ -1,0 +1,106 @@
+name: portalsindquim
+
+services:
+  database:
+    image: postgres:17.6-alpine3.22@sha256:ef257d85f76e48da1c64832459b59fcaba1a4dac97bf5d7450c77753542eee94
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-portalsindquim}
+      POSTGRES_USER: ${POSTGRES_USER:-portalsindquim}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no arquivo .env}
+    volumes:
+      - database_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks: [backend]
+
+  directus:
+    build:
+      context: ./directus
+    image: portalsindquim-directus:11.17.4-portal3
+    restart: unless-stopped
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "${DIRECTUS_PORT:-8155}:8055"
+    volumes:
+      - directus_uploads:/directus/uploads
+    environment:
+      SECRET: ${DIRECTUS_SECRET:?defina DIRECTUS_SECRET no arquivo .env}
+      DB_CLIENT: pg
+      DB_HOST: database
+      DB_PORT: 5432
+      DB_DATABASE: ${POSTGRES_DB:-portalsindquim}
+      DB_USER: ${POSTGRES_USER:-portalsindquim}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no arquivo .env}
+      ADMIN_EMAIL: ${DIRECTUS_ADMIN_EMAIL:?defina DIRECTUS_ADMIN_EMAIL no arquivo .env}
+      ADMIN_PASSWORD: ${DIRECTUS_ADMIN_PASSWORD:?defina DIRECTUS_ADMIN_PASSWORD no arquivo .env}
+      PUBLIC_URL: ${PUBLIC_DIRECTUS_URL:-http://localhost:8155}
+      DEFAULT_LANGUAGE: pt-BR
+      WEBSOCKETS_ENABLED: "false"
+      TELEMETRY: "false"
+      EXTENSIONS_AUTO_RELOAD: "false"
+      ASSETS_TRANSFORM_MAX_CONCURRENT: "4"
+      FILES_MAX_UPLOAD_SIZE: "20MB"
+      CORS_ENABLED: "true"
+      CORS_ORIGIN: ${PUBLIC_SITE_URL:-http://localhost:4421}
+      EMAIL_TRANSPORT: ${EMAIL_TRANSPORT:-sendmail}
+      EMAIL_FROM: ${EMAIL_FROM:-no-reply@exemplo.invalid}
+      EMAIL_SMTP_HOST: ${EMAIL_SMTP_HOST:-}
+      EMAIL_SMTP_PORT: ${EMAIL_SMTP_PORT:-587}
+      EMAIL_SMTP_USER: ${EMAIL_SMTP_USER:-}
+      EMAIL_SMTP_PASSWORD: ${EMAIL_SMTP_PASSWORD:-}
+      EMAIL_SMTP_SECURE: ${EMAIL_SMTP_SECURE:-false}
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8055/server/ping').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      start_period: 45s
+      retries: 10
+    networks: [backend, edge]
+
+  site:
+    build:
+      context: ../site
+      args:
+        PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-http://localhost:4421}
+        PUBLIC_DIRECTUS_URL: ${PUBLIC_DIRECTUS_URL:-http://localhost:8155}
+    image: portalsindquim-site:1.9.3
+    restart: unless-stopped
+    depends_on:
+      directus:
+        condition: service_healthy
+    ports:
+      - "${SITE_PORT:-4421}:4321"
+    environment:
+      DIRECTUS_URL: http://directus:8055
+      DIRECTUS_JURIDICO_TOKEN: ${DIRECTUS_JURIDICO_TOKEN:?defina DIRECTUS_JURIDICO_TOKEN no arquivo .env}
+      DIRECTUS_FORMS_TOKEN: ${DIRECTUS_FORMS_TOKEN:?defina DIRECTUS_FORMS_TOKEN no arquivo .env}
+      PUBLIC_DIRECTUS_URL: ${PUBLIC_DIRECTUS_URL:-http://localhost:8155}
+      PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-http://localhost:4421}
+      PORTAL_DEMO: ${PORTAL_DEMO:-false}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4321/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 20s
+      timeout: 5s
+      start_period: 20s
+      retries: 5
+    networks: [edge, backend]
+
+volumes:
+  database_data:
+  directus_uploads:
+
+networks:
+  edge:
+  backend:
+    internal: true

@@ -1,0 +1,150 @@
+---
+import Base from '../layouts/Base.astro';
+import { getBeneficios, getPaginaBeneficios, urlImagem } from '../lib/directus';
+import { urlHttpSegura } from '../lib/sanitize';
+
+const [pagina, todos] = await Promise.all([getPaginaBeneficios(), getBeneficios()]);
+const tituloBrutoBeneficios = pagina.hero_titulo ?? 'Benefícios para associados';
+const beneficioEmValidacao = /^\[DEMONSTRAÇÃO\]\s*/i.test(tituloBrutoBeneficios);
+const tituloBeneficios = tituloBrutoBeneficios.replace(/^\[DEMONSTRAÇÃO\]\s*/i, '');
+const categoriaAtiva = Astro.url.searchParams.get('categoria') ?? 'todos';
+const categorias = [
+  ['todos', 'Todos'],
+  ['saude', 'Saúde'],
+  ['educacao', 'Educação'],
+  ['bem-estar', 'Bem-estar'],
+  ['servicos', 'Serviços'],
+  ['outros', 'Outros'],
+] as const;
+const categoriaValida = categorias.some(([valor]) => valor === categoriaAtiva) ? categoriaAtiva : 'todos';
+const beneficios = categoriaValida === 'todos' ? todos : todos.filter((item) => item.categoria === categoriaValida);
+
+function dataCurta(valor: string | null) {
+  if (!valor) return null;
+  return new Intl.DateTimeFormat('pt-BR', { dateStyle: 'medium', timeZone: 'UTC' }).format(new Date(`${valor}T12:00:00Z`));
+}
+---
+
+<Base titulo="Benefícios" descricao={pagina.hero_resumo ?? undefined}>
+  <section class="beneficios-hero reveal" aria-labelledby="beneficios-titulo">
+    <div class="container beneficios-hero__inner">
+      <div>
+        <p class="rotulo rotulo--claro">{beneficioEmValidacao ? 'Conteúdo em validação' : pagina.hero_rotulo}</p>
+        <h1 id="beneficios-titulo">{tituloBeneficios}</h1>
+        <p>{pagina.hero_resumo}</p>
+        <a class="button button--primario" href="#lista-beneficios">Ver benefícios ativos</a>
+      </div>
+      <aside aria-label="Como usar esta página">
+        <strong>Em três passos</strong>
+        <ol>
+          <li>Escolha uma categoria.</li>
+          <li>Confira condições e validade.</li>
+          <li>Fale com o canal indicado.</li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="lista-beneficios" aria-labelledby="beneficios-lista-titulo">
+    <div class="container">
+      <div class="section-heading beneficios-heading">
+        <div>
+          <p class="rotulo">Vantagens vigentes</p>
+          <h2 id="beneficios-lista-titulo">{pagina.introducao_titulo}</h2>
+          <p>{pagina.introducao_texto}</p>
+        </div>
+      </div>
+
+      <nav class="beneficios-filtros" aria-label="Filtrar benefícios por categoria">
+        {categorias.map(([valor, rotulo]) => (
+          <a
+            href={valor === 'todos' ? '/beneficios#lista-beneficios' : `/beneficios?categoria=${valor}#lista-beneficios`}
+            aria-current={categoriaValida === valor ? 'page' : undefined}
+          >
+            {rotulo}
+          </a>
+        ))}
+      </nav>
+
+      {beneficios.length > 0 ? (
+        <div class="beneficios-grid">
+          {beneficios.map((beneficio) => {
+            const imagem = urlImagem(beneficio.imagem, { largura: 720, altura: 420 });
+            const ctaUrl = urlHttpSegura(beneficio.cta_url) ?? (beneficio.cta_url?.startsWith('/') ? beneficio.cta_url : null);
+            return (
+              <article class:list={['beneficio-card', beneficio.destaque && 'beneficio-card--destaque']}>
+                {imagem && <img src={imagem} alt={beneficio.imagem_alt ?? ''} loading="lazy" decoding="async" />}
+                <div class="beneficio-card__body">
+                  <span class="beneficio-card__categoria">{categorias.find(([valor]) => valor === beneficio.categoria)?.[1] ?? 'Benefício'}</span>
+                  <h3>{beneficio.titulo}</h3>
+                  <p>{beneficio.resumo}</p>
+                  <dl>
+                    {beneficio.elegibilidade && <><dt>Quem pode usar</dt><dd>{beneficio.elegibilidade}</dd></>}
+                    {beneficio.como_usar && <><dt>Como usar</dt><dd>{beneficio.como_usar}</dd></>}
+                    {beneficio.requisitos && <><dt>O que levar</dt><dd>{beneficio.requisitos}</dd></>}
+                    {beneficio.validade_fim && <><dt>Condição válida até</dt><dd>{dataCurta(beneficio.validade_fim)}</dd></>}
+                  </dl>
+                  {beneficio.detalhes && <p class="beneficio-card__detalhes">{beneficio.detalhes}</p>}
+                  {ctaUrl && <a class="button button--primario" href={ctaUrl} target={ctaUrl.startsWith('http') ? '_blank' : undefined} rel={ctaUrl.startsWith('http') ? 'noopener noreferrer' : undefined}>{beneficio.cta_texto || 'Como utilizar'}</a>}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      ) : (
+        <div class="beneficios-vazio" role="status">
+          <h3>Nenhum benefício ativo nesta categoria</h3>
+          <p>Escolha outra categoria ou fale com o sindicato para confirmar as opções vigentes.</p>
+        </div>
+      )}
+
+      <aside class="beneficios-aviso">
+        <h2>{pagina.aviso_titulo}</h2>
+        <p>{pagina.aviso_texto}</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container cta-band__inner">
+      <div>
+        <p class="rotulo">Atendimento</p>
+        <h2>{pagina.cta_titulo}</h2>
+        <p>{pagina.cta_texto}</p>
+      </div>
+      <a class="button" href={pagina.cta_link_href || '/contato'}>{pagina.cta_link_texto || 'Falar com o sindicato'}</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .beneficios-hero { padding: clamp(54px, 8vw, 96px) 0; color: var(--texto-inverso); background: linear-gradient(120deg, var(--tinta-950), var(--aco-700)); }
+  .beneficios-hero__inner { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr); gap: clamp(28px, 6vw, 72px); align-items: center; }
+  .beneficios-hero h1 { color: white; max-width: 15ch; overflow-wrap: anywhere; }
+  .beneficios-hero p { max-width: 64ch; font-size: 1.08rem; }
+  .beneficios-hero aside { padding: 26px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); border-radius: var(--raio); }
+  .beneficios-hero aside strong { display: block; margin-bottom: 10px; font-family: var(--fonte-titulo); font-size: 1.2rem; }
+  .beneficios-hero ol { margin: 0; padding-left: 22px; }
+  .beneficios-heading p { max-width: 68ch; color: var(--texto-suave); }
+  .beneficios-filtros { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 34px; }
+  .beneficios-filtros a { padding: 10px 16px; border: 1px solid var(--linha); border-radius: 999px; font-weight: 700; }
+  .beneficios-filtros a:hover, .beneficios-filtros a:focus-visible, .beneficios-filtros a[aria-current="page"] { color: white; background: var(--tinta-800); border-color: var(--tinta-800); }
+  .beneficios-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .beneficio-card { overflow: hidden; border: 1px solid var(--linha); border-radius: var(--raio); background: var(--papel); box-shadow: var(--sombra-suave); }
+  .beneficio-card--destaque { border-top: 5px solid var(--vermelho-600); }
+  .beneficio-card > img { width: 100%; aspect-ratio: 12/5; object-fit: cover; }
+  .beneficio-card__body { padding: 26px; }
+  .beneficio-card__categoria { display: inline-block; margin-bottom: 9px; color: var(--vermelho-700); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .beneficio-card dl { display: grid; grid-template-columns: minmax(110px, .4fr) 1fr; gap: 8px 16px; margin: 22px 0; padding-top: 18px; border-top: 1px solid var(--linha); }
+  .beneficio-card dt { font-weight: 800; }
+  .beneficio-card dd { margin: 0; color: var(--texto-suave); }
+  .beneficio-card__detalhes { color: var(--texto-suave); }
+  .beneficios-aviso, .beneficios-vazio { margin-top: 36px; padding: 26px; background: var(--nevoa); border-left: 4px solid var(--aco-600); }
+  .beneficios-aviso h2, .beneficios-vazio h3 { margin-top: 0; }
+  @media (max-width: 760px) {
+    .beneficios-hero__inner, .beneficios-grid { grid-template-columns: minmax(0, 1fr); }
+    .beneficios-hero__inner > * { min-width: 0; }
+    .beneficio-card dl { grid-template-columns: 1fr; gap: 3px; }
+    .beneficio-card dd { margin-bottom: 10px; }
+  }
+</style>

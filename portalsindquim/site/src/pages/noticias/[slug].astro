@@ -1,0 +1,138 @@
+---
+import Base from '../../layouts/Base.astro';
+import NoticiaCard from '../../components/NoticiaCard.astro';
+import { getPostPorSlug, getPosts, urlImagem } from '../../lib/directus';
+import { formatarDataLonga } from '../../lib/formatar';
+import { NOME_SITE } from '../../lib/constantes';
+import { sanitizarHtmlEditorial, serializarJsonLd, urlHttpSegura } from '../../lib/sanitize';
+
+const { slug } = Astro.params;
+const post = slug ? await getPostPorSlug(slug) : null;
+if (!post) {
+  return Astro.rewrite('/404');
+}
+
+const imagemCapa = urlImagem(post.imagem, { largura: 1400, altura: 800 });
+const relacionados = (await getPosts(4)).filter((p) => p.id !== post.id).slice(0, 3);
+const dataPublicacao = post.publicado_em ?? post.date_created;
+const fonteUrl = urlHttpSegura(post.fonte_url);
+const videoUrl = urlHttpSegura(post.youtube_url);
+
+const jsonLd = serializarJsonLd({
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: post.titulo,
+  description: post.resumo ?? undefined,
+  image: imagemCapa ? [imagemCapa] : undefined,
+  datePublished: dataPublicacao,
+  dateModified: post.date_updated ?? dataPublicacao,
+  publisher: { '@type': 'Organization', name: NOME_SITE },
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+});
+---
+
+<Base titulo={post.titulo} descricao={post.resumo ?? undefined} imagemOg={imagemCapa} tipoOg="article">
+  <script is:inline slot="head" type="application/ld+json" set:html={jsonLd} />
+
+  <article>
+    <header class="artigo-header">
+      <div class="container">
+        <div class="post-meta">
+          {post.categoria && <span>{post.categoria.nome}</span>}
+          {post.empresa && <span>{post.empresa}</span>}
+          {post.cidade && <span>{post.cidade}</span>}
+          <time datetime={dataPublicacao}>{formatarDataLonga(dataPublicacao)}</time>
+        </div>
+        <h1>{post.titulo}</h1>
+        {post.resumo && <p class="prosa" style="font-size:1.2rem;color:var(--texto-suave)">{post.resumo}</p>}
+        {imagemCapa ? (
+          <figure class="artigo-capa-wrap">
+            <img class="artigo-capa" src={imagemCapa} alt={post.imagem_alt ?? ''} />
+            {(post.imagem_legenda || post.imagem_credito) && (
+              <figcaption>
+                {post.imagem_legenda}
+                {post.imagem_credito && <span> Crédito: {post.imagem_credito}</span>}
+              </figcaption>
+            )}
+          </figure>
+        ) : (
+          <div class="artigo-capa artigo-capa--placeholder" aria-hidden="true">Notícia</div>
+        )}
+      </div>
+    </header>
+
+    <div class="section" style="padding-top:36px">
+      <div class="container">
+        <div class="prosa" set:html={sanitizarHtmlEditorial(post.conteudo)} />
+
+        {post.galeria && post.galeria.length > 0 && (
+          <section class="galeria-noticia" aria-labelledby="galeria-titulo">
+            <h2 id="galeria-titulo">Galeria da notícia</h2>
+            <div class="galeria-noticia__grid">
+              {post.galeria.map((item) => {
+                const imagem = urlImagem(item.imagem, { largura: 900, altura: 650 });
+                return imagem && (
+                  <figure>
+                    <img src={imagem} alt={item.texto_alternativo ?? ''} loading="lazy" decoding="async" />
+                    {(item.legenda || item.credito) && (
+                      <figcaption>{item.legenda}{item.credito && <span> Crédito: {item.credito}</span>}</figcaption>
+                    )}
+                  </figure>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {(post.fonte_nome || fonteUrl || videoUrl) && (
+          <aside class="fontes-noticia" aria-labelledby="fontes-titulo">
+            <h2 id="fontes-titulo">Fonte da matéria</h2>
+            {fonteUrl ? (
+              <a class="text-link" href={fonteUrl} target="_blank" rel="noopener noreferrer">
+                Acessar fonte original: {post.fonte_nome || 'matéria consultada'}
+              </a>
+            ) : post.fonte_nome ? <p>{post.fonte_nome}</p> : null}
+            {videoUrl && <a href={videoUrl} target="_blank" rel="noopener noreferrer">Assistir ao vídeo relacionado</a>}
+          </aside>
+        )}
+      </div>
+    </div>
+  </article>
+
+  {relacionados.length > 0 && (
+    <section class="section section--cinza" aria-labelledby="relacionadas-titulo">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="rotulo">Continue lendo</p>
+            <h2 id="relacionadas-titulo">Mais notícias</h2>
+          </div>
+          <a class="text-link" href="/noticias">Ver todas</a>
+        </div>
+        <div class="lista-noticias">
+          {relacionados.map((p) => <NoticiaCard post={p} />)}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>
+
+<style>
+  .artigo-capa-wrap { margin: 28px 0 0; }
+  .artigo-capa-wrap .artigo-capa { margin: 0; }
+  .artigo-capa-wrap figcaption,
+  .galeria-noticia figcaption { color: var(--texto-suave); font-size: .86rem; margin-top: 8px; }
+  .artigo-capa--placeholder { display: flex; align-items: center; justify-content: center; background: var(--nevoa); color: var(--aco-600); font-family: var(--fonte-titulo); font-size: clamp(2rem, 8vw, 5rem); aspect-ratio: 16/9; border-radius: var(--raio); }
+  .galeria-noticia { margin-top: 42px; }
+  .galeria-noticia__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .galeria-noticia figure { margin: 0; }
+  .galeria-noticia img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--raio); }
+  .fontes-noticia { margin-top: 42px; padding: 24px; background: var(--nevoa); border-left: 4px solid var(--vermelho-600); }
+  .fontes-noticia h2 { margin-top: 0; }
+  .fontes-noticia a { display: block; width: fit-content; margin-top: 8px; }
+  @media (max-width: 680px) {
+    .galeria-noticia__grid { grid-template-columns: 1fr; }
+    .artigo-header .post-meta { flex-wrap: wrap; row-gap: 6px; }
+    .artigo-header .post-meta time { flex-basis: 100%; }
+  }
+</style>

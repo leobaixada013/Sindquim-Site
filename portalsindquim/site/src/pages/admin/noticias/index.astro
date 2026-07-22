@@ -1,0 +1,129 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { erroAutenticacaoExpirada, getAdminNoticiasData, limparSessaoAdmin, tokenAdmin } from '../../../lib/auth';
+import { tituloVisivelNoEditor } from '../../../lib/editorial';
+
+const token = tokenAdmin(Astro.cookies);
+if (!token) return Astro.redirect('/admin/login');
+
+let noticias = [] as Awaited<ReturnType<typeof getAdminNoticiasData>>['noticias'];
+try {
+  noticias = (await getAdminNoticiasData(token)).noticias;
+} catch (erro) {
+  if (erroAutenticacaoExpirada(erro)) {
+    limparSessaoAdmin(Astro.cookies);
+    return Astro.redirect('/admin/login?erro=sessao');
+  }
+  throw erro;
+}
+
+const rotuloStatus = (status: string) => ({
+  published: 'Publicada', draft: 'Rascunho', scheduled: 'Agendada', archived: 'Arquivada',
+}[status] ?? status);
+const dataNoticia = (valor: string | null | undefined) => valor
+  ? new Intl.DateTimeFormat('pt-BR', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'America/Sao_Paulo' }).format(new Date(valor))
+  : 'Sem data';
+---
+
+<AdminLayout titulo="Notícias" subtitulo="Crie, revise e publique matérias sem sair deste painel.">
+  <div slot="actions">
+    <a class="admin-button admin-button--primary" href="/admin/noticias/novo">Criar notícia</a>
+  </div>
+
+  <section class="admin-panel news-toolbar" aria-label="Filtros das notícias">
+    <label class="admin-field">
+      Buscar pelo título
+      <input class="admin-input" type="search" id="busca-noticia" placeholder="Digite uma palavra do título" />
+    </label>
+    <label class="admin-field">
+      Situação
+      <select class="admin-select" id="filtro-status">
+        <option value="">Todas</option>
+        <option value="draft">Rascunhos</option>
+        <option value="scheduled">Agendadas</option>
+        <option value="published">Publicadas</option>
+        <option value="archived">Arquivadas</option>
+      </select>
+    </label>
+  </section>
+
+  <p class="admin-muted result-count" id="contador-noticias" aria-live="polite">{noticias.length} notícia(s)</p>
+
+  {noticias.length ? (
+    <section class="news-list" id="lista-noticias" aria-label="Notícias cadastradas">
+      {noticias.map((noticia) => {
+        const titulo = tituloVisivelNoEditor(noticia.titulo) || 'Rascunho sem título';
+        const data = noticia.status === 'scheduled' ? noticia.agendado_para : noticia.publicado_em || noticia.date_updated || noticia.date_created;
+        return (
+          <article class="admin-panel news-row" data-status={noticia.status} data-search={titulo.toLocaleLowerCase('pt-BR')}>
+            {noticia.imagem ? (
+              <img class="news-row__image" src={`/api/admin/noticias/asset/${noticia.imagem}?width=240&height=160&fit=cover`} alt="" loading="lazy" />
+            ) : <div class="news-row__empty" aria-hidden="true">Sem foto</div>}
+            <div class="news-row__body">
+              <div class="news-row__meta">
+                <span class:list={['news-status', `news-status--${noticia.status}`]}>{rotuloStatus(noticia.status)}</span>
+                <span>{dataNoticia(data)}</span>
+              </div>
+              <h2>{titulo}</h2>
+              <p>{noticia.resumo || 'Ainda não há resumo. Abra para continuar esta matéria.'}</p>
+            </div>
+            <a class="admin-button" href={`/admin/noticias/${noticia.id}`}>Editar</a>
+          </article>
+        );
+      })}
+    </section>
+  ) : (
+    <section class="admin-panel empty-state">
+      <h2>Nenhuma notícia ainda</h2>
+      <p class="admin-muted">Comece com um título e salve como rascunho. Você poderá completar depois.</p>
+      <a class="admin-button admin-button--primary" href="/admin/noticias/novo">Criar a primeira notícia</a>
+    </section>
+  )}
+</AdminLayout>
+
+<script>
+  const busca = document.querySelector<HTMLInputElement>('#busca-noticia');
+  const status = document.querySelector<HTMLSelectElement>('#filtro-status');
+  const linhas = [...document.querySelectorAll<HTMLElement>('.news-row')];
+  const contador = document.querySelector<HTMLElement>('#contador-noticias');
+  const filtrar = () => {
+    const termo = (busca?.value || '').trim().toLocaleLowerCase('pt-BR');
+    const situacao = status?.value || '';
+    let visiveis = 0;
+    linhas.forEach((linha) => {
+      const mostrar = (!termo || (linha.dataset.search || '').includes(termo))
+        && (!situacao || linha.dataset.status === situacao);
+      linha.hidden = !mostrar;
+      if (mostrar) visiveis += 1;
+    });
+    if (contador) contador.textContent = `${visiveis} notícia(s) encontrada(s)`;
+  };
+  busca?.addEventListener('input', filtrar);
+  status?.addEventListener('change', filtrar);
+</script>
+
+<style>
+  .news-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) minmax(190px, .3fr); gap: 16px; }
+  .result-count { margin: 18px 4px 12px; }
+  .news-list { display: grid; gap: 14px; }
+  .news-row { display: grid; grid-template-columns: 150px minmax(0, 1fr) auto; gap: 20px; align-items: center; padding: 14px; }
+  .news-row__image, .news-row__empty { width: 150px; height: 100px; border-radius: 16px; }
+  .news-row__image { object-fit: cover; }
+  .news-row__empty { display: grid; place-items: center; background: rgba(255,255,255,.06); color: var(--admin-soft); font-size: .78rem; }
+  .news-row__body { min-width: 0; }
+  .news-row__body h2 { margin: 8px 0 6px; font-size: 1.15rem; }
+  .news-row__body p { margin: 0; color: var(--admin-muted); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .news-row__meta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; color: var(--admin-muted); font-size: .78rem; }
+  .news-status { padding: 5px 9px; border-radius: 999px; background: rgba(255,255,255,.08); font-weight: 850; }
+  .news-status--published { background: rgba(79,209,139,.14); color: #cffff0; }
+  .news-status--scheduled { background: rgba(240,187,91,.14); color: #ffe7b0; }
+  .news-status--draft { background: rgba(107,182,234,.14); color: #d2efff; }
+  .empty-state { display: grid; justify-items: start; gap: 8px; }
+  .empty-state h2, .empty-state p { margin: 0; }
+  .empty-state .admin-button { margin-top: 12px; }
+  @media (max-width: 760px) {
+    .news-toolbar, .news-row { grid-template-columns: 1fr; }
+    .news-row__image, .news-row__empty { width: 100%; height: 190px; }
+    .news-row .admin-button { width: 100%; }
+  }
+</style>
