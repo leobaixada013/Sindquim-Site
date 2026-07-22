@@ -1,5 +1,7 @@
 # Site Institucional — STI Baixada Santista
 
+> **Release 1.4.0:** a implementação atualizada, com PostgreSQL, novo fluxo editorial, conteúdo real e testes mobile, está em [`portalsindquim/`](portalsindquim/). A estrutura histórica da raiz permanece preservada durante a transição.
+
 Site institucional do Sindicato dos Trabalhadores das Indústrias Químicas, Farmacêuticas e de Fertilizantes da Baixada Santista. O projeto entrega uma experiência mobile-first para notícias, avisos, benefícios, convenções, diretoria, atendimento jurídico, filiação, contato e integração com o programa **Reação Química em Debate**.
 
 A versão atual usa **Astro em modo servidor** para o site público e **Directus** como painel de conteúdo. O deploy homologado roda com Docker em um LXC no Proxmox, preservando banco SQLite e uploads do Directus entre atualizações.

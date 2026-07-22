@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import { getAvisosRapidos, getAvisoUrgente } from '../lib/directus';
+import { formatarData } from '../lib/formatar';
+
+const [urgente, avisos] = await Promise.all([getAvisoUrgente(), getAvisosRapidos(50)]);
+const todos = urgente ? [urgente, ...avisos] : avisos;
+---
+
+<Base titulo="Avisos" descricao="Comunicados e avisos oficiais do sindicato para a categoria.">
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="rotulo">Comunicados oficiais</p>
+          <h1>Avisos</h1>
+        </div>
+      </div>
+
+      {todos.length > 0 ? (
+        <div class="lista-avisos">
+          {todos.map((aviso) => (
+            <article class:list={['aviso-item', aviso.urgente && 'aviso-item--urgente']}>
+              <time datetime={aviso.data_inicio}>{formatarData(aviso.data_inicio)}</time>
+              <h3>{aviso.titulo}</h3>
+              {aviso.mensagem_curta && <p>{aviso.mensagem_curta}</p>}
+              {aviso.link && (
+                <a class="text-link" href={aviso.link}>{aviso.texto_link ?? 'Saiba mais'}</a>
+              )}
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p class="vazio">Nenhum aviso vigente no momento.</p>
+      )}
+    </div>
+  </section>
+</Base>

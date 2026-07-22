@@ -1,0 +1,5 @@
+---
+return Astro.redirect(Astro.params.id === 'novo'
+  ? `${(process.env.PUBLIC_DIRECTUS_URL ?? import.meta.env.PUBLIC_DIRECTUS_URL ?? 'http://localhost:8055').replace(/\/$/, '')}/admin/content/posts/+`
+  : `${(process.env.PUBLIC_DIRECTUS_URL ?? import.meta.env.PUBLIC_DIRECTUS_URL ?? 'http://localhost:8055').replace(/\/$/, '')}/admin/content/posts/${encodeURIComponent(Astro.params.id ?? '')}`);
+---

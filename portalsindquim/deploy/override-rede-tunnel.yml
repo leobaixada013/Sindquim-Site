@@ -1,0 +1,18 @@
+# Override opcional: conecta os serviços à rede externa por onde o
+# cloudflared/Nginx Proxy Manager já publica os outros projetos do servidor.
+# Uso: docker compose -f docker-compose.yml -f override-rede-tunnel.yml up -d
+services:
+  directus:
+    networks:
+      - default
+      - portaria
+
+  site:
+    networks:
+      - default
+      - portaria
+
+networks:
+  portaria:
+    name: connectai_portaria-network
+    external: true

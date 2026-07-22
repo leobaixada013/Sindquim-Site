@@ -1,0 +1,153 @@
+---
+import '../styles/admin.css';
+import { getAdminSettingsData, getAdminUser, limparSessaoAdmin, tokenAdmin, cookieSeguro, usuarioAdminSistema } from '../lib/auth';
+import { tokenCsrfAtual } from '../lib/adminSecurity';
+
+interface Props {
+  titulo?: string;
+  subtitulo?: string;
+  logoUrl?: string | null;
+}
+
+const {
+  titulo = 'Início',
+  subtitulo = 'Escolha o que deseja fazer no portal.',
+  logoUrl: logoUrlProp = null,
+} = Astro.props;
+const token = tokenAdmin(Astro.cookies);
+const usuario = await getAdminUser(Astro.cookies);
+
+if (!usuario || !token) {
+  limparSessaoAdmin(Astro.cookies);
+  return Astro.redirect('/admin/login?erro=sessao');
+}
+
+const csrfToken = tokenCsrfAtual(Astro.cookies, cookieSeguro());
+
+let logoUrl = logoUrlProp;
+if (!logoUrl) {
+  try {
+    logoUrl = (await getAdminSettingsData(token)).logo_url;
+  } catch {
+    logoUrl = null;
+  }
+}
+
+const caminhoAtual = Astro.url.pathname.replace(/\/$/, '') || '/admin';
+const directusPublico = (process.env.PUBLIC_DIRECTUS_URL ?? import.meta.env.PUBLIC_DIRECTUS_URL ?? 'http://localhost:8055').replace(/\/$/, '');
+const nomeUsuario = [usuario.first_name, usuario.last_name].filter(Boolean).join(' ') || usuario.email || 'Usuário';
+const roleUsuario = typeof usuario.role === 'object' && usuario.role ? String(usuario.role.name ?? '') : '';
+const administrador = usuarioAdminSistema(usuario);
+const editor = administrador || roleUsuario === 'Editor';
+const juridico = administrador || /jur[ií]dico/i.test(roleUsuario);
+const iniciais = nomeUsuario
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((parte) => parte[0]?.toUpperCase())
+  .join('') || 'AD';
+
+const nav = [
+  { href: '/admin', rotulo: 'Início', icone: '⌂', mostrar: true },
+  { href: `${directusPublico}/admin/content/posts`, rotulo: 'Notícias', icone: 'N', mostrar: editor, externo: true },
+  { href: `${directusPublico}/admin/content/beneficios`, rotulo: 'Benefícios', icone: 'B', mostrar: editor, externo: true },
+  { href: `${directusPublico}/admin/content/pagina_juridico`, rotulo: 'Página Jurídico', icone: 'J', mostrar: editor, externo: true },
+  { href: '/admin/juridico', rotulo: 'Atendimentos', icone: '§', mostrar: juridico },
+  { href: '/admin/settings', rotulo: 'Usuários e ajustes', icone: '⚙', mostrar: administrador },
+].filter((item) => item.mostrar);
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="csrf-token" content={csrfToken} />
+    <title>{titulo} — Portal Sindquim</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-shell">
+      <aside class="admin-sidebar" aria-label="Navegação administrativa">
+        <a class="admin-brand" href="/admin">
+          {logoUrl ? (
+            <img src={logoUrl} alt="" width="48" height="48" />
+          ) : (
+            <span class="admin-brand__fallback" aria-hidden="true">STI</span>
+          )}
+          <span>
+            <strong>Portal Sindquim</strong>
+            <span>Painel de conteúdo</span>
+          </span>
+        </a>
+
+        <nav class="admin-nav">
+          {nav.map((item) => {
+            const ativo = caminhoAtual === item.href;
+            return (
+              <a href={item.href} aria-current={ativo ? 'page' : undefined} rel={item.externo ? 'noopener' : undefined}>
+                <span class="admin-nav__icon" aria-hidden="true">{item.icone}</span>
+                <span>{item.rotulo}</span>
+              </a>
+            );
+          })}
+        </nav>
+
+        <div class="admin-sidebar__footer">
+          <strong>Precisa de ajuda?</strong><br />
+          Comece pela tela Início e escolha a tarefa que deseja realizar.
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <span class="admin-status">Portal funcionando</span>
+          <div class="admin-user">
+            <span class="admin-avatar" aria-hidden="true">{iniciais}</span>
+            <span>
+              <strong>{nomeUsuario}</strong><br />
+              <small class="admin-muted">{roleUsuario || 'Sua conta'}</small>
+            </span>
+            <form method="post" action="/api/admin/logout">
+              <input type="hidden" name="csrf_token" value={csrfToken} />
+              <button class="admin-button admin-button--danger" type="submit">Sair</button>
+            </form>
+          </div>
+        </header>
+
+        <section class="admin-page-title">
+          <div>
+            <span class="admin-chip">Painel do portal</span>
+            <h1>{titulo}</h1>
+            <p>{subtitulo}</p>
+          </div>
+          <slot name="actions" />
+        </section>
+
+        <slot />
+      </main>
+    </div>
+
+    <script is:inline>
+      // Injeta o token CSRF automaticamente em todos os fetches da mesma origem
+      const tokenCsrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+      if (tokenCsrf) {
+        const originalFetch = window.fetch;
+        window.fetch = async function(...args) {
+          const [resource, config] = args;
+          const url = typeof resource === 'string' ? resource : (resource instanceof Request ? resource.url : '');
+          const isMutacao = config?.method && !['GET', 'HEAD', 'OPTIONS'].includes(config.method.toUpperCase());
+
+          if (isMutacao && (!url.startsWith('http') || url.startsWith(window.location.origin))) {
+            config.headers = {
+              ...config.headers,
+              'x-csrf-token': tokenCsrf
+            };
+          }
+          return originalFetch.apply(this, args);
+        };
+      }
+    </script>
+  </body>
+</html>

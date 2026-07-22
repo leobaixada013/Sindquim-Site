@@ -1,0 +1,14 @@
+node_modules
+dist
+.astro
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+coverage
+playwright-report
+test-results
+npm-debug.log*
+*.log
+README.md

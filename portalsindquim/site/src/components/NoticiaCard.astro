@@ -1,0 +1,34 @@
+---
+import { urlImagem } from '../lib/directus';
+import { formatarData } from '../lib/formatar';
+import type { Post } from '../lib/tipos';
+
+interface Props {
+  post: Post;
+  destaque?: boolean;
+}
+
+const { post, destaque = false } = Astro.props;
+const imagem = urlImagem(post.imagem, destaque ? { largura: 900, altura: 600 } : { largura: 600, altura: 400 });
+const link = `/noticias/${post.slug}`;
+const dataPublicacao = post.publicado_em ?? post.date_created;
+---
+
+<article class={destaque ? 'featured-post' : 'post-card'}>
+  {imagem ? (
+    <img class="post-image" src={imagem} alt={post.imagem_alt ?? ''} loading={destaque ? 'eager' : 'lazy'} decoding="async" />
+  ) : (
+    <div class="post-image post-image--placeholder" aria-hidden="true" style="display:flex;align-items:center;justify-content:center;background:#f3f4f6;color:#9ca3af;font-size:3rem;">
+      <span>Notícia</span>
+    </div>
+  )}
+  <div class="post-body">
+    <div class="post-meta">
+      {post.categoria && <span>{post.categoria.nome}</span>}
+      <time datetime={dataPublicacao}>{formatarData(dataPublicacao)}</time>
+    </div>
+    <h3><a href={link}>{post.titulo}</a></h3>
+    {post.resumo && <p>{post.resumo}</p>}
+    <a class="text-link" href={link}>Leia mais</a>
+  </div>
+</article>

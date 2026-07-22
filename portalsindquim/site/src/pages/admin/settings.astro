@@ -1,0 +1,785 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import {
+  erroAutenticacaoExpirada,
+  exigirAdminSistema,
+  getAdminSettingsData,
+  limparSessaoAdmin,
+  listarUsuariosAdmin,
+  listarRolesConvidaveisAdmin,
+  tokenAdmin,
+} from '../../lib/auth';
+import type { AdminRoleConvidavel, AdminUsuarioDirectus } from '../../lib/auth';
+
+const token = tokenAdmin(Astro.cookies);
+if (!token) return Astro.redirect('/admin/login');
+
+try {
+  await exigirAdminSistema(token);
+} catch {
+  return Astro.redirect('/admin');
+}
+
+let dados;
+try {
+  dados = await getAdminSettingsData(token);
+} catch (falha) {
+  if (erroAutenticacaoExpirada(falha)) {
+    limparSessaoAdmin(Astro.cookies);
+    return Astro.redirect('/admin/login?erro=sessao');
+  }
+  throw falha;
+}
+
+let usuarios: AdminUsuarioDirectus[] = [];
+let rolesConvidaveis: AdminRoleConvidavel[] = [];
+let erroUsuarios: string | null = null;
+try {
+  [usuarios, rolesConvidaveis] = await Promise.all([
+    listarUsuariosAdmin(token),
+    listarRolesConvidaveisAdmin(token),
+  ]);
+} catch (falha) {
+  if (erroAutenticacaoExpirada(falha)) {
+    limparSessaoAdmin(Astro.cookies);
+    return Astro.redirect('/admin/login?erro=sessao');
+  }
+  erroUsuarios = String((falha as Error)?.message ?? 'Não foi possível listar usuários.');
+}
+
+const config = dados.configuracoes;
+const logoAtual = dados.logo_url;
+const abaSolicitada = Astro.url.searchParams.get('aba');
+const abaInicial = ['aparencia', 'integracoes', 'usuarios'].includes(abaSolicitada ?? '')
+  ? abaSolicitada
+  : 'aparencia';
+
+function nomeUsuario(usuario: AdminUsuarioDirectus) {
+  return [usuario.first_name, usuario.last_name].filter(Boolean).join(' ') || usuario.email || 'Usuário sem nome';
+}
+
+function roleUsuario(usuario: AdminUsuarioDirectus) {
+  if (typeof usuario.role === 'object' && usuario.role) {
+    if (usuario.role.name === 'Administrator') return 'Administrador';
+    return usuario.role.name || usuario.role.id || 'Sem função';
+  }
+  return usuario.role || 'Sem função';
+}
+
+function statusUsuario(usuario: AdminUsuarioDirectus) {
+  if (usuario.status === 'active') return 'Ativo';
+  if (usuario.status === 'suspended') return 'Desativado';
+  return usuario.status || 'Sem status';
+}
+
+function proximoStatusUsuario(usuario: AdminUsuarioDirectus) {
+  return usuario.status === 'active' ? 'suspended' : 'active';
+}
+
+function acaoUsuario(usuario: AdminUsuarioDirectus) {
+  return usuario.status === 'active' ? 'Desativar' : 'Reativar';
+}
+---
+
+<AdminLayout
+  titulo="Usuários e ajustes"
+  subtitulo="Convide pessoas, troque a logo e escolha os módulos visíveis no site."
+  logoUrl={logoAtual}
+>
+  <div slot="actions">
+    <a class="admin-button" href="/" target="_blank" rel="noopener">Ver site público</a>
+  </div>
+
+  <section class="settings-hero admin-panel">
+    <div>
+      <span class="admin-chip">Ajustes do portal</span>
+      <h2>Cuide dos acessos e da aparência.</h2>
+      <p class="admin-muted">
+        Cada pessoa usa a própria conta. As funções Editor e Jurídico mostram somente o necessário.
+      </p>
+    </div>
+    <div class="settings-hero__status" aria-label="Resumo dos módulos">
+      <span data-module-pill="juridico" class:list={[config.modulo_juridico_ativo && 'is-on']}>Jurídico</span>
+      <span data-module-pill="youtube" class:list={[config.modulo_youtube_ativo && 'is-on']}>YouTube</span>
+      <span data-module-pill="instagram" class:list={[config.modulo_instagram_ativo && 'is-on']}>Instagram</span>
+    </div>
+  </section>
+
+  <p class="admin-alert" id="settings-feedback" role="status" hidden></p>
+
+  <section class="admin-tabs settings-tabs" data-admin-tabs>
+    <div class="admin-tabs__list" role="tablist" aria-label="Configurações globais">
+      <button class="admin-tab" type="button" role="tab" id="tab-aparencia" aria-controls="panel-aparencia" aria-selected={abaInicial === 'aparencia'} data-tab-target="aparencia">Aparência</button>
+      <button class="admin-tab" type="button" role="tab" id="tab-integracoes" aria-controls="panel-integracoes" aria-selected={abaInicial === 'integracoes'} data-tab-target="integracoes">Integrações</button>
+      <button class="admin-tab" type="button" role="tab" id="tab-usuarios" aria-controls="panel-usuarios" aria-selected={abaInicial === 'usuarios'} data-tab-target="usuarios">Usuários</button>
+    </div>
+
+    <div class="admin-tab-panel" role="tabpanel" id="panel-aparencia" aria-labelledby="tab-aparencia" data-tab-panel="aparencia" hidden={abaInicial !== 'aparencia'}>
+      <div class="settings-grid settings-grid--logo">
+        <article class="admin-panel logo-panel">
+          <div class="admin-section-title">
+            <div>
+              <h2>Logo do site</h2>
+              <p class="admin-muted">A imagem enviada será usada no cabeçalho público e nas áreas administrativas.</p>
+            </div>
+            <span class="admin-tag">Imagem do portal</span>
+          </div>
+
+          <form class="logo-upload" id="logo-form" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" id="logo-csrf" />
+            <div class="logo-preview">
+              <img id="logo-preview" src={logoAtual ?? ''} alt="Logo atual do site" width="180" height="180" hidden={!logoAtual} />
+              {!logoAtual && <div class="logo-preview__fallback" id="logo-preview-fallback" aria-label="Logo não configurada">STI</div>}
+            </div>
+            <label class="logo-dropzone">
+              <span>Arraste ou selecione uma logo</span>
+              <small>PNG, JPG ou WebP · até 2 MB</small>
+              <input type="file" name="logo" accept="image/png,image/jpeg,image/webp" />
+            </label>
+            <button class="admin-button admin-button--primary" type="submit">Enviar e aplicar logo</button>
+          </form>
+        </article>
+
+        <article class="admin-panel">
+          <div class="admin-section-title">
+            <div>
+              <h2>Módulos públicos</h2>
+              <p class="admin-muted">Desative módulos para esconder links, seções e integrações do site público.</p>
+            </div>
+          </div>
+
+          <form class="settings-form" id="modules-form">
+            <label class="toggle-card">
+              <span>
+                <strong>Jurídico</strong>
+                <small>Links, página de atendimento e formulários jurídicos.</small>
+              </span>
+              <input type="checkbox" name="modulo_juridico_ativo" checked={config.modulo_juridico_ativo ?? true} />
+            </label>
+            <label class="toggle-card">
+              <span>
+                <strong>YouTube</strong>
+                <small>Canal, vídeos recentes, próximos vídeos e CTAs.</small>
+              </span>
+              <input type="checkbox" name="modulo_youtube_ativo" checked={config.modulo_youtube_ativo ?? false} />
+            </label>
+            <label class="toggle-card">
+              <span>
+                <strong>Instagram</strong>
+                <small>Vitrine de Reels, cards e links sociais.</small>
+              </span>
+              <input type="checkbox" name="modulo_instagram_ativo" checked={config.modulo_instagram_ativo ?? false} />
+            </label>
+            <button class="admin-button admin-button--primary" type="submit">Salvar módulos</button>
+          </form>
+        </article>
+      </div>
+    </div>
+
+    <div class="admin-tab-panel" role="tabpanel" id="panel-integracoes" aria-labelledby="tab-integracoes" data-tab-panel="integracoes" hidden={abaInicial !== 'integracoes'}>
+      <article class="admin-panel">
+        <div class="admin-section-title">
+          <div>
+            <h2>Chaves e automações</h2>
+            <p class="admin-muted">Valores sensíveis são gravados no Directus, mas não retornam ao navegador após salvos.</p>
+          </div>
+          <span class="admin-tag">Segredos mascarados</span>
+        </div>
+
+        <form class="admin-form integrations-form" id="integrations-form">
+          <div class="admin-form__split">
+            <label class="admin-field">
+              YouTube Channel ID
+              <input class="admin-input" name="youtube_channel_id" value={config.youtube_channel_id ?? ''} placeholder="UC..." />
+            </label>
+            <label class="admin-field">
+              YouTube API Key
+              <input class="admin-input" name="youtube_api_key" type="password" autocomplete="new-password" placeholder={dados.youtube_api_key_configurada ? '•••••••• configurada — preencha para trocar' : 'Cole a chave da API do YouTube'} />
+              {dados.youtube_api_key_configurada && (
+                <span class="secret-clear"><input type="checkbox" name="limpar_youtube_api_key" value="true" /> Remover chave salva</span>
+              )}
+            </label>
+          </div>
+
+          <div class="integration-priority">
+            <span class="admin-chip">Instagram</span>
+            <h3>Webhook primeiro. Token só como fallback.</h3>
+            <p class="admin-muted">
+              Configure o Webhook (Make/Zapier) como caminho prioritário para receber fotos e Reels. O Token do Instagram fica reservado para rotinas alternativas.
+            </p>
+          </div>
+
+          <label class="admin-field">
+            Webhook do Instagram (Make/Zapier)
+            <input class="admin-input" name="instagram_webhook_url" value={config.instagram_webhook_url ?? ''} placeholder="https://hook.make.com/..." />
+          </label>
+
+          <label class="admin-field">
+            Token do Instagram (fallback)
+            <input class="admin-input" name="instagram_token" type="password" autocomplete="new-password" placeholder={dados.instagram_token_configurado ? '•••••••• configurado — preencha para trocar' : 'Cole o token apenas se não houver webhook'} />
+            {dados.instagram_token_configurado && (
+              <span class="secret-clear"><input type="checkbox" name="limpar_instagram_token" value="true" /> Remover token salvo</span>
+            )}
+          </label>
+
+          <button class="admin-button admin-button--primary" type="submit">Salvar integrações</button>
+        </form>
+      </article>
+    </div>
+
+    <div class="admin-tab-panel" role="tabpanel" id="panel-usuarios" aria-labelledby="tab-usuarios" data-tab-panel="usuarios" hidden={abaInicial !== 'usuarios'}>
+      {rolesConvidaveis.length > 0 && (
+        <article class="admin-panel invite-panel">
+          <div class="admin-section-title">
+            <div>
+              <h2>Convidar uma pessoa</h2>
+              <p class="admin-muted">Ela receberá um e-mail para criar a própria senha. Administradores não podem ser criados por esta tela.</p>
+            </div>
+            <span class="admin-tag">Acesso mínimo</span>
+          </div>
+          <form class="admin-form invite-form" id="invite-user-form">
+            <label class="admin-field">
+              E-mail da pessoa
+              <input class="admin-input" name="email" type="email" autocomplete="email" required placeholder="pessoa@exemplo.org.br" />
+            </label>
+            <label class="admin-field">
+              O que ela poderá fazer?
+              <select class="admin-input" name="role_id" required>
+                <option value="">Escolha uma função</option>
+                {rolesConvidaveis.map((role) => <option value={role.id}>{role.name}</option>)}
+              </select>
+              <small>Editor cuida das notícias, benefícios e textos públicos. Jurídico atende somente os chamados.</small>
+            </label>
+            <button class="admin-button admin-button--primary" type="submit">Enviar convite</button>
+          </form>
+        </article>
+      )}
+
+      <article class="admin-panel users-panel">
+        <div class="admin-section-title">
+          <div>
+            <h2>Pessoas com acesso</h2>
+            <p class="admin-muted">Desative imediatamente a conta de quem não deve mais alterar o portal.</p>
+          </div>
+          <button class="admin-button" type="button" id="reload-users">Atualizar lista</button>
+        </div>
+
+        <div class="users-table-wrap">
+          <table class="users-table">
+            <thead>
+              <tr>
+                <th>Pessoa</th>
+                <th>Função</th>
+                <th>Status</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="users-body">
+              {erroUsuarios ? (
+                <tr><td colspan="4" class="admin-muted">{erroUsuarios}</td></tr>
+              ) : usuarios.length === 0 ? (
+                <tr><td colspan="4" class="admin-muted">Nenhum usuário encontrado.</td></tr>
+              ) : usuarios.map((usuario) => {
+                const ativo = usuario.status === 'active';
+                return (
+                  <tr>
+                    <td class="user-name"><strong>{nomeUsuario(usuario)}</strong><small>{usuario.email || 'Sem e-mail'}</small></td>
+                    <td>{roleUsuario(usuario)}</td>
+                    <td><span class:list={['admin-tag', ativo && 'admin-tag--success']}>{statusUsuario(usuario)}</span></td>
+                    <td>
+                      <button
+                        class:list={['admin-button', ativo && 'admin-button--danger']}
+                        type="button"
+                        data-user-id={usuario.id}
+                        data-user-status={proximoStatusUsuario(usuario)}
+                      >
+                        {acaoUsuario(usuario)}
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </section>
+</AdminLayout>
+
+<style>
+  .settings-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 22px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .settings-hero::after {
+    content: '';
+    position: absolute;
+    right: -80px;
+    top: -90px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(107, 182, 234, 0.30), transparent 62%);
+  }
+
+  .settings-hero h2 {
+    margin: 12px 0 8px;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    letter-spacing: -0.045em;
+  }
+
+  .settings-hero__status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .settings-hero__status span {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    padding: 0 14px;
+    color: var(--admin-muted);
+    background: rgba(255, 255, 255, .06);
+  }
+
+  .settings-hero__status span.is-on {
+    color: #d7ffe8;
+    border-color: rgba(79, 209, 139, .36);
+    background: rgba(79, 209, 139, .12);
+  }
+
+  .settings-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  .settings-grid--logo {
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  }
+
+  .logo-upload,
+  .settings-form {
+    display: grid;
+    gap: 16px;
+  }
+
+  .logo-preview {
+    display: grid;
+    place-items: center;
+    min-height: 220px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 28px;
+    background:
+      radial-gradient(circle at 40% 20%, rgba(107, 182, 234, .22), transparent 38%),
+      linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+  }
+
+  .logo-preview img,
+  .logo-preview__fallback {
+    width: 180px;
+    height: 180px;
+    border-radius: 26px;
+    filter: drop-shadow(0 18px 32px rgba(0,0,0,.28));
+  }
+
+  .logo-preview img {
+    object-fit: contain;
+  }
+
+  .logo-preview__fallback {
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--admin-primary), var(--admin-danger));
+    color: #fff;
+    font-size: 2.8rem;
+    font-weight: 950;
+    letter-spacing: -0.08em;
+  }
+
+  .logo-dropzone {
+    display: grid;
+    gap: 6px;
+    padding: 20px;
+    border: 1px dashed rgba(107,182,234,.48);
+    border-radius: 22px;
+    background: rgba(69,128,172,.10);
+    color: var(--admin-text);
+    cursor: pointer;
+  }
+
+  .logo-dropzone small {
+    color: var(--admin-muted);
+  }
+
+  .logo-dropzone input {
+    margin-top: 8px;
+    color: var(--admin-muted);
+  }
+
+  .toggle-card {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+    padding: 18px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.055);
+  }
+
+  .toggle-card strong,
+  .toggle-card small {
+    display: block;
+  }
+
+  .toggle-card small {
+    margin-top: 4px;
+    color: var(--admin-muted);
+  }
+
+  .toggle-card input {
+    appearance: none;
+    width: 62px;
+    height: 34px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(5,8,18,.78);
+    position: relative;
+    transition: 180ms ease;
+    flex: 0 0 auto;
+  }
+
+  .toggle-card input::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 3px;
+    top: 3px;
+    border-radius: 50%;
+    background: var(--admin-muted);
+    transition: 180ms ease;
+  }
+
+  .toggle-card input:checked {
+    background: linear-gradient(135deg, var(--admin-primary), var(--admin-success));
+  }
+
+  .toggle-card input:checked::after {
+    left: 31px;
+    background: #fff;
+  }
+
+  .integration-priority {
+    padding: 20px;
+    border: 1px solid rgba(79,209,139,.22);
+    border-radius: 22px;
+    background: rgba(79,209,139,.08);
+  }
+
+  .integration-priority h3 {
+    margin: 12px 0 6px;
+  }
+
+  .secret-clear {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffd8d9;
+    font-size: .84rem;
+    font-weight: 700;
+  }
+
+  .secret-clear input {
+    accent-color: var(--admin-danger);
+  }
+
+  .users-table-wrap {
+    overflow-x: auto;
+  }
+
+  .invite-panel {
+    margin-bottom: 20px;
+  }
+
+  .invite-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, .7fr) auto;
+    align-items: end;
+    gap: 16px;
+  }
+
+  .invite-form small {
+    color: var(--admin-muted);
+  }
+
+  .users-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .users-table th,
+  .users-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,.10);
+  }
+
+  .users-table th {
+    color: var(--admin-muted);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  .user-name strong,
+  .user-name small {
+    display: block;
+  }
+
+  .user-name small {
+    color: var(--admin-muted);
+    margin-top: 4px;
+  }
+
+  @media (max-width: 900px) {
+    .settings-grid--logo,
+    .settings-hero {
+      grid-template-columns: 1fr;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .invite-form {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script is:inline>
+  const feedback = document.getElementById('settings-feedback');
+
+  function mostrarFeedback(mensagem, erro = false) {
+    if (!feedback) return;
+    feedback.textContent = mensagem;
+    feedback.hidden = false;
+    feedback.classList.toggle('admin-alert--error', erro);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  async function enviarJson(url, dados) {
+    const resposta = await fetch(url, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(dados),
+    });
+    const json = await resposta.json().catch(() => ({}));
+    if (!resposta.ok) throw new Error(json.erro || 'Não foi possível salvar.');
+    return json;
+  }
+
+  function atualizarPills(config) {
+    const pares = [
+      ['juridico', config.modulo_juridico_ativo],
+      ['youtube', config.modulo_youtube_ativo],
+      ['instagram', config.modulo_instagram_ativo],
+    ];
+    for (const [nome, ativo] of pares) {
+      document.querySelector(`[data-module-pill="${nome}"]`)?.classList.toggle('is-on', Boolean(ativo));
+    }
+  }
+
+  const tabsRoot = document.querySelector('[data-admin-tabs]');
+  if (tabsRoot) {
+    const tabs = Array.from(tabsRoot.querySelectorAll('[data-tab-target]'));
+    const panels = Array.from(tabsRoot.querySelectorAll('[data-tab-panel]'));
+
+    function ativarTab(id) {
+      for (const tab of tabs) {
+        const ativo = tab.getAttribute('data-tab-target') === id;
+        tab.setAttribute('aria-selected', String(ativo));
+      }
+      for (const panel of panels) {
+        panel.hidden = panel.getAttribute('data-tab-panel') !== id;
+      }
+    }
+
+    tabs.forEach((tab) => tab.addEventListener('click', () => ativarTab(tab.getAttribute('data-tab-target'))));
+  }
+
+  const logoForm = document.getElementById('logo-form');
+  const logoInput = logoForm?.querySelector('input[type="file"]');
+  const logoPreview = document.getElementById('logo-preview');
+
+  logoInput?.addEventListener('change', () => {
+    const file = logoInput.files?.[0];
+    if (file && logoPreview instanceof HTMLImageElement) {
+      logoPreview.src = URL.createObjectURL(file);
+      logoPreview.hidden = false;
+      document.getElementById('logo-preview-fallback')?.remove();
+    }
+  });
+
+  logoForm?.addEventListener('submit', async (evento) => {
+    evento.preventDefault();
+    const formData = new FormData(logoForm);
+    const tokenCsrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+    if (tokenCsrf) {
+        formData.set('csrf_token', tokenCsrf);
+    }
+
+    try {
+      const resposta = await fetch('/api/admin/settings/logo', { method: 'POST', body: formData });
+      const json = await resposta.json().catch(() => ({}));
+      if (!resposta.ok) throw new Error(json.erro || 'Upload não concluído.');
+      if (json.logo_url && logoPreview instanceof HTMLImageElement) {
+        logoPreview.src = json.logo_url;
+        logoPreview.hidden = false;
+        document.getElementById('logo-preview-fallback')?.remove();
+      }
+      mostrarFeedback('Logo enviada e aplicada com sucesso.');
+    } catch (erro) {
+      mostrarFeedback(erro.message || 'Não foi possível enviar a logo.', true);
+    }
+  });
+
+  document.getElementById('modules-form')?.addEventListener('submit', async (evento) => {
+    evento.preventDefault();
+    const form = evento.currentTarget;
+    const dados = {
+      modulo_juridico_ativo: form.modulo_juridico_ativo.checked,
+      modulo_youtube_ativo: form.modulo_youtube_ativo.checked,
+      modulo_instagram_ativo: form.modulo_instagram_ativo.checked,
+    };
+    try {
+      const json = await enviarJson('/api/admin/settings', dados);
+      atualizarPills(json.configuracoes);
+      mostrarFeedback('Módulos atualizados. O site público refletirá a mudança em instantes.');
+    } catch (erro) {
+      mostrarFeedback(erro.message || 'Não foi possível salvar os módulos.', true);
+    }
+  });
+
+  document.getElementById('integrations-form')?.addEventListener('submit', async (evento) => {
+    evento.preventDefault();
+    const form = evento.currentTarget;
+    const formData = new FormData(form);
+    const dados = {
+      youtube_channel_id: String(formData.get('youtube_channel_id') || ''),
+      youtube_api_key: String(formData.get('youtube_api_key') || ''),
+      instagram_webhook_url: String(formData.get('instagram_webhook_url') || ''),
+      instagram_token: String(formData.get('instagram_token') || ''),
+      limpar_youtube_api_key: formData.get('limpar_youtube_api_key') === 'true',
+      limpar_instagram_token: formData.get('limpar_instagram_token') === 'true',
+    };
+    try {
+      await enviarJson('/api/admin/settings', dados);
+      form.youtube_api_key.value = '';
+      form.instagram_token.value = '';
+      mostrarFeedback('Integrações salvas com segurança.');
+    } catch (erro) {
+      mostrarFeedback(erro.message || 'Não foi possível salvar as integrações.', true);
+    }
+  });
+
+  function escapeHtml(valor) {
+    return String(valor ?? '').replace(/[&<>'"]/g, (caractere) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      "'": '&#39;',
+      '"': '&quot;',
+    })[caractere]);
+  }
+
+  async function carregarUsuarios() {
+    const corpo = document.getElementById('users-body');
+    if (!corpo) return;
+    corpo.innerHTML = '<tr><td colspan="4" class="admin-muted">Carregando usuários...</td></tr>';
+    try {
+      const resposta = await fetch('/api/admin/settings/users');
+      const json = await resposta.json().catch(() => ({}));
+      if (!resposta.ok) throw new Error(json.erro || 'Não foi possível listar usuários.');
+      if (!json.usuarios?.length) {
+        corpo.innerHTML = '<tr><td colspan="4" class="admin-muted">Nenhum usuário encontrado.</td></tr>';
+        return;
+      }
+      corpo.innerHTML = json.usuarios.map((usuario) => {
+        const nome = [usuario.first_name, usuario.last_name].filter(Boolean).join(' ') || usuario.email || 'Usuário sem nome';
+        const roleBruta = typeof usuario.role === 'object' && usuario.role ? usuario.role.name || usuario.role.id : usuario.role || 'Sem função';
+        const role = roleBruta === 'Administrator' ? 'Administrador' : roleBruta;
+        const ativo = usuario.status === 'active';
+        const statusRotulo = ativo ? 'Ativo' : usuario.status === 'suspended' ? 'Desativado' : usuario.status || 'Sem status';
+        const proximoStatus = ativo ? 'suspended' : 'active';
+        const acao = ativo ? 'Desativar' : 'Reativar';
+        return `
+          <tr>
+            <td class="user-name"><strong>${escapeHtml(nome)}</strong><small>${escapeHtml(usuario.email || 'Sem e-mail')}</small></td>
+            <td>${escapeHtml(role)}</td>
+            <td><span class="admin-tag ${ativo ? 'admin-tag--success' : ''}">${escapeHtml(statusRotulo)}</span></td>
+            <td><button class="admin-button ${ativo ? 'admin-button--danger' : ''}" type="button" data-user-id="${escapeHtml(usuario.id)}" data-user-status="${escapeHtml(proximoStatus)}">${escapeHtml(acao)}</button></td>
+          </tr>`;
+      }).join('');
+    } catch (erro) {
+      corpo.innerHTML = `<tr><td colspan="4" class="admin-muted">${erro.message || 'Erro ao carregar usuários.'}</td></tr>`;
+    }
+  }
+
+  document.getElementById('reload-users')?.addEventListener('click', carregarUsuarios);
+  document.getElementById('invite-user-form')?.addEventListener('submit', async (evento) => {
+    evento.preventDefault();
+    const form = evento.currentTarget;
+    const formData = new FormData(form);
+    try {
+      const resposta = await fetch('/api/admin/settings/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: String(formData.get('email') || ''),
+          role_id: String(formData.get('role_id') || ''),
+        }),
+      });
+      const json = await resposta.json().catch(() => ({}));
+      if (!resposta.ok) throw new Error(json.erro || 'Não foi possível enviar o convite.');
+      form.reset();
+      mostrarFeedback('Convite enviado. A pessoa receberá um e-mail para criar a senha.');
+      await carregarUsuarios();
+    } catch (erro) {
+      mostrarFeedback(erro.message || 'Não foi possível enviar o convite.', true);
+    }
+  });
+  document.getElementById('users-body')?.addEventListener('click', async (evento) => {
+    const botao = evento.target.closest('[data-user-id]');
+    if (!botao) return;
+    const status = botao.getAttribute('data-user-status');
+    const id = botao.getAttribute('data-user-id');
+    const frase = status === 'suspended' ? 'desativar' : 'reativar';
+    if (!confirm(`Tem certeza que deseja ${frase} este usuário?`)) return;
+    try {
+      const resposta = await fetch(`/api/admin/settings/users/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status }),
+      });
+      const json = await resposta.json().catch(() => ({}));
+      if (!resposta.ok) throw new Error(json.erro || 'Não foi possível atualizar o usuário.');
+      mostrarFeedback('Usuário atualizado com sucesso.');
+      await carregarUsuarios();
+    } catch (erro) {
+      mostrarFeedback(erro.message || 'Não foi possível atualizar o usuário.', true);
+    }
+  });
+
+</script>
