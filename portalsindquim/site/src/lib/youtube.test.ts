@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { limparCache } from './cache';
-import { parseYoutubeFeed, resolverChannelId } from './youtube';
+import { criarUrlPlaylistUploads, parseYoutubeFeed, resolverChannelId } from './youtube';
 
 const FEED_DOIS_VIDEOS = `<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns:yt="http://www.youtube.com/xml/schemas/2015"
@@ -96,5 +96,18 @@ describe('resolverChannelId', () => {
 
   it('retorna null para URL vazia', async () => {
     expect(await resolverChannelId('  ')).toBeNull();
+  });
+});
+
+describe('criarUrlPlaylistUploads', () => {
+  it('cria a playlist automática de uploads a partir do channel id', () => {
+    expect(criarUrlPlaylistUploads('UC4sw8g2GwkMMikgm4n4fHmQ')).toBe(
+      'https://www.youtube-nocookie.com/embed?listType=playlist&list=UU4sw8g2GwkMMikgm4n4fHmQ',
+    );
+  });
+
+  it('recusa ids vazios ou inválidos', () => {
+    expect(criarUrlPlaylistUploads(null)).toBeNull();
+    expect(criarUrlPlaylistUploads('playlist-comum')).toBeNull();
   });
 });

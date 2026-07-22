@@ -2,7 +2,7 @@
 import 'lite-youtube-embed/src/lite-yt-embed.css';
 import { getConfiguracoes, getConfiguracoesGlobais, getProximosVideos, urlImagem } from '../lib/directus';
 import { formatarDataEstreia } from '../lib/formatar';
-import { getVideosYoutube } from '../lib/youtube';
+import { criarUrlPlaylistUploads, getVideosYoutube } from '../lib/youtube';
 import { YoutubeLogoIcon } from '@phosphor-icons/react/ssr';
 
 const [config, globais, proximos, videos] = await Promise.all([
@@ -17,9 +17,12 @@ const canalUrl = podcastAtivo ? config?.youtube_url ?? null : null;
 const proximo = podcastAtivo ? proximos[0] ?? null : null;
 const destaque = podcastAtivo ? videos[0] ?? null : null;
 const recentes = podcastAtivo ? videos.slice(1, 5) : [];
+const channelId = globais.youtube_channel_id?.trim() || config?.youtube_channel_id?.trim() || null;
+const playlistUploadsUrl = podcastAtivo && !destaque ? criarUrlPlaylistUploads(channelId) : null;
 const titulo = config?.podcast_titulo?.trim() || 'Podcast Reação Química';
 const rotulo = config?.podcast_rotulo?.trim() || 'Informação e debate';
-const temConteudo = proximo !== null || destaque !== null;
+const temConteudo = proximo !== null || destaque !== null || playlistUploadsUrl !== null;
+const temRail = proximo !== null || recentes.length > 0;
 const imagemProximo = proximo?.imagem ? urlImagem(proximo.imagem, { largura: 800, altura: 800 }) : null;
 ---
 
@@ -41,7 +44,7 @@ const imagemProximo = proximo?.imagem ? urlImagem(proximo.imagem, { largura: 800
       </div>
 
       {temConteudo ? (
-        <div class:list={['estudio__layout', !proximo && 'estudio__layout--sem-agenda']}>
+        <div class:list={['estudio__layout', !proximo && 'estudio__layout--sem-agenda', !temRail && 'estudio__layout--sem-rail']}>
           <div class="estudio__destaque">
             {destaque ? (
               <>
@@ -55,6 +58,20 @@ const imagemProximo = proximo?.imagem ? urlImagem(proximo.imagem, { largura: 800
                 </div>
                 <h3 class="estudio__player-titulo">{destaque.titulo}</h3>
               </>
+            ) : playlistUploadsUrl ? (
+              <>
+                <p class="estudio__eyebrow">Episódios mais recentes</p>
+                <div class="estudio__player estudio__player--playlist">
+                  <iframe
+                    src={playlistUploadsUrl}
+                    title="Episódios do Podcast Reação Química no YouTube"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </>
             ) : proximo ? (
               <div class="estudio__aguarde">
                 <p class="estudio__eyebrow">Em breve</p>
@@ -64,7 +81,7 @@ const imagemProximo = proximo?.imagem ? urlImagem(proximo.imagem, { largura: 800
             ) : null}
           </div>
 
-          <div class="estudio__rail">
+          {temRail && <div class="estudio__rail">
             {proximo && (
               <article class:list={['proximo-video', imagemProximo && 'proximo-video--com-imagem']}>
                 {imagemProximo && <img class="proximo-video__arte" src={imagemProximo} alt={proximo.imagem_alt || ''} loading="lazy" decoding="async" />}
@@ -90,7 +107,7 @@ const imagemProximo = proximo?.imagem ? urlImagem(proximo.imagem, { largura: 800
                 ))}
               </div>
             )}
-          </div>
+          </div>}
         </div>
       ) : (
         <div class="estudio__vazio">

@@ -14,6 +14,17 @@ const TTL_FEED = 60 * 60_000;
 const TTL_ERRO = 10 * 60_000;
 
 /**
+ * Cada canal possui uma playlist automática de uploads. O identificador usa
+ * o mesmo sufixo do canal, trocando o prefixo UC por UU.
+ */
+export function criarUrlPlaylistUploads(channelId: string | null | undefined): string | null {
+  const id = channelId?.trim() ?? '';
+  if (!/^UC[a-zA-Z0-9_-]{10,}$/.test(id)) return null;
+  const playlistId = `UU${id.slice(2)}`;
+  return `https://www.youtube-nocookie.com/embed?listType=playlist&list=${encodeURIComponent(playlistId)}`;
+}
+
+/**
  * Extrai os vídeos do feed RSS público do canal
  * (https://www.youtube.com/feeds/videos.xml?channel_id=...).
  * Retorna null quando o XML não é um feed válido.

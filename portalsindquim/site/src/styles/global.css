@@ -662,6 +662,7 @@ button, input, textarea { font: inherit; }
   align-items: start;
 }
 .estudio__layout--sem-agenda { grid-template-columns: 1.55fr 0.8fr; }
+.estudio__layout--sem-rail { grid-template-columns: minmax(0, 1fr); }
 .estudio__destaque { min-width: 0; }
 .estudio__eyebrow,
 .video-lista__titulo {
@@ -681,6 +682,12 @@ button, input, textarea { font: inherit; }
 .estudio__player lite-youtube {
   max-width: none;
   width: 100%;
+}
+.estudio__player iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
 }
 .estudio__player-titulo {
   margin: 15px 2px 0;

@@ -125,6 +125,16 @@ test.describe('experiência mobile do portal', () => {
     }
   });
 
+  test('podcast mantém episódios visíveis mesmo quando o RSS externo falha', async ({ page }) => {
+    await esperarPagina(page, '/');
+
+    const podcast = page.locator('#videos');
+    await podcast.scrollIntoViewIfNeeded();
+    await expect(podcast.getByRole('heading', { name: 'Podcast Reação Química', level: 2 })).toBeVisible();
+    await expect(podcast.locator('.estudio__vazio')).toHaveCount(0);
+    await expect(podcast.locator('.estudio__player').locator('lite-youtube, iframe')).toHaveCount(1);
+  });
+
   test('cabeçalho oferece busca e redes sociais acessíveis', async ({ page }) => {
     await esperarPagina(page, '/');
 

@@ -510,8 +510,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1784691127.013705,
-    "ast_hash": "d12176672f9b53525e5e10b4c85f1edf",
+    "mtime": 1784691871.2856088,
+    "ast_hash": "281d3ee677ec6fc4c636f1bcfe77097b",
     "semantic_hash": ""
   },
   "docs/README.md": {
@@ -680,8 +680,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/scripts/backup.sh": {
-    "mtime": 1784691127.0143201,
-    "ast_hash": "16c2e9074f34a444e0556f42a38081d7",
+    "mtime": 1784691871.2862484,
+    "ast_hash": "82e41d1f6cd761e91cdf861465daef8f",
     "semantic_hash": ""
   },
   "portalsindquim/scripts/bootstrap-local.mjs": {
@@ -785,8 +785,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/e2e/mobile-ux.spec.ts": {
-    "mtime": 1784691112.6058104,
-    "ast_hash": "88cf85ef0830731a994a91c8619bcfad",
+    "mtime": 1784691912.2766304,
+    "ast_hash": "751efec670dd592e2f4d3c0324dc6a3e",
     "semantic_hash": ""
   },
   "portalsindquim/site/e2e/podcast-editorial.spec.ts": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/package.json": {
-    "mtime": 1784691135.0284643,
-    "ast_hash": "d7d9fb52450fa3e1a50109d570de1ba4",
+    "mtime": 1784691880.738629,
+    "ast_hash": "e91ced4691c0f9c347cb08e0a06c47b7",
     "semantic_hash": ""
   },
   "portalsindquim/site/playwright.config.ts": {
@@ -805,8 +805,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/src/components/Estudio.astro": {
-    "mtime": 1784684687.3124824,
-    "ast_hash": "72a685969f093eb05e00ed472a59304c",
+    "mtime": 1784691854.3719652,
+    "ast_hash": "483b642a4be2d929f340a5ccc707dcc8",
     "semantic_hash": ""
   },
   "portalsindquim/site/src/components/NoticiaCard.astro": {
@@ -920,13 +920,13 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/src/lib/youtube.test.ts": {
-    "mtime": 1784294882.0,
-    "ast_hash": "58a36dfdc5d50d0e7186c7793919df85",
+    "mtime": 1784691854.3714325,
+    "ast_hash": "241b4c3bc167384e6afb23c9cecb20b4",
     "semantic_hash": ""
   },
   "portalsindquim/site/src/lib/youtube.ts": {
-    "mtime": 1784679409.057867,
-    "ast_hash": "5bc98e31f911122afe52a25fe170851b",
+    "mtime": 1784691854.3705957,
+    "ast_hash": "8a23141a8bf8bcc388cda1f2da033603",
     "semantic_hash": ""
   },
   "portalsindquim/site/src/middleware.ts": {
@@ -1195,8 +1195,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/CHANGELOG.md": {
-    "mtime": 1784691127.0145028,
-    "ast_hash": "b99989a6b1739c8449215770f13593f6",
+    "mtime": 1784691871.2864435,
+    "ast_hash": "e3dfa8e212bbc69126065f713462db46",
     "semantic_hash": ""
   },
   "portalsindquim/CLAUDE.md": {
@@ -1225,8 +1225,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/README.md": {
-    "mtime": 1784691127.0139391,
-    "ast_hash": "956ac5ec675dc4cff5b75d62f02cacce",
+    "mtime": 1784691871.285841,
+    "ast_hash": "767ddd572633cad030ffb9df6b182126",
     "semantic_hash": ""
   },
   "portalsindquim/assets/noticias/README.md": {
@@ -1240,8 +1240,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/deploy/docker-compose.yml": {
-    "mtime": 1784691127.0141437,
-    "ast_hash": "fb3fb4224ea67950e39542d908523a2c",
+    "mtime": 1784691871.2860525,
+    "ast_hash": "fd99d3e163d950aa7d4acce661ca60ec",
     "semantic_hash": ""
   },
   "portalsindquim/deploy/override-rede-tunnel.yml": {

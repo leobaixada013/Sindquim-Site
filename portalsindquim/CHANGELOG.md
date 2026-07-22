@@ -1,5 +1,12 @@
 # Histórico de versões
 
+## 1.9.3 — 2026-07-22
+
+- Restaura os episódios do Podcast Reação Química quando o RSS do YouTube falha dentro do Docker.
+- Mantém o feed detalhado como primeira opção e usa a playlist automática de uploads do próprio canal como fallback.
+- Garante que a seção nunca apresente uma mensagem vazia quando o canal configurado possui vídeos.
+- Mantém apenas o link **Feed RSS** removido do rodapé público.
+
 ## 1.9.2 — 2026-07-22
 
 - Centraliza títulos, textos, links, endereço e créditos do rodapé em todas as larguras.
