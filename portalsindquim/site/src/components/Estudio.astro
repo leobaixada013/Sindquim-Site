@@ -3,6 +3,7 @@ import 'lite-youtube-embed/src/lite-yt-embed.css';
 import { getConfiguracoes, getConfiguracoesGlobais, getProximosVideos, urlImagem } from '../lib/directus';
 import { formatarDataEstreia } from '../lib/formatar';
 import { getVideosYoutube } from '../lib/youtube';
+import { YoutubeLogoIcon } from '@phosphor-icons/react/ssr';
 
 const [config, globais, proximos, videos] = await Promise.all([
   getConfiguracoes(),
@@ -32,8 +33,9 @@ const imagemProximo = proximo?.imagem ? urlImagem(proximo.imagem, { largura: 800
           <p class="estudio__intro">Conversas sobre trabalho, indústria química, direitos e os assuntos que movem a categoria.</p>
         </div>
         {canalUrl && (
-          <a class="button button--fantasma" href={canalUrl} target="_blank" rel="noopener">
-            Ver canal no YouTube
+          <a class="button button--youtube" href={canalUrl} target="_blank" rel="noopener">
+            <YoutubeLogoIcon size={22} weight="bold" aria-hidden="true" />
+            <span>Ver canal no YouTube</span>
           </a>
         )}
       </div>

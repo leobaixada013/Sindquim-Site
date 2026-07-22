@@ -12,6 +12,7 @@ import {
   urlImagem,
 } from '../lib/directus';
 import { formatarData, formatarDiaMes } from '../lib/formatar';
+import { ChatsCircleIcon, GiftIcon, HandHeartIcon, ScalesIcon } from '@phosphor-icons/react/ssr';
 
 const [banner, todosPosts, avisoUrgente, avisosRapidos, globais] = await Promise.all([
   getPostBanner(),
@@ -136,24 +137,24 @@ const imagemBanner = banner ? urlImagem(banner.imagem, { largura: 1600, altura: 
       </div>
       <div class="quick-grid">
         <a class="quick-card quick-card--aco" href="/beneficios">
-          <span class="quick-card__icone">BEN</span>
+          <span class="quick-card__icone" aria-hidden="true"><GiftIcon size={28} /></span>
           <strong>Benefícios</strong>
           <small>Descontos, serviços e vantagens para associados e dependentes.</small>
         </a>
         {globais.modulo_juridico_ativo !== false && (
           <a class="quick-card quick-card--vermelho" href="/juridico">
-            <span class="quick-card__icone">JUR</span>
+            <span class="quick-card__icone" aria-hidden="true"><ScalesIcon size={28} /></span>
             <strong>Atendimento jurídico</strong>
             <small>Orientação sobre direitos trabalhistas, rescisões e dúvidas da categoria.</small>
           </a>
         )}
         <a class="quick-card" href="/filie-se">
-          <span class="quick-card__icone">SIM</span>
+          <span class="quick-card__icone" aria-hidden="true"><HandHeartIcon size={28} /></span>
           <strong>Filie-se</strong>
           <small>Fortaleça o sindicato e tenha acesso a serviços exclusivos.</small>
         </a>
         <a class="quick-card" href="/contato">
-          <span class="quick-card__icone">FALE</span>
+          <span class="quick-card__icone" aria-hidden="true"><ChatsCircleIcon size={28} /></span>
           <strong>Fale conosco</strong>
           <small>Envie sua dúvida ou solicite atendimento pelo canal oficial do sindicato.</small>
         </a>

@@ -119,6 +119,24 @@ test.describe('experiência mobile do portal', () => {
     }
   });
 
+  test('cabeçalho oferece busca e redes sociais acessíveis', async ({ page }) => {
+    await esperarPagina(page, '/');
+
+    const busca = page.getByRole('search').first();
+    await expect(busca.getByRole('searchbox', { name: 'Buscar no site' })).toBeVisible();
+    await expect(busca.getByRole('button', { name: 'Buscar' })).toBeVisible();
+
+    const redes = page.getByRole('navigation', { name: 'Redes sociais' });
+    await expect(redes.getByRole('link', { name: 'YouTube' })).toBeVisible();
+  });
+
+  test('busca encontra notícias sem depender de acentos', async ({ page }) => {
+    await esperarPagina(page, '/buscar?q=quimica');
+    await expect(page.getByRole('heading', { name: 'Busca', level: 1 })).toBeVisible();
+    await expect(page.locator('.busca-resultados li').first()).toBeVisible();
+    await expect(page).toHaveURL(/\/buscar\?q=quimica/);
+  });
+
   test('atalho de teclado leva ao conteúdo principal', async ({ page }, testInfo) => {
     await esperarPagina(page, '/');
     const atalho = page.getByRole('link', { name: 'Ir para o conteúdo' });

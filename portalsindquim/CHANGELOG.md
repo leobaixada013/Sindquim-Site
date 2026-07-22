@@ -1,5 +1,13 @@
 # Histórico de versões
 
+## 1.7.0 — 2026-07-21
+
+- Reorganiza o cabeçalho em duas faixas: marca e utilidades no topo, navegação principal em uma linha dedicada.
+- Adiciona busca global por notícias, benefícios e páginas institucionais, tolerante a acentos e otimizada para celular.
+- Apresenta YouTube e Instagram com ícones Phosphor e a chamada “Acompanhe pelas redes”.
+- Refina o botão do canal na seção Podcast Reação Química com hierarquia, alinhamento e ícone do YouTube.
+- Substitui as siglas dos acessos rápidos por ícones semânticos de benefícios, jurídico, filiação e contato.
+
 ## 1.6.1 — 2026-07-21
 
 - Remove o atalho **Podcast** do menu principal para manter a navegação mais curta.

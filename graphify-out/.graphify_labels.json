@@ -440,5 +440,7 @@
   "438": "portalsindquim/site/astro.config.mjs",
   "439": "podcast-editorial.spec.ts",
   "440": "portalsindquim/site/src/pages/convencoes.astro",
-  "441": "vitest.config.ts"
+  "441": "vitest.config.ts",
+  "442": "lite-youtube-embed",
+  "443": "nodemailer"
 }
