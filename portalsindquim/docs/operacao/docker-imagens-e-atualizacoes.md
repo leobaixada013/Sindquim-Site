@@ -13,7 +13,7 @@ O código não é gravado dentro do container em produção; ele entra na imagem
 2. Rode `npm --prefix site run test:ci`.
 3. Execute `./scripts/update-images.sh`.
 4. O script cria um backup.
-5. Docker recompila `portalsindquim-site:1.6.0` e, se necessário, `portalsindquim-directus:11.17.4-portal3`.
+5. Docker recompila `portalsindquim-site:1.6.1` e, se necessário, `portalsindquim-directus:11.17.4-portal3`.
 6. Compose recria os containers e espera os health checks.
 7. Confira site e painel antes de descartar a imagem anterior.
 

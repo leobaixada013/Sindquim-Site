@@ -1,5 +1,10 @@
 # Histórico de versões
 
+## 1.6.1 — 2026-07-21
+
+- Remove o atalho **Podcast** do menu principal para manter a navegação mais curta.
+- Preserva integralmente a seção Podcast Reação Química na página inicial e sua sincronização com o YouTube.
+
 ## 1.6.0 — 2026-07-21
 
 - Nova seção **Podcast Reação Química** na página inicial, logo depois das notícias.

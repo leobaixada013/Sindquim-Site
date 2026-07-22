@@ -10,7 +10,6 @@ export const MENU = [
   { rotulo: 'Notícias', href: '/noticias' },
   { rotulo: 'Benefícios', href: '/beneficios' },
   { rotulo: 'Jurídico', href: '/juridico' },
-  { rotulo: 'Podcast', href: '/#videos' },
   { rotulo: 'Diretoria', href: '/diretoria' },
   { rotulo: 'Filie-se', href: '/filie-se' },
   { rotulo: 'Contato', href: '/contato' },

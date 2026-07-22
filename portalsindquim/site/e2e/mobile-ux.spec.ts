@@ -95,17 +95,16 @@ test.describe('experiência mobile do portal', () => {
 
     const textos = await menu.locator('a').allTextContents();
     const itensMenu = textos.map((texto) => texto.trim());
-    const esperado = [
+    expect(itensMenu).toEqual([
       'Início',
       'Notícias',
       'Benefícios',
       'Jurídico',
-      ...(itensMenu.includes('Podcast') ? ['Podcast'] : []),
       'Diretoria',
       'Filie-se',
       'Contato',
-    ];
-    expect(itensMenu).toEqual(esperado);
+    ]);
+    expect(itensMenu).not.toContain('Podcast');
     expect(textos).not.toContain('Avisos');
 
     const alvos = await menu.locator('a').evaluateAll((links) =>
