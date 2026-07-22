@@ -1,5 +1,14 @@
 # Histórico de versões
 
+## 1.8.0 — 2026-07-21
+
+- Redesenha a página de contato como uma central direta, sem formulário, com telefone, e-mail e WhatsApp.
+- Adiciona mapa e rota atualizados automaticamente a partir do endereço salvo no Directus.
+- Torna a coleção **Contato e redes** visível e autoexplicativa no painel do Directus.
+- Centraliza a apresentação do atendimento e usa ícones semânticos, coloridos e acessíveis.
+- Aplica cores próprias aos ícones de Instagram e YouTube no cabeçalho.
+- Remove o formulário **Receba as novidades** do rodapé em todas as páginas.
+
 ## 1.7.0 — 2026-07-21
 
 - Reorganiza o cabeçalho em duas faixas: marca e utilidades no topo, navegação principal em uma linha dedicada.

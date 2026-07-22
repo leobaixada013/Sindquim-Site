@@ -586,13 +586,13 @@ const COLECOES = [
   },
   {
     collection: 'configuracoes',
-    meta: { icon: 'settings', hidden: true, singleton: true, translations: [{ language: 'pt-BR', translation: 'Configurações do site', singular: 'Configurações', plural: 'Configurações' }] },
+    meta: { icon: 'contact_phone', hidden: false, singleton: true, sort: 9, translations: [{ language: 'pt-BR', translation: 'Contato e redes', singular: 'Contato e redes', plural: 'Contato e redes' }] },
     schema: {},
     fields: [
-      campoTexto('telefone', 'Telefone'),
-      campoTexto('whatsapp', 'WhatsApp (só números, com DDD)'),
-      campoTexto('email', 'E-mail'),
-      campoTexto('endereco', 'Endereço', { interface: 'input-multiline' }),
+      campoTexto('telefone', 'Telefone para ligações', { meta: { width: 'half' }, nota: 'Exibido como botão de ligação. Ex.: (13) 3221-3435.' }),
+      campoTexto('whatsapp', 'WhatsApp', { meta: { width: 'half' }, nota: 'Digite DDD e número. O botão do WhatsApp aparece automaticamente.' }),
+      campoTexto('email', 'E-mail de contato', { nota: 'Único e-mail exibido na página de contato.' }),
+      campoTexto('endereco', 'Endereço da sede', { interface: 'input-multiline', nota: 'Ao salvar, o mapa da página de contato é atualizado automaticamente.' }),
       campoTexto('instagram_url', 'URL do Instagram'),
       campoTexto('youtube_url', 'URL do canal no YouTube'),
       campoTexto('youtube_channel_id', 'ID do canal (opcional)', { nota: 'Preencha só se o site não detectar o canal sozinho (formato UC...).' }),

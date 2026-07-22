@@ -18,7 +18,6 @@ const tituloFinal = titulo ? `${titulo} — ${NOME_CURTO}` : NOME_SITE;
 const [config, globais] = await Promise.all([getConfiguracoes(), getConfiguracoesGlobais()]);
 const urlCanonica = new URL(Astro.url.pathname, Astro.site);
 const caminhoAtual = Astro.url.pathname.replace(/\/$/, '') || '/';
-const estadoNewsletter = Astro.url.searchParams.get('news');
 const linkWhatsapp = config?.whatsapp ? `https://wa.me/${config.whatsapp.replace(/\D/g, '')}` : null;
 const moduloJuridicoAtivo = globais.modulo_juridico_ativo !== false;
 const moduloYoutubeAtivo = config?.podcast_ativo === true || globais.modulo_youtube_ativo === true;
@@ -96,12 +95,12 @@ const menuVisivel = MENU.filter((item) => {
           <nav class="social-links" aria-label="Redes sociais">
             <span>Acompanhe pelas redes</span>
             {config?.instagram_url && (
-              <a href={config.instagram_url} target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+              <a class="social-links__instagram" href={config.instagram_url} target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
                 <InstagramLogoIcon size={23} aria-hidden="true" />
               </a>
             )}
             {moduloYoutubeAtivo && config?.youtube_url && (
-              <a href={config.youtube_url} target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+              <a class="social-links__youtube" href={config.youtube_url} target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
                 <YoutubeLogoIcon size={23} aria-hidden="true" />
               </a>
             )}
@@ -162,26 +161,6 @@ const menuVisivel = MENU.filter((item) => {
               {moduloJuridicoAtivo && <li><a href="/juridico">Jurídico</a></li>}
               <li><a href="/rss.xml">Feed RSS</a></li>
             </ul>
-          </div>
-          <div class="footer__news">
-            <h3>Receba as novidades</h3>
-            <p>Boletim por e-mail com as notícias e convocações da categoria.</p>
-            {estadoNewsletter === 'ok' && (
-              <p class="form-ok">Inscrição feita. Você vai receber o boletim no seu e-mail.</p>
-            )}
-            {estadoNewsletter === 'erro' && (
-              <p class="form-erro">Não deu certo agora. Confira o e-mail digitado e tente de novo.</p>
-            )}
-            {estadoNewsletter === 'limite' && (
-              <p class="form-erro">Muitas tentativas em pouco tempo. Aguarde alguns minutos.</p>
-            )}
-            <form method="post" action="/api/newsletter">
-              <label class="campo-honeypot" aria-hidden="true">
-                Não preencha <input type="text" name="site" tabindex="-1" autocomplete="off" />
-              </label>
-              <input type="email" name="email" required placeholder="seu@email.com" aria-label="Seu e-mail" />
-              <button class="button button--primario" type="submit">Assinar</button>
-            </form>
           </div>
         </div>
         <div class="footer__bottom">

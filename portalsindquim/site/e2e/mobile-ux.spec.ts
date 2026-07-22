@@ -128,6 +128,23 @@ test.describe('experiência mobile do portal', () => {
 
     const redes = page.getByRole('navigation', { name: 'Redes sociais' });
     await expect(redes.getByRole('link', { name: 'YouTube' })).toBeVisible();
+    await expect(redes.getByRole('link', { name: 'Instagram' })).toHaveClass(/social-links__instagram/);
+    await expect(redes.getByRole('link', { name: 'YouTube' })).toHaveClass(/social-links__youtube/);
+  });
+
+  test('contato prioriza canais diretos, mapa e não exibe formulários removidos', async ({ page }) => {
+    await esperarPagina(page, '/contato');
+
+    await expect(page.getByRole('heading', { name: 'Fale com o sindicato', level: 1 })).toBeVisible();
+    await expect(page.locator('.contact-hero__eyebrow svg')).toBeVisible();
+    await expect(page.locator('form[action="/api/contato"]')).toHaveCount(0);
+    await expect(page.getByText('Envie uma mensagem', { exact: true })).toHaveCount(0);
+    await expect(page.getByRole('heading', { name: 'Sede do Sindquim', level: 2 })).toBeVisible();
+    await expect(page.locator('.contact-location iframe')).toHaveAttribute('title', /Mapa da sede do Sindquim/);
+
+    const rodape = page.locator('footer.footer');
+    await expect(rodape.getByText('Receba as novidades', { exact: true })).toHaveCount(0);
+    await expect(rodape.locator('form[action="/api/newsletter"]')).toHaveCount(0);
   });
 
   test('busca encontra notícias sem depender de acentos', async ({ page }) => {

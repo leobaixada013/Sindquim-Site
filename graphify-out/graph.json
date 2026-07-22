@@ -3320,8 +3320,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "portalsindquim_site_package_dependencies_types_nodemailer",
-      "community": 50,
-      "community_name": "Community 50",
+      "community": 427,
+      "community_name": "@directus/sdk",
       "norm_label": "@types/nodemailer"
     },
     {
@@ -3331,8 +3331,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "portalsindquim_site_package_json_types_nodemailer",
-      "community": 50,
-      "community_name": "Community 50",
+      "community": 427,
+      "community_name": "@directus/sdk",
       "norm_label": "@types/nodemailer"
     },
     {
@@ -3342,8 +3342,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "portalsindquim_site_package_dependencies_astro",
-      "community": 427,
-      "community_name": "@directus/sdk",
+      "community": 50,
+      "community_name": "Community 50",
       "norm_label": "astro"
     },
     {
@@ -3353,8 +3353,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "portalsindquim_site_package_json_astro",
-      "community": 427,
-      "community_name": "@directus/sdk",
+      "community": 50,
+      "community_name": "Community 50",
       "norm_label": "astro"
     },
     {
@@ -3639,8 +3639,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "portalsindquim_site_src_components_estudio",
-      "community": 21,
-      "community_name": "Option Management Tasks",
+      "community": 99,
+      "community_name": "Community 99",
       "norm_label": "portalsindquim/site/src/components/estudio.astro"
     },
     {
@@ -3650,8 +3650,8 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "lite_yt_embed_css",
-      "community": 21,
-      "community_name": "Option Management Tasks",
+      "community": 422,
+      "community_name": "urlImagem",
       "norm_label": "lite-youtube-embed/src/lite-yt-embed.css"
     },
     {
@@ -3683,8 +3683,8 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "users_eduardovarandas_downloads_sindquim_site_release_v1_4_portalsindquim_site_src_lib_youtube",
-      "community": 10,
-      "community_name": "Episode List Logic",
+      "community": 99,
+      "community_name": "Community 99",
       "norm_label": "../../lib/youtube"
     },
     {
@@ -3694,8 +3694,8 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "ssr",
-      "community": 421,
-      "community_name": "criarInscricaoNewsletter",
+      "community": 54,
+      "community_name": "Community 54",
       "norm_label": "@phosphor-icons/react/ssr"
     },
     {
@@ -3750,8 +3750,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "portalsindquim_site_src_components_vitrinesocial",
-      "community": 21,
-      "community_name": "Option Management Tasks",
+      "community": 99,
+      "community_name": "Community 99",
       "norm_label": "portalsindquim/site/src/components/vitrinesocial.astro"
     },
     {
@@ -3761,8 +3761,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "portalsindquim_site_src_components_vitrinesocial_numero",
-      "community": 21,
-      "community_name": "Option Management Tasks",
+      "community": 99,
+      "community_name": "Community 99",
       "norm_label": "numero()"
     },
     {
@@ -3772,8 +3772,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "portalsindquim_site_src_components_vitrinesocial_resumo",
-      "community": 21,
-      "community_name": "Option Management Tasks",
+      "community": 99,
+      "community_name": "Community 99",
       "norm_label": "resumo()"
     },
     {
@@ -3872,8 +3872,8 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "users_eduardovarandas_downloads_sindquim_site_release_v1_4_portalsindquim_site_src_lib_adminsecurity",
-      "community": 422,
-      "community_name": "urlImagem",
+      "community": 47,
+      "community_name": "Community 47",
       "norm_label": "../../lib/adminsecurity"
     },
     {
@@ -3900,21 +3900,10 @@
       "norm_label": "urlcanonica"
     },
     {
-      "label": "estadoNewsletter",
-      "file_type": "code",
-      "source_file": "portalsindquim/site/src/layouts/Base.astro",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "portalsindquim_site_src_layouts_base_estadonewsletter",
-      "community": 54,
-      "community_name": "Community 54",
-      "norm_label": "estadonewsletter"
-    },
-    {
       "label": "menuVisivel",
       "file_type": "code",
       "source_file": "portalsindquim/site/src/layouts/Base.astro",
-      "source_location": "L28",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "portalsindquim_site_src_layouts_base_menuvisivel",
       "community": 54,
@@ -3939,8 +3928,8 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "source_serif_4",
-      "community": 103,
-      "community_name": "Community 103",
+      "community": 54,
+      "community_name": "Community 54",
       "norm_label": "@fontsource-variable/source-serif-4"
     },
     {
@@ -3961,8 +3950,8 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "users_eduardovarandas_downloads_sindquim_site_release_v1_4_portalsindquim_site_src_lib_constantes",
-      "community": 54,
-      "community_name": "Community 54",
+      "community": 43,
+      "community_name": "Community 43",
       "norm_label": "../../lib/constantes"
     },
     {
@@ -4093,8 +4082,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_auth_adminsocialdata",
-      "community": 36,
-      "community_name": "Single Post Template",
+      "community": 14,
+      "community_name": "Project Version Control",
       "norm_label": "adminsocialdata"
     },
     {
@@ -4104,8 +4093,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_auth_adminpodcastdata",
-      "community": 36,
-      "community_name": "Single Post Template",
+      "community": 14,
+      "community_name": "Project Version Control",
       "norm_label": "adminpodcastdata"
     },
     {
@@ -4115,8 +4104,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_auth_adminsettingsdata",
-      "community": 36,
-      "community_name": "Single Post Template",
+      "community": 14,
+      "community_name": "Project Version Control",
       "norm_label": "adminsettingsdata"
     },
     {
@@ -4126,8 +4115,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_auth_admindashboarddata",
-      "community": 36,
-      "community_name": "Single Post Template",
+      "community": 16,
+      "community_name": "Social Card Post Type",
       "norm_label": "admindashboarddata"
     },
     {
@@ -4159,8 +4148,8 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_auth_novopostsocial",
-      "community": 36,
-      "community_name": "Single Post Template",
+      "community": 14,
+      "community_name": "Project Version Control",
       "norm_label": "novopostsocial"
     },
     {
@@ -4170,8 +4159,8 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_auth_adminnoticiasdata",
-      "community": 14,
-      "community_name": "Project Version Control",
+      "community": 36,
+      "community_name": "Single Post Template",
       "norm_label": "adminnoticiasdata"
     },
     {
@@ -4280,8 +4269,8 @@
       "source_location": "L157",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_auth_getadminnoticiasdata",
-      "community": 10,
-      "community_name": "Episode List Logic",
+      "community": 426,
+      "community_name": "@astryxdesign/core",
       "norm_label": "getadminnoticiasdata()"
     },
     {
@@ -4478,8 +4467,8 @@
       "source_location": "L375",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_auth_getadminsocialdata",
-      "community": 422,
-      "community_name": "urlImagem",
+      "community": 47,
+      "community_name": "Community 47",
       "norm_label": "getadminsocialdata()"
     },
     {
@@ -4533,8 +4522,8 @@
       "source_location": "L535",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_auth_enviarlogoconfiguracoesadmin",
-      "community": 413,
-      "community_name": "site/src/pages/admin/social.astro",
+      "community": 9,
+      "community_name": "Knowledge Graph Tooling",
       "norm_label": "enviarlogoconfiguracoesadmin()"
     },
     {
@@ -4599,8 +4588,8 @@
       "source_location": "L611",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_auth_assetadminurl",
-      "community": 422,
-      "community_name": "urlImagem",
+      "community": 47,
+      "community_name": "Community 47",
       "norm_label": "assetadminurl()"
     },
     {
@@ -4874,8 +4863,8 @@
       "source_location": "L199",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_directus_urlimagem",
-      "community": 54,
-      "community_name": "Community 54",
+      "community": 99,
+      "community_name": "Community 99",
       "norm_label": "urlimagem()"
     },
     {
@@ -4907,8 +4896,8 @@
       "source_location": "L228",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_directus_normalizarconfiguracoesglobais",
-      "community": 413,
-      "community_name": "site/src/pages/admin/social.astro",
+      "community": 36,
+      "community_name": "Single Post Template",
       "norm_label": "normalizarconfiguracoesglobais()"
     },
     {
@@ -5017,8 +5006,8 @@
       "source_location": "L351",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_directus_getproximosvideos",
-      "community": 21,
-      "community_name": "Option Management Tasks",
+      "community": 99,
+      "community_name": "Community 99",
       "norm_label": "getproximosvideos()"
     },
     {
@@ -5039,8 +5028,8 @@
       "source_location": "L378",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_directus_getcardsinstagram",
-      "community": 21,
-      "community_name": "Option Management Tasks",
+      "community": 99,
+      "community_name": "Community 99",
       "norm_label": "getcardsinstagram()"
     },
     {
@@ -5050,8 +5039,8 @@
       "source_location": "L385",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_directus_getpostssociais",
-      "community": 21,
-      "community_name": "Option Management Tasks",
+      "community": 99,
+      "community_name": "Community 99",
       "norm_label": "getpostssociais()"
     },
     {
@@ -5083,8 +5072,8 @@
       "source_location": "L431",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_directus_getbeneficios",
-      "community": 421,
-      "community_name": "criarInscricaoNewsletter",
+      "community": 43,
+      "community_name": "Community 43",
       "norm_label": "getbeneficios()"
     },
     {
@@ -5094,8 +5083,8 @@
       "source_location": "L451",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_directus_getpaginajuridico",
-      "community": 14,
-      "community_name": "Project Version Control",
+      "community": 21,
+      "community_name": "Option Management Tasks",
       "norm_label": "getpaginajuridico()"
     },
     {
@@ -5105,8 +5094,8 @@
       "source_location": "L462",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_directus_getjuridicodireitos",
-      "community": 14,
-      "community_name": "Project Version Control",
+      "community": 21,
+      "community_name": "Option Management Tasks",
       "norm_label": "getjuridicodireitos()"
     },
     {
@@ -5116,8 +5105,8 @@
       "source_location": "L479",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_directus_getjuridicoplantoes",
-      "community": 14,
-      "community_name": "Project Version Control",
+      "community": 21,
+      "community_name": "Option Management Tasks",
       "norm_label": "getjuridicoplantoes()"
     },
     {
@@ -5127,8 +5116,8 @@
       "source_location": "L496",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_directus_getjuridicofaq",
-      "community": 14,
-      "community_name": "Project Version Control",
+      "community": 21,
+      "community_name": "Option Management Tasks",
       "norm_label": "getjuridicofaq()"
     },
     {
@@ -5545,8 +5534,8 @@
       "source_location": "L118",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_juridico_normalizarchamado",
-      "community": 16,
-      "community_name": "Social Card Post Type",
+      "community": 426,
+      "community_name": "@astryxdesign/core",
       "norm_label": "normalizarchamado()"
     },
     {
@@ -5567,8 +5556,8 @@
       "source_location": "L188",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_juridico_listarchamadosjuridicos",
-      "community": 16,
-      "community_name": "Social Card Post Type",
+      "community": 426,
+      "community_name": "@astryxdesign/core",
       "norm_label": "listarchamadosjuridicos()"
     },
     {
@@ -5578,8 +5567,8 @@
       "source_location": "L226",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_juridico_responderchamadojuridico",
-      "community": 9,
-      "community_name": "Knowledge Graph Tooling",
+      "community": 426,
+      "community_name": "@astryxdesign/core",
       "norm_label": "responderchamadojuridico()"
     },
     {
@@ -5820,8 +5809,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_sanitize_sanitizarhtmleditorial",
-      "community": 43,
-      "community_name": "Community 43",
+      "community": 7,
+      "community_name": "Contact Settings Configuration",
       "norm_label": "sanitizarhtmleditorial()"
     },
     {
@@ -5864,8 +5853,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_tipos_categoria",
-      "community": 14,
-      "community_name": "Project Version Control",
+      "community": 36,
+      "community_name": "Single Post Template",
       "norm_label": "categoria"
     },
     {
@@ -5886,8 +5875,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_tipos_post",
-      "community": 14,
-      "community_name": "Project Version Control",
+      "community": 7,
+      "community_name": "Contact Settings Configuration",
       "norm_label": "post"
     },
     {
@@ -5897,8 +5886,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_tipos_postgaleria",
-      "community": 36,
-      "community_name": "Single Post Template",
+      "community": 14,
+      "community_name": "Project Version Control",
       "norm_label": "postgaleria"
     },
     {
@@ -5919,8 +5908,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_tipos_proximovideo",
-      "community": 36,
-      "community_name": "Single Post Template",
+      "community": 14,
+      "community_name": "Project Version Control",
       "norm_label": "proximovideo"
     },
     {
@@ -5941,8 +5930,8 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_tipos_cardinstagram",
-      "community": 36,
-      "community_name": "Single Post Template",
+      "community": 14,
+      "community_name": "Project Version Control",
       "norm_label": "cardinstagram"
     },
     {
@@ -5952,8 +5941,8 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_tipos_postsocial",
-      "community": 36,
-      "community_name": "Single Post Template",
+      "community": 14,
+      "community_name": "Project Version Control",
       "norm_label": "postsocial"
     },
     {
@@ -6040,8 +6029,8 @@
       "source_location": "L220",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_tipos_configuracoes",
-      "community": 36,
-      "community_name": "Single Post Template",
+      "community": 14,
+      "community_name": "Project Version Control",
       "norm_label": "configuracoes"
     },
     {
@@ -6051,8 +6040,8 @@
       "source_location": "L233",
       "_origin": "ast",
       "id": "portalsindquim_site_src_lib_tipos_configuracoesglobais",
-      "community": 36,
-      "community_name": "Single Post Template",
+      "community": 14,
+      "community_name": "Project Version Control",
       "norm_label": "configuracoesglobais"
     },
     {
@@ -6480,8 +6469,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_admin_noticias_id",
-      "community": 10,
-      "community_name": "Episode List Logic",
+      "community": 7,
+      "community_name": "Contact Settings Configuration",
       "norm_label": "portalsindquim/site/src/pages/admin/noticias/[id].astro"
     },
     {
@@ -6689,8 +6678,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_admin_social",
-      "community": 422,
-      "community_name": "urlImagem",
+      "community": 47,
+      "community_name": "Community 47",
       "norm_label": "portalsindquim/site/src/pages/admin/social.astro"
     },
     {
@@ -6700,8 +6689,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_admin_social_timestamp",
-      "community": 422,
-      "community_name": "urlImagem",
+      "community": 47,
+      "community_name": "Community 47",
       "norm_label": "timestamp()"
     },
     {
@@ -6711,8 +6700,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_admin_social_dataordenacao",
-      "community": 422,
-      "community_name": "urlImagem",
+      "community": 47,
+      "community_name": "Community 47",
       "norm_label": "dataordenacao()"
     },
     {
@@ -6722,8 +6711,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_admin_social_numero",
-      "community": 422,
-      "community_name": "urlImagem",
+      "community": 47,
+      "community_name": "Community 47",
       "norm_label": "numero()"
     },
     {
@@ -6733,8 +6722,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_admin_social_datacurta",
-      "community": 422,
-      "community_name": "urlImagem",
+      "community": 47,
+      "community_name": "Community 47",
       "norm_label": "datacurta()"
     },
     {
@@ -6744,8 +6733,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_admin_social_datasocial",
-      "community": 422,
-      "community_name": "urlImagem",
+      "community": 47,
+      "community_name": "Community 47",
       "norm_label": "datasocial()"
     },
     {
@@ -6755,8 +6744,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_admin_social_mediacard",
-      "community": 422,
-      "community_name": "urlImagem",
+      "community": 47,
+      "community_name": "Community 47",
       "norm_label": "mediacard()"
     },
     {
@@ -7195,8 +7184,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_api_admin_settings_logo",
-      "community": 413,
-      "community_name": "site/src/pages/admin/social.astro",
+      "community": 9,
+      "community_name": "Knowledge Graph Tooling",
       "norm_label": "portalsindquim/site/src/pages/api/admin/settings/logo.ts"
     },
     {
@@ -7206,8 +7195,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_api_admin_settings_logo_tipos_permitidos",
-      "community": 413,
-      "community_name": "site/src/pages/admin/social.astro",
+      "community": 9,
+      "community_name": "Knowledge Graph Tooling",
       "norm_label": "tipos_permitidos"
     },
     {
@@ -7217,8 +7206,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_api_admin_settings_logo_respostajson",
-      "community": 413,
-      "community_name": "site/src/pages/admin/social.astro",
+      "community": 9,
+      "community_name": "Knowledge Graph Tooling",
       "norm_label": "respostajson()"
     },
     {
@@ -7228,8 +7217,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_api_admin_settings_logo_post",
-      "community": 413,
-      "community_name": "site/src/pages/admin/social.astro",
+      "community": 9,
+      "community_name": "Knowledge Graph Tooling",
       "norm_label": "post()"
     },
     {
@@ -7552,15 +7541,37 @@
       "norm_label": "portalsindquim/site/src/pages/contato.astro"
     },
     {
-      "label": "estado",
+      "label": "numeroBrasil()",
       "file_type": "code",
       "source_file": "portalsindquim/site/src/pages/contato.astro",
-      "source_location": "L6",
+      "source_location": "L14",
       "_origin": "ast",
-      "id": "portalsindquim_site_src_pages_contato_estado",
+      "id": "portalsindquim_site_src_pages_contato_numerobrasil",
       "community": 54,
       "community_name": "Community 54",
-      "norm_label": "estado"
+      "norm_label": "numerobrasil()"
+    },
+    {
+      "label": "telefone",
+      "file_type": "code",
+      "source_file": "portalsindquim/site/src/pages/contato.astro",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "portalsindquim_site_src_pages_contato_telefone",
+      "community": 54,
+      "community_name": "Community 54",
+      "norm_label": "telefone"
+    },
+    {
+      "label": "whatsapp",
+      "file_type": "code",
+      "source_file": "portalsindquim/site/src/pages/contato.astro",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "portalsindquim_site_src_pages_contato_whatsapp",
+      "community": 54,
+      "community_name": "Community 54",
+      "norm_label": "whatsapp"
     },
     {
       "label": "portalsindquim/site/src/pages/convencoes.astro",
@@ -7602,8 +7613,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "portalsindquim_site_src_pages_juridico",
-      "community": 14,
-      "community_name": "Project Version Control",
+      "community": 21,
+      "community_name": "Option Management Tasks",
       "norm_label": "portalsindquim/site/src/pages/juridico.astro"
     },
     {
@@ -10532,8 +10543,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "site_src_components_estudio",
-      "community": 15,
-      "community_name": "Banner Metabox Logic",
+      "community": 422,
+      "community_name": "urlImagem",
       "norm_label": "site/src/components/estudio.astro"
     },
     {
@@ -10565,8 +10576,8 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "users_eduardovarandas_downloads_sindquim_site_release_v1_4_site_src_lib_youtube",
-      "community": 15,
-      "community_name": "Banner Metabox Logic",
+      "community": 422,
+      "community_name": "urlImagem",
       "norm_label": "../lib/youtube"
     },
     {
@@ -10610,8 +10621,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "site_src_components_vitrinesocial",
-      "community": 15,
-      "community_name": "Banner Metabox Logic",
+      "community": 422,
+      "community_name": "urlImagem",
       "norm_label": "site/src/components/vitrinesocial.astro"
     },
     {
@@ -10621,8 +10632,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "site_src_components_vitrinesocial_numero",
-      "community": 15,
-      "community_name": "Banner Metabox Logic",
+      "community": 422,
+      "community_name": "urlImagem",
       "norm_label": "numero()"
     },
     {
@@ -10632,8 +10643,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "site_src_components_vitrinesocial_resumo",
-      "community": 15,
-      "community_name": "Banner Metabox Logic",
+      "community": 422,
+      "community_name": "urlImagem",
       "norm_label": "resumo()"
     },
     {
@@ -10777,8 +10788,8 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "users_eduardovarandas_downloads_sindquim_site_release_v1_4_site_src_lib_constantes",
-      "community": 103,
-      "community_name": "Community 103",
+      "community": 15,
+      "community_name": "Banner Metabox Logic",
       "norm_label": "../../lib/constantes"
     },
     {
@@ -10942,8 +10953,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "site_src_lib_auth_adminsocialdata",
-      "community": 409,
-      "community_name": "site/src/lib/auth.ts",
+      "community": 3,
+      "community_name": "Documents and Contact Templates",
       "norm_label": "adminsocialdata"
     },
     {
@@ -10953,8 +10964,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "site_src_lib_auth_adminsettingsdata",
-      "community": 409,
-      "community_name": "site/src/lib/auth.ts",
+      "community": 3,
+      "community_name": "Documents and Contact Templates",
       "norm_label": "adminsettingsdata"
     },
     {
@@ -11107,8 +11118,8 @@
       "source_location": "L217",
       "_origin": "ast",
       "id": "site_src_lib_auth_getadmindashboarddata",
-      "community": 51,
-      "community_name": "Community 51",
+      "community": 409,
+      "community_name": "site/src/lib/auth.ts",
       "norm_label": "getadmindashboarddata()"
     },
     {
@@ -11404,8 +11415,8 @@
       "source_location": "L199",
       "_origin": "ast",
       "id": "site_src_lib_directus_urlimagem",
-      "community": 15,
-      "community_name": "Banner Metabox Logic",
+      "community": 422,
+      "community_name": "urlImagem",
       "norm_label": "urlimagem()"
     },
     {
@@ -11437,8 +11448,8 @@
       "source_location": "L228",
       "_origin": "ast",
       "id": "site_src_lib_directus_normalizarconfiguracoesglobais",
-      "community": 104,
-      "community_name": "Community 104",
+      "community": 409,
+      "community_name": "site/src/lib/auth.ts",
       "norm_label": "normalizarconfiguracoesglobais()"
     },
     {
@@ -11492,8 +11503,8 @@
       "source_location": "L292",
       "_origin": "ast",
       "id": "site_src_lib_directus_contarposts",
-      "community": 61,
-      "community_name": "Community 61",
+      "community": 103,
+      "community_name": "Community 103",
       "norm_label": "contarposts()"
     },
     {
@@ -11503,8 +11514,8 @@
       "source_location": "L305",
       "_origin": "ast",
       "id": "site_src_lib_directus_getpostporslug",
-      "community": 103,
-      "community_name": "Community 103",
+      "community": 15,
+      "community_name": "Banner Metabox Logic",
       "norm_label": "getpostporslug()"
     },
     {
@@ -11547,8 +11558,8 @@
       "source_location": "L351",
       "_origin": "ast",
       "id": "site_src_lib_directus_getproximosvideos",
-      "community": 15,
-      "community_name": "Banner Metabox Logic",
+      "community": 422,
+      "community_name": "urlImagem",
       "norm_label": "getproximosvideos()"
     },
     {
@@ -11558,8 +11569,8 @@
       "source_location": "L364",
       "_origin": "ast",
       "id": "site_src_lib_directus_getdiretores",
-      "community": 103,
-      "community_name": "Community 103",
+      "community": 422,
+      "community_name": "urlImagem",
       "norm_label": "getdiretores()"
     },
     {
@@ -11580,8 +11591,8 @@
       "source_location": "L382",
       "_origin": "ast",
       "id": "site_src_lib_directus_getcardsinstagram",
-      "community": 15,
-      "community_name": "Banner Metabox Logic",
+      "community": 422,
+      "community_name": "urlImagem",
       "norm_label": "getcardsinstagram()"
     },
     {
@@ -11591,8 +11602,8 @@
       "source_location": "L389",
       "_origin": "ast",
       "id": "site_src_lib_directus_getpostssociais",
-      "community": 15,
-      "community_name": "Banner Metabox Logic",
+      "community": 422,
+      "community_name": "urlImagem",
       "norm_label": "getpostssociais()"
     },
     {
@@ -11723,8 +11734,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "site_src_lib_formatar_formatardatalonga",
-      "community": 103,
-      "community_name": "Community 103",
+      "community": 15,
+      "community_name": "Banner Metabox Logic",
       "norm_label": "formatardatalonga()"
     },
     {
@@ -12075,8 +12086,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "site_src_lib_tipos_proximovideo",
-      "community": 409,
-      "community_name": "site/src/lib/auth.ts",
+      "community": 3,
+      "community_name": "Documents and Contact Templates",
       "norm_label": "proximovideo"
     },
     {
@@ -12108,8 +12119,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "site_src_lib_tipos_cardinstagram",
-      "community": 409,
-      "community_name": "site/src/lib/auth.ts",
+      "community": 3,
+      "community_name": "Documents and Contact Templates",
       "norm_label": "cardinstagram"
     },
     {
@@ -12207,8 +12218,8 @@
       "source_location": "L177",
       "_origin": "ast",
       "id": "site_src_lib_tipos_configuracoesglobais",
-      "community": 409,
-      "community_name": "site/src/lib/auth.ts",
+      "community": 3,
+      "community_name": "Documents and Contact Templates",
       "norm_label": "configuracoesglobais"
     },
     {
@@ -12262,8 +12273,8 @@
       "source_location": "L219",
       "_origin": "ast",
       "id": "site_src_lib_tipos_schemadirectus",
-      "community": 3,
-      "community_name": "Documents and Contact Templates",
+      "community": 409,
+      "community_name": "site/src/lib/auth.ts",
       "norm_label": "schemadirectus"
     },
     {
@@ -12405,8 +12416,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "site_src_pages_admin_index",
-      "community": 51,
-      "community_name": "Community 51",
+      "community": 409,
+      "community_name": "site/src/lib/auth.ts",
       "norm_label": "site/src/pages/admin/index.astro"
     },
     {
@@ -12416,8 +12427,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "site_src_pages_admin_index_token",
-      "community": 51,
-      "community_name": "Community 51",
+      "community": 409,
+      "community_name": "site/src/lib/auth.ts",
       "norm_label": "token"
     },
     {
@@ -12427,8 +12438,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "site_src_pages_admin_index_datacurta",
-      "community": 51,
-      "community_name": "Community 51",
+      "community": 409,
+      "community_name": "site/src/lib/auth.ts",
       "norm_label": "datacurta()"
     },
     {
@@ -12438,8 +12449,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "site_src_pages_admin_index_resumo",
-      "community": 51,
-      "community_name": "Community 51",
+      "community": 409,
+      "community_name": "site/src/lib/auth.ts",
       "norm_label": "resumo()"
     },
     {
@@ -13494,8 +13505,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "site_src_pages_diretoria",
-      "community": 103,
-      "community_name": "Community 103",
+      "community": 422,
+      "community_name": "urlImagem",
       "norm_label": "site/src/pages/diretoria.astro"
     },
     {
@@ -13527,8 +13538,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "site_src_pages_noticias_slug",
-      "community": 103,
-      "community_name": "Community 103",
+      "community": 15,
+      "community_name": "Banner Metabox Logic",
       "norm_label": "site/src/pages/noticias/[slug].astro"
     },
     {
@@ -13538,8 +13549,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "site_src_pages_noticias_slug_imagemcapa",
-      "community": 103,
-      "community_name": "Community 103",
+      "community": 15,
+      "community_name": "Banner Metabox Logic",
       "norm_label": "imagemcapa"
     },
     {
@@ -13549,8 +13560,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "site_src_pages_noticias_slug_relacionados",
-      "community": 103,
-      "community_name": "Community 103",
+      "community": 15,
+      "community_name": "Banner Metabox Logic",
       "norm_label": "relacionados"
     },
     {
@@ -13560,8 +13571,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "site_src_pages_noticias_slug_jsonld",
-      "community": 103,
-      "community_name": "Community 103",
+      "community": 15,
+      "community_name": "Banner Metabox Logic",
       "norm_label": "jsonld"
     },
     {
@@ -13582,8 +13593,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "site_src_pages_noticias_index",
-      "community": 61,
-      "community_name": "Community 61",
+      "community": 103,
+      "community_name": "Community 103",
       "norm_label": "site/src/pages/noticias/index.astro"
     },
     {
@@ -17404,10 +17415,21 @@
       "norm_label": "historico de versoes"
     },
     {
-      "label": "1.7.0 \u2014 2026-07-21",
+      "label": "1.8.0 \u2014 2026-07-21",
       "file_type": "document",
       "source_file": "portalsindquim/CHANGELOG.md",
       "source_location": "L3",
+      "_origin": "ast",
+      "id": "portalsindquim_changelog_1_8_0_2026_07_21",
+      "community": 350,
+      "community_name": "Hist\u00f3rico de vers\u00f5es",
+      "norm_label": "1.8.0 \u2014 2026-07-21"
+    },
+    {
+      "label": "1.7.0 \u2014 2026-07-21",
+      "file_type": "document",
+      "source_file": "portalsindquim/CHANGELOG.md",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "portalsindquim_changelog_1_7_0_2026_07_21",
       "community": 350,
@@ -17418,7 +17440,7 @@
       "label": "1.6.1 \u2014 2026-07-21",
       "file_type": "document",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L11",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "portalsindquim_changelog_1_6_1_2026_07_21",
       "community": 350,
@@ -17429,7 +17451,7 @@
       "label": "1.6.0 \u2014 2026-07-21",
       "file_type": "document",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L16",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "portalsindquim_changelog_1_6_0_2026_07_21",
       "community": 350,
@@ -17440,7 +17462,7 @@
       "label": "1.5.2 \u2014 2026-07-21",
       "file_type": "document",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L27",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "portalsindquim_changelog_1_5_2_2026_07_21",
       "community": 350,
@@ -17451,7 +17473,7 @@
       "label": "1.5.1 \u2014 2026-07-21",
       "file_type": "document",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L32",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "portalsindquim_changelog_1_5_1_2026_07_21",
       "community": 350,
@@ -17462,7 +17484,7 @@
       "label": "1.5.0 \u2014 2026-07-21",
       "file_type": "document",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L37",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "portalsindquim_changelog_1_5_0_2026_07_21",
       "community": 350,
@@ -17473,7 +17495,7 @@
       "label": "1.4.0 \u2014 2026-07-21",
       "file_type": "document",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L48",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "portalsindquim_changelog_1_4_0_2026_07_21",
       "community": 350,
@@ -35866,6 +35888,15 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "portalsindquim/site/src/pages/contato.astro",
+      "_origin": "ast",
+      "source": "portalsindquim_site_src_pages_contato",
+      "target": "ssr",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/site/src/components/NoticiaCard.astro",
@@ -36491,18 +36522,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/site/src/layouts/Base.astro",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "portalsindquim_site_src_layouts_base",
-      "target": "portalsindquim_site_src_layouts_base_estadonewsletter",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "portalsindquim/site/src/layouts/Base.astro",
-      "source_location": "L28",
+      "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
       "source": "portalsindquim_site_src_layouts_base",
@@ -36660,8 +36680,11 @@
     },
     {
       "relation": "imports_from",
+      "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/site/src/pages/contato.astro",
+      "source_location": "L9",
+      "weight": 1.0,
       "_origin": "ast",
       "source": "portalsindquim_site_src_pages_contato",
       "target": "portalsindquim_site_src_layouts_base",
@@ -42044,7 +42067,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/site/src/pages/contato.astro",
-      "source_location": "L3",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "portalsindquim_site_src_pages_contato",
@@ -42236,7 +42259,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/site/src/pages/contato.astro",
-      "source_location": "L3",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "portalsindquim_site_src_pages_contato",
@@ -46400,11 +46423,33 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/site/src/pages/contato.astro",
-      "source_location": "L6",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "portalsindquim_site_src_pages_contato",
-      "target": "portalsindquim_site_src_pages_contato_estado",
+      "target": "portalsindquim_site_src_pages_contato_numerobrasil",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "portalsindquim/site/src/pages/contato.astro",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "portalsindquim_site_src_pages_contato",
+      "target": "portalsindquim_site_src_pages_contato_telefone",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "portalsindquim/site/src/pages/contato.astro",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "portalsindquim_site_src_pages_contato",
+      "target": "portalsindquim_site_src_pages_contato_whatsapp",
       "confidence_score": 1.0
     },
     {
@@ -61706,7 +61751,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L48",
+      "source_location": "L57",
       "weight": 1.0,
       "_origin": "ast",
       "source": "portalsindquim_changelog_hist\u00f3rico_de_vers\u00f5es",
@@ -61717,7 +61762,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L37",
+      "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast",
       "source": "portalsindquim_changelog_hist\u00f3rico_de_vers\u00f5es",
@@ -61728,7 +61773,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L32",
+      "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
       "source": "portalsindquim_changelog_hist\u00f3rico_de_vers\u00f5es",
@@ -61739,7 +61784,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L27",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "portalsindquim_changelog_hist\u00f3rico_de_vers\u00f5es",
@@ -61750,7 +61795,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L16",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "portalsindquim_changelog_hist\u00f3rico_de_vers\u00f5es",
@@ -61761,7 +61806,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L11",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "portalsindquim_changelog_hist\u00f3rico_de_vers\u00f5es",
@@ -61772,11 +61817,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "portalsindquim/CHANGELOG.md",
-      "source_location": "L3",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "portalsindquim_changelog_hist\u00f3rico_de_vers\u00f5es",
       "target": "portalsindquim_changelog_1_7_0_2026_07_21",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "portalsindquim/CHANGELOG.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "portalsindquim_changelog_hist\u00f3rico_de_vers\u00f5es",
+      "target": "portalsindquim_changelog_1_8_0_2026_07_21",
       "confidence_score": 1.0
     },
     {
@@ -71239,5 +71295,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "277fbb71352a90bc0e82f36854abbb435486cb72"
+  "built_at_commit": "c9f5c9b08d01288917342ea872de7ee560486009"
 }

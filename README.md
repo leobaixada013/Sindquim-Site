@@ -1,6 +1,6 @@
 # Portal Sindquim — Baixada Santista
 
-Release atual: **1.7.0**.
+Release atual: **1.8.0**.
 
 A implementação mantida está em [`portalsindquim/`](portalsindquim/): site público e central editorial em Astro 7, Directus 11 como CMS e autenticação, PostgreSQL 17 e publicação com Docker Compose.
 

@@ -510,8 +510,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1784684495.9490664,
-    "ast_hash": "c01f967a95d6efe117e5752b21247cfc",
+    "mtime": 1784686300.473066,
+    "ast_hash": "acf81d1d8c52f4e8860b090767a42413",
     "semantic_hash": ""
   },
   "docs/README.md": {
@@ -680,8 +680,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/scripts/backup.sh": {
-    "mtime": 1784684495.9512713,
-    "ast_hash": "274103b908c1da9ecbf447bb2f2a609f",
+    "mtime": 1784686300.4737303,
+    "ast_hash": "b7607a6b7afc5eff468f81c906a66be5",
     "semantic_hash": ""
   },
   "portalsindquim/scripts/bootstrap-local.mjs": {
@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/scripts/directus-schema.mjs": {
-    "mtime": 1784679409.0571887,
-    "ast_hash": "19c774d99686ef4b9bfca7ce1cbe6e9e",
+    "mtime": 1784686271.8848884,
+    "ast_hash": "9c6e9b4cf2a9ad58b2bc57a43bbee57d",
     "semantic_hash": ""
   },
   "portalsindquim/scripts/restore.sh": {
@@ -785,8 +785,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/e2e/mobile-ux.spec.ts": {
-    "mtime": 1784684223.1903641,
-    "ast_hash": "ccc42e1c4750332764f8ff2abc6b345c",
+    "mtime": 1784686218.4701471,
+    "ast_hash": "5f56bdc8b0d1a0dbc25a737a15088645",
     "semantic_hash": ""
   },
   "portalsindquim/site/e2e/podcast-editorial.spec.ts": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/package.json": {
-    "mtime": 1784684653.7766001,
-    "ast_hash": "ce4f54026ebf4958140e373e8ee1cc86",
+    "mtime": 1784686304.9616742,
+    "ast_hash": "667660dda2eb2b7e730f9cf05e710d75",
     "semantic_hash": ""
   },
   "portalsindquim/site/playwright.config.ts": {
@@ -825,8 +825,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/src/layouts/Base.astro": {
-    "mtime": 1784684687.3119323,
-    "ast_hash": "4cea1d126beec78c0de6796aadd6f0cc",
+    "mtime": 1784686128.1583362,
+    "ast_hash": "7931aeaf32644e7fa4d633086bf0525d",
     "semantic_hash": ""
   },
   "portalsindquim/site/src/lib/adminSecurity.test.ts": {
@@ -1080,8 +1080,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/src/pages/contato.astro": {
-    "mtime": 1784644258.0,
-    "ast_hash": "7ea770616217ba480dad03c398fdcfa2",
+    "mtime": 1784686128.1577845,
+    "ast_hash": "3d151016c8968e43ddcd79ddd9ae7b65",
     "semantic_hash": ""
   },
   "portalsindquim/site/src/pages/convencoes.astro": {
@@ -1195,8 +1195,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/CHANGELOG.md": {
-    "mtime": 1784684495.9516304,
-    "ast_hash": "b46eecc9cf01bea3723412d8a839f911",
+    "mtime": 1784686300.4739249,
+    "ast_hash": "2cc4720114f574488500fa561bd7a8f8",
     "semantic_hash": ""
   },
   "portalsindquim/CLAUDE.md": {
@@ -1225,8 +1225,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/README.md": {
-    "mtime": 1784684495.9493365,
-    "ast_hash": "a73ad384a0c12f102cc7c17e7fe0319d",
+    "mtime": 1784686300.4733357,
+    "ast_hash": "16d1277ecfad27f6ba8799b3931fdca7",
     "semantic_hash": ""
   },
   "portalsindquim/assets/noticias/README.md": {
@@ -1240,8 +1240,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/deploy/docker-compose.yml": {
-    "mtime": 1784684495.9510748,
-    "ast_hash": "443abc7f177cbd99fc488b17796e9772",
+    "mtime": 1784686300.4735432,
+    "ast_hash": "bfc9113148e3c81fc9f05704e910bb66",
     "semantic_hash": ""
   },
   "portalsindquim/deploy/override-rede-tunnel.yml": {
