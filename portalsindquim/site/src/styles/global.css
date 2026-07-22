@@ -1508,8 +1508,10 @@ button, input, textarea { font: inherit; }
   grid-template-columns: minmax(260px, 1.5fr) repeat(2, minmax(150px, 1fr));
   gap: 36px;
   padding-bottom: 44px;
+  text-align: center;
 }
 .footer__grid > * { min-width: 0; }
+.footer__grid p { max-width: 520px; margin-inline: auto; }
 .footer h3 {
   color: #fff;
   font-size: 0.85rem;
@@ -1522,13 +1524,14 @@ button, input, textarea { font: inherit; }
 .footer__bottom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
   padding: 18px 0;
   border-top: 1px solid var(--tinta-800);
   font-size: 0.82rem;
   color: #8f96b3;
+  text-align: center;
 }
 
 /* ---------- Utilitários ---------- */
@@ -1593,6 +1596,7 @@ button, input, textarea { font: inherit; }
   .vitrine-card--destaque { grid-column: span 2; }
   .estudio__layout { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
+  .footer__grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
   .contact-location { grid-template-columns: 1fr; }
   .lista-noticias { grid-template-columns: repeat(2, 1fr); }
 }
@@ -1652,6 +1656,7 @@ button, input, textarea { font: inherit; }
   .reel-card--destaque { min-height: 520px; }
   .diretoria-grid { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; }
+  .footer__grid > :last-child:nth-child(odd) { grid-column: auto; }
   .contact-channels { grid-template-columns: 1fr; }
   .contact-whatsapp { align-items: stretch; flex-direction: column; }
   .contact-whatsapp .button { width: 100%; }

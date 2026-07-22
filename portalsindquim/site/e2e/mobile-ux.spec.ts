@@ -153,6 +153,12 @@ test.describe('experiência mobile do portal', () => {
     const rodape = page.locator('footer.footer');
     await expect(rodape.getByText('Receba as novidades', { exact: true })).toHaveCount(0);
     await expect(rodape.locator('form[action="/api/newsletter"]')).toHaveCount(0);
+    await expect(rodape.getByText('Feed RSS', { exact: true })).toHaveCount(0);
+
+    const alinhamento = await rodape.locator('.footer__grid').evaluate((elemento) =>
+      getComputedStyle(elemento).textAlign,
+    );
+    expect(alinhamento).toBe('center');
   });
 
   test('busca encontra notícias sem depender de acentos', async ({ page }) => {

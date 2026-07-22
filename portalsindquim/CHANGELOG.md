@@ -1,5 +1,11 @@
 # Histórico de versões
 
+## 1.9.2 — 2026-07-22
+
+- Centraliza títulos, textos, links, endereço e créditos do rodapé em todas as larguras.
+- Reequilibra as três áreas do rodapé em telas intermediárias e celulares.
+- Remove o link **Feed RSS** do rodapé público.
+
 ## 1.9.1 — 2026-07-22
 
 - Corrige o menu móvel que podia aparecer aberto antes da inicialização do JavaScript.
