@@ -86,6 +86,7 @@ test.describe('experiência mobile do portal', () => {
     await expect(page.locator('.mainnav').locator('.menu-toggle')).toHaveCount(0);
     await expect(botao).toHaveAttribute('aria-expanded', 'false');
     await expect(botao).toHaveAttribute('aria-label', 'Abrir menu principal');
+    await expect(menu).toHaveAttribute('hidden', '');
     await expect(menu).toBeHidden();
 
     const caixaBotao = await botao.boundingBox();
@@ -95,6 +96,7 @@ test.describe('experiência mobile do portal', () => {
     await botao.click();
     await expect(botao).toHaveAttribute('aria-expanded', 'true');
     await expect(botao).toHaveAttribute('aria-label', 'Fechar menu principal');
+    await expect(menu).not.toHaveAttribute('hidden', '');
     await expect(menu).toBeVisible();
 
     const textos = await menu.locator('a').allTextContents();

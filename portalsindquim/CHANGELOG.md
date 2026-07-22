@@ -1,5 +1,11 @@
 # Histórico de versões
 
+## 1.9.1 — 2026-07-22
+
+- Corrige o menu móvel que podia aparecer aberto antes da inicialização do JavaScript.
+- Entrega a navegação recolhida diretamente no HTML e preserva sua exibição normal no desktop.
+- Amplia o teste mobile para validar os atributos reais de abertura e fechamento do menu.
+
 ## 1.9.0 — 2026-07-22
 
 - Remove telefone e e-mail da barra superior para evitar quebras e mantém esses canais na página de contato.

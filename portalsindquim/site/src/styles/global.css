@@ -320,6 +320,9 @@ button, input, textarea { font: inherit; }
   font-weight: 600;
   font-size: 0.95rem;
 }
+.menu[hidden] {
+  display: flex !important;
+}
 .menu a {
   padding: 6px 2px;
   border-bottom: 2px solid transparent;
@@ -1619,7 +1622,7 @@ button, input, textarea { font: inherit; }
     border-bottom: 1px solid var(--linha);
     box-shadow: var(--sombra-suave);
   }
-  .menu[hidden] { display: none; }
+  .menu[hidden] { display: none !important; }
   .menu li { border-top: 1px solid var(--nevoa); }
   .menu a { display: block; padding: 14px 4px; }
   .menu-toggle { display: inline-flex; }

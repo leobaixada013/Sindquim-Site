@@ -510,8 +510,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1784689070.0115726,
-    "ast_hash": "fff7e01094e461f1d77739795e23f0f0",
+    "mtime": 1784690111.4766533,
+    "ast_hash": "cf1a981a31c2600f5b7bbc10baaf2aaf",
     "semantic_hash": ""
   },
   "docs/README.md": {
@@ -680,8 +680,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/scripts/backup.sh": {
-    "mtime": 1784689070.012931,
-    "ast_hash": "55f01540f56630b1b57b0dfa30d474a4",
+    "mtime": 1784690111.4776573,
+    "ast_hash": "18fbd5f87fad52cc0867e5f3316e44be",
     "semantic_hash": ""
   },
   "portalsindquim/scripts/bootstrap-local.mjs": {
@@ -785,8 +785,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/e2e/mobile-ux.spec.ts": {
-    "mtime": 1784688763.0950682,
-    "ast_hash": "58750d51b82a8f0ccab60fb49b3feb5c",
+    "mtime": 1784690088.5751987,
+    "ast_hash": "8c4d9d1da73623d46a883326828967c2",
     "semantic_hash": ""
   },
   "portalsindquim/site/e2e/podcast-editorial.spec.ts": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/package.json": {
-    "mtime": 1784689075.06391,
-    "ast_hash": "c8603d103126c7ff594624de90ea5306",
+    "mtime": 1784690116.684973,
+    "ast_hash": "d338186d4dd075d51440c18289c680df",
     "semantic_hash": ""
   },
   "portalsindquim/site/playwright.config.ts": {
@@ -825,8 +825,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/site/src/layouts/Base.astro": {
-    "mtime": 1784688500.1234505,
-    "ast_hash": "b176c060aee66a3980504fed0732cd49",
+    "mtime": 1784690088.5745044,
+    "ast_hash": "0b40e70ad06d70012295b9147bebb61e",
     "semantic_hash": ""
   },
   "portalsindquim/site/src/lib/adminSecurity.test.ts": {
@@ -1195,8 +1195,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/CHANGELOG.md": {
-    "mtime": 1784689070.0131528,
-    "ast_hash": "6944355512058aad881f5be7ea9ef052",
+    "mtime": 1784690111.4778516,
+    "ast_hash": "28b9603504aac0ea3f1c51ea0042e734",
     "semantic_hash": ""
   },
   "portalsindquim/CLAUDE.md": {
@@ -1225,8 +1225,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/README.md": {
-    "mtime": 1784689070.0123599,
-    "ast_hash": "df54f6d6d159b40cb40301fde082e411",
+    "mtime": 1784690111.4768763,
+    "ast_hash": "1e303955d1ed7f6ba98ee9aa6f0115ff",
     "semantic_hash": ""
   },
   "portalsindquim/assets/noticias/README.md": {
@@ -1240,8 +1240,8 @@
     "semantic_hash": ""
   },
   "portalsindquim/deploy/docker-compose.yml": {
-    "mtime": 1784689070.0127058,
-    "ast_hash": "83f224c871d4ecb7829d5c4a026ad33e",
+    "mtime": 1784690111.477305,
+    "ast_hash": "b434e73fa05ad3510b90f02dedccef81",
     "semantic_hash": ""
   },
   "portalsindquim/deploy/override-rede-tunnel.yml": {
