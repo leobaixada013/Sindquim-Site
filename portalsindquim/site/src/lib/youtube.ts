@@ -78,7 +78,7 @@ export async function resolverChannelId(
 /** Vídeos mais recentes do canal configurado no Directus. */
 export async function getVideosYoutube(limite: number): Promise<VideoYoutube[]> {
   const [config, globais] = await Promise.all([getConfiguracoes(), getConfiguracoesGlobais()]);
-  if (globais.modulo_youtube_ativo !== true) return [];
+  if (config?.podcast_ativo !== true && globais.modulo_youtube_ativo !== true) return [];
 
   const channelId =
     globais.youtube_channel_id?.trim() ||

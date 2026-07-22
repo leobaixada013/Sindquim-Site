@@ -1,1337 +1,1672 @@
 {
   ".claude/settings.json": {
-    "mtime": 1783799600.32772,
-    "ast_hash": "cbaae36a7a989527fc80d8beaa12a660",
-    "semantic_hash": ""
-  },
-  ".claude/settings.local.json": {
-    "mtime": 1783479986.3364449,
-    "ast_hash": "c67eb701d22f92eebc44240f1305ed80",
+    "mtime": 1784662445.0193012,
+    "ast_hash": "e1073342e958ac9f00716938c8f165e3",
     "semantic_hash": ""
   },
   ".impeccable/design.json": {
-    "mtime": 1782946575.8186364,
-    "ast_hash": "5904f5cc9dc57c4dc9acaeeb501c7595",
-    "semantic_hash": "5904f5cc9dc57c4dc9acaeeb501c7595"
+    "mtime": 1784662445.0203884,
+    "ast_hash": "29aeb5a9f4c926b65185a04566d2e12b",
+    "semantic_hash": ""
   },
   "script.js": {
-    "mtime": 1782847621.8536692,
+    "mtime": 1784662445.0759254,
     "ast_hash": "6df9805d2231f93c6189e20f6d231662",
     "semantic_hash": "6df9805d2231f93c6189e20f6d231662"
   },
   "wp-content/themes/sindicato/archive-documento.php": {
-    "mtime": 1782946575.8216593,
-    "ast_hash": "e70b51fba5f8fae0d76dcad71b30b3d7",
-    "semantic_hash": "e70b51fba5f8fae0d76dcad71b30b3d7"
+    "mtime": 1784662445.0910304,
+    "ast_hash": "327406e419149b7c369158a00a07548b",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/archive.php": {
-    "mtime": 1782946575.8231778,
-    "ast_hash": "0ea0a1a39390e0d0ef964bc32cea8a06",
-    "semantic_hash": "0ea0a1a39390e0d0ef964bc32cea8a06"
+    "mtime": 1784662445.0911305,
+    "ast_hash": "8aad3ff1e02a258245983e67396c0e3a",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/assets/js/main.js": {
-    "mtime": 1782965322.9899645,
-    "ast_hash": "7ca99f4f3ec977646e8bfe4c67d5fe0a",
-    "semantic_hash": "7ca99f4f3ec977646e8bfe4c67d5fe0a"
+    "mtime": 1784662445.0921168,
+    "ast_hash": "4c0f9c871af01ad8cd89711a749a5c60",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/footer.php": {
-    "mtime": 1782965049.0412245,
-    "ast_hash": "83b5ac58793b82d4eebc084e64437cf1",
-    "semantic_hash": "83b5ac58793b82d4eebc084e64437cf1"
+    "mtime": 1784662445.0923753,
+    "ast_hash": "d706d63afaa6d08f569704af6eff7d62",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/front-page.php": {
-    "mtime": 1782965337.0069294,
-    "ast_hash": "2f6d7d083e85d148c1f1df391ce9e9c2",
-    "semantic_hash": "2f6d7d083e85d148c1f1df391ce9e9c2"
+    "mtime": 1784662445.0924883,
+    "ast_hash": "6883cf9600eb48bc4d41a5d8ced13fd9",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/functions.php": {
-    "mtime": 1782965343.1025956,
-    "ast_hash": "5e8bd22230633c2377edb8b5d493205c",
-    "semantic_hash": "5e8bd22230633c2377edb8b5d493205c"
+    "mtime": 1784662445.0925868,
+    "ast_hash": "c533a488bfb62b4fed21181ad9620c26",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/header.php": {
-    "mtime": 1782964881.664149,
-    "ast_hash": "f113af6e1a8e424e87623033ac864a92",
-    "semantic_hash": "f113af6e1a8e424e87623033ac864a92"
+    "mtime": 1784662445.0926807,
+    "ast_hash": "03ee5220d1d87948f42f80e483033c61",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/inc/cpt-aviso.php": {
-    "mtime": 1782917317.9044964,
-    "ast_hash": "e732eb607423345f0a9cb59266d71ff6",
-    "semantic_hash": "e732eb607423345f0a9cb59266d71ff6"
+    "mtime": 1784662445.0928402,
+    "ast_hash": "ec30069d67a7d4ed74371cf7aa1d5cf2",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/inc/cpt-banner.php": {
-    "mtime": 1782917317.9044964,
-    "ast_hash": "453f870c00a281a8fd5c9efdbd906841",
-    "semantic_hash": "453f870c00a281a8fd5c9efdbd906841"
+    "mtime": 1784662445.092945,
+    "ast_hash": "05ee2380c6de21217b22af665bed73d1",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/inc/cpt-card-social.php": {
-    "mtime": 1782917317.9044964,
-    "ast_hash": "15b48d3a4cb2a3ef4b2ab07e6743ae6e",
-    "semantic_hash": "15b48d3a4cb2a3ef4b2ab07e6743ae6e"
+    "mtime": 1784662445.093038,
+    "ast_hash": "93be158781f028956359bea9a619990c",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/inc/cpt-diretor.php": {
-    "mtime": 1782946575.8343012,
-    "ast_hash": "c8b5eb23833c68db4b7fe9091f1faccd",
-    "semantic_hash": "c8b5eb23833c68db4b7fe9091f1faccd"
+    "mtime": 1784662445.093268,
+    "ast_hash": "f6dbdbd1d0e00e5140129dd93c501c76",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/inc/cpt-documento.php": {
-    "mtime": 1782917317.9060123,
-    "ast_hash": "c4e3993f66ec16b39472394005832ac0",
-    "semantic_hash": "c4e3993f66ec16b39472394005832ac0"
+    "mtime": 1784662445.0933633,
+    "ast_hash": "13a099650ca438c651f9c2041a5c8390",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/inc/settings-contato.php": {
-    "mtime": 1782946575.835805,
-    "ast_hash": "1cef64ff282fb26f2ecb7c4ef2036c17",
-    "semantic_hash": "1cef64ff282fb26f2ecb7c4ef2036c17"
+    "mtime": 1784662445.093455,
+    "ast_hash": "3c4cb35b26bf07e83e0f6798c98b4596",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/inc/settings-proximo-episodio.php": {
-    "mtime": 1782928477.385926,
-    "ast_hash": "98f2a69c78745301c20acd32573d2c82",
-    "semantic_hash": "98f2a69c78745301c20acd32573d2c82"
+    "mtime": 1784662445.0935583,
+    "ast_hash": "049a405e3cc1c1b6a5ac420d1f568d3b",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/inc/template-tags.php": {
-    "mtime": 1782964879.5569358,
-    "ast_hash": "df1d7004e1b902d1d1d991229f10519f",
-    "semantic_hash": "df1d7004e1b902d1d1d991229f10519f"
+    "mtime": 1784662445.0936465,
+    "ast_hash": "24ed65dc52d52e92f33d396337ada7be",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/inc/youtube.php": {
-    "mtime": 1782965265.3543897,
-    "ast_hash": "a569b5d2ed6a70e82957366680378cd1",
-    "semantic_hash": "a569b5d2ed6a70e82957366680378cd1"
+    "mtime": 1784662445.093728,
+    "ast_hash": "0cc0238a587e017171488581d11434a5",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/index.php": {
-    "mtime": 1782917317.9085684,
-    "ast_hash": "df44a7cfdfd08c28828d487262020b27",
-    "semantic_hash": "df44a7cfdfd08c28828d487262020b27"
+    "mtime": 1784662445.0938075,
+    "ast_hash": "78ec68c35717f947fba7a55ea929a41b",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/page-avisos.php": {
-    "mtime": 1782946575.8378663,
-    "ast_hash": "ba6a05b9cfa02d34cb6e8f5613552860",
-    "semantic_hash": "ba6a05b9cfa02d34cb6e8f5613552860"
+    "mtime": 1784662445.0938926,
+    "ast_hash": "ac90c444c09c39fb56f73d1532da3117",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/page-contato.php": {
-    "mtime": 1782946575.8378663,
-    "ast_hash": "169d37b22423d2e8005898b2d2fd5a97",
-    "semantic_hash": "169d37b22423d2e8005898b2d2fd5a97"
+    "mtime": 1784662445.0939953,
+    "ast_hash": "1bd7a71528f9bf79088bf046e0d13b93",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/page-diretoria.php": {
-    "mtime": 1782946575.8393729,
-    "ast_hash": "b7bae93459c12382257a77a1c13b981c",
-    "semantic_hash": "b7bae93459c12382257a77a1c13b981c"
+    "mtime": 1784662445.0941012,
+    "ast_hash": "2df77e68e28cbcd07deedffd4b599ce8",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/page-filie-se.php": {
-    "mtime": 1782946575.8393729,
-    "ast_hash": "77b400639e46ec2395eddcacefd21139",
-    "semantic_hash": "77b400639e46ec2395eddcacefd21139"
+    "mtime": 1784662445.094196,
+    "ast_hash": "e4654a4848d7e3ae9fd853ceab972915",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/page-noticias.php": {
-    "mtime": 1782946575.8408847,
-    "ast_hash": "fd2980c09f117c9b93288f734d8c76a8",
-    "semantic_hash": "fd2980c09f117c9b93288f734d8c76a8"
+    "mtime": 1784662445.094278,
+    "ast_hash": "7fbf33b0d63272ceb905dcba8a3c67f2",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/page.php": {
-    "mtime": 1782946575.8408847,
-    "ast_hash": "946d749af324b9e48ba99d4126f01097",
-    "semantic_hash": "946d749af324b9e48ba99d4126f01097"
+    "mtime": 1784662445.0943613,
+    "ast_hash": "42cfa13c5d17ecfc7a32004c2c26ed5e",
+    "semantic_hash": ""
   },
   "wp-content/themes/sindicato/single.php": {
-    "mtime": 1782917317.9184935,
-    "ast_hash": "b1cf5fa9fb9948dacc34aaddf6e206bf",
-    "semantic_hash": "b1cf5fa9fb9948dacc34aaddf6e206bf"
+    "mtime": 1784662445.0961502,
+    "ast_hash": "e2d9e5977725ea3f875052343014a881",
+    "semantic_hash": ""
   },
   ".impeccable/critique/2026-07-01T20-28-00Z__wp-content-themes-sindicato-front-page-php.md": {
-    "mtime": 1782946575.8145835,
-    "ast_hash": "28e989fd8bbbc012f447ea38d85a302e",
-    "semantic_hash": "28e989fd8bbbc012f447ea38d85a302e"
+    "mtime": 1784662445.0198307,
+    "ast_hash": "42308a0cafb93ddf909ce0cf6a78f727",
+    "semantic_hash": ""
   },
   ".impeccable/critique/2026-07-01T21-24-10Z__wp-content-themes-sindicato-archive-php.md": {
-    "mtime": 1782946575.8160887,
-    "ast_hash": "f11ce8c9fe48cdfda82f56163d6d08fd",
-    "semantic_hash": "f11ce8c9fe48cdfda82f56163d6d08fd"
+    "mtime": 1784662445.019959,
+    "ast_hash": "a60c1d2ad510a958b173cf0004a6b06d",
+    "semantic_hash": ""
   },
   ".impeccable/critique/2026-07-01T22-04-56Z__wp-content-themes-sindicato-archive-documento-php.md": {
-    "mtime": 1782946575.816608,
-    "ast_hash": "b65628a7dcd3a3cbbdb5346a351f362e",
-    "semantic_hash": "b65628a7dcd3a3cbbdb5346a351f362e"
+    "mtime": 1784662445.0200758,
+    "ast_hash": "9484ca4f8b193facd7087e0295017cf3",
+    "semantic_hash": ""
   },
   ".impeccable/critique/2026-07-01T22-21-32Z__wp-content-themes-sindicato-page-contato-php.md": {
-    "mtime": 1782946575.8171165,
-    "ast_hash": "0c1d76e2ddcb25cd47bb7035ed38067c",
-    "semantic_hash": "0c1d76e2ddcb25cd47bb7035ed38067c"
+    "mtime": 1784662445.02018,
+    "ast_hash": "db946e6fb86cfcb9a670ac56d31ef9ac",
+    "semantic_hash": ""
   },
   ".impeccable/critique/2026-07-01T22-40-47Z__wp-content-themes-sindicato-page-filie-se-php.md": {
-    "mtime": 1782946575.8171165,
-    "ast_hash": "e071ec3af9c723847b443f07a6af4cae",
-    "semantic_hash": "e071ec3af9c723847b443f07a6af4cae"
-  },
-  ".superpowers/sdd/progress.md": {
-    "mtime": 1783460551.42408,
-    "ast_hash": "0e936cb49b02b4024ec02a645592ec82",
+    "mtime": 1784662445.020289,
+    "ast_hash": "0d54a061744f82635376a426df1bf923",
     "semantic_hash": ""
-  },
-  ".superpowers/sdd/task-1-brief.md": {
-    "mtime": 1783459898.8490705,
-    "ast_hash": "c6f5c5b09b3af3204a677104f1deec30",
-    "semantic_hash": ""
-  },
-  ".superpowers/sdd/task-1-report.md": {
-    "mtime": 1782923054.45315,
-    "ast_hash": "6e4dfcabab5842d2d385707cfbe50538",
-    "semantic_hash": "6e4dfcabab5842d2d385707cfbe50538"
-  },
-  ".superpowers/sdd/task-10-brief.md": {
-    "mtime": 1782884025.920674,
-    "ast_hash": "0bd6e98a4f4d2f7416cd68785aab1294",
-    "semantic_hash": "0bd6e98a4f4d2f7416cd68785aab1294"
-  },
-  ".superpowers/sdd/task-10-fix-report.md": {
-    "mtime": 1782884647.7273786,
-    "ast_hash": "a555d4915161b1c50283f4b6da8d7003",
-    "semantic_hash": "a555d4915161b1c50283f4b6da8d7003"
-  },
-  ".superpowers/sdd/task-10-report.md": {
-    "mtime": 1782884325.650469,
-    "ast_hash": "90956b8ecef1458acc3e3dbb8c7dc54b",
-    "semantic_hash": "90956b8ecef1458acc3e3dbb8c7dc54b"
-  },
-  ".superpowers/sdd/task-11-brief.md": {
-    "mtime": 1782884664.3575554,
-    "ast_hash": "05ff4afab23ea6ca262459d1903b73fd",
-    "semantic_hash": "05ff4afab23ea6ca262459d1903b73fd"
-  },
-  ".superpowers/sdd/task-11-report.md": {
-    "mtime": 1782884736.730572,
-    "ast_hash": "6f0f775e5c32ef9c20b74b92038e3b9b",
-    "semantic_hash": "6f0f775e5c32ef9c20b74b92038e3b9b"
-  },
-  ".superpowers/sdd/task-2-brief.md": {
-    "mtime": 1782924933.7224727,
-    "ast_hash": "b984c2b15dc294f0ea79e03247e02e38",
-    "semantic_hash": "b984c2b15dc294f0ea79e03247e02e38"
-  },
-  ".superpowers/sdd/task-2-report.md": {
-    "mtime": 1782925171.2887325,
-    "ast_hash": "49717bfa3a4fa4167ce72400adc6998f",
-    "semantic_hash": "49717bfa3a4fa4167ce72400adc6998f"
-  },
-  ".superpowers/sdd/task-3-brief.md": {
-    "mtime": 1782925387.2479162,
-    "ast_hash": "fbb1183b5afd419414c89da065c570f7",
-    "semantic_hash": "fbb1183b5afd419414c89da065c570f7"
-  },
-  ".superpowers/sdd/task-3-report.md": {
-    "mtime": 1782926179.4668324,
-    "ast_hash": "2f6f3844fe2b0bb5795c224dbf80774a",
-    "semantic_hash": "2f6f3844fe2b0bb5795c224dbf80774a"
-  },
-  ".superpowers/sdd/task-4-brief.md": {
-    "mtime": 1782880665.6914847,
-    "ast_hash": "274a17e03a8bc9cc4740ffd1e1dcc8e1",
-    "semantic_hash": "274a17e03a8bc9cc4740ffd1e1dcc8e1"
-  },
-  ".superpowers/sdd/task-4-report.md": {
-    "mtime": 1782881177.8128214,
-    "ast_hash": "ea8cb55376cffb8787f055652e183633",
-    "semantic_hash": "ea8cb55376cffb8787f055652e183633"
-  },
-  ".superpowers/sdd/task-5-brief.md": {
-    "mtime": 1782881547.4404924,
-    "ast_hash": "009989e24e451357d6a67d4dad6ef836",
-    "semantic_hash": "009989e24e451357d6a67d4dad6ef836"
-  },
-  ".superpowers/sdd/task-5-report.md": {
-    "mtime": 1782881884.208273,
-    "ast_hash": "0eba3d6f51ad744ebcce369a644d8807",
-    "semantic_hash": "0eba3d6f51ad744ebcce369a644d8807"
-  },
-  ".superpowers/sdd/task-6-brief.md": {
-    "mtime": 1782882102.5586126,
-    "ast_hash": "972798de13ccd9c6c3688e68fcc73887",
-    "semantic_hash": "972798de13ccd9c6c3688e68fcc73887"
-  },
-  ".superpowers/sdd/task-6-report.md": {
-    "mtime": 1782882415.1213167,
-    "ast_hash": "d5ef5e91ff54e19c00a2c5a8491c3136",
-    "semantic_hash": "d5ef5e91ff54e19c00a2c5a8491c3136"
-  },
-  ".superpowers/sdd/task-7-brief.md": {
-    "mtime": 1782882628.2938614,
-    "ast_hash": "21bd1300e053cb81a401877574a184a6",
-    "semantic_hash": "21bd1300e053cb81a401877574a184a6"
-  },
-  ".superpowers/sdd/task-7-report.md": {
-    "mtime": 1782883006.9263792,
-    "ast_hash": "334f87325985a6ded987f81636d8fd6c",
-    "semantic_hash": "334f87325985a6ded987f81636d8fd6c"
-  },
-  ".superpowers/sdd/task-8-brief.md": {
-    "mtime": 1782883116.853354,
-    "ast_hash": "909029117765a6756f85a48603c82972",
-    "semantic_hash": "909029117765a6756f85a48603c82972"
-  },
-  ".superpowers/sdd/task-8-report.md": {
-    "mtime": 1782883251.724816,
-    "ast_hash": "a0fbfaa1ef9051e45c8a89cae459155e",
-    "semantic_hash": "a0fbfaa1ef9051e45c8a89cae459155e"
-  },
-  ".superpowers/sdd/task-9-brief.md": {
-    "mtime": 1782883337.5500443,
-    "ast_hash": "2dcfa138b82bdfbb820417420441c9de",
-    "semantic_hash": "2dcfa138b82bdfbb820417420441c9de"
-  },
-  ".superpowers/sdd/task-9-report.md": {
-    "mtime": 1782883804.374512,
-    "ast_hash": "f5df660db98bba38da463ea0cec69cee",
-    "semantic_hash": "f5df660db98bba38da463ea0cec69cee"
   },
   "DESIGN.md": {
-    "mtime": 1782946575.8196387,
-    "ast_hash": "b4d180d661b05f2991e2cb043bf2e0d1",
-    "semantic_hash": "b4d180d661b05f2991e2cb043bf2e0d1"
+    "mtime": 1784662445.0205877,
+    "ast_hash": "fa987729d4777b85cc433102f447e534",
+    "semantic_hash": ""
   },
   "PRODUCT.md": {
-    "mtime": 1782946575.8201418,
-    "ast_hash": "648c93bd024a3ac99e71d05b3d68a508",
-    "semantic_hash": "648c93bd024a3ac99e71d05b3d68a508"
+    "mtime": 1784662445.0207868,
+    "ast_hash": "8f6280a4e9dad817cb663f682a052fdb",
+    "semantic_hash": ""
   },
   "docs/lgpd/campos-formularios.md": {
-    "mtime": 1782917317.8952732,
-    "ast_hash": "4fee6bd1c1692efd8559f75af3be222c",
-    "semantic_hash": "4fee6bd1c1692efd8559f75af3be222c"
+    "mtime": 1784662445.0258725,
+    "ast_hash": "f764797e2985f691c1d761c026bbaa50",
+    "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-06-30-site-sindicato-desenvolvimento.md": {
-    "mtime": 1782858110.3862903,
+    "mtime": 1784662445.0261059,
     "ast_hash": "5fb04be693f0a3f8602f4d22c63377da",
     "semantic_hash": "5fb04be693f0a3f8602f4d22c63377da"
   },
   "docs/superpowers/plans/2026-07-01-podcast-youtube-unificado.md": {
-    "mtime": 1782922634.3020682,
+    "mtime": 1784662445.0262861,
     "ast_hash": "6961ffc7d37cc7821e848bc154659a51",
     "semantic_hash": "6961ffc7d37cc7821e848bc154659a51"
   },
   "docs/superpowers/plans/2026-07-01-tema-wordpress-sindicato.md": {
-    "mtime": 1782917317.8967876,
-    "ast_hash": "fab109c86a573fd5afc7ca2e77299d7b",
-    "semantic_hash": "fab109c86a573fd5afc7ca2e77299d7b"
+    "mtime": 1784662445.0265431,
+    "ast_hash": "792e37b42bc56cbb72a92971c009394f",
+    "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-07-01-podcast-youtube-unificado-design.md": {
-    "mtime": 1782921668.044819,
+    "mtime": 1784662445.026922,
     "ast_hash": "f08f4896e5b2fd1805d4381a4429064b",
     "semantic_hash": "f08f4896e5b2fd1805d4381a4429064b"
   },
   "docs/superpowers/specs/2026-07-01-sistema-de-design-impeccable-design.md": {
-    "mtime": 1782931748.119133,
+    "mtime": 1784662445.027023,
     "ast_hash": "2312d65927f3331963b13a1fb54b7897",
     "semantic_hash": "2312d65927f3331963b13a1fb54b7897"
   },
   "index.html": {
-    "mtime": 1782920448.33759,
-    "ast_hash": "f893b948a31de7e4a75e57cc0fd0c481",
-    "semantic_hash": "f893b948a31de7e4a75e57cc0fd0c481"
+    "mtime": 1784662445.0557685,
+    "ast_hash": "ffeb0e9e14e0f3bdf1485b6868e7ec86",
+    "semantic_hash": ""
   },
   "assets/hero-assembleia-sindicato.png": {
-    "mtime": 1782844683.4173226,
+    "mtime": 1784662445.0225139,
     "ast_hash": "aae5bf22edd337af186398785c35e208",
     "semantic_hash": "aae5bf22edd337af186398785c35e208"
   },
   "assets/sindicato-logo.jpeg": {
-    "mtime": 1782920448.33759,
+    "mtime": 1784662445.0228612,
     "ast_hash": "b30650fe6b57caec8ea9f849442c076d",
     "semantic_hash": "b30650fe6b57caec8ea9f849442c076d"
   },
   "screenshots/home-desktop.png": {
-    "mtime": 1782845139.9742956,
+    "mtime": 1784662445.0602572,
     "ast_hash": "9c8495a97933c3865272923e68f223c6",
     "semantic_hash": "9c8495a97933c3865272923e68f223c6"
   },
   "screenshots/home-mobile.png": {
-    "mtime": 1782845140.5164433,
+    "mtime": 1784662445.06289,
     "ast_hash": "aebfa4767a2ff6dbf40c382896e05828",
     "semantic_hash": "aebfa4767a2ff6dbf40c382896e05828"
   },
   "screenshots/home-notices-empty.png": {
-    "mtime": 1782847654.7027547,
+    "mtime": 1784662445.0672553,
     "ast_hash": "3d3b8d6f469dd7ce6c0f21543e9b6967",
     "semantic_hash": "3d3b8d6f469dd7ce6c0f21543e9b6967"
   },
   "screenshots/home-notices-visible.png": {
-    "mtime": 1782847654.1509328,
+    "mtime": 1784662445.0740793,
     "ast_hash": "9c8495a97933c3865272923e68f223c6",
     "semantic_hash": "9c8495a97933c3865272923e68f223c6"
   },
   "wp-content/themes/sindicato/assets/img/logo-sindicato.jpeg": {
-    "mtime": 1782920448.3487961,
+    "mtime": 1784662445.091904,
     "ast_hash": "b30650fe6b57caec8ea9f849442c076d",
     "semantic_hash": "b30650fe6b57caec8ea9f849442c076d"
   },
   "wp-content/themes/sindicato/screenshot.png": {
-    "mtime": 1782917317.91745,
+    "mtime": 1784662445.096012,
     "ast_hash": "d3a70c680c598a48f0f88400c6fefaac",
     "semantic_hash": "d3a70c680c598a48f0f88400c6fefaac"
   },
   "scripts/directus-conteudo-exemplo.mjs": {
-    "mtime": 1783480756.873548,
+    "mtime": 1784662445.076989,
     "ast_hash": "86c9dc256650e6cae207a8c577ff6f2a",
     "semantic_hash": ""
   },
   "scripts/directus-schema.mjs": {
-    "mtime": 1783755569.2077246,
-    "ast_hash": "0ef4a07d1d760fc363e46a426887a869",
-    "semantic_hash": ""
-  },
-  "site/.astro/content.d.ts": {
-    "mtime": 1783483278.267548,
-    "ast_hash": "4aaaf7e07990466432e5a0fcf9b2e58c",
-    "semantic_hash": ""
-  },
-  "site/.astro/types.d.ts": {
-    "mtime": 1783483278.2685516,
-    "ast_hash": "f3d48b2aa569815a445d3509aa161559",
-    "semantic_hash": ""
-  },
-  "site/.vscode/extensions.json": {
-    "mtime": 1783020324.0,
-    "ast_hash": "3adedb22d082dbd1ebb00b75d21403aa",
-    "semantic_hash": ""
-  },
-  "site/.vscode/launch.json": {
-    "mtime": 1783020324.0,
-    "ast_hash": "60493763dcbc2d109e57da86d997602a",
+    "mtime": 1784662445.0772486,
+    "ast_hash": "1be3991bc85ed0f5f9669e5771803230",
     "semantic_hash": ""
   },
   "site/astro.config.mjs": {
-    "mtime": 1783791168.2897005,
+    "mtime": 1784662445.081574,
     "ast_hash": "d0e80d2874556df62b7fad6201437df6",
     "semantic_hash": ""
   },
   "site/package.json": {
-    "mtime": 1783829008.1625059,
-    "ast_hash": "b2523d1d745ab11f54c6c1946589eb50",
+    "mtime": 1784662445.082236,
+    "ast_hash": "25f6586d354eed8df8f2ebcd5f7c2ac1",
     "semantic_hash": ""
   },
   "site/src/components/Estudio.astro": {
-    "mtime": 1783804753.003736,
+    "mtime": 1784662445.0832129,
     "ast_hash": "fd360708ddf478471526e5f5330ac5ae",
     "semantic_hash": ""
   },
-  "site/src/components/PostCard.astro": {
-    "mtime": 1783476782.0219648,
-    "ast_hash": "029e1685d34c25ec2cb1a60bebd885fa",
-    "semantic_hash": ""
-  },
   "site/src/layouts/Base.astro": {
-    "mtime": 1783807308.197992,
+    "mtime": 1784662445.0838132,
     "ast_hash": "e3083f23f771e795c83105a2daae1a08",
     "semantic_hash": ""
   },
   "site/src/lib/cache.ts": {
-    "mtime": 1783306056.8625336,
+    "mtime": 1784662445.0842874,
     "ast_hash": "38eb5a9086db3ebe3ea212e78d718b37",
     "semantic_hash": ""
   },
   "site/src/lib/constantes.ts": {
-    "mtime": 1783483246.2220833,
+    "mtime": 1784662445.0843737,
     "ast_hash": "5bb9ab948fc7c13cad1b96090e33ece0",
     "semantic_hash": ""
   },
   "site/src/lib/directus.ts": {
-    "mtime": 1783807314.8931487,
-    "ast_hash": "531c5ebc8358106d362608ad5cab3fac",
+    "mtime": 1784662445.0846064,
+    "ast_hash": "8e18322820d81ae7ca39c2c0bdf6fd77",
     "semantic_hash": ""
   },
   "site/src/lib/formatar.test.ts": {
-    "mtime": 1783306141.751861,
+    "mtime": 1784662445.0846987,
     "ast_hash": "9e59817746f1213ab7f331e92ccc0c45",
     "semantic_hash": ""
   },
   "site/src/lib/formatar.ts": {
-    "mtime": 1783306122.0369246,
+    "mtime": 1784662445.0847876,
     "ast_hash": "fdad4f183963944e40bf7776d1b407af",
     "semantic_hash": ""
   },
   "site/src/lib/tipos.ts": {
-    "mtime": 1783868150.1648507,
-    "ast_hash": "9e13023605e9192c7373ca17f54a62df",
+    "mtime": 1784662445.0850997,
+    "ast_hash": "fc8a9cf7d86325fdad44227a9ce1a288",
     "semantic_hash": ""
   },
   "site/src/lib/youtube.test.ts": {
-    "mtime": 1783306138.091116,
+    "mtime": 1784662445.0851986,
     "ast_hash": "58a36dfdc5d50d0e7186c7793919df85",
     "semantic_hash": ""
   },
   "site/src/lib/youtube.ts": {
-    "mtime": 1783804647.6972618,
+    "mtime": 1784662445.085293,
     "ast_hash": "65370e1652dc7b9c39652abd7e9fba16",
     "semantic_hash": ""
   },
   "site/src/pages/404.astro": {
-    "mtime": 1783307013.481319,
+    "mtime": 1784662445.0855591,
     "ast_hash": "95c897ac283d6cf7527d8e7ba5eb51f9",
     "semantic_hash": ""
   },
   "site/src/pages/[slug].astro": {
-    "mtime": 1783307010.6321442,
+    "mtime": 1784662445.0856483,
     "ast_hash": "dbffe3321d2b906e5a571a5096fdfc08",
     "semantic_hash": ""
   },
   "site/src/pages/api/contato.ts": {
-    "mtime": 1783307027.835305,
+    "mtime": 1784662445.0884917,
     "ast_hash": "69c937f357ee2dc5691a220212a6b104",
     "semantic_hash": ""
   },
   "site/src/pages/api/newsletter.ts": {
-    "mtime": 1783307024.066833,
+    "mtime": 1784662445.0886714,
     "ast_hash": "68cf98a241f0332f551698ba39f0f7eb",
     "semantic_hash": ""
   },
   "site/src/pages/contato.astro": {
-    "mtime": 1783307007.7851803,
+    "mtime": 1784662445.0888505,
     "ast_hash": "a1d09b1402b1ac4529df7f780c3a4c2b",
     "semantic_hash": ""
   },
   "site/src/pages/diretoria.astro": {
-    "mtime": 1783306992.7809231,
+    "mtime": 1784662445.089034,
     "ast_hash": "ab8edbe6eec1a69e822022ad43a2a35d",
     "semantic_hash": ""
   },
   "site/src/pages/index.astro": {
-    "mtime": 1783804672.2548306,
-    "ast_hash": "f155927ef34376fbfefdce76e603d980",
+    "mtime": 1784662445.0891516,
+    "ast_hash": "403e797c8392be73e86ee6413a79876f",
     "semantic_hash": ""
   },
   "site/src/pages/noticias/[slug].astro": {
-    "mtime": 1783476782.0286758,
-    "ast_hash": "70710f4a0d935e5ff1e873010dd9a61b",
+    "mtime": 1784662445.089415,
+    "ast_hash": "88fd197f852dee7e980be01e6ae5b297",
     "semantic_hash": ""
   },
   "site/src/pages/noticias/index.astro": {
-    "mtime": 1783306957.1702616,
-    "ast_hash": "8060b6851e6ef03f0d2b53a95c4ce51e",
+    "mtime": 1784662445.089521,
+    "ast_hash": "96edb5c08b652bbfaa68d0b5f6fd20b0",
     "semantic_hash": ""
   },
   "site/src/pages/robots.txt.ts": {
-    "mtime": 1783307037.5432339,
+    "mtime": 1784662445.089613,
     "ast_hash": "f7b823a1e16387d386cd96910902856b",
     "semantic_hash": ""
   },
   "site/src/pages/rss.xml.ts": {
-    "mtime": 1783476782.029189,
-    "ast_hash": "c6cc6515da4d22c483714f274db0af20",
+    "mtime": 1784662445.0898278,
+    "ast_hash": "fc65c4aa9c2808bb8fce8d0380bbdaec",
     "semantic_hash": ""
   },
   "site/src/pages/sitemap.xml.ts": {
-    "mtime": 1783483255.2077825,
-    "ast_hash": "7576bcbd021a6e2048aafaf479d443ce",
+    "mtime": 1784662445.090116,
+    "ast_hash": "632e028f4ef5aab53bfd55e8e45bb3e0",
     "semantic_hash": ""
   },
   "site/tsconfig.json": {
-    "mtime": 1783020324.0,
+    "mtime": 1784662445.0906122,
     "ast_hash": "1d3613ac08bdda17e2b82251613dbc21",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1783476781.996521,
-    "ast_hash": "8a6643a420fdad6bfb583523bc6cef16",
+    "mtime": 1784662445.0204835,
+    "ast_hash": "557b42b2bc211a2dcfac8b4f2107bb96",
     "semantic_hash": ""
   },
   "deploy/docker-compose.yml": {
-    "mtime": 1783306373.058573,
+    "mtime": 1784662445.0231996,
     "ast_hash": "9f622782e0db4b7e22a614f64823fc40",
     "semantic_hash": ""
   },
   "deploy/override-rede-tunnel.yml": {
-    "mtime": 1783306375.8875997,
+    "mtime": 1784662445.02328,
     "ast_hash": "48e365549ddc931fedfee566c819d060",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-07-02-youtube-instagram-bugs-animacoes.md": {
-    "mtime": 1782964587.463359,
+    "mtime": 1784662445.0267303,
     "ast_hash": "ae03cd1083f444dc25ba3be8b63547b5",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-07-02-youtube-instagram-bugs-animacoes-design.md": {
-    "mtime": 1782962324.7714076,
+    "mtime": 1784662445.0271232,
     "ast_hash": "197c31284a0982d105805f136f63244e",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-07-05-migracao-astro-directus-design.md": {
-    "mtime": 1783305795.4017391,
+    "mtime": 1784662445.0272195,
     "ast_hash": "fdeeb71fa2b2e2e1c016decf64563349",
     "semantic_hash": ""
   },
   "site/AGENTS.md": {
-    "mtime": 1783305832.442312,
+    "mtime": 1784662445.0812185,
     "ast_hash": "4d944a80d98bf8891d5b10081a86d3e1",
     "semantic_hash": ""
   },
   "site/CLAUDE.md": {
-    "mtime": 1783305832.442312,
+    "mtime": 1784662445.0813036,
     "ast_hash": "4d944a80d98bf8891d5b10081a86d3e1",
     "semantic_hash": ""
   },
   "site/README.md": {
-    "mtime": 1783716831.5058646,
+    "mtime": 1784662445.081483,
     "ast_hash": "b5c1d7607cb47bdd3591f3c9df0e1dc9",
     "semantic_hash": ""
   },
   "screenshots/task4-noticias-thumbnail.png": {
-    "mtime": 1782965014.6597736,
+    "mtime": 1784662445.0753422,
     "ast_hash": "7e1a7b9312850783d5e213d3a47f2a37",
     "semantic_hash": ""
   },
   "screenshots/task6-hero-webp.png": {
-    "mtime": 1782965125.0110312,
+    "mtime": 1784662445.0757358,
     "ast_hash": "4b06d801661fca582f2607e64fbcebed",
     "semantic_hash": ""
   },
   "site/public/favicon.svg": {
-    "mtime": 1783020324.0,
+    "mtime": 1784662445.0824785,
     "ast_hash": "8c13f40658976ea1dfb8ba37a8be0e8d",
     "semantic_hash": ""
   },
   "site/public/logo-sindicato.jpeg": {
-    "mtime": 1783306659.2663658,
+    "mtime": 1784662445.0828812,
     "ast_hash": "b30650fe6b57caec8ea9f849442c076d",
     "semantic_hash": ""
   },
   "wp-content/themes/sindicato/assets/img/hero-assembleia-sindicato.webp": {
-    "mtime": 1782965097.1651626,
+    "mtime": 1784662445.0915983,
     "ast_hash": "52992bc9060ec46d9cf0734932f82bb2",
     "semantic_hash": ""
   },
   "deploy/README.md": {
-    "mtime": 1783477748.8262265,
-    "ast_hash": "ef1a2f80ca83094b20ace9708d9bba8c",
+    "mtime": 1784662445.0231152,
+    "ast_hash": "be0166fa9b687e475e121060884704ec",
     "semantic_hash": ""
   },
   "scripts/directus-atualizar-paginas.mjs": {
-    "mtime": 1783362946.6724346,
+    "mtime": 1784662445.0768464,
     "ast_hash": "c1b34567c3202e0a228a0ba1f43451d5",
     "semantic_hash": ""
   },
   "site/src/pages/api/juridico.ts": {
-    "mtime": 1783829179.1851287,
+    "mtime": 1784662445.0885866,
     "ast_hash": "5bebb5cfce7c63f50691a3ac169e9478",
     "semantic_hash": ""
   },
   "site/src/pages/juridico.astro": {
-    "mtime": 1783868369.3771675,
-    "ast_hash": "187f9dd036549c53a6f468bfb7ccee95",
+    "mtime": 1784662445.0892525,
+    "ast_hash": "177370b98ef655a6b017bc981cc012fd",
     "semantic_hash": ""
   },
   "scripts/directus-atualizar-juridico.mjs": {
-    "mtime": 1783378415.539176,
+    "mtime": 1784662445.0767283,
     "ast_hash": "2405590489b67717db3f844794315c64",
     "semantic_hash": ""
   },
-  "site/.astro/settings.json": {
-    "mtime": 1783377235.8498623,
-    "ast_hash": "444e7c5027bb744bb568591f754eb546",
-    "semantic_hash": ""
-  },
   "scripts/backup-lxc200-data.sh": {
-    "mtime": 1783477696.7475605,
+    "mtime": 1784662445.0760977,
     "ast_hash": "87cc916063d2d8879933133d4a67be89",
     "semantic_hash": ""
   },
   "scripts/deploy-lxc200.sh": {
-    "mtime": 1783478883.6429243,
+    "mtime": 1784662445.0762029,
     "ast_hash": "4fdf4f5ede3bef27aecb410e889a9957",
     "semantic_hash": ""
   },
   "site/src/lib/deploy-lxc200.test.mjs": {
-    "mtime": 1783478865.2082465,
+    "mtime": 1784662445.0844655,
     "ast_hash": "8268236c5fcc88cc35df80a24c6e7ae0",
     "semantic_hash": ""
   },
   "design/referencia-home-sindicato.png": {
-    "mtime": 1783476782.005405,
+    "mtime": 1784662445.025147,
     "ast_hash": "d3a70c680c598a48f0f88400c6fefaac",
     "semantic_hash": ""
   },
   "scripts/directus-conteudo-exemplo.test.mjs": {
-    "mtime": 1783480508.1600287,
+    "mtime": 1784662445.0770884,
     "ast_hash": "abc808b59ee7d4be5fcc26cd2dd64202",
     "semantic_hash": ""
   },
   "site/src/pages/avisos.astro": {
-    "mtime": 1783483187.9050398,
+    "mtime": 1784662445.0887573,
     "ast_hash": "bb1cdb80d1ed0b5d652c9cdfdb2d7e2a",
     "semantic_hash": ""
   },
   "site/src/pages/convencoes.astro": {
-    "mtime": 1783483230.7727883,
+    "mtime": 1784662445.0889466,
     "ast_hash": "7ee871c14694b5e139559e3d7c57e78d",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1783791543.2141645,
-    "ast_hash": "b75cce3a9e0e54ed497f6f39b18a813b",
+    "mtime": 1784680590.5471795,
+    "ast_hash": "f2985c4fa845a25c75980527389d9137",
     "semantic_hash": ""
   },
   "docs/README.md": {
-    "mtime": 1783714965.6356366,
+    "mtime": 1784662445.0253448,
     "ast_hash": "583f8d488aa687e316e5a48184478140",
     "semantic_hash": ""
   },
   "docs/arquitetura.md": {
-    "mtime": 1783714863.8550234,
+    "mtime": 1784662445.025448,
     "ast_hash": "98185c1b2a9d0ed3fed00f0628a34b52",
     "semantic_hash": ""
   },
   "docs/conteudo-directus.md": {
-    "mtime": 1783791566.413148,
+    "mtime": 1784662445.025554,
     "ast_hash": "81ac126cf42251c0e94d675fd667fb1a",
     "semantic_hash": ""
   },
   "docs/deploy-checklist.md": {
-    "mtime": 1783714865.2039187,
+    "mtime": 1784662445.0256362,
     "ast_hash": "3a1885b716598214ccb3c4c83359134c",
     "semantic_hash": ""
   },
   "docs/desenvolvimento.md": {
-    "mtime": 1783716814.4970076,
+    "mtime": 1784662445.0257406,
     "ast_hash": "69fcaff3b24fa39fe1859d1ac2a1a946",
     "semantic_hash": ""
   },
   "scripts/dev-local.ps1": {
-    "mtime": 1783716776.0473504,
+    "mtime": 1784662445.0763447,
     "ast_hash": "42bf5da661efb9ddfed17e2642685c80",
     "semantic_hash": ""
   },
-  "conversa_directus_site_robo_noticias.md": {
-    "mtime": 1783712672.554807,
-    "ast_hash": "9bfe2a16ffb124a8bf4b0bd867f125e7",
-    "semantic_hash": ""
-  },
   "scripts/dev.ps1": {
-    "mtime": 1783797641.0654392,
+    "mtime": 1784662445.076484,
     "ast_hash": "746641705b16944301e7b5b2494fa145",
     "semantic_hash": ""
   },
-  "deploy/directus/.dev-directus-runner.ps1": {
-    "mtime": 1783864197.731178,
-    "ast_hash": "c6b2e59d8f709d1d809ae1f752d45bb8",
-    "semantic_hash": ""
-  },
   "scripts/setup-directus-social.mjs": {
-    "mtime": 1783755591.486537,
-    "ast_hash": "d28c78bfff32d226db32b6d0b66b8bb0",
-    "semantic_hash": ""
-  },
-  "deploy/package.json": {
-    "mtime": 1783727113.4798696,
-    "ast_hash": "14cb6ddf276fc7a7d6324eae44ddaadd",
+    "mtime": 1784662445.077513,
+    "ast_hash": "1b2825f06c12091d33fbcdfd5876670a",
     "semantic_hash": ""
   },
   "scripts/directus-analytics-branding.mjs": {
-    "mtime": 1783755751.3457603,
+    "mtime": 1784662445.076612,
     "ast_hash": "ee7ed7637207de17021889e3b475dc06",
     "semantic_hash": ""
   },
   "scripts/sync-analytics.mjs": {
-    "mtime": 1783755824.4666245,
+    "mtime": 1784662445.0777564,
     "ast_hash": "e5c1ec9f66dd7ebd65631ba76a41f06f",
     "semantic_hash": ""
   },
   "site/src/layouts/AdminLayout.astro": {
-    "mtime": 1783868061.293877,
-    "ast_hash": "de55aa3bae1726aa485ad2045ed66019",
+    "mtime": 1784662445.083687,
+    "ast_hash": "69008c54a3ab3f0a78a476a05801830f",
     "semantic_hash": ""
   },
   "site/src/lib/auth.ts": {
-    "mtime": 1783868277.2169235,
+    "mtime": 1784662445.0841794,
     "ast_hash": "fbf5bdc5590cc8204e72507ed0700dd1",
     "semantic_hash": ""
   },
   "site/src/middleware.ts": {
-    "mtime": 1783791240.7550125,
-    "ast_hash": "ed1d1d87b2fce7905bf070fe382b8be5",
+    "mtime": 1784662445.0854015,
+    "ast_hash": "0a9ac8f65e7e40545421da2c16f10071",
     "semantic_hash": ""
   },
   "site/src/pages/admin/index.astro": {
-    "mtime": 1783868305.22122,
+    "mtime": 1784662445.0858064,
     "ast_hash": "7cf3bfe5fe7b5d03c8f49328fb6f1379",
     "semantic_hash": ""
   },
   "site/src/pages/admin/juridico.astro": {
-    "mtime": 1783830371.0990748,
-    "ast_hash": "443c7473e54c115a3a6f5b4eb2403551",
+    "mtime": 1784662445.085931,
+    "ast_hash": "9c4e7788270628897aecfd2ec2844ba7",
     "semantic_hash": ""
   },
   "site/src/pages/admin/login.astro": {
-    "mtime": 1783797250.7064307,
+    "mtime": 1784662445.0860395,
     "ast_hash": "16e313a8d6696ea4d796b5262be1ba0b",
     "semantic_hash": ""
   },
   "site/src/pages/admin/social.astro": {
-    "mtime": 1783868240.3712277,
-    "ast_hash": "cedf081d0bde393bfbfd255c85ea83ec",
+    "mtime": 1784662445.0866,
+    "ast_hash": "c69a6d2eeafb717b9379eb0fbda998b1",
     "semantic_hash": ""
   },
   "site/src/pages/api/admin/login.ts": {
-    "mtime": 1783791251.8314767,
+    "mtime": 1784662445.0872307,
     "ast_hash": "a59faf7dff7d397cb3a84fefa711409e",
     "semantic_hash": ""
   },
   "site/src/pages/api/admin/logout.ts": {
-    "mtime": 1783791258.1174679,
+    "mtime": 1784662445.0873206,
     "ast_hash": "7d3e308a000da9d02cd79e108defbf02",
     "semantic_hash": ""
   },
   "site/src/pages/api/admin/social/create.ts": {
-    "mtime": 1783797242.5122128,
-    "ast_hash": "8558d4a15aa4584d76e3d1c4e6452c0a",
+    "mtime": 1784662445.088381,
+    "ast_hash": "4862a6081d76d6591e27e07711b3dc79",
     "semantic_hash": ""
   },
   "site/src/components/VitrineSocial.astro": {
-    "mtime": 1783807288.8892477,
+    "mtime": 1784662445.0834394,
     "ast_hash": "2a1ccaa684c28f6b0758678ff59a659a",
     "semantic_hash": ""
   },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/.impeccable/design.json": {
-    "mtime": 1783457190.8179195,
-    "ast_hash": "5904f5cc9dc57c4dc9acaeeb501c7595",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/script.js": {
-    "mtime": 1783457191.003417,
-    "ast_hash": "fa5c5a0783be010ccf549bee495741be",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/scripts/directus-atualizar-juridico.mjs": {
-    "mtime": 1783457191.0044565,
-    "ast_hash": "47a2bb05c408a37c47b8bc159ac423fd",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/scripts/directus-atualizar-paginas.mjs": {
-    "mtime": 1783457191.005506,
-    "ast_hash": "a631169a3c85a0c364e961a6b3033daf",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/scripts/directus-conteudo-exemplo.mjs": {
-    "mtime": 1783457191.0065427,
-    "ast_hash": "4442ed5c88367cb2215942cc6880a09b",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/scripts/directus-schema.mjs": {
-    "mtime": 1783457191.0070565,
-    "ast_hash": "61596e647411af33e3c4782f89656968",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/astro.config.mjs": {
-    "mtime": 1783457191.0123801,
-    "ast_hash": "260f7e211d93c8bfb0121eb6c31c0f5f",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/package.json": {
-    "mtime": 1783457191.0144565,
-    "ast_hash": "841cff5488f3b99e0e6121f54fa2008a",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/components/Estudio.astro": {
-    "mtime": 1783457191.018612,
-    "ast_hash": "6b0998c2e99e1c174ac8d6da44932633",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/components/PostCard.astro": {
-    "mtime": 1783457191.0191336,
-    "ast_hash": "029e1685d34c25ec2cb1a60bebd885fa",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/layouts/Base.astro": {
-    "mtime": 1783457191.0202608,
-    "ast_hash": "016f013b8421947b7a7b83b81e2ecf91",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/cache.ts": {
-    "mtime": 1783457191.0207744,
-    "ast_hash": "e9d6cfeaa87c02b03cfda2ffdba1e549",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/constantes.ts": {
-    "mtime": 1783457191.0218203,
-    "ast_hash": "e345a35e8a2c2c0e5ca23c459d9e0309",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/directus.ts": {
-    "mtime": 1783457191.022339,
-    "ast_hash": "5d0a342e6004964f1940fecf502d7785",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/formatar.test.ts": {
-    "mtime": 1783457191.0228522,
-    "ast_hash": "947ef8bca68648f29b6aa93679137894",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/formatar.ts": {
-    "mtime": 1783457191.0233767,
-    "ast_hash": "c3a9c9fc99b71d501086a9c3e86c1ca6",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/tipos.ts": {
-    "mtime": 1783457191.0245245,
-    "ast_hash": "03acb6a82c6684e53a980ec284cccc19",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/youtube.test.ts": {
-    "mtime": 1783457191.0250442,
-    "ast_hash": "716ddd36b583fce6e89aa709e7afef5a",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/lib/youtube.ts": {
-    "mtime": 1783457191.0255637,
-    "ast_hash": "737623117239e1fe49b626a7f4d70b40",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/404.astro": {
-    "mtime": 1783457191.0265923,
-    "ast_hash": "d2c3298c941ce6bfc6343541e2761a00",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/[slug].astro": {
-    "mtime": 1783457191.0271108,
-    "ast_hash": "72d863b9a0bcc43e97ecf9e111a49edc",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/api/contato.ts": {
-    "mtime": 1783457191.0276294,
-    "ast_hash": "443d8acc85360baaa8c58663d9411378",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/api/juridico.ts": {
-    "mtime": 1783457191.0286674,
-    "ast_hash": "e2e150dfaa92b0bb863a05dbf83df523",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/api/newsletter.ts": {
-    "mtime": 1783457191.0286674,
-    "ast_hash": "825d7b78a7ecc33e8ed979dbcb95b1ea",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/contato.astro": {
-    "mtime": 1783457191.0291824,
-    "ast_hash": "d4870f774e4e5948e2fe0a280e29383d",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/diretoria.astro": {
-    "mtime": 1783457191.029695,
-    "ast_hash": "89d7e8c5dde5ca617c8aa9e626386276",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/index.astro": {
-    "mtime": 1783457191.03074,
-    "ast_hash": "6ed2bd8f698150bff6aa41e0ee2e4bf1",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/juridico.astro": {
-    "mtime": 1783457191.031259,
-    "ast_hash": "2a22a00f2d4e8fb1f7c4ec948e7eb9a6",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/noticias/[slug].astro": {
-    "mtime": 1783457191.0322995,
-    "ast_hash": "70710f4a0d935e5ff1e873010dd9a61b",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/noticias/index.astro": {
-    "mtime": 1783457191.0328193,
-    "ast_hash": "77f2422a595f9abf754d87528f65c1d5",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/robots.txt.ts": {
-    "mtime": 1783457191.0333347,
-    "ast_hash": "092a3d063b1510903b27b897f9766654",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/rss.xml.ts": {
-    "mtime": 1783457191.0339148,
-    "ast_hash": "c6cc6515da4d22c483714f274db0af20",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/src/pages/sitemap.xml.ts": {
-    "mtime": 1783457191.0344331,
-    "ast_hash": "f45da166386eddaad0ed85bdc8a9d287",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/tsconfig.json": {
-    "mtime": 1783457191.0365567,
-    "ast_hash": "c00462f26cfa157b3b5e5eff01a34df2",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/archive-documento.php": {
-    "mtime": 1783457191.0387037,
-    "ast_hash": "e70b51fba5f8fae0d76dcad71b30b3d7",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/archive.php": {
-    "mtime": 1783457191.0392187,
-    "ast_hash": "0ea0a1a39390e0d0ef964bc32cea8a06",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/assets/js/main.js": {
-    "mtime": 1783457191.0433621,
-    "ast_hash": "7ca99f4f3ec977646e8bfe4c67d5fe0a",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/footer.php": {
-    "mtime": 1783457191.0443952,
-    "ast_hash": "83b5ac58793b82d4eebc084e64437cf1",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/front-page.php": {
-    "mtime": 1783457191.0449114,
-    "ast_hash": "2f6d7d083e85d148c1f1df391ce9e9c2",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/functions.php": {
-    "mtime": 1783457191.0454276,
-    "ast_hash": "5e8bd22230633c2377edb8b5d493205c",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/header.php": {
-    "mtime": 1783457191.0459483,
-    "ast_hash": "f113af6e1a8e424e87623033ac864a92",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/cpt-aviso.php": {
-    "mtime": 1783457191.0469816,
-    "ast_hash": "e732eb607423345f0a9cb59266d71ff6",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/cpt-banner.php": {
-    "mtime": 1783457191.047499,
-    "ast_hash": "453f870c00a281a8fd5c9efdbd906841",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/cpt-card-social.php": {
-    "mtime": 1783457191.048542,
-    "ast_hash": "15b48d3a4cb2a3ef4b2ab07e6743ae6e",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/cpt-diretor.php": {
-    "mtime": 1783457191.0490704,
-    "ast_hash": "c8b5eb23833c68db4b7fe9091f1faccd",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/cpt-documento.php": {
-    "mtime": 1783457191.049584,
-    "ast_hash": "c4e3993f66ec16b39472394005832ac0",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/settings-contato.php": {
-    "mtime": 1783457191.0501041,
-    "ast_hash": "1cef64ff282fb26f2ecb7c4ef2036c17",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/settings-proximo-episodio.php": {
-    "mtime": 1783457191.0506227,
-    "ast_hash": "98f2a69c78745301c20acd32573d2c82",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/template-tags.php": {
-    "mtime": 1783457191.0516653,
-    "ast_hash": "df1d7004e1b902d1d1d991229f10519f",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/inc/youtube.php": {
-    "mtime": 1783457191.052192,
-    "ast_hash": "a569b5d2ed6a70e82957366680378cd1",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/index.php": {
-    "mtime": 1783457191.0527344,
-    "ast_hash": "df44a7cfdfd08c28828d487262020b27",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/page-avisos.php": {
-    "mtime": 1783457191.0533605,
-    "ast_hash": "ba6a05b9cfa02d34cb6e8f5613552860",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/page-contato.php": {
-    "mtime": 1783457191.0538745,
-    "ast_hash": "169d37b22423d2e8005898b2d2fd5a97",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/page-diretoria.php": {
-    "mtime": 1783457191.0544002,
-    "ast_hash": "b7bae93459c12382257a77a1c13b981c",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/page-filie-se.php": {
-    "mtime": 1783457191.0549214,
-    "ast_hash": "77b400639e46ec2395eddcacefd21139",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/page-noticias.php": {
-    "mtime": 1783457191.0554419,
-    "ast_hash": "fd2980c09f117c9b93288f734d8c76a8",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/page.php": {
-    "mtime": 1783457191.0564759,
-    "ast_hash": "946d749af324b9e48ba99d4126f01097",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/single.php": {
-    "mtime": 1783457191.062158,
-    "ast_hash": "b1cf5fa9fb9948dacc34aaddf6e206bf",
-    "semantic_hash": ""
-  },
   "scripts/setup-configuracoes.mjs": {
-    "mtime": 1783810894.7769945,
+    "mtime": 1784662445.0773842,
     "ast_hash": "94b5a09ca9003cecce5a64c768d05235",
     "semantic_hash": ""
   },
   "site/src/pages/admin/settings.astro": {
-    "mtime": 1783868100.217638,
-    "ast_hash": "64f2a0321ca2e5d3b3948e4841bc10e2",
+    "mtime": 1784662445.0864441,
+    "ast_hash": "8b8fd7c51192f6352df8a315b7c1f83b",
     "semantic_hash": ""
   },
   "site/src/pages/api/admin/settings/index.ts": {
-    "mtime": 1783868504.7329638,
-    "ast_hash": "6bc2da62c4cf5ee56d2761c6a96aec6a",
+    "mtime": 1784662445.0876687,
+    "ast_hash": "3065b300b84f65fcf75192d13c304ccb",
     "semantic_hash": ""
   },
   "site/src/pages/api/admin/settings/logo.ts": {
-    "mtime": 1783807179.6163275,
+    "mtime": 1784662445.0877857,
     "ast_hash": "d4ab50860f423cf9fc08fb68bdf78d9f",
     "semantic_hash": ""
   },
   "site/src/pages/api/admin/settings/users.ts": {
-    "mtime": 1783807405.169531,
+    "mtime": 1784662445.087885,
     "ast_hash": "0826136b26e3575445c25213e2c34913",
     "semantic_hash": ""
   },
   "site/src/pages/api/admin/settings/users/[id].ts": {
-    "mtime": 1783807411.150974,
+    "mtime": 1784662445.0880234,
     "ast_hash": "1919375b4871b9a9521b5001d0f6c49d",
     "semantic_hash": ""
   },
-  "skills-lock.json": {
-    "mtime": 1783799060.8776748,
-    "ast_hash": "a5ce57e17f3444aa846187d8761e81f5",
-    "semantic_hash": ""
-  },
-  ".agents/skills/design-taste-frontend/SKILL.md": {
-    "mtime": 1783799060.248637,
-    "ast_hash": "648c8bf98f84fbe7f14bf2da035c57fe",
-    "semantic_hash": ""
-  },
-  ".claude/skills/design-taste-frontend/SKILL.md": {
-    "mtime": 1783799060.248637,
-    "ast_hash": "648c8bf98f84fbe7f14bf2da035c57fe",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/.impeccable/critique/2026-07-01T20-28-00Z__wp-content-themes-sindicato-front-page-php.md": {
-    "mtime": 1783457190.8142886,
-    "ast_hash": "28e989fd8bbbc012f447ea38d85a302e",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/.impeccable/critique/2026-07-01T21-24-10Z__wp-content-themes-sindicato-archive-php.md": {
-    "mtime": 1783457190.8153193,
-    "ast_hash": "f11ce8c9fe48cdfda82f56163d6d08fd",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/.impeccable/critique/2026-07-01T22-04-56Z__wp-content-themes-sindicato-archive-documento-php.md": {
-    "mtime": 1783457190.8158362,
-    "ast_hash": "b65628a7dcd3a3cbbdb5346a351f362e",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/.impeccable/critique/2026-07-01T22-21-32Z__wp-content-themes-sindicato-page-contato-php.md": {
-    "mtime": 1783457190.8163474,
-    "ast_hash": "0c1d76e2ddcb25cd47bb7035ed38067c",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/.impeccable/critique/2026-07-01T22-40-47Z__wp-content-themes-sindicato-page-filie-se-php.md": {
-    "mtime": 1783457190.8174038,
-    "ast_hash": "e071ec3af9c723847b443f07a6af4cae",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/CLAUDE.md": {
-    "mtime": 1783457190.8184364,
-    "ast_hash": "8a6643a420fdad6bfb583523bc6cef16",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/DESIGN.md": {
-    "mtime": 1783457190.8189538,
-    "ast_hash": "b4d180d661b05f2991e2cb043bf2e0d1",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/PRODUCT.md": {
-    "mtime": 1783457190.8194654,
-    "ast_hash": "648c93bd024a3ac99e71d05b3d68a508",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/deploy/README.md": {
-    "mtime": 1783457190.8271823,
-    "ast_hash": "8d481e8e4219cfe1a07d5676d2513dde",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/deploy/docker-compose.yml": {
-    "mtime": 1783457190.8276951,
-    "ast_hash": "7191bdf051b1dc712c9a09d4456a98f3",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/deploy/override-rede-tunnel.yml": {
-    "mtime": 1783457190.828299,
-    "ast_hash": "e5eca53c9677fba752acc4ad7f527a76",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/lgpd/campos-formularios.md": {
-    "mtime": 1783457190.8360362,
-    "ast_hash": "4fee6bd1c1692efd8559f75af3be222c",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/plans/2026-06-30-site-sindicato-desenvolvimento.md": {
-    "mtime": 1783457190.8375795,
-    "ast_hash": "5e32c00f28236564f54e29516d3fe363",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/plans/2026-07-01-podcast-youtube-unificado.md": {
-    "mtime": 1783457190.8380942,
-    "ast_hash": "55ecad5eccd831fe09e8c212edd8429f",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/plans/2026-07-01-tema-wordpress-sindicato.md": {
-    "mtime": 1783457190.8391259,
-    "ast_hash": "fab109c86a573fd5afc7ca2e77299d7b",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/plans/2026-07-02-youtube-instagram-bugs-animacoes.md": {
-    "mtime": 1783457190.8396392,
-    "ast_hash": "56376b329382e729ac37c65977204bc1",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/specs/2026-07-01-podcast-youtube-unificado-design.md": {
-    "mtime": 1783457190.8406644,
-    "ast_hash": "e63a37cd6b7dfeb1e347c30481e1641f",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/specs/2026-07-01-sistema-de-design-impeccable-design.md": {
-    "mtime": 1783457190.8411798,
-    "ast_hash": "8a2a890e21761dbc12541a737f771cab",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/specs/2026-07-02-youtube-instagram-bugs-animacoes-design.md": {
-    "mtime": 1783457190.8416953,
-    "ast_hash": "e402b1efd82c583d95eb685fb071a2fa",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/docs/superpowers/specs/2026-07-05-migracao-astro-directus-design.md": {
-    "mtime": 1783457190.8422146,
-    "ast_hash": "c8a01ec4bd50cc2d7bc67b7ea8de6687",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/index.html": {
-    "mtime": 1783457190.9699974,
-    "ast_hash": "f893b948a31de7e4a75e57cc0fd0c481",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/AGENTS.md": {
-    "mtime": 1783457191.0103009,
-    "ast_hash": "1e2c4e154c1d009665b0a5facf2ace93",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/CLAUDE.md": {
-    "mtime": 1783457191.010825,
-    "ast_hash": "1e2c4e154c1d009665b0a5facf2ace93",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/README.md": {
-    "mtime": 1783457191.0118597,
-    "ast_hash": "8242d851e2de7046eccda9590db4484f",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/assets/hero-assembleia-sindicato.png": {
-    "mtime": 1783457190.8246038,
-    "ast_hash": "aae5bf22edd337af186398785c35e208",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/assets/sindicato-logo.jpeg": {
-    "mtime": 1783457190.825641,
-    "ast_hash": "b30650fe6b57caec8ea9f849442c076d",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/design/referencia-home-sindicato.png": {
-    "mtime": 1783457190.8350003,
-    "ast_hash": "d3a70c680c598a48f0f88400c6fefaac",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/screenshots/home-desktop.png": {
-    "mtime": 1783457190.9777434,
-    "ast_hash": "9c8495a97933c3865272923e68f223c6",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/screenshots/home-mobile.png": {
-    "mtime": 1783457190.9825284,
-    "ast_hash": "aebfa4767a2ff6dbf40c382896e05828",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/screenshots/home-notices-empty.png": {
-    "mtime": 1783457190.9908907,
-    "ast_hash": "3d3b8d6f469dd7ce6c0f21543e9b6967",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/screenshots/home-notices-visible.png": {
-    "mtime": 1783457190.9982264,
-    "ast_hash": "9c8495a97933c3865272923e68f223c6",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/screenshots/task4-noticias-thumbnail.png": {
-    "mtime": 1783457191.0013447,
-    "ast_hash": "7e1a7b9312850783d5e213d3a47f2a37",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/screenshots/task6-hero-webp.png": {
-    "mtime": 1783457191.0029,
-    "ast_hash": "4b06d801661fca582f2607e64fbcebed",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/public/favicon.svg": {
-    "mtime": 1783457191.016012,
-    "ast_hash": "2e60239ba96db0b94a6fedcc58e5631d",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/site/public/logo-sindicato.jpeg": {
-    "mtime": 1783457191.017052,
-    "ast_hash": "b30650fe6b57caec8ea9f849442c076d",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/assets/img/hero-assembleia-sindicato.webp": {
-    "mtime": 1783457191.0418077,
-    "ast_hash": "52992bc9060ec46d9cf0734932f82bb2",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/assets/img/logo-sindicato.jpeg": {
-    "mtime": 1783457191.0428462,
-    "ast_hash": "b30650fe6b57caec8ea9f849442c076d",
-    "semantic_hash": ""
-  },
-  ".claude/worktrees-stale-20260711-162834/agent-abb201019c569aec6/wp-content/themes/sindicato/screenshot.png": {
-    "mtime": 1783457191.0616422,
-    "ast_hash": "d3a70c680c598a48f0f88400c6fefaac",
-    "semantic_hash": ""
-  },
   "scripts/setup-juridico.mjs": {
-    "mtime": 1783835366.5264893,
+    "mtime": 1784662445.0776405,
     "ast_hash": "d2318501ad21110f1038b63e0644a465",
     "semantic_hash": ""
   },
   "site/src/lib/juridico.ts": {
-    "mtime": 1783829164.8047576,
-    "ast_hash": "c5eb151b095967f792c5e253db5e93cc",
+    "mtime": 1784662445.0849016,
+    "ast_hash": "c03559863bc01c96502d90eaec5a43ff",
     "semantic_hash": ""
   },
   "site/src/lib/mailer.ts": {
-    "mtime": 1783829101.0209167,
+    "mtime": 1784662445.0849948,
     "ast_hash": "09a59a79c831c40e2d9c13ae73747efd",
     "semantic_hash": ""
   },
   "site/src/pages/api/admin/juridico/reply.ts": {
-    "mtime": 1783829194.5743065,
+    "mtime": 1784662445.0871437,
     "ast_hash": "d0dfe7ac86e49b0484cc4ac2a427750f",
+    "semantic_hash": ""
+  },
+  "portalsindquim/deploy/directus/extensions/directus-extension-portal-editorial/package.json": {
+    "mtime": 1784673795.6422527,
+    "ast_hash": "c13157a4fe9404fb2241c30f524e69a5",
+    "semantic_hash": ""
+  },
+  "portalsindquim/deploy/directus/extensions/directus-extension-portal-editorial/src/index.js": {
+    "mtime": 1784644108.0,
+    "ast_hash": "2a2ac6e27fbc78a5065ec1a9cb70b193",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/backup.sh": {
+    "mtime": 1784680590.550174,
+    "ast_hash": "4878c277d98a990b1e5dac8a096122ac",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/bootstrap-local.mjs": {
+    "mtime": 1784645129.0,
+    "ast_hash": "e65ecccadd9c4604ccfbff0aae67c885",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/dev-local.ps1": {
+    "mtime": 1784294882.0,
+    "ast_hash": "42bf5da661efb9ddfed17e2642685c80",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/dev.ps1": {
+    "mtime": 1784294882.0,
+    "ast_hash": "746641705b16944301e7b5b2494fa145",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/directus-analytics-branding.mjs": {
+    "mtime": 1784294882.0,
+    "ast_hash": "ee7ed7637207de17021889e3b475dc06",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/directus-conteudo-exemplo.mjs": {
+    "mtime": 1784656594.0,
+    "ast_hash": "29610efdb24fe115b9548d4387d65f04",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/directus-conteudo-exemplo.test.mjs": {
+    "mtime": 1784294882.0,
+    "ast_hash": "abc808b59ee7d4be5fcc26cd2dd64202",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/directus-conteudo-sindquim.mjs": {
+    "mtime": 1784660501.0,
+    "ast_hash": "3457699c87acdf5f6de9f0212dd8ab9d",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/directus-conteudo-sindquim.test.mjs": {
+    "mtime": 1784660501.0,
+    "ast_hash": "117ce559e69bf7833bbab36f380419f8",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/directus-editorial-extension.test.mjs": {
+    "mtime": 1784673852.6761422,
+    "ast_hash": "556a702795a7f3965f55d7dd8d669211",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/directus-schema.mjs": {
+    "mtime": 1784679409.0571887,
+    "ast_hash": "19c774d99686ef4b9bfca7ce1cbe6e9e",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/restore.sh": {
+    "mtime": 1784643940.0,
+    "ast_hash": "3ee9f7ff3fd259ce21698d22b871e29a",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/setup-configuracoes.mjs": {
+    "mtime": 1784645512.0,
+    "ast_hash": "2aa59a1a76e3a7161c71b3acfb2e7724",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/setup-directus-social.mjs": {
+    "mtime": 1784294882.0,
+    "ast_hash": "1b2825f06c12091d33fbcdfd5876670a",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/setup-formularios.mjs": {
+    "mtime": 1784644290.0,
+    "ast_hash": "328903dbc79529406cb2267a7ba60b4f",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/setup-juridico.mjs": {
+    "mtime": 1784645512.0,
+    "ast_hash": "4a90b120cabfd94f839034044357114a",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/sync-analytics.mjs": {
+    "mtime": 1784294882.0,
+    "ast_hash": "e5c1ec9f66dd7ebd65631ba76a41f06f",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/test-integracao.mjs": {
+    "mtime": 1784675162.2157917,
+    "ast_hash": "0b419e6f0750b658442245058352c5f5",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/test-podcast-editor-permissions.mjs": {
+    "mtime": 1784680370.9416442,
+    "ast_hash": "017e4224064bb8d10aaf5969a99c0f12",
+    "semantic_hash": ""
+  },
+  "portalsindquim/scripts/update-images.sh": {
+    "mtime": 1784673497.166451,
+    "ast_hash": "c72c6ed5357fdadcb64436c26da341a8",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/astro.config.mjs": {
+    "mtime": 1784674620.9806156,
+    "ast_hash": "16cae1e765936a21b76f8adf8b0dd3a4",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/e2e/mobile-ux.spec.ts": {
+    "mtime": 1784680018.4324543,
+    "ast_hash": "5b4c0c3783e2c1ba8ba027e0bd13f2a1",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/e2e/podcast-editorial.spec.ts": {
+    "mtime": 1784680457.369578,
+    "ast_hash": "ad410141283270055b54e1e23f12a6a2",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/package.json": {
+    "mtime": 1784680590.548187,
+    "ast_hash": "e75cef90cc15959f8fd2af28289e47d1",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/playwright.config.ts": {
+    "mtime": 1784658747.0,
+    "ast_hash": "5ccad70a3051a54e528ffd3ea620c467",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/components/Estudio.astro": {
+    "mtime": 1784679594.6168704,
+    "ast_hash": "eeb6da6ea0882508c8594b873201d5d0",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/components/NoticiaCard.astro": {
+    "mtime": 1784639931.0,
+    "ast_hash": "152f963ac16e7ce47c27cba0dfafa096",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/components/VitrineSocial.astro": {
+    "mtime": 1784294882.0,
+    "ast_hash": "2a1ccaa684c28f6b0758678ff59a659a",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/layouts/AdminLayout.astro": {
+    "mtime": 1784679409.0583289,
+    "ast_hash": "ca5302397bf21ce297ba6404e8bb0cc7",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/layouts/Base.astro": {
+    "mtime": 1784679409.0581036,
+    "ast_hash": "da580d1f0a5c204e8c27ae0ee43b587b",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/adminSecurity.test.ts": {
+    "mtime": 1784674620.981563,
+    "ast_hash": "a3e49df90193509ca94d843a4e0cb669",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/adminSecurity.ts": {
+    "mtime": 1784674620.981107,
+    "ast_hash": "94972e4ecbe075dbc46e024236f4e393",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/auth.ts": {
+    "mtime": 1784680135.3539195,
+    "ast_hash": "e5ef624f860c3af8c1ccc2878b108a1d",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/cache.ts": {
+    "mtime": 1784294882.0,
+    "ast_hash": "38eb5a9086db3ebe3ea212e78d718b37",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/constantes.ts": {
+    "mtime": 1784679802.52002,
+    "ast_hash": "f030f702f8de3d619b7f591c2e90e30e",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/directus.ts": {
+    "mtime": 1784679409.0574925,
+    "ast_hash": "8a3493d7fa7787dae7d1ed49fc4db729",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/editorial.test.ts": {
+    "mtime": 1784672492.428946,
+    "ast_hash": "af1faab0039f1fb0351ce06c632978a4",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/editorial.ts": {
+    "mtime": 1784672492.4287252,
+    "ast_hash": "a02139e1a97a491e305820050bcb1cc1",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/formatar.test.ts": {
+    "mtime": 1784294882.0,
+    "ast_hash": "9e59817746f1213ab7f331e92ccc0c45",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/formatar.ts": {
+    "mtime": 1784294882.0,
+    "ast_hash": "fdad4f183963944e40bf7776d1b407af",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/juridico.ts": {
+    "mtime": 1784643415.0,
+    "ast_hash": "0945774d4eb22d1c837a2e7232cbab6a",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/mailer.ts": {
+    "mtime": 1784294882.0,
+    "ast_hash": "09a59a79c831c40e2d9c13ae73747efd",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/operacao-docker.test.mjs": {
+    "mtime": 1784643996.0,
+    "ast_hash": "1e1385356154f79c61b2ee492464f518",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/rateLimit.test.ts": {
+    "mtime": 1784645344.0,
+    "ast_hash": "6fa2448a8d80cc8af38f186ca2c38937",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/rateLimit.ts": {
+    "mtime": 1784640999.0,
+    "ast_hash": "168c864a5a162aa07fec609a6431dc02",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/sanitize.test.ts": {
+    "mtime": 1784645344.0,
+    "ast_hash": "5743ce58d45abe0173944923a0d0f183",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/sanitize.ts": {
+    "mtime": 1784639931.0,
+    "ast_hash": "19b0d64d7b430d289eb7f488aba3f7bd",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/tipos.ts": {
+    "mtime": 1784679409.0567806,
+    "ast_hash": "721d9b5d585297605fc42c4e145ca90b",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/youtube.test.ts": {
+    "mtime": 1784294882.0,
+    "ast_hash": "58a36dfdc5d50d0e7186c7793919df85",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/lib/youtube.ts": {
+    "mtime": 1784679409.057867,
+    "ast_hash": "5bc98e31f911122afe52a25fe170851b",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/middleware.ts": {
+    "mtime": 1784674620.981326,
+    "ast_hash": "de65babe5c0c94d1d32aac2aacb0bef0",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/404.astro": {
+    "mtime": 1784294882.0,
+    "ast_hash": "95c897ac283d6cf7527d8e7ba5eb51f9",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/[slug].astro": {
+    "mtime": 1784659478.0,
+    "ast_hash": "d49b9ee03cd11030563b6454b051ac0c",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/admin/index.astro": {
+    "mtime": 1784679665.8296473,
+    "ast_hash": "eea2b6ee5198deaa5306eb8b708484a3",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/admin/juridico.astro": {
+    "mtime": 1784639731.0,
+    "ast_hash": "6b48255813c13071509c6de071f6593e",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/admin/login.astro": {
+    "mtime": 1784645989.0,
+    "ast_hash": "61716702b5d4c72b3ad021d627309c86",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/admin/noticias/[id].astro": {
+    "mtime": 1784673456.5846622,
+    "ast_hash": "87ab9179ee43108667258c9787df3e18",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/admin/noticias/index.astro": {
+    "mtime": 1784672845.1354907,
+    "ast_hash": "1cfed741f89beef031e9ce076217f463",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/admin/podcast.astro": {
+    "mtime": 1784679961.7916174,
+    "ast_hash": "93f93e79ca2ae8288444771ca24d5e21",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/admin/settings.astro": {
+    "mtime": 1784646972.0,
+    "ast_hash": "4a0253bde494f71dcc867eb930fd0812",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/admin/social.astro": {
+    "mtime": 1784644439.0,
+    "ast_hash": "f3a550f6c167de745c4662a152cfd3f1",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/juridico/[id].ts": {
+    "mtime": 1784640983.0,
+    "ast_hash": "4e11173dec71150a7488d070732a50f0",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/juridico/anexo/[id].ts": {
+    "mtime": 1784640983.0,
+    "ast_hash": "0238332ae66d335f1ac3a64561333281",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/juridico/reply.ts": {
+    "mtime": 1784294882.0,
+    "ast_hash": "d0dfe7ac86e49b0484cc4ac2a427750f",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/login.ts": {
+    "mtime": 1784294882.0,
+    "ast_hash": "a59faf7dff7d397cb3a84fefa711409e",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/logout.ts": {
+    "mtime": 1784294882.0,
+    "ast_hash": "7d3e308a000da9d02cd79e108defbf02",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/noticias/asset/[id].ts": {
+    "mtime": 1784673555.2395303,
+    "ast_hash": "b612a529017d99588b5ca98ae88af38f",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/noticias/save.ts": {
+    "mtime": 1784673751.3083186,
+    "ast_hash": "b44cef0f0548789a46abd718b1191534",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/podcast/save.ts": {
+    "mtime": 1784679467.410105,
+    "ast_hash": "87adb82a322f23d9439356ed5df5cea9",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/settings/index.ts": {
+    "mtime": 1784644439.0,
+    "ast_hash": "50bbeecba8a12cf6e15d284a169bf5d6",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/settings/logo.ts": {
+    "mtime": 1784644439.0,
+    "ast_hash": "6b4f27918133f3bf226696112b57981d",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/settings/users.ts": {
+    "mtime": 1784643532.0,
+    "ast_hash": "164c18bc490ab3133207368d83bead59",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/settings/users/[id].ts": {
+    "mtime": 1784294882.0,
+    "ast_hash": "1919375b4871b9a9521b5001d0f6c49d",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/admin/social/create.ts": {
+    "mtime": 1784644439.0,
+    "ast_hash": "99e551e625f8ec4c34df292ee458d5ef",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/contato.ts": {
+    "mtime": 1784644241.0,
+    "ast_hash": "2bb8f18a5fdaaa3a9c8597792749903a",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/health.ts": {
+    "mtime": 1784643856.0,
+    "ast_hash": "d7202713d177b3dea409e5d19f55c4fc",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/juridico.ts": {
+    "mtime": 1784640999.0,
+    "ast_hash": "0d6c43e15d5370bfa741a0167360786a",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/api/newsletter.ts": {
+    "mtime": 1784644241.0,
+    "ast_hash": "fd577fc7dcd71ba35a4c2c264ee411ca",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/avisos.astro": {
+    "mtime": 1784294882.0,
+    "ast_hash": "bb1cdb80d1ed0b5d652c9cdfdb2d7e2a",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/beneficios.astro": {
+    "mtime": 1784659509.0,
+    "ast_hash": "c9409846f664f58374945ce2cf655cc6",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/contato.astro": {
+    "mtime": 1784644258.0,
+    "ast_hash": "7ea770616217ba480dad03c398fdcfa2",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/convencoes.astro": {
+    "mtime": 1784639839.0,
+    "ast_hash": "5dff6db68494b7ee335a13e0ec382418",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/diretoria.astro": {
+    "mtime": 1784656256.0,
+    "ast_hash": "61fb0ade33967537a0f7ab0c068a2575",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/index.astro": {
+    "mtime": 1784679594.61718,
+    "ast_hash": "da8340a9c578c51a5cc4ec1348349055",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/juridico.astro": {
+    "mtime": 1784641040.0,
+    "ast_hash": "45f4990d9a8771913bb3d9f3e2fc78a1",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/noticias/[slug].astro": {
+    "mtime": 1784672233.7045312,
+    "ast_hash": "ef330a146055578ac3f8d0f305a3f279",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/noticias/index.astro": {
+    "mtime": 1784294882.0,
+    "ast_hash": "96edb5c08b652bbfaa68d0b5f6fd20b0",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/robots.txt.ts": {
+    "mtime": 1784294882.0,
+    "ast_hash": "f7b823a1e16387d386cd96910902856b",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/rss.xml.ts": {
+    "mtime": 1784294882.0,
+    "ast_hash": "fc65c4aa9c2808bb8fce8d0380bbdaec",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/src/pages/sitemap.xml.ts": {
+    "mtime": 1784639839.0,
+    "ast_hash": "f18937e9dd75f2a9208a0aae178ce768",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/tsconfig.json": {
+    "mtime": 1784294882.0,
+    "ast_hash": "1d3613ac08bdda17e2b82251613dbc21",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/vitest.config.ts": {
+    "mtime": 1784658933.0,
+    "ast_hash": "ed4d26a60401e9f0af51d799fbad7535",
+    "semantic_hash": ""
+  },
+  "site/src/components/NoticiaCard.astro": {
+    "mtime": 1784662445.0833278,
+    "ast_hash": "f1a6eaeeac5a52a1a2aa880bbf45972a",
+    "semantic_hash": ""
+  },
+  "site/src/lib/adminNoticias.ts": {
+    "mtime": 1784662445.0839603,
+    "ast_hash": "95ea55c662a1612e1d20da1c9e2cec42",
+    "semantic_hash": ""
+  },
+  "site/src/lib/adminSecurity.ts": {
+    "mtime": 1784662445.0840611,
+    "ast_hash": "981ab225469550052a8ecc6f56d15cc3",
+    "semantic_hash": ""
+  },
+  "site/src/pages/admin/noticias/[id].astro": {
+    "mtime": 1784662445.0862002,
+    "ast_hash": "189b39e97d499864f9709873718f02df",
+    "semantic_hash": ""
+  },
+  "site/src/pages/admin/noticias/index.astro": {
+    "mtime": 1784662445.0863006,
+    "ast_hash": "d50887fbd82ea44f8b6f8e06ae2b853b",
+    "semantic_hash": ""
+  },
+  "site/src/pages/api/admin/juridico/[id].ts": {
+    "mtime": 1784662445.0869093,
+    "ast_hash": "8835afefb150b6728d39aaf094e6138b",
+    "semantic_hash": ""
+  },
+  "site/src/pages/api/admin/juridico/anexo/[id].ts": {
+    "mtime": 1784662445.0870566,
+    "ast_hash": "6fee05feb71d8ca6a4f6b632b09b57a0",
+    "semantic_hash": ""
+  },
+  "site/src/pages/api/admin/noticias/salvar.ts": {
+    "mtime": 1784662445.087469,
+    "ast_hash": "0775cbc86fb3a953bb706f94dc81c3c2",
+    "semantic_hash": ""
+  },
+  ".agents/AGENTS.md": {
+    "mtime": 1784662445.019147,
+    "ast_hash": "6d17f014ca1fae6ecde1132a90a8bfa6",
+    "semantic_hash": ""
+  },
+  "PLANO_PROJETO.md": {
+    "mtime": 1784662445.02069,
+    "ast_hash": "fbb37a0533838288fadc0a1ae51ca94a",
+    "semantic_hash": ""
+  },
+  "portalsindquim/AGENTS.md": {
+    "mtime": 1784585155.0,
+    "ast_hash": "557b42b2bc211a2dcfac8b4f2107bb96",
+    "semantic_hash": ""
+  },
+  "portalsindquim/CHANGELOG.md": {
+    "mtime": 1784680590.5479035,
+    "ast_hash": "c7b4e45ca6005de64c479e8981fa84c6",
+    "semantic_hash": ""
+  },
+  "portalsindquim/CLAUDE.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "557b42b2bc211a2dcfac8b4f2107bb96",
+    "semantic_hash": ""
+  },
+  "portalsindquim/CONTEXT.md": {
+    "mtime": 1784592893.0,
+    "ast_hash": "61db8f053fd5ff6b76a200e955ad53fa",
+    "semantic_hash": ""
+  },
+  "portalsindquim/DESIGN.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "fa987729d4777b85cc433102f447e534",
+    "semantic_hash": ""
+  },
+  "portalsindquim/PLANO_PROJETO.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "fbb37a0533838288fadc0a1ae51ca94a",
+    "semantic_hash": ""
+  },
+  "portalsindquim/PRODUCT.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "8f6280a4e9dad817cb663f682a052fdb",
+    "semantic_hash": ""
+  },
+  "portalsindquim/README.md": {
+    "mtime": 1784680590.5476012,
+    "ast_hash": "c0ed8817569de9d7471517530a90138f",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/README.md": {
+    "mtime": 1784660882.0,
+    "ast_hash": "65b5a57ca7db5b4eda710c7c01f28958",
+    "semantic_hash": ""
+  },
+  "portalsindquim/deploy/README.md": {
+    "mtime": 1784673531.0356166,
+    "ast_hash": "49ad4deb5db00381383f598f070aa286",
+    "semantic_hash": ""
+  },
+  "portalsindquim/deploy/docker-compose.yml": {
+    "mtime": 1784680590.5499132,
+    "ast_hash": "e0472041fcc3c8b01de0b3785570b775",
+    "semantic_hash": ""
+  },
+  "portalsindquim/deploy/override-rede-tunnel.yml": {
+    "mtime": 1784673497.1661804,
+    "ast_hash": "9326771a08e084876084d3e8fdd55e9f",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/README.md": {
+    "mtime": 1784645241.0,
+    "ast_hash": "bc536b5b149ce6fe9f56d0d5285b4f88",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/arquitetura.md": {
+    "mtime": 1784645241.0,
+    "ast_hash": "53ab1a2d36cd048a584255cf695af505",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-editorial-ux/README.md": {
+    "mtime": 1784605255.0,
+    "ast_hash": "22e13d17b0f42ec1f741c9f4d1a12494",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-playwright-mobile/README.md": {
+    "mtime": 1784659632.0,
+    "ast_hash": "b6cf75f945f720e1ddad587eb25aa5d1",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-podcast-v1.6/README.md": {
+    "mtime": 1784680590.5507557,
+    "ast_hash": "9b0b63b28326035c8d5f4606a7bd42bd",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-portalsindquim-final/README.md": {
+    "mtime": 1784646754.0,
+    "ast_hash": "e4b5c73cc801f68fa8319fe285bef9a9",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/conteudo-directus.md": {
+    "mtime": 1784645241.0,
+    "ast_hash": "04e22c2a8275e990eb0d67614060c572",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/deploy-checklist.md": {
+    "mtime": 1784645286.0,
+    "ast_hash": "2ed0d3fc3ad2ca9bb7e69339beaa0da2",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/desenvolvimento.md": {
+    "mtime": 1784645286.0,
+    "ast_hash": "b433a6ad8585b8e34dca209114e5eaf7",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/lgpd/campos-formularios.md": {
+    "mtime": 1784645286.0,
+    "ast_hash": "03c74c92a9ca256fbebff12073a3f57b",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/operacao/docker-imagens-e-atualizacoes.md": {
+    "mtime": 1784680590.5504227,
+    "ast_hash": "9daf740e32379508d4ee29905cdc7d7a",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/research/2026-07-20-astro-vs-directus-editorial.md": {
+    "mtime": 1784601592.0,
+    "ast_hash": "5387d55a06d6ae997f3aa5c9ade79aac",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/research/2026-07-21-instatic-avaliacao.md": {
+    "mtime": 1784609342.0,
+    "ast_hash": "9574569d0d261e108ad2b2b6c66590d4",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/research/2026-07-21-sindquim-baixada-conteudo.md": {
+    "mtime": 1784656213.0,
+    "ast_hash": "5ab3c3974e55bc361960b892eebf0b04",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/reviews/revisao-directus-dados.md": {
+    "mtime": 1784639834.0,
+    "ast_hash": "8fc33621921cb26c7e756501c2896e9b",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/reviews/revisao-docker-testes.md": {
+    "mtime": 1784639748.0,
+    "ast_hash": "2b39c1a9436c4f797f33572666449d78",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/reviews/revisao-frontend-ux.md": {
+    "mtime": 1784639752.0,
+    "ast_hash": "ee9b5a3efec871b922974d9385337230",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/superpowers/plans/2026-06-30-site-sindicato-desenvolvimento.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "5fb04be693f0a3f8602f4d22c63377da",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/superpowers/plans/2026-07-01-podcast-youtube-unificado.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "6961ffc7d37cc7821e848bc154659a51",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/superpowers/plans/2026-07-01-tema-wordpress-sindicato.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "792e37b42bc56cbb72a92971c009394f",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/superpowers/plans/2026-07-02-youtube-instagram-bugs-animacoes.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "ae03cd1083f444dc25ba3be8b63547b5",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/superpowers/plans/2026-07-20-arquitetura-editorial-hibrida-astro-directus.md": {
+    "mtime": 1784605893.0,
+    "ast_hash": "df7da491228df14711a20c616b8c66c2",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/superpowers/plans/2026-07-20-directus-noticias-intuitivo.md": {
+    "mtime": 1784605893.0,
+    "ast_hash": "f2fa6c75a916f5eaa8332df553514c41",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/superpowers/plans/2026-07-21-plano-avaliacao-instatic.md": {
+    "mtime": 1784608907.0,
+    "ast_hash": "8b6daccee7b17932e1489f88f8497ab8",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/superpowers/plans/2026-07-21-plano-mestre-validado-docker-ux.md": {
+    "mtime": 1784608968.0,
+    "ast_hash": "a33e713bf2283e47e27e87e7a9a33c49",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/superpowers/specs/2026-07-01-podcast-youtube-unificado-design.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "f08f4896e5b2fd1805d4381a4429064b",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/superpowers/specs/2026-07-01-sistema-de-design-impeccable-design.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "2312d65927f3331963b13a1fb54b7897",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/superpowers/specs/2026-07-02-youtube-instagram-bugs-animacoes-design.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "197c31284a0982d105805f136f63244e",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/superpowers/specs/2026-07-05-migracao-astro-directus-design.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "fdeeb71fa2b2e2e1c016decf64563349",
+    "semantic_hash": ""
+  },
+  "portalsindquim/experiments/instatic-poc/README.md": {
+    "mtime": 1784645321.0,
+    "ast_hash": "6d26029b80d79037d146956a74163d65",
+    "semantic_hash": ""
+  },
+  "portalsindquim/experiments/instatic-poc/compose.yml": {
+    "mtime": 1784645321.0,
+    "ast_hash": "ac25a7d9211cde268eb1fa50bf98f7e5",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/AGENTS.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "4d944a80d98bf8891d5b10081a86d3e1",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/CLAUDE.md": {
+    "mtime": 1784294882.0,
+    "ast_hash": "4d944a80d98bf8891d5b10081a86d3e1",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/README.md": {
+    "mtime": 1784659632.0,
+    "ast_hash": "7c363fd21db144c757c082c9e7ee8273",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/hero-assembleia-sindicato.png": {
+    "mtime": 1784294882.0,
+    "ast_hash": "aae5bf22edd337af186398785c35e208",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/conselho-desenvolvimento-cubatao.jpg": {
+    "mtime": 1784660402.0,
+    "ast_hash": "fccd2cc57e325c0e2e68d46e78bc8d18",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/diretoria-sindquim-posse.jpg": {
+    "mtime": 1784660402.0,
+    "ast_hash": "e39cc10d2a7cc05657c01c4a7e6b847d",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/mutirao-emprego-cubatao.jpg": {
+    "mtime": 1784660402.0,
+    "ast_hash": "1064944eaedf05bac27e7ecde4b4616e",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/olin-guaruja-industria.jpg": {
+    "mtime": 1784660402.0,
+    "ast_hash": "0ad76350dfd36bc916ad4c80693ba8cd",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/petrobras-qualificacao-industrial.jpg": {
+    "mtime": 1784660402.0,
+    "ast_hash": "01b5b271fd39e605b439a69e42add67d",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/petrobras-rpbc-biorrefino.jpg": {
+    "mtime": 1784660402.0,
+    "ast_hash": "1dc86ace1c843e47f2680365691a6f07",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/petrocoque-projetos-sociais.jpg": {
+    "mtime": 1784660402.0,
+    "ast_hash": "352e5c7be74d6cacea9320acc87b442e",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/semana-industria-cubatao.jpg": {
+    "mtime": 1784660402.0,
+    "ast_hash": "227281fad8bedc1e24f1d52d9fe67da6",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/sindquim-unigel-articulacao.jpg": {
+    "mtime": 1784660402.0,
+    "ast_hash": "0da3ccac9e361ac20f09dd4d6687acfa",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/transicao-tributaria-industria-quimica.jpg": {
+    "mtime": 1784660402.0,
+    "ast_hash": "bfdaafe838f90463ffbc3b95051e8fcb",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/unipar-modernizacao-cubatao.jpg": {
+    "mtime": 1784660402.0,
+    "ast_hash": "86dcf71ebd7be1f7e936ddd9b8db69b7",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/noticias/yara-amonia-renovavel-cubatao.jpg": {
+    "mtime": 1784660402.0,
+    "ast_hash": "5de47e48403e20c325c39d809e46fc96",
+    "semantic_hash": ""
+  },
+  "portalsindquim/assets/sindicato-logo.jpeg": {
+    "mtime": 1784294882.0,
+    "ast_hash": "b30650fe6b57caec8ea9f849442c076d",
+    "semantic_hash": ""
+  },
+  "portalsindquim/design/referencia-home-sindicato.png": {
+    "mtime": 1784294882.0,
+    "ast_hash": "d3a70c680c598a48f0f88400c6fefaac",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-editorial-ux/01-directus-login.png": {
+    "mtime": 1784604273.0,
+    "ast_hash": "8bda4d166ee8bb30f7e50b8667b118e1",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-editorial-ux/02-editor-home-overloaded.png": {
+    "mtime": 1784604321.0,
+    "ast_hash": "a2a69f080df1693ed338bb7f78c7a483",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-editorial-ux/03-directus-news-list.png": {
+    "mtime": 1784604336.0,
+    "ast_hash": "eeea6933ca674fc1342f239ef171dc5b",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-editorial-ux/04-directus-current-news-form.png": {
+    "mtime": 1784604374.0,
+    "ast_hash": "adbe8582ec7aa798ac4be67e89311f7f",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-editorial-ux/05-directus-validation.png": {
+    "mtime": 1784604464.0,
+    "ast_hash": "befac61afa67867e83462e38deea4eda",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-editorial-ux/06-directus-news-form-mobile.png": {
+    "mtime": 1784604485.0,
+    "ast_hash": "46639ae20bcfa5683b5885b68fd806c4",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-editorial-ux/07-astro-admin-login.png": {
+    "mtime": 1784604515.0,
+    "ast_hash": "a6d902bd4dcc39158c29ac54bf437799",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-editorial-ux/08-astro-dashboard-error.png": {
+    "mtime": 1784604723.0,
+    "ast_hash": "fcbf84ab0471053e228d0e12f898d01e",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-editorial-ux/09-astro-news-list.png": {
+    "mtime": 1784604716.0,
+    "ast_hash": "cdcf3896328fbf21973750f41b3e432c",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-editorial-ux/10-astro-news-form.png": {
+    "mtime": 1784604733.0,
+    "ast_hash": "b49029a0a4efbe8f630463b616e1d533",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-editorial-v1.5.2/editor-mobile-390.png": {
+    "mtime": 1784675817.99113,
+    "ast_hash": "85d20279769e32d2ba0571bfc759f47f",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-noticias-imagens-reais/01-noticias-mobile.png": {
+    "mtime": 1784660739.0,
+    "ast_hash": "76a72b8c06d7121f1b2972506ecbe640",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-noticias-imagens-reais/02-materia-capa-mobile.png": {
+    "mtime": 1784660740.0,
+    "ast_hash": "0ba23e960ac6cce9c62e1112bc4b6c49",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-noticias-imagens-reais/03-fonte-final-mobile.png": {
+    "mtime": 1784660892.0,
+    "ast_hash": "e4bf0007266e1bca14bf9f5a88fba680",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-playwright-mobile/01-home-iphone.png": {
+    "mtime": 1784659293.0,
+    "ast_hash": "94969d117a5fd3b82e674bff9414382d",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-playwright-mobile/02-menu-iphone.png": {
+    "mtime": 1784659441.0,
+    "ast_hash": "2462238a2d69a2bcc3cac8d50deefc6d",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-playwright-mobile/03-noticias-pixel.png": {
+    "mtime": 1784659294.0,
+    "ast_hash": "f2bf5223039beab3322a757862d03401",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-playwright-mobile/04-juridico-form-iphone.png": {
+    "mtime": 1784659293.0,
+    "ast_hash": "735137fb095bd5d7ffdeebed3cfa67d9",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-playwright-mobile/05-beneficios-320.png": {
+    "mtime": 1784659597.0,
+    "ast_hash": "9ea24718e5d2f467f8c96eb8c3a9de29",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-podcast-v1.6/admin-podcast-desktop.png": {
+    "mtime": 1784680413.3544583,
+    "ast_hash": "4e74f123d1ba19821ce9e526564f34ec",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-podcast-v1.6/admin-podcast-mobile.png": {
+    "mtime": 1784680411.54362,
+    "ast_hash": "f5039ecaf32a4bb94579d27fb6091e81",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-podcast-v1.6/home-desktop-final.png": {
+    "mtime": 1784680099.1715367,
+    "ast_hash": "3041dad829cb5003266c02cd281013dc",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-podcast-v1.6/home-mobile-final.png": {
+    "mtime": 1784680098.0475104,
+    "ast_hash": "185be27f76f600bf52aac04ffc8e0f9d",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-podcast-v1.6/podcast-mobile-visual.png": {
+    "mtime": 1784680237.2623377,
+    "ast_hash": "a3c493758b5c072d366adca56f478031",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-portalsindquim-final/01-home-desktop.png": {
+    "mtime": 1784645861.0,
+    "ast_hash": "706817ddb4b7eb874c65a25b23785ba0",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-portalsindquim-final/02-beneficios-desktop.png": {
+    "mtime": 1784645884.0,
+    "ast_hash": "48e2be422c6ff8f4c2fac8f50f03a903",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-portalsindquim-final/03-juridico-desktop.png": {
+    "mtime": 1784645898.0,
+    "ast_hash": "17eb7b7fb5867160e76ee046ee769bdf",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-portalsindquim-final/04-home-mobile.png": {
+    "mtime": 1784645910.0,
+    "ast_hash": "b061c98626d94aa19ab4b8d354bff816",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-portalsindquim-final/05-menu-mobile.png": {
+    "mtime": 1784645926.0,
+    "ast_hash": "093b2bfb07fd84ae3cda4a1839d7375f",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-portalsindquim-final/06-juridico-form-mobile.png": {
+    "mtime": 1784646637.0,
+    "ast_hash": "57a495330741425dbdeae2f3745df14c",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-portalsindquim-final/07-central-admin.png": {
+    "mtime": 1784646195.0,
+    "ast_hash": "9af2ae2d8534632cc3669d151514a8a3",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-portalsindquim-final/08-directus-nova-noticia.png": {
+    "mtime": 1784646416.0,
+    "ast_hash": "0b90a435aee7b486013d4524874ffe9b",
+    "semantic_hash": ""
+  },
+  "portalsindquim/docs/audits/2026-07-21-portalsindquim-final/09-directus-juridico-editavel.png": {
+    "mtime": 1784646577.0,
+    "ast_hash": "3af0669c31ab9268817babed4d1688ae",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/public/favicon.svg": {
+    "mtime": 1784294882.0,
+    "ast_hash": "8c13f40658976ea1dfb8ba37a8be0e8d",
+    "semantic_hash": ""
+  },
+  "portalsindquim/site/public/logo-sindicato.jpeg": {
+    "mtime": 1784294882.0,
+    "ast_hash": "b30650fe6b57caec8ea9f849442c076d",
     "semantic_hash": ""
   }
 }

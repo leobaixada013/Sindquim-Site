@@ -1,0 +1,224 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { erroAutenticacaoExpirada, getAdminPodcastData, limparSessaoAdmin, tokenAdmin } from '../../lib/auth';
+import { parseYoutubeFeed } from '../../lib/youtube';
+
+const token = tokenAdmin(Astro.cookies);
+if (!token) return Astro.redirect('/admin/login');
+
+let dados;
+try {
+  dados = await getAdminPodcastData(token);
+} catch (erro) {
+  if (erroAutenticacaoExpirada(erro)) {
+    limparSessaoAdmin(Astro.cookies);
+    return Astro.redirect('/admin/login?erro=sessao');
+  }
+  throw erro;
+}
+
+const agora = Date.now();
+const futuros = dados.proximosVideos
+  .filter((item) => item.data_estreia && new Date(item.data_estreia).getTime() > agora)
+  .sort((a, b) => new Date(a.data_estreia).getTime() - new Date(b.data_estreia).getTime());
+const anuncio = futuros[0] ?? dados.proximosVideos.find((item) => item.status === 'draft') ?? null;
+const dataLocal = anuncio?.data_estreia ? new Date(anuncio.data_estreia).toLocaleString('sv-SE', {
+  timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
+}).replace(' ', 'T') : '';
+
+let videosCanal: ReturnType<typeof parseYoutubeFeed> = [];
+const channelId = dados.configuracoes.youtube_channel_id;
+if (channelId) {
+  try {
+    const resposta = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${encodeURIComponent(channelId)}`, { signal: AbortSignal.timeout(6000) });
+    if (resposta.ok) videosCanal = parseYoutubeFeed(await resposta.text()) ?? [];
+  } catch {
+    videosCanal = [];
+  }
+}
+---
+
+<AdminLayout
+  titulo="Podcast Reação Química"
+  subtitulo="Configure o canal uma vez. Depois, os episódios recentes aparecem sozinhos e você só precisa anunciar o próximo programa."
+>
+  <div slot="actions"><a class="admin-button" href="/">Ver página inicial</a></div>
+
+  <div class="admin-alert" id="feedback-podcast" role="status" aria-live="polite" hidden></div>
+  <div class="admin-alert admin-alert--error" id="erro-podcast" role="alert" tabindex="-1" hidden></div>
+
+  <div class="podcast-admin-grid">
+    <form class="admin-form-card admin-form podcast-form" data-podcast-form enctype="multipart/form-data" novalidate>
+      <input type="hidden" name="secao" value="canal" />
+      <div class="podcast-form__header">
+        <span class="podcast-step">1</span>
+        <div><h2>Canal e nome</h2><p>Esta parte normalmente só precisa ser preenchida uma vez.</p></div>
+      </div>
+
+      <label class="podcast-toggle">
+        <input type="checkbox" name="podcast_ativo" value="1" checked={dados.configuracoes.podcast_ativo === true} />
+        <span><strong>Mostrar o podcast no site</strong><small>Desmarque para ocultar a seção sem perder nenhum conteúdo.</small></span>
+      </label>
+      <label class="admin-field">Nome exibido no site
+        <input class="admin-input" name="podcast_titulo" maxlength="120" value={dados.configuracoes.podcast_titulo ?? 'Podcast Reação Química'} required />
+      </label>
+      <label class="admin-field">Chamada curta <span>Opcional</span>
+        <input class="admin-input" name="podcast_rotulo" maxlength="80" value={dados.configuracoes.podcast_rotulo ?? 'Informação e debate'} placeholder="Ex.: Informação e debate" />
+      </label>
+      <label class="admin-field">Link do canal no YouTube
+        <input class="admin-input" name="youtube_url" type="url" value={dados.configuracoes.youtube_url ?? 'https://www.youtube.com/@ReaçãoQuímicaemDebate/streams'} placeholder="https://www.youtube.com/@seucanal/streams" required />
+      </label>
+      <p class="podcast-help">O painel confere o canal antes de salvar. Não é necessário cadastrar cada vídeo.</p>
+      <button class="admin-button admin-button--primary" type="submit">Salvar canal</button>
+    </form>
+
+    <aside class="admin-panel podcast-channel" aria-labelledby="canal-conferido">
+      <div class="podcast-channel__status"><span aria-hidden="true"></span> Canal automático</div>
+      <h2 id="canal-conferido">Últimos episódios encontrados</h2>
+      {videosCanal && videosCanal.length > 0 ? (
+        <div class="podcast-video-list">
+          {videosCanal.slice(0, 3).map((video) => (
+            <a href={video.link} target="_blank" rel="noopener">
+              <img src={video.thumbnailUrl} alt="" width="128" height="72" loading="lazy" />
+              <span>{video.titulo}</span>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="admin-muted">Salve o canal para conferir aqui os episódios encontrados automaticamente.</p>
+      )}
+      {channelId && <p class="podcast-channel__id">Canal verificado: {channelId}</p>}
+    </aside>
+  </div>
+
+  <form class="admin-form-card admin-form podcast-form podcast-form--episode" data-podcast-form enctype="multipart/form-data" novalidate>
+    <input type="hidden" name="secao" value="episodio" />
+    <input type="hidden" name="id" value={anuncio?.id ?? ''} />
+    <div class="podcast-form__header">
+      <span class="podcast-step">2</span>
+      <div><h2>Anuncie o próximo episódio</h2><p>Este card sai do site sozinho depois da data da estreia. Os vídeos já publicados continuam vindo do YouTube.</p></div>
+    </div>
+
+    <div class="podcast-episode-grid">
+      <div class="podcast-art" id="podcast-art-preview">
+        {anuncio?.imagem ? (
+          <img src={`/api/admin/noticias/asset/${anuncio.imagem}?width=900&height=506&fit=cover`} alt="Prévia da arte atual" />
+        ) : (
+          <span><strong>Arte do próximo episódio</strong><small>Prefira uma imagem horizontal, como uma miniatura do YouTube.</small></span>
+        )}
+      </div>
+      <div class="admin-form">
+        <label class="admin-field">Título do próximo episódio
+          <input class="admin-input" name="titulo" maxlength="180" value={anuncio?.titulo ?? ''} placeholder="Ex.: Segurança no trabalho e os desafios de 2026" />
+        </label>
+        <div class="admin-form__split">
+          <label class="admin-field">Data e hora da estreia
+            <input class="admin-input" name="data_estreia" type="datetime-local" value={dataLocal} />
+          </label>
+          <label class="admin-field">Número do episódio <span>Opcional</span>
+            <input class="admin-input" name="episodio_numero" type="number" min="1" value={anuncio?.episodio_numero ?? ''} />
+          </label>
+        </div>
+        <label class="admin-field">Resumo <span>Opcional</span>
+          <textarea class="admin-textarea" name="descricao" maxlength="500" rows="3" placeholder="Conte em uma frase o assunto do programa.">{anuncio?.descricao ?? ''}</textarea>
+        </label>
+        <label class="admin-field">Link da estreia <span>Opcional — pode ser colocado depois</span>
+          <input class="admin-input" name="link_estreia" type="url" value={anuncio?.link_estreia ?? ''} placeholder="https://www.youtube.com/watch?v=..." />
+        </label>
+        <button class="admin-button" type="button" id="escolher-arte">{anuncio?.imagem ? 'Trocar arte' : 'Escolher arte'}</button>
+        <input class="visually-hidden" id="podcast-imagem" name="imagem" type="file" accept="image/jpeg,image/png,image/webp" />
+        <label class="admin-field">Descreva o que aparece na arte
+          <input class="admin-input" name="imagem_alt" maxlength="300" value={anuncio?.imagem_alt ?? ''} placeholder="Ex.: Apresentadores do podcast em um estúdio" />
+        </label>
+      </div>
+    </div>
+
+    <div class="podcast-actions">
+      <button class="admin-button" type="submit" name="acao" value="draft">Salvar rascunho</button>
+      <button class="admin-button admin-button--primary" type="submit" name="acao" value="publish">Publicar o anúncio</button>
+    </div>
+    <p class="podcast-help">Somente “Publicar o anúncio” coloca o card na página inicial. O rascunho fica guardado no painel.</p>
+  </form>
+</AdminLayout>
+
+<script>
+  const feedbackPodcast = document.getElementById('feedback-podcast');
+  const erroPodcast = document.getElementById('erro-podcast');
+  const imagemPodcast = document.getElementById('podcast-imagem');
+  const botaoEscolherArte = document.getElementById('escolher-arte');
+  const previewPodcast = document.getElementById('podcast-art-preview');
+
+  botaoEscolherArte?.addEventListener('click', () => imagemPodcast?.click());
+  imagemPodcast?.addEventListener('change', () => {
+    const arquivo = imagemPodcast instanceof HTMLInputElement ? imagemPodcast.files?.[0] : null;
+    if (arquivo && previewPodcast) previewPodcast.innerHTML = `<img src="${URL.createObjectURL(arquivo)}" alt="Prévia da nova arte">`;
+  });
+
+  document.querySelectorAll('[data-podcast-form]').forEach((form) => {
+    if (!(form instanceof HTMLFormElement)) return;
+    form.addEventListener('submit', async (evento) => {
+      evento.preventDefault();
+      feedbackPodcast?.setAttribute('hidden', '');
+      erroPodcast?.setAttribute('hidden', '');
+      const botao = evento.submitter instanceof HTMLButtonElement ? evento.submitter : null;
+      const dados = new FormData(form);
+      if (botao?.name) dados.set(botao.name, botao.value);
+      form.setAttribute('aria-busy', 'true');
+      form.querySelectorAll('button').forEach((item) => item.disabled = true);
+      try {
+        const resposta = await fetch('/api/admin/podcast/save', { method: 'POST', body: dados });
+        const resultado = await resposta.json();
+        if (resultado.sessaoExpirada) {
+          window.location.href = '/admin/login?erro=sessao';
+          return;
+        }
+        if (!resposta.ok || !resultado.ok) throw new Error(resultado.erro || 'Não foi possível salvar.');
+        if (feedbackPodcast) {
+          feedbackPodcast.textContent = resultado.mensagem;
+          feedbackPodcast.removeAttribute('hidden');
+          feedbackPodcast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        window.setTimeout(() => window.location.reload(), 900);
+      } catch (falha) {
+        if (erroPodcast) {
+          erroPodcast.textContent = falha instanceof Error ? falha.message : 'Não foi possível salvar.';
+          erroPodcast.removeAttribute('hidden');
+          erroPodcast.focus();
+        }
+      } finally {
+        form.removeAttribute('aria-busy');
+        form.querySelectorAll('button').forEach((item) => item.disabled = false);
+      }
+    });
+  });
+</script>
+
+<style>
+  .podcast-admin-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); gap: 20px; margin-bottom: 20px; align-items: start; }
+  .podcast-form { gap: 18px; }
+  .podcast-form--episode { margin-top: 20px; }
+  .podcast-form__header { display: flex; gap: 14px; align-items: flex-start; }
+  .podcast-form__header h2, .podcast-channel h2 { margin: 0; }
+  .podcast-form__header p { margin: 5px 0 0; color: var(--admin-muted); line-height: 1.5; }
+  .podcast-step { flex: 0 0 40px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 14px; background: linear-gradient(135deg, var(--admin-primary), #6bb6ea); font-weight: 900; }
+  .podcast-toggle { display: flex; gap: 12px; padding: 15px; border: 1px solid rgba(107, 182, 234, .28); border-radius: 16px; background: rgba(69, 128, 172, .12); cursor: pointer; }
+  .podcast-toggle input { width: 22px; height: 22px; accent-color: #6bb6ea; }
+  .podcast-toggle span { display: grid; gap: 4px; }
+  .podcast-toggle small, .podcast-help { color: var(--admin-muted); line-height: 1.5; }
+  .podcast-channel__status { display: inline-flex; gap: 8px; align-items: center; color: #a8f5c9; font-weight: 800; font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; }
+  .podcast-channel__status span { width: 9px; height: 9px; border-radius: 50%; background: var(--admin-success); box-shadow: 0 0 12px rgba(79, 209, 139, .8); }
+  .podcast-channel h2 { margin-top: 12px; }
+  .podcast-video-list { display: grid; gap: 10px; margin-top: 18px; }
+  .podcast-video-list a { display: grid; grid-template-columns: 112px 1fr; gap: 12px; align-items: center; padding: 9px; border-radius: 14px; background: rgba(255,255,255,.06); }
+  .podcast-video-list img { width: 112px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 9px; }
+  .podcast-video-list span { font-size: .88rem; font-weight: 750; line-height: 1.35; }
+  .podcast-channel__id { margin: 16px 0 0; color: var(--admin-muted); font-size: .72rem; overflow-wrap: anywhere; }
+  .podcast-episode-grid { display: grid; grid-template-columns: minmax(280px, .85fr) minmax(0, 1.15fr); gap: 22px; align-items: start; }
+  .podcast-art { min-height: 280px; display: grid; place-items: center; overflow: hidden; border: 1px dashed rgba(255,255,255,.22); border-radius: 20px; background: rgba(5,8,18,.42); }
+  .podcast-art img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; }
+  .podcast-art span { display: grid; gap: 8px; padding: 28px; text-align: center; color: var(--admin-muted); }
+  .podcast-art strong { color: var(--admin-text); }
+  .podcast-actions { display: flex; justify-content: flex-end; gap: 12px; flex-wrap: wrap; }
+  @media (max-width: 900px) { .podcast-admin-grid, .podcast-episode-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .podcast-video-list a { grid-template-columns: 92px 1fr; } .podcast-video-list img { width: 92px; } .podcast-actions .admin-button { width: 100%; } }
+</style>

@@ -519,11 +519,25 @@ button, input, textarea { font: inherit; }
   color: var(--texto-inverso);
 }
 .estudio h2 { color: #fff; }
+.estudio__heading { align-items: end; }
+.estudio__intro { max-width: 650px; margin: 12px 0 0; color: #b9bfd3; line-height: 1.65; }
 .estudio__layout {
   display: grid;
   grid-template-columns: 1.7fr 1fr;
   gap: 28px;
   align-items: start;
+}
+.estudio__layout--sem-agenda { grid-template-columns: 1.55fr 0.8fr; }
+.estudio__destaque { min-width: 0; }
+.estudio__eyebrow,
+.video-lista__titulo {
+  margin: 0 0 10px;
+  font-size: 0.76rem;
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9fa7c3;
 }
 .estudio__player {
   border-radius: var(--raio);
@@ -535,34 +549,42 @@ button, input, textarea { font: inherit; }
   width: 100%;
 }
 .estudio__player-titulo {
-  margin: 14px 2px 0;
-  font-size: 1.15rem;
+  margin: 15px 2px 0;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
   color: #fff;
+  line-height: 1.25;
 }
 .estudio__rail { display: grid; gap: 18px; }
+.estudio__aguarde,
+.estudio__vazio {
+  padding: clamp(28px, 6vw, 64px);
+  border: 1px solid var(--tinta-700);
+  border-radius: var(--raio);
+  background: linear-gradient(145deg, var(--tinta-800), var(--tinta-900));
+}
+.estudio__aguarde h3,
+.estudio__vazio h3 { margin: 0; color: #fff; }
+.estudio__aguarde p,
+.estudio__vazio p { color: #b9bfd3; }
 
-/* Anúncio de próximo vídeo — cartão de programação */
+/* Anúncio do próximo podcast — cartão de programação */
 .proximo-video {
   position: relative;
-  display: grid;
-  gap: 10px;
-  padding: 22px;
   border-radius: var(--raio);
   background: linear-gradient(145deg, var(--tinta-800), var(--tinta-900));
   border: 1px solid var(--tinta-700);
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
 }
-.proximo-video--com-imagem::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(10deg, rgba(20, 18, 42, 0.95) 30%, rgba(20, 18, 42, 0.55));
+.proximo-video__arte {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
-.proximo-video > * { position: relative; }
+.proximo-video__conteudo { display: grid; gap: 10px; padding: 22px; }
 .proximo-video h3 { color: #fff; margin: 0; }
 .proximo-video p { margin: 0; color: #c7cde0; font-size: 0.92rem; }
+.proximo-video__episodio { color: #aab2cb; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 .chip-estreia {
   display: inline-flex;
   align-items: center;
@@ -596,17 +618,10 @@ button, input, textarea { font: inherit; }
   color: #ffd7d8;
   font-size: 0.95rem;
 }
+.proximo-video__link { justify-self: start; margin-top: 3px; color: #fff; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; }
 
 /* Lista de vídeos recentes */
 .video-lista { display: grid; gap: 4px; }
-.video-lista__titulo {
-  margin: 0 0 6px;
-  font-size: 0.8rem;
-  font-weight: 750;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #8f96b3;
-}
 .video-item {
   display: grid;
   grid-template-columns: 116px 1fr;

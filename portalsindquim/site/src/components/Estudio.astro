@@ -8,37 +8,42 @@ const [config, globais, proximos, videos] = await Promise.all([
   getConfiguracoes(),
   getConfiguracoesGlobais(),
   getProximosVideos(),
-  getVideosYoutube(6),
+  getVideosYoutube(5),
 ]);
 
-const youtubeAtivo = globais.modulo_youtube_ativo === true;
-const canalUrl = youtubeAtivo ? config?.youtube_url ?? null : null;
-const proximosVisiveis = youtubeAtivo ? proximos : [];
-const destaque = videos[0] ?? null;
-const recentes = videos.slice(1, 6);
-const temConteudo = proximosVisiveis.length > 0 || destaque !== null;
+const podcastAtivo = config?.podcast_ativo === true || globais.modulo_youtube_ativo === true;
+const canalUrl = podcastAtivo ? config?.youtube_url ?? null : null;
+const proximo = podcastAtivo ? proximos[0] ?? null : null;
+const destaque = podcastAtivo ? videos[0] ?? null : null;
+const recentes = podcastAtivo ? videos.slice(1, 5) : [];
+const titulo = config?.podcast_titulo?.trim() || 'Podcast Reação Química';
+const rotulo = config?.podcast_rotulo?.trim() || 'Informação e debate';
+const temConteudo = proximo !== null || destaque !== null;
+const imagemProximo = proximo?.imagem ? urlImagem(proximo.imagem, { largura: 800, altura: 800 }) : null;
 ---
 
-{(temConteudo || canalUrl) && (
+{podcastAtivo && (temConteudo || canalUrl) && (
   <section id="videos" class="section estudio reveal" aria-labelledby="estudio-titulo">
     <div class="container">
-      <div class="section-heading">
+      <div class="section-heading estudio__heading">
         <div>
-          <p class="rotulo rotulo--claro">Áudio e vídeo</p>
-          <h2 id="estudio-titulo">Canal do sindicato</h2>
+          <p class="rotulo rotulo--claro">{rotulo}</p>
+          <h2 id="estudio-titulo">{titulo}</h2>
+          <p class="estudio__intro">Conversas sobre trabalho, indústria química, direitos e os assuntos que movem a categoria.</p>
         </div>
         {canalUrl && (
           <a class="button button--fantasma" href={canalUrl} target="_blank" rel="noopener">
-            Inscreva-se no canal
+            Ver canal no YouTube
           </a>
         )}
       </div>
 
       {temConteudo ? (
-        <div class="estudio__layout">
-          <div>
+        <div class:list={['estudio__layout', !proximo && 'estudio__layout--sem-agenda']}>
+          <div class="estudio__destaque">
             {destaque ? (
               <>
+                <p class="estudio__eyebrow">Episódio mais recente</p>
                 <div class="estudio__player">
                   <lite-youtube
                     videoid={destaque.videoId}
@@ -46,41 +51,36 @@ const temConteudo = proximosVisiveis.length > 0 || destaque !== null;
                     style={`background-image:url('${destaque.thumbnailUrl}')`}
                   ></lite-youtube>
                 </div>
-                <p class="estudio__player-titulo">{destaque.titulo}</p>
+                <h3 class="estudio__player-titulo">{destaque.titulo}</h3>
               </>
-            ) : (
-              proximosVisiveis[0] && (
-                <article
-                  class:list={['proximo-video', proximosVisiveis[0].imagem && 'proximo-video--com-imagem']}
-                  style={proximosVisiveis[0].imagem ? `background-image:url('${urlImagem(proximosVisiveis[0].imagem, { largura: 900, altura: 520 })}')` : undefined}
-                >
-                  <span class="chip-estreia">Próximo vídeo</span>
-                  <h3>{proximosVisiveis[0].titulo}</h3>
-                  {proximosVisiveis[0].descricao && <p>{proximosVisiveis[0].descricao}</p>}
-                  <span class="proximo-video__quando">{formatarDataEstreia(proximosVisiveis[0].data_estreia)}</span>
-                </article>
-              )
-            )}
+            ) : proximo ? (
+              <div class="estudio__aguarde">
+                <p class="estudio__eyebrow">Em breve</p>
+                <h3>O primeiro episódio aparecerá aqui automaticamente.</h3>
+                <p>Enquanto isso, confira a data do próximo encontro.</p>
+              </div>
+            ) : null}
           </div>
 
           <div class="estudio__rail">
-            {destaque !== null &&
-              proximosVisiveis.map((anuncio) => (
-                <article
-                  class:list={['proximo-video', anuncio.imagem && 'proximo-video--com-imagem']}
-                  style={anuncio.imagem ? `background-image:url('${urlImagem(anuncio.imagem, { largura: 640, altura: 400 })}')` : undefined}
-                >
-                  <span class="chip-estreia">Próximo vídeo</span>
-                  <h3>{anuncio.titulo}</h3>
-                  {anuncio.descricao && <p>{anuncio.descricao}</p>}
-                  <span class="proximo-video__quando">{formatarDataEstreia(anuncio.data_estreia)}</span>
-                </article>
-              ))}
+            {proximo && (
+              <article class:list={['proximo-video', imagemProximo && 'proximo-video--com-imagem']}>
+                {imagemProximo && <img class="proximo-video__arte" src={imagemProximo} alt={proximo.imagem_alt || ''} loading="lazy" decoding="async" />}
+                <div class="proximo-video__conteudo">
+                  <span class="chip-estreia">Próximo podcast</span>
+                  {proximo.episodio_numero && <span class="proximo-video__episodio">Episódio {proximo.episodio_numero}</span>}
+                  <h3>{proximo.titulo}</h3>
+                  {proximo.descricao && <p>{proximo.descricao}</p>}
+                  <time class="proximo-video__quando" datetime={proximo.data_estreia}>{formatarDataEstreia(proximo.data_estreia)}</time>
+                  {proximo.link_estreia && <a class="proximo-video__link" href={proximo.link_estreia} target="_blank" rel="noopener">Abrir estreia no YouTube</a>}
+                </div>
+              </article>
+            )}
 
             {recentes.length > 0 && (
               <div class="video-lista">
-                <p class="video-lista__titulo">Vídeos recentes</p>
-                {recentes.map((video) => (
+                <p class="video-lista__titulo">Outros episódios</p>
+                {recentes.slice(0, proximo ? 3 : 4).map((video) => (
                   <a class="video-item" href={video.link} target="_blank" rel="noopener">
                     <img src={video.thumbnailUrl} alt="" loading="lazy" decoding="async" width="116" height="65" />
                     <span>{video.titulo}</span>
@@ -91,10 +91,11 @@ const temConteudo = proximosVisiveis.length > 0 || destaque !== null;
           </div>
         </div>
       ) : (
-        <p>
-          Em breve, novos vídeos no canal do sindicato.{' '}
-          <a class="text-link" href={canalUrl} target="_blank" rel="noopener">Acesse o canal</a>.
-        </p>
+        <div class="estudio__vazio">
+          <h3>Novos episódios em breve.</h3>
+          <p>O conteúdo do canal aparecerá aqui automaticamente assim que for publicado.</p>
+          {canalUrl && <a class="text-link" href={canalUrl} target="_blank" rel="noopener">Acessar o canal</a>}
+        </div>
       )}
     </div>
   </section>

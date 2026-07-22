@@ -61,6 +61,9 @@ export interface ProximoVideo {
   descricao: string | null;
   data_estreia: string;
   imagem: string | null;
+  imagem_alt: string | null;
+  link_estreia: string | null;
+  episodio_numero: number | null;
   visualizacoes: number;
   curtidas: number;
   comentarios: number;
@@ -222,6 +225,9 @@ export interface Configuracoes {
   instagram_url: string | null;
   youtube_url: string | null;
   youtube_channel_id: string | null;
+  podcast_ativo: boolean | null;
+  podcast_titulo: string | null;
+  podcast_rotulo: string | null;
 }
 
 export interface ConfiguracoesGlobais {

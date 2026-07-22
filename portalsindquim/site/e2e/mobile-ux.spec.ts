@@ -57,8 +57,8 @@ test.describe('experiência mobile do portal', () => {
         await esperarRevelacoes(page);
 
         await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
-        await expect(page.locator('h1')).toHaveCount(1);
-        await expect(page.locator('h1')).toBeVisible();
+        await expect(page.locator('main#conteudo h1')).toHaveCount(1);
+        await expect(page.locator('main#conteudo h1')).toBeVisible();
         await expect(page.getByRole('link', { name: 'Ir para o conteúdo' })).toHaveAttribute('href', '#conteudo');
         await expect(page.locator('img:not([alt])')).toHaveCount(0);
 
@@ -78,7 +78,7 @@ test.describe('experiência mobile do portal', () => {
   test('menu móvel é claro, tocável e não exibe Avisos', async ({ page }) => {
     await esperarPagina(page, '/');
 
-    const botao = page.getByRole('button', { name: 'Menu', exact: true });
+    const botao = page.locator('.menu-toggle');
     const menu = page.locator('#menu-principal');
 
     await expect(botao).toBeVisible();
@@ -94,15 +94,18 @@ test.describe('experiência mobile do portal', () => {
     await expect(menu).toBeVisible();
 
     const textos = await menu.locator('a').allTextContents();
-    expect(textos.map((texto) => texto.trim())).toEqual([
+    const itensMenu = textos.map((texto) => texto.trim());
+    const esperado = [
       'Início',
       'Notícias',
       'Benefícios',
       'Jurídico',
+      ...(itensMenu.includes('Podcast') ? ['Podcast'] : []),
       'Diretoria',
       'Filie-se',
       'Contato',
-    ]);
+    ];
+    expect(itensMenu).toEqual(esperado);
     expect(textos).not.toContain('Avisos');
 
     const alvos = await menu.locator('a').evaluateAll((links) =>

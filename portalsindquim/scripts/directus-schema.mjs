@@ -363,14 +363,17 @@ const COLECOES = [
   },
   {
     collection: 'proximos_videos',
-    meta: { icon: 'live_tv', hidden: true, display_template: '{{titulo}}', translations: [{ language: 'pt-BR', translation: 'Próximos vídeos', singular: 'Próximo vídeo', plural: 'Próximos vídeos' }] },
+    meta: { icon: 'podcasts', hidden: true, display_template: '{{titulo}}', translations: [{ language: 'pt-BR', translation: 'Próximos podcasts', singular: 'Próximo podcast', plural: 'Próximos podcasts' }] },
     schema: {},
     fields: [
       campoStatus(),
       campoTexto('titulo', 'Título', { obrigatorio: true }),
       campoTexto('descricao', 'Descrição', { interface: 'input-multiline' }),
       campoData('data_estreia', 'Data e hora da estreia', true),
-      campoArquivo('imagem', 'Imagem (opcional)'),
+      campoArquivo('imagem', 'Arte do próximo episódio'),
+      campoTexto('imagem_alt', 'Descrição da arte'),
+      campoTexto('link_estreia', 'Link da estreia (opcional)'),
+      { field: 'episodio_numero', type: 'integer', schema: {}, meta: { interface: 'input', width: 'half', translations: [{ language: 'pt-BR', translation: 'Número do episódio (opcional)' }] } },
       campoMetrica('visualizacoes', 'Visualizações', 'Total de visualizações registradas no YouTube.'),
       campoMetrica('curtidas', 'Curtidas', 'Total de curtidas registradas no YouTube.'),
       campoMetrica('comentarios', 'Comentários', 'Total de comentários registrados no YouTube.'),
@@ -593,6 +596,9 @@ const COLECOES = [
       campoTexto('instagram_url', 'URL do Instagram'),
       campoTexto('youtube_url', 'URL do canal no YouTube'),
       campoTexto('youtube_channel_id', 'ID do canal (opcional)', { nota: 'Preencha só se o site não detectar o canal sozinho (formato UC...).' }),
+      campoBooleano('podcast_ativo', 'Exibir o podcast na página inicial', 'Ative quando o canal estiver conferido.'),
+      campoTexto('podcast_titulo', 'Nome do podcast'),
+      campoTexto('podcast_rotulo', 'Chamada curta do podcast', { nota: 'Ex.: Informação e debate.' }),
     ],
   },
   {
@@ -625,7 +631,7 @@ const LEITURA_PUBLICA = {
   },
   categorias: { fields: ['id', 'nome', 'slug'], permissions: {} },
   avisos: { fields: ['id', 'status', 'titulo', 'mensagem_curta', 'urgente', 'data_inicio', 'data_fim', 'link', 'texto_link'], permissions: { status: { _eq: 'published' } } },
-  proximos_videos: { fields: ['id', 'status', 'titulo', 'descricao', 'data_estreia', 'imagem'], permissions: { status: { _eq: 'published' } } },
+  proximos_videos: { fields: ['id', 'status', 'titulo', 'descricao', 'data_estreia', 'imagem', 'imagem_alt', 'link_estreia', 'episodio_numero'], permissions: { status: { _eq: 'published' } } },
   diretores: {
     fields: ['id', 'status', 'nome', 'cargo', 'grupo', 'foto', 'descricao', 'mandato_inicio', 'mandato_fim', 'ordem'],
     permissions: { status: { _eq: 'published' } },
@@ -638,7 +644,7 @@ const LEITURA_PUBLICA = {
   juridico_direitos: { fields: ['id', 'status', 'ordem', 'titulo', 'sigla', 'descricao', 'cor', 'destaque', 'urgente', 'texto_link'], permissions: { status: { _eq: 'published' } } },
   juridico_plantoes: { fields: ['id', 'status', 'ordem', 'titulo', 'local', 'horario', 'observacao'], permissions: { status: { _eq: 'published' } } },
   juridico_faq: { fields: ['id', 'status', 'ordem', 'pergunta', 'resposta'], permissions: { status: { _eq: 'published' } } },
-  configuracoes: { fields: ['telefone', 'whatsapp', 'email', 'endereco', 'instagram_url', 'youtube_url', 'youtube_channel_id'], permissions: {} },
+  configuracoes: { fields: ['telefone', 'whatsapp', 'email', 'endereco', 'instagram_url', 'youtube_url', 'youtube_channel_id', 'podcast_ativo', 'podcast_titulo', 'podcast_rotulo'], permissions: {} },
 };
 
 async function garantirCampo(collection, campo) {

@@ -20,7 +20,7 @@ const caminhoAtual = Astro.url.pathname.replace(/\/$/, '') || '/';
 const estadoNewsletter = Astro.url.searchParams.get('news');
 const linkWhatsapp = config?.whatsapp ? `https://wa.me/${config.whatsapp.replace(/\D/g, '')}` : null;
 const moduloJuridicoAtivo = globais.modulo_juridico_ativo !== false;
-const moduloYoutubeAtivo = globais.modulo_youtube_ativo === true;
+const moduloYoutubeAtivo = config?.podcast_ativo === true || globais.modulo_youtube_ativo === true;
 const moduloInstagramAtivo = globais.modulo_instagram_ativo === true;
 const ambienteDemonstracao = String(process.env.PORTAL_DEMO ?? import.meta.env.PORTAL_DEMO ?? '').toLowerCase() === 'true';
 const logoSite = urlArquivo(globais.logo_site) ?? '/logo-sindicato.jpeg';

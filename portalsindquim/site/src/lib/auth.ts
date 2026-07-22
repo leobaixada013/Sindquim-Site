@@ -17,7 +17,7 @@ import {
   uploadFiles,
 } from '@directus/sdk';
 import { normalizarConfiguracoesGlobais } from './directus';
-import type { CardInstagram, Categoria, ChamadoJuridico, ConfiguracoesGlobais, Post, PostGaleria, PostSocial, ProximoVideo, SchemaDirectus } from './tipos';
+import type { CardInstagram, Categoria, ChamadoJuridico, Configuracoes, ConfiguracoesGlobais, Post, PostGaleria, PostSocial, ProximoVideo, SchemaDirectus } from './tipos';
 
 export const ADMIN_TOKEN_COOKIE = 'admin_access_token';
 
@@ -42,6 +42,11 @@ export interface AdminSocialData {
   postsSociais: PostSocial[];
   proximosVideos: ProximoVideo[];
   cardsInstagram: CardInstagram[];
+}
+
+export interface AdminPodcastData {
+  configuracoes: Configuracoes;
+  proximosVideos: ProximoVideo[];
 }
 
 export interface AdminSettingsData {
@@ -120,6 +125,16 @@ export function criarClienteAdmin(token: string) {
   return createDirectus<SchemaDirectus>(DIRECTUS_URL).with(staticToken(token)).with(rest());
 }
 
+async function pastaMidiaPublicaId(token: string): Promise<string> {
+  const resposta = await fetch(`${DIRECTUS_URL}/folders?filter[name][_eq]=${encodeURIComponent('Portal — mídia pública')}&filter[parent][_null]=true&limit=1&fields=id`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  const json = await resposta.json().catch(() => ({}));
+  const id = json?.data?.[0]?.id;
+  if (!resposta.ok || !id) throw new Error('A pasta de mídia pública não está disponível. Peça ao administrador para reaplicar o schema.');
+  return String(id);
+}
+
 export async function exigirAcessoEditorial(token: string): Promise<AdminUser> {
   const usuario = await getAdminUser({ get: (nome) => (nome === ADMIN_TOKEN_COOKIE ? { value: token } : undefined) });
   const role = usuario?.role;
@@ -178,6 +193,7 @@ export async function enviarImagemEditorialAdmin(
   if (!acessoJaValidado) await exigirAcessoEditorial(token);
   const cliente = criarClienteAdmin(token);
   const formData = new FormData();
+  formData.append('folder', await pastaMidiaPublicaId(token));
   formData.append('title', titulo.slice(0, 180));
   formData.append('description', descricao.slice(0, 500));
   formData.append('file', arquivo, arquivo.name);
@@ -225,6 +241,57 @@ export async function removerFotoGaleriaAdmin(token: string, id: string | number
   if (!acessoJaValidado) await exigirAcessoEditorial(token);
   const cliente = criarClienteAdmin(token);
   await cliente.request(deleteItem('posts_galeria', id as any));
+}
+
+export async function getAdminPodcastData(token: string): Promise<AdminPodcastData> {
+  await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  const [configuracoes, proximosVideos] = await Promise.all([
+    cliente.request(readSingleton('configuracoes')),
+    cliente.request(readItems('proximos_videos', {
+      fields: [
+        'id', 'status', 'titulo', 'descricao', 'data_estreia', 'imagem', 'imagem_alt',
+        'link_estreia', 'episodio_numero',
+      ],
+      sort: ['-data_estreia', '-id'],
+      limit: 20,
+    })),
+  ]);
+  return {
+    configuracoes: configuracoes as Configuracoes,
+    proximosVideos: (proximosVideos ?? []) as ProximoVideo[],
+  };
+}
+
+export async function atualizarPodcastConfigAdmin(
+  token: string,
+  dados: Partial<Configuracoes>,
+  acessoJaValidado = false,
+): Promise<Configuracoes> {
+  if (!acessoJaValidado) await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  return await cliente.request(updateSingleton('configuracoes', dados as any)) as Configuracoes;
+}
+
+export async function criarProximoPodcastAdmin(
+  token: string,
+  dados: Record<string, unknown>,
+  acessoJaValidado = false,
+): Promise<ProximoVideo> {
+  if (!acessoJaValidado) await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  return await cliente.request(createItem('proximos_videos', dados as any)) as unknown as ProximoVideo;
+}
+
+export async function atualizarProximoPodcastAdmin(
+  token: string,
+  id: string | number,
+  dados: Record<string, unknown>,
+  acessoJaValidado = false,
+): Promise<ProximoVideo> {
+  if (!acessoJaValidado) await exigirAcessoEditorial(token);
+  const cliente = criarClienteAdmin(token);
+  return await cliente.request(updateItem('proximos_videos', id as any, dados as any)) as unknown as ProximoVideo;
 }
 
 export async function obterAssetEditorialAdmin(token: string, id: string, transformacoes?: URLSearchParams): Promise<Response> {

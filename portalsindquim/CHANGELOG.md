@@ -1,5 +1,16 @@
 # Histórico de versões
 
+## 1.6.0 — 2026-07-21
+
+- Nova seção **Podcast Reação Química** na página inicial, logo depois das notícias.
+- Episódio mais recente e histórico curto sincronizados automaticamente pelo feed público do YouTube.
+- Nova tela **Podcast** na central Astro, disponível para Administrador e Editor.
+- Upload direto da arte do próximo programa, com descrição acessível, data, resumo, número e link opcionais.
+- Card de próximo episódio removido automaticamente da home depois da estreia.
+- Canal validado antes de salvar e configurado para `Reação Química em Debate`.
+- Uploads editoriais passam a declarar a pasta pública mesmo quando feitos por Administrador.
+- Testes ponta a ponta do fluxo editorial, três larguras mobile e teste autocontido das permissões do Editor.
+
 ## 1.5.2 — 2026-07-21
 
 - Corrige a permissão de leitura das datas de criação e atualização usadas pela lista editorial.

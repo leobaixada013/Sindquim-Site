@@ -354,7 +354,7 @@ export async function getProximosVideos(): Promise<ProximoVideo[]> {
       readItems('proximos_videos', {
         filter: { status: { _eq: 'published' }, data_estreia: { _gte: '$NOW' } } as any,
         sort: ['data_estreia'],
-        limit: 3,
+        limit: 1,
       }),
     ),
   );
